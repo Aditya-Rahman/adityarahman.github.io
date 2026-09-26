@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aditya Rahman, S.Si. - Portofolio & CV Interaktif</title>
     
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -29,12 +28,9 @@
         }
     </script>
     
-    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Chart.js and DataLabels Plugin for Math/Data visualizations -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0"></script>
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
@@ -155,14 +151,14 @@
             background: rgba(255, 255, 255, 0.6);
             backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.5);
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
         }
 
         .dark .glass-pill {
             background: rgba(30, 41, 59, 0.6);
             backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
         }
 
         .bg-grid-pattern {
@@ -198,22 +194,22 @@
         /* Interactive Hover & Click Tab Animations with Enhanced Shadow */
         .interactive-tab {
             transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
         }
         .interactive-tab:hover {
             transform: translateY(-2px) scale(1.03);
-            box-shadow: 0 6px 16px var(--brand-ring);
+            box-shadow: 0 8px 20px var(--brand-ring);
         }
         .interactive-tab:active {
             transform: translateY(1px) scale(0.98);
-            box-shadow: 0 1px 4px var(--brand-ring);
+            box-shadow: 0 2px 6px var(--brand-ring);
         }
     </style>
 </head>
 
 <body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300 min-h-screen selection:bg-brand-500 selection:text-white">
 
-    <!-- Apple Glass Navbar -->
+    <!-- Apple Glass Navbar (Exact Ordered Sequence) -->
     <nav class="sticky top-0 z-50 glass-panel border-b border-slate-200/50 dark:border-slate-800/50 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
@@ -230,7 +226,7 @@
                     </div>
                 </a>
 
-                <!-- Desktop Nav Links (Updated Order & Text) -->
+                <!-- Desktop Nav Links (Tentang, Pengalaman, Keahlian, Interactive Data Engine, Kontak) -->
                 <div class="hidden md:flex items-center space-x-6 text-xs font-semibold text-slate-600 dark:text-slate-300">
                     <a href="#about" class="hover:text-brand-600 dark:hover:text-white transition interactive-tab px-2.5 py-1.5 rounded-lg">Tentang</a>
                     <a href="#experience" class="hover:text-brand-600 dark:hover:text-white transition interactive-tab px-2.5 py-1.5 rounded-lg">Pengalaman</a>
@@ -239,7 +235,7 @@
                     <a href="#contact" class="hover:text-brand-600 dark:hover:text-white transition interactive-tab px-2.5 py-1.5 rounded-lg">Kontak</a>
                 </div>
 
-                <!-- Right Actions (Color Palette Dropdown + Dark/Light Mode + CV Preview) -->
+                <!-- Right Actions (Palette dropdown, Dark Mode, CV Modal) -->
                 <div class="hidden md:flex items-center space-x-2.5">
                     
                     <!-- Single Color Palette Dropdown Toggle -->
@@ -271,7 +267,7 @@
                     </div>
 
                     <!-- Dark / Light Mode Toggle -->
-                    <button id="themeToggle" class="p-2 rounded-xl glass-pill text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition interactive-tab" title="Toggle Dark/Light Mode">
+                    <button class="themeToggleBtn p-2 rounded-xl glass-pill text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition interactive-tab" title="Toggle Dark/Light Mode">
                         <i class="fa-solid fa-moon dark:hidden text-xs"></i>
                         <i class="fa-solid fa-sun hidden dark:block text-xs text-amber-400"></i>
                     </button>
@@ -282,12 +278,12 @@
                     </button>
                 </div>
 
-                <!-- Mobile Navigation Button -->
+                <!-- Mobile Navigation Controls -->
                 <div class="md:hidden flex items-center space-x-2">
                     <button onclick="togglePaletteMenu(event)" class="p-2 rounded-xl glass-pill text-slate-600 dark:text-slate-300 interactive-tab">
                         <i class="fa-solid fa-palette text-xs"></i>
                     </button>
-                    <button id="themeToggleMobile" class="p-2 rounded-xl glass-pill text-slate-600 dark:text-slate-300 interactive-tab">
+                    <button class="themeToggleBtn p-2 rounded-xl glass-pill text-slate-600 dark:text-slate-300 interactive-tab">
                         <i class="fa-solid fa-moon dark:hidden text-xs"></i>
                         <i class="fa-solid fa-sun hidden dark:block text-xs text-amber-400"></i>
                     </button>
@@ -299,7 +295,7 @@
             </div>
         </div>
 
-        <!-- Mobile Menu Dropdown (Updated Order & Text) -->
+        <!-- Mobile Menu Dropdown (Tentang, Pengalaman, Keahlian, Interactive Data Engine, Kontak) -->
         <div id="mobileMenu" class="hidden md:hidden border-t border-slate-200/50 dark:border-slate-800/50 px-4 pt-3 pb-5 space-y-2 bg-slate-50/95 dark:bg-slate-950/95 backdrop-blur-xl">
             <a href="#about" class="block px-3 py-2 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-slate-800 interactive-tab">Tentang</a>
             <a href="#experience" class="block px-3 py-2 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-slate-800 interactive-tab">Pengalaman</a>
@@ -315,7 +311,6 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section id="hero" class="relative py-16 md:py-24 bg-grid-pattern overflow-hidden">
         <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-brand-500/10 rounded-full blur-3xl pointer-events-none transition-colors duration-500"></div>
 
@@ -365,7 +360,7 @@
                    rel="noopener noreferrer"
                    class="px-5 py-2.5 bg-slate-900 hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100 text-white font-semibold rounded-xl text-xs sm:text-sm shadow-md transition flex items-center gap-2 interactive-tab">
                     <i class="fa-brands fa-linkedin text-base"></i>
-                    <span>Profil LinkedIn</span>
+                    <span>LinkedIn</span>
                     <i class="fa-solid fa-arrow-up-right-from-square text-[10px] opacity-70"></i>
                 </a>
 
@@ -381,7 +376,6 @@
         </div>
     </section>
 
-    <!-- Metric Cards Grid -->
     <section class="py-8 border-y border-slate-200/60 dark:border-slate-800/60 glass-panel">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
@@ -408,7 +402,6 @@
         </div>
     </section>
 
-    <!-- Interactive Math & Data Analytics Lab Section -->
     <section id="data-lab" class="py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-10">
@@ -504,7 +497,6 @@
         </div>
     </section>
 
-    <!-- Work Experience Section -->
     <section id="experience" class="py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-12">
@@ -596,7 +588,6 @@
         </div>
     </section>
 
-    <!-- Education & Mentorship Section -->
     <section class="py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-7xl mx-auto">
@@ -645,7 +636,6 @@
         </div>
     </section>
 
-    <!-- Interactive Skills Section -->
     <section id="skills" class="py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-10">
@@ -656,7 +646,7 @@
                     Keahlian & Perangkat Lunak
                 </h2>
 
-                <!-- Skill Filters -->
+                <!-- Skill Filters with hover & click animations -->
                 <div class="flex flex-wrap justify-center gap-2 mt-6">
                     <button onclick="filterSkills('all')" class="skill-btn active px-4 py-2 rounded-xl text-xs font-semibold transition bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-md interactive-tab">Semua</button>
                     <button onclick="filterSkills('hard')" class="skill-btn px-4 py-2 rounded-xl text-xs font-semibold transition glass-pill text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 interactive-tab">Hard Skills</button>
@@ -743,7 +733,6 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact" class="py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             
@@ -792,14 +781,13 @@
                 <a href="https://www.instagram.com/_aditrahman_?stkn=YnI1dGI4OHJiZWI3" 
                    target="_blank" 
                    class="px-5 py-2.5 glass-pill font-semibold text-slate-800 dark:text-white rounded-xl text-xs transition flex items-center gap-2 hover:bg-slate-200/60 dark:hover:bg-slate-800 interactive-tab">
-                    <i class="fa-brands fa-instagram text-sm text-pink-500"></i> Instagram @_aditrahman_
+                    <i class="fa-brands fa-instagram text-sm text-pink-500"></i> Instagram
                 </a>
             </div>
 
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="py-8 border-t border-slate-200/50 dark:border-slate-800/50 text-slate-500 text-center text-xs">
         <div class="max-w-7xl mx-auto px-4">
             <p>&copy; 2026 Aditya Rahman, S.Si. All rights reserved.</p>
@@ -807,7 +795,6 @@
         </div>
     </footer>
 
-    <!-- CV Preview Pop-up Modal -->
     <div id="cvModal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
         <div class="glass-panel w-full max-w-4xl rounded-3xl shadow-2xl border border-slate-200/80 dark:border-slate-800 my-auto overflow-hidden">
             
@@ -951,10 +938,7 @@
             }
         });
 
-        // Dark/Light Mode Toggle
-        const themeToggle = document.getElementById('themeToggle');
-        const themeToggleMobile = document.getElementById('themeToggleMobile');
-
+        // Dark/Light Mode Toggle (Robust for Desktop and Mobile)
         function toggleDarkMode() {
             document.documentElement.classList.toggle('dark');
             if (currentTab === 'math') updateMathLab();
@@ -962,8 +946,9 @@
             else if (currentTab === 'csat') renderStaticCsatChart();
         }
 
-        if (themeToggle) themeToggle.addEventListener('click', toggleDarkMode);
-        if (themeToggleMobile) themeToggleMobile.addEventListener('click', toggleDarkMode);
+        document.querySelectorAll('.themeToggleBtn').forEach(btn => {
+            btn.addEventListener('click', toggleDarkMode);
+        });
 
         // Color Theme Palette Switcher with Complete Transformation
         function setThemePalette(themeName) {
@@ -986,6 +971,13 @@
                 mobileMenu.classList.toggle('hidden');
             });
         }
+
+        // Close mobile menu when clicking menu links
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
 
         // Typing Effect
         const phrases = [
