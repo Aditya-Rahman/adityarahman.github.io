@@ -1041,28 +1041,26 @@
                 items = [
                     { name: `Variabel X (${x})`, val: Math.min(100, x) },
                     { name: `Variabel Y (${y})`, val: Math.min(100, y) },
-                    { name: `Penjumlahan (X + Y = ${x + y})`, val: Math.min(100, (x + y) / 2) },
+                    { name: `Penjumlahan (X + Y = ${x + y})`, val: Math.min(100, Math.round((x + y) / 2)) },
                     { name: `Rata-rata Terbobot (0.6X + 0.4Y)`, val: Math.min(100, Math.round(0.6 * x + 0.4 * y)) }
                 ];
             } else if (activeDatasetKey === 'census') {
                 titleText = "Pemetaan & Enumerasi Sensus BPS (SE2026)";
                 countText = "100% Wilkerstat Mapped";
-                const factor = (x + y) / 70;
                 items = [
-                    { name: "Verifikasi Wilkerstat Kulon Progo", val: Math.min(100, Math.round(98 * factor)) },
-                    { name: "Geotagging Unit Usaha Komersial", val: Math.min(100, Math.round(95 * factor)) },
-                    { name: "Wawancara Responden Entitas", val: Math.min(100, Math.round(92 * factor)) },
-                    { name: "Kerapian Arsip PPL - PML", val: Math.min(100, Math.round(100 * factor)) }
+                    { name: "Verifikasi Wilkerstat Kulon Progo", val: 100 },
+                    { name: "Geotagging Unit Usaha Komersial", val: 98 },
+                    { name: "Wawancara Responden Entitas", val: 95 },
+                    { name: "Kerapian Arsip PPL - PML", val: 100 }
                 ];
             } else if (activeDatasetKey === 'csat') {
                 titleText = "Performa Customer Service Shopee (Vads Indonesia)";
                 countText = "200+ Interactions / Week";
-                const factor = (x + y) / 70;
                 items = [
-                    { name: "Tingkat Kepuasan (CSAT Rating)", val: Math.min(100, Math.round(85 * factor)) },
-                    { name: "Efisiensi Waktu Respon (-20%)", val: Math.min(100, Math.round(80 * factor)) },
-                    { name: "Resolusi Masalah Pelanggan", val: Math.min(100, Math.round(90 * factor)) },
-                    { name: "Kepatuhan SOP Operasional", val: Math.min(100, Math.round(96 * factor)) }
+                    { name: "Tingkat Kepuasan (CSAT Rating)", val: 85 },
+                    { name: "Efisiensi Waktu Respon (-20%)", val: 80 },
+                    { name: "Resolusi Masalah Pelanggan", val: 92 },
+                    { name: "Kepatuhan SOP Operasional", val: 98 }
                 ];
             }
 
