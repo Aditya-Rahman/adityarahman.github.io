@@ -44,8 +44,13 @@
             --brand-500: #64748b;
             --brand-600: #475569;
             --brand-700: #334155;
+            --brand-heading: #0f172a;
             --brand-gradient: linear-gradient(135deg, #64748b, #334155);
             --brand-ring: rgba(100, 116, 139, 0.4);
+        }
+
+        .dark {
+            --brand-heading: #f8fafc;
         }
 
         /* Color Theme Presets */
@@ -55,8 +60,12 @@
             --brand-500: #6366f1;
             --brand-600: #4f46e5;
             --brand-700: #4338ca;
+            --brand-heading: #312e81;
             --brand-gradient: linear-gradient(135deg, #6366f1, #4338ca);
             --brand-ring: rgba(99, 102, 241, 0.4);
+        }
+        .dark html[data-theme="indigo"], html.dark[data-theme="indigo"] {
+            --brand-heading: #e0e7ff;
         }
 
         html[data-theme="emerald"] {
@@ -65,8 +74,12 @@
             --brand-500: #10b981;
             --brand-600: #059669;
             --brand-700: #047857;
+            --brand-heading: #064e3b;
             --brand-gradient: linear-gradient(135deg, #10b981, #047857);
             --brand-ring: rgba(16, 185, 129, 0.4);
+        }
+        .dark html[data-theme="emerald"], html.dark[data-theme="emerald"] {
+            --brand-heading: #d1fae5;
         }
 
         html[data-theme="violet"] {
@@ -75,8 +88,12 @@
             --brand-500: #8b5cf6;
             --brand-600: #7c3aed;
             --brand-700: #6d28d9;
+            --brand-heading: #4c1d95;
             --brand-gradient: linear-gradient(135deg, #8b5cf6, #6d28d9);
             --brand-ring: rgba(139, 92, 246, 0.4);
+        }
+        .dark html[data-theme="violet"], html.dark[data-theme="violet"] {
+            --brand-heading: #ede9fe;
         }
 
         html[data-theme="maroon"] {
@@ -85,8 +102,12 @@
             --brand-500: #9f1239;
             --brand-600: #881337;
             --brand-700: #4c0519;
+            --brand-heading: #4c0519;
             --brand-gradient: linear-gradient(135deg, #9f1239, #4c0519);
             --brand-ring: rgba(159, 18, 57, 0.4);
+        }
+        .dark html[data-theme="maroon"], html.dark[data-theme="maroon"] {
+            --brand-heading: #ffe4e6;
         }
 
         html[data-theme="amber"] {
@@ -95,13 +116,24 @@
             --brand-500: #f59e0b;
             --brand-600: #d97706;
             --brand-700: #b45309;
+            --brand-heading: #78350f;
             --brand-gradient: linear-gradient(135deg, #f59e0b, #b45309);
             --brand-ring: rgba(245, 158, 11, 0.4);
+        }
+        .dark html[data-theme="amber"], html.dark[data-theme="amber"] {
+            --brand-heading: #fef3c7;
         }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", sans-serif;
             letter-spacing: -0.01em;
+        }
+
+        h1, h2, h3, h4, .theme-heading {
+            color: var(--brand-heading) !important;
+        }
+        .dark h1, .dark h2, .dark h3, .dark h4, .dark .theme-heading {
+            color: var(--brand-heading) !important;
         }
 
         /* Apple Frosted Glass Card */
@@ -161,15 +193,20 @@
             border-radius: 9999px;
         }
 
-        @keyframes nodeGlow {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
-            50% { box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+        /* Interactive Hover & Click Tab Animations */
+        .interactive-tab {
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .animate-node-glow {
-            animation: nodeGlow 2.5s infinite;
+        .interactive-tab:hover {
+            transform: translateY(-2px) scale(1.03);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+        .interactive-tab:active {
+            transform: translateY(1px) scale(0.98);
         }
     </style>
 </head>
+
 <body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300 min-h-screen selection:bg-brand-500 selection:text-white">
 
     <!-- Apple Glass Navbar -->
@@ -191,13 +228,11 @@
 
                 <!-- Desktop Nav Links -->
                 <div class="hidden md:flex items-center space-x-6 text-xs font-semibold text-slate-600 dark:text-slate-300">
-                    <a href="#about" class="hover:text-brand-600 dark:hover:text-white transition">Tentang</a>
-                    <a href="#experience" class="hover:text-brand-600 dark:hover:text-white transition">Pengalaman</a>
-                    <a href="#skills" class="hover:text-brand-600 dark:hover:text-white transition">Keahlian</a>
-                    <a href="#data-lab" class="hover:text-brand-600 dark:hover:text-white transition flex items-center gap-1.5">
-                        Math Lab
-                    </a>
-                    <a href="#contact" class="hover:text-brand-600 dark:hover:text-white transition">Kontak</a>
+                    <a href="#about" class="hover:text-brand-600 dark:hover:text-white transition interactive-tab px-2 py-1 rounded-lg">Tentang</a>
+                    <a href="#experience" class="hover:text-brand-600 dark:hover:text-white transition interactive-tab px-2 py-1 rounded-lg">Pengalaman</a>
+                    <a href="#skills" class="hover:text-brand-600 dark:hover:text-white transition interactive-tab px-2 py-1 rounded-lg">Keahlian</a>
+                    <a href="#data-lab" class="hover:text-brand-600 dark:hover:text-white transition interactive-tab px-2 py-1 rounded-lg flex items-center gap-1.5">Math Lab</a>
+                    <a href="#contact" class="hover:text-brand-600 dark:hover:text-white transition interactive-tab px-2 py-1 rounded-lg">Kontak</a>
                 </div>
 
                 <!-- Right Actions (Theme Switcher + Color Palette Dropdown + Dark/Light Mode + CV Preview) -->
@@ -205,54 +240,54 @@
                     
                     <!-- Single Color Palette Dropdown Toggle -->
                     <div class="relative">
-                        <button onclick="togglePaletteMenu(event)" class="p-2 rounded-xl glass-pill text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition text-xs flex items-center gap-1.5" title="Pilih Tema Warna">
+                        <button onclick="togglePaletteMenu(event)" class="p-2 rounded-xl glass-pill text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition text-xs flex items-center gap-1.5 interactive-tab" title="Pilih Tema Warna">
                             <i class="fa-solid fa-palette text-brand-600 dark:text-brand-500"></i>
                         </button>
                         <div id="paletteDropdown" class="absolute right-0 mt-2 w-48 rounded-2xl glass-panel p-2 shadow-2xl hidden border border-slate-200 dark:border-slate-800 space-y-1 text-xs z-50">
                             <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider px-2.5 py-1">Pilih Tema Warna</div>
-                            <button onclick="setThemePalette('monochrome')" class="w-full text-left px-2.5 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/80 flex items-center gap-2">
+                            <button onclick="setThemePalette('monochrome')" class="w-full text-left px-2.5 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/80 flex items-center gap-2 interactive-tab">
                                 <span class="w-3 h-3 rounded-full bg-slate-600"></span> Monokrom
                             </button>
-                            <button onclick="setThemePalette('indigo')" class="w-full text-left px-2.5 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/80 flex items-center gap-2">
+                            <button onclick="setThemePalette('indigo')" class="w-full text-left px-2.5 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/80 flex items-center gap-2 interactive-tab">
                                 <span class="w-3 h-3 rounded-full bg-indigo-500"></span> Sapphire Indigo
                             </button>
-                            <button onclick="setThemePalette('emerald')" class="w-full text-left px-2.5 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/80 flex items-center gap-2">
+                            <button onclick="setThemePalette('emerald')" class="w-full text-left px-2.5 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/80 flex items-center gap-2 interactive-tab">
                                 <span class="w-3 h-3 rounded-full bg-emerald-500"></span> Emerald Mint
                             </button>
-                            <button onclick="setThemePalette('violet')" class="w-full text-left px-2.5 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/80 flex items-center gap-2">
+                            <button onclick="setThemePalette('violet')" class="w-full text-left px-2.5 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/80 flex items-center gap-2 interactive-tab">
                                 <span class="w-3 h-3 rounded-full bg-violet-500"></span> Amethyst Violet
                             </button>
-                            <button onclick="setThemePalette('maroon')" class="w-full text-left px-2.5 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/80 flex items-center gap-2">
+                            <button onclick="setThemePalette('maroon')" class="w-full text-left px-2.5 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/80 flex items-center gap-2 interactive-tab">
                                 <span class="w-3 h-3 rounded-full bg-rose-900"></span> Merah Marun
                             </button>
-                            <button onclick="setThemePalette('amber')" class="w-full text-left px-2.5 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/80 flex items-center gap-2">
+                            <button onclick="setThemePalette('amber')" class="w-full text-left px-2.5 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/80 flex items-center gap-2 interactive-tab">
                                 <span class="w-3 h-3 rounded-full bg-amber-500"></span> Amber Gold
                             </button>
                         </div>
                     </div>
 
                     <!-- Dark / Light Mode Toggle -->
-                    <button id="themeToggle" class="p-2 rounded-xl glass-pill text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition" title="Toggle Dark/Light Mode">
+                    <button id="themeToggle" class="p-2 rounded-xl glass-pill text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition interactive-tab" title="Toggle Dark/Light Mode">
                         <i class="fa-solid fa-moon dark:hidden text-xs"></i>
                         <i class="fa-solid fa-sun hidden dark:block text-xs text-amber-400"></i>
                     </button>
 
                     <!-- CV Preview Trigger -->
-                    <button onclick="openCvModal()" class="px-3 py-1.5 text-xs font-semibold text-slate-700 dark:text-slate-200 glass-pill hover:bg-slate-200/60 dark:hover:bg-slate-800/80 rounded-xl transition flex items-center gap-1.5">
+                    <button onclick="openCvModal()" class="px-3 py-1.5 text-xs font-semibold text-slate-700 dark:text-slate-200 glass-pill hover:bg-slate-200/60 dark:hover:bg-slate-800/80 rounded-xl transition flex items-center gap-1.5 interactive-tab">
                         <i class="fa-solid fa-eye text-brand-600 dark:text-brand-500"></i> Lihat CV
                     </button>
                 </div>
 
                 <!-- Mobile Navigation Button -->
                 <div class="md:hidden flex items-center space-x-2">
-                    <button onclick="togglePaletteMenu(event)" class="p-2 rounded-xl glass-pill text-slate-600 dark:text-slate-300">
+                    <button onclick="togglePaletteMenu(event)" class="p-2 rounded-xl glass-pill text-slate-600 dark:text-slate-300 interactive-tab">
                         <i class="fa-solid fa-palette text-xs"></i>
                     </button>
-                    <button id="themeToggleMobile" class="p-2 rounded-xl glass-pill text-slate-600 dark:text-slate-300">
+                    <button id="themeToggleMobile" class="p-2 rounded-xl glass-pill text-slate-600 dark:text-slate-300 interactive-tab">
                         <i class="fa-solid fa-moon dark:hidden text-xs"></i>
                         <i class="fa-solid fa-sun hidden dark:block text-xs text-amber-400"></i>
                     </button>
-                    <button id="mobileMenuBtn" class="p-2 text-slate-700 dark:text-slate-200">
+                    <button id="mobileMenuBtn" class="p-2 text-slate-700 dark:text-slate-200 interactive-tab">
                         <i class="fa-solid fa-bars text-lg"></i>
                     </button>
                 </div>
@@ -262,14 +297,14 @@
 
         <!-- Mobile Menu Dropdown -->
         <div id="mobileMenu" class="hidden md:hidden border-t border-slate-200/50 dark:border-slate-800/50 px-4 pt-3 pb-5 space-y-2 bg-slate-50/95 dark:bg-slate-950/95 backdrop-blur-xl">
-            <a href="#about" class="block px-3 py-2 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-slate-800">Tentang</a>
-            <a href="#experience" class="block px-3 py-2 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-slate-800">Pengalaman</a>
-            <a href="#skills" class="block px-3 py-2 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-slate-800">Keahlian</a>
-            <a href="#data-lab" class="block px-3 py-2 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-slate-800">Math Lab</a>
-            <a href="#contact" class="block px-3 py-2 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-slate-800">Kontak</a>
+            <a href="#about" class="block px-3 py-2 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-slate-800 interactive-tab">Tentang</a>
+            <a href="#experience" class="block px-3 py-2 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-slate-800 interactive-tab">Pengalaman</a>
+            <a href="#skills" class="block px-3 py-2 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-slate-800 interactive-tab">Keahlian</a>
+            <a href="#data-lab" class="block px-3 py-2 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-slate-800 interactive-tab">Math Lab</a>
+            <a href="#contact" class="block px-3 py-2 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-slate-800 interactive-tab">Kontak</a>
             
             <div class="pt-2">
-                <button onclick="openCvModal()" class="w-full px-3 py-2 text-center text-xs font-semibold text-slate-800 dark:text-slate-200 glass-pill rounded-xl">
+                <button onclick="openCvModal()" class="w-full px-3 py-2 text-center text-xs font-semibold text-slate-800 dark:text-slate-200 glass-pill rounded-xl interactive-tab">
                     <i class="fa-solid fa-eye mr-1"></i> Lihat CV
                 </button>
             </div>
@@ -282,7 +317,7 @@
 
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
             
-            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold glass-pill text-slate-700 dark:text-slate-300 shadow-sm mb-6">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold glass-pill text-slate-700 dark:text-slate-300 shadow-sm mb-6 interactive-tab">
                 <span class="w-2 h-2 rounded-full bg-brand-500 animate-pulse"></span>
                 <span>Siap Berkontribusi: Data Analysis & Operational Roles</span>
             </div>
@@ -306,15 +341,15 @@
             </p>
 
             <div class="flex flex-wrap items-center justify-center gap-2.5 text-xs text-slate-600 dark:text-slate-300 mb-8">
-                <div class="flex items-center gap-1.5 glass-pill px-3 py-1.5 rounded-xl">
+                <div class="flex items-center gap-1.5 glass-pill px-3 py-1.5 rounded-xl interactive-tab">
                     <i class="fa-solid fa-location-dot text-brand-500"></i>
                     <span>Kulon Progo, Yogyakarta</span>
                 </div>
-                <a href="mailto:aditrahman471@gmail.com" class="flex items-center gap-1.5 glass-pill px-3 py-1.5 rounded-xl hover:text-slate-900 dark:hover:text-white transition">
+                <a href="mailto:aditrahman471@gmail.com" class="flex items-center gap-1.5 glass-pill px-3 py-1.5 rounded-xl hover:text-slate-900 dark:hover:text-white transition interactive-tab">
                     <i class="fa-solid fa-envelope text-brand-500"></i>
                     <span>aditrahman471@gmail.com</span>
                 </a>
-                <a href="https://wa.me/6288225002019" target="_blank" class="flex items-center gap-1.5 glass-pill px-3 py-1.5 rounded-xl hover:text-brand-500 transition">
+                <a href="https://wa.me/6288225002019" target="_blank" class="flex items-center gap-1.5 glass-pill px-3 py-1.5 rounded-xl hover:text-brand-500 transition interactive-tab">
                     <i class="fa-brands fa-whatsapp text-brand-500"></i>
                     <span>+62 882-2500-2019</span>
                 </a>
@@ -324,7 +359,7 @@
                 <a href="https://www.linkedin.com/in/aditya-rahman-23892b2a2?utm_source=share_via&utm_content=profile&utm_medium=member_android" 
                    target="_blank" 
                    rel="noopener noreferrer"
-                   class="px-5 py-2.5 bg-slate-900 hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100 text-white font-semibold rounded-xl text-xs sm:text-sm shadow-md transition flex items-center gap-2">
+                   class="px-5 py-2.5 bg-slate-900 hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100 text-white font-semibold rounded-xl text-xs sm:text-sm shadow-md transition flex items-center gap-2 interactive-tab">
                     <i class="fa-brands fa-linkedin text-base"></i>
                     <span>Profil LinkedIn</span>
                     <i class="fa-solid fa-arrow-up-right-from-square text-[10px] opacity-70"></i>
@@ -333,7 +368,7 @@
                 <a href="https://www.instagram.com/_aditrahman_?stkn=YnI1dGI4OHJiZWI3" 
                    target="_blank" 
                    rel="noopener noreferrer"
-                   class="px-5 py-2.5 glass-pill text-slate-800 dark:text-white font-semibold rounded-xl text-xs sm:text-sm transition flex items-center gap-2 hover:bg-slate-200/50 dark:hover:bg-slate-800">
+                   class="px-5 py-2.5 glass-pill text-slate-800 dark:text-white font-semibold rounded-xl text-xs sm:text-sm transition flex items-center gap-2 hover:bg-slate-200/50 dark:hover:bg-slate-800 interactive-tab">
                     <i class="fa-brands fa-instagram text-base text-pink-500"></i>
                     <span>Instagram</span>
                 </a>
@@ -346,22 +381,22 @@
     <section class="py-8 border-y border-slate-200/60 dark:border-slate-800/60 glass-panel">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-                <div class="p-4 rounded-2xl glass-pill">
+                <div class="p-4 rounded-2xl glass-pill interactive-tab">
                     <div class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white mb-0.5">3.27 <span class="text-xs font-normal text-slate-500">/ 4.00</span></div>
                     <div class="text-[11px] font-medium text-slate-500 dark:text-slate-400">IPK S1 Matematika UNY</div>
                 </div>
 
-                <div class="p-4 rounded-2xl glass-pill">
+                <div class="p-4 rounded-2xl glass-pill interactive-tab">
                     <div class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white mb-0.5">200+</div>
                     <div class="text-[11px] font-medium text-slate-500 dark:text-slate-400">Interaksi Pelanggan / Mgg</div>
                 </div>
 
-                <div class="p-4 rounded-2xl glass-pill">
+                <div class="p-4 rounded-2xl glass-pill interactive-tab">
                     <div class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white mb-0.5">85%</div>
                     <div class="text-[11px] font-medium text-slate-500 dark:text-slate-400">Kepuasan Pelanggan (CSAT)</div>
                 </div>
 
-                <div class="p-4 rounded-2xl glass-pill">
+                <div class="p-4 rounded-2xl glass-pill interactive-tab">
                     <div class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white mb-0.5">20%</div>
                     <div class="text-[11px] font-medium text-slate-500 dark:text-slate-400">Efisiensi Respon Layanan</div>
                 </div>
@@ -373,7 +408,7 @@
     <section id="data-lab" class="py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-10">
-                <span class="px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-300 glass-pill rounded-full">
+                <span class="px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-300 glass-pill rounded-full interactive-tab">
                     Interactive Data Engine
                 </span>
                 <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mt-3">
@@ -385,13 +420,13 @@
 
                 <!-- Navigation Tabs -->
                 <div class="flex justify-center gap-2 mt-6">
-                    <button onclick="switchLabTab('math')" id="tabBtnMath" class="px-4 py-2 rounded-xl text-xs font-semibold transition bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-sm">
+                    <button onclick="switchLabTab('math')" id="tabBtnMath" class="px-4 py-2 rounded-xl text-xs font-semibold transition bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-sm interactive-tab">
                         Model Math (x + y)
                     </button>
-                    <button onclick="switchLabTab('sensus')" id="tabBtnSensus" class="px-4 py-2 rounded-xl text-xs font-semibold transition glass-pill text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800">
+                    <button onclick="switchLabTab('sensus')" id="tabBtnSensus" class="px-4 py-2 rounded-xl text-xs font-semibold transition glass-pill text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 interactive-tab">
                         Sensus BPS
                     </button>
-                    <button onclick="switchLabTab('csat')" id="tabBtnCsat" class="px-4 py-2 rounded-xl text-xs font-semibold transition glass-pill text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800">
+                    <button onclick="switchLabTab('csat')" id="tabBtnCsat" class="px-4 py-2 rounded-xl text-xs font-semibold transition glass-pill text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 interactive-tab">
                         Metrik CSAT
                     </button>
                 </div>
@@ -437,7 +472,7 @@
                             <span id="resMul" class="font-bold text-slate-900 dark:text-white">375</span>
                         </div>
                         <div class="flex justify-between pt-0.5">
-                            <span class="text-slate-500">Jarak Euclidean (√(x² + y²)):</span>
+                            <span class="text-slate-500">Jarak Euclidean (&radic;(x&sup2; + y&sup2;)):</span>
                             <span id="resEuc" class="font-bold text-slate-900 dark:text-white">29.15</span>
                         </div>
                     </div>
@@ -469,7 +504,7 @@
     <section id="experience" class="py-16">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
-                <span class="px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-300 glass-pill rounded-full">
+                <span class="px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-300 glass-pill rounded-full interactive-tab">
                     Rekam Jejak Karir
                 </span>
                 <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mt-3">
@@ -480,7 +515,7 @@
             <div class="space-y-6">
 
                 <!-- Timeline Item 1: Field Enumerator BPS -->
-                <div class="glass-panel p-6 sm:p-8 rounded-3xl relative overflow-hidden transition hover:border-brand-500/50">
+                <div class="glass-panel p-6 sm:p-8 rounded-3xl relative overflow-hidden transition hover:border-brand-500/50 interactive-tab">
                     <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
                         <span class="px-2.5 py-1 rounded-full text-[11px] font-semibold bg-emerald-100 text-emerald-800 dark:bg-emerald-950/80 dark:text-emerald-300">
                             Juni 2026 - Agustus 2026
@@ -506,7 +541,7 @@
                 </div>
 
                 <!-- Timeline Item 2: Customer Service Representative Vads Indonesia -->
-                <div class="glass-panel p-6 sm:p-8 rounded-3xl relative overflow-hidden transition hover:border-brand-500/50">
+                <div class="glass-panel p-6 sm:p-8 rounded-3xl relative overflow-hidden transition hover:border-brand-500/50 interactive-tab">
                     <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
                         <span class="px-2.5 py-1 rounded-full text-[11px] font-semibold bg-blue-100 text-blue-800 dark:bg-blue-950/80 dark:text-blue-300">
                             Sept 2024 - Mei 2026
@@ -531,7 +566,7 @@
                 </div>
 
                 <!-- Timeline Item 3: Administrative Staff Intern BPS -->
-                <div class="glass-panel p-6 sm:p-8 rounded-3xl relative overflow-hidden transition hover:border-brand-500/50">
+                <div class="glass-panel p-6 sm:p-8 rounded-3xl relative overflow-hidden transition hover:border-brand-500/50 interactive-tab">
                     <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
                         <span class="px-2.5 py-1 rounded-full text-[11px] font-semibold bg-purple-100 text-purple-800 dark:bg-purple-950/80 dark:text-purple-300">
                             Okt 2023 - Des 2023
@@ -563,14 +598,14 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 
                 <!-- Education -->
-                <div class="glass-panel p-8 rounded-3xl flex flex-col justify-between">
+                <div class="glass-panel p-8 rounded-3xl flex flex-col justify-between interactive-tab">
                     <div>
                         <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider block mb-2">Pendidikan Formal</span>
                         <h3 class="text-2xl font-bold text-slate-900 dark:text-white">Sarjana Matematika (S.Si.)</h3>
                         <p class="text-sm font-semibold text-slate-700 dark:text-slate-300 mt-1">Universitas Negeri Yogyakarta</p>
                         <p class="text-xs text-slate-500 mb-6">Sept 2020 - Juli 2024 &bull; Sleman, DIY</p>
 
-                        <div class="inline-block glass-pill px-4 py-2.5 rounded-2xl border border-slate-200 dark:border-slate-800 mb-6">
+                        <div class="inline-block glass-pill px-4 py-2.5 rounded-2xl border border-slate-200 dark:border-slate-800 mb-6 interactive-tab">
                             <span class="text-[10px] text-slate-500 block uppercase font-bold tracking-wider">Indeks Prestasi Kumulatif (IPK)</span>
                             <span class="text-2xl font-extrabold text-slate-900 dark:text-white">3,27 <span class="text-xs font-normal text-slate-500">/ 4.00</span></span>
                         </div>
@@ -583,7 +618,7 @@
                 </div>
 
                 <!-- Mentorship / Organization -->
-                <div class="glass-panel p-8 rounded-3xl flex flex-col justify-between">
+                <div class="glass-panel p-8 rounded-3xl flex flex-col justify-between interactive-tab">
                     <div>
                         <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider block mb-2">Pengalaman Organisasi</span>
                         <h3 class="text-2xl font-bold text-slate-900 dark:text-white">Pemandu</h3>
@@ -595,9 +630,9 @@
                         </p>
 
                         <div class="flex flex-wrap gap-2 text-xs">
-                            <span class="glass-pill px-3 py-1.5 rounded-xl text-slate-700 dark:text-slate-300 font-medium">Kepemimpinan</span>
-                            <span class="glass-pill px-3 py-1.5 rounded-xl text-slate-700 dark:text-slate-300 font-medium">Komunikasi Publik</span>
-                            <span class="glass-pill px-3 py-1.5 rounded-xl text-slate-700 dark:text-slate-300 font-medium">Orientasi Lab</span>
+                            <span class="glass-pill px-3 py-1.5 rounded-xl text-slate-700 dark:text-slate-300 font-medium interactive-tab">Kepemimpinan</span>
+                            <span class="glass-pill px-3 py-1.5 rounded-xl text-slate-700 dark:text-slate-300 font-medium interactive-tab">Komunikasi Publik</span>
+                            <span class="glass-pill px-3 py-1.5 rounded-xl text-slate-700 dark:text-slate-300 font-medium interactive-tab">Orientasi Lab</span>
                         </div>
                     </div>
                 </div>
@@ -610,7 +645,7 @@
     <section id="skills" class="py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-10">
-                <span class="px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-300 glass-pill rounded-full">
+                <span class="px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-300 glass-pill rounded-full interactive-tab">
                     Matriks Kompetensi
                 </span>
                 <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mt-3">
@@ -619,11 +654,11 @@
 
                 <!-- Skill Filters -->
                 <div class="flex flex-wrap justify-center gap-2 mt-6">
-                    <button onclick="filterSkills('all')" class="skill-btn active px-4 py-2 rounded-xl text-xs font-semibold transition bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-sm">Semua</button>
-                    <button onclick="filterSkills('hard')" class="skill-btn px-4 py-2 rounded-xl text-xs font-semibold transition glass-pill text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800">Hard Skills</button>
-                    <button onclick="filterSkills('tools')" class="skill-btn px-4 py-2 rounded-xl text-xs font-semibold transition glass-pill text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800">Software & Tools</button>
-                    <button onclick="filterSkills('soft')" class="skill-btn px-4 py-2 rounded-xl text-xs font-semibold transition glass-pill text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800">Soft Skills</button>
-                    <button onclick="filterSkills('lang')" class="skill-btn px-4 py-2 rounded-xl text-xs font-semibold transition glass-pill text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800">Bahasa</button>
+                    <button onclick="filterSkills('all')" class="skill-btn active px-4 py-2 rounded-xl text-xs font-semibold transition bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-sm interactive-tab">Semua</button>
+                    <button onclick="filterSkills('hard')" class="skill-btn px-4 py-2 rounded-xl text-xs font-semibold transition glass-pill text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 interactive-tab">Hard Skills</button>
+                    <button onclick="filterSkills('tools')" class="skill-btn px-4 py-2 rounded-xl text-xs font-semibold transition glass-pill text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 interactive-tab">Software & Tools</button>
+                    <button onclick="filterSkills('soft')" class="skill-btn px-4 py-2 rounded-xl text-xs font-semibold transition glass-pill text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 interactive-tab">Soft Skills</button>
+                    <button onclick="filterSkills('lang')" class="skill-btn px-4 py-2 rounded-xl text-xs font-semibold transition glass-pill text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 interactive-tab">Bahasa</button>
                 </div>
             </div>
 
@@ -631,7 +666,7 @@
             <div id="skillsContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-7xl mx-auto">
 
                 <!-- Hard Skills -->
-                <div class="skill-card hard glass-panel p-6 rounded-3xl">
+                <div class="skill-card hard glass-panel p-6 rounded-3xl interactive-tab">
                     <div class="w-9 h-9 rounded-2xl bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-white flex items-center justify-center text-base mb-3">
                         <i class="fa-solid fa-chart-pie"></i>
                     </div>
@@ -642,7 +677,7 @@
                     </div>
                 </div>
 
-                <div class="skill-card hard glass-panel p-6 rounded-3xl">
+                <div class="skill-card hard glass-panel p-6 rounded-3xl interactive-tab">
                     <div class="w-9 h-9 rounded-2xl bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-white flex items-center justify-center text-base mb-3">
                         <i class="fa-solid fa-map-location-dot"></i>
                     </div>
@@ -654,7 +689,7 @@
                 </div>
 
                 <!-- Tools & Software -->
-                <div class="skill-card tools glass-panel p-6 rounded-3xl">
+                <div class="skill-card tools glass-panel p-6 rounded-3xl interactive-tab">
                     <div class="w-9 h-9 rounded-2xl bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-white flex items-center justify-center text-base mb-3">
                         <i class="fa-brands fa-python"></i>
                     </div>
@@ -665,7 +700,7 @@
                     </div>
                 </div>
 
-                <div class="skill-card tools glass-panel p-6 rounded-3xl">
+                <div class="skill-card tools glass-panel p-6 rounded-3xl interactive-tab">
                     <div class="w-9 h-9 rounded-2xl bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-white flex items-center justify-center text-base mb-3">
                         <i class="fa-solid fa-table"></i>
                     </div>
@@ -677,7 +712,7 @@
                 </div>
 
                 <!-- Soft Skills -->
-                <div class="skill-card soft glass-panel p-6 rounded-3xl">
+                <div class="skill-card soft glass-panel p-6 rounded-3xl interactive-tab">
                     <div class="w-9 h-9 rounded-2xl bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-white flex items-center justify-center text-base mb-3">
                         <i class="fa-solid fa-headset"></i>
                     </div>
@@ -689,7 +724,7 @@
                 </div>
 
                 <!-- Languages -->
-                <div class="skill-card lang glass-panel p-6 rounded-3xl">
+                <div class="skill-card lang glass-panel p-6 rounded-3xl interactive-tab">
                     <div class="w-9 h-9 rounded-2xl bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-white flex items-center justify-center text-base mb-3">
                         <i class="fa-solid fa-earth-americas"></i>
                     </div>
@@ -708,7 +743,7 @@
     <section id="contact" class="py-16">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             
-            <span class="px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-300 glass-pill rounded-full">
+            <span class="px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-300 glass-pill rounded-full interactive-tab">
                 Hubungi Saya
             </span>
             <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mt-3 mb-4">
@@ -720,7 +755,7 @@
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto mb-10">
                 
-                <a href="mailto:aditrahman471@gmail.com" class="glass-panel p-6 rounded-3xl flex flex-col items-center justify-center hover:border-brand-500 transition group">
+                <a href="mailto:aditrahman471@gmail.com" class="glass-panel p-6 rounded-3xl flex flex-col items-center justify-center hover:border-brand-500 transition group interactive-tab">
                     <div class="w-12 h-12 rounded-2xl bg-slate-200 dark:bg-slate-800 text-slate-900 dark:text-white flex items-center justify-center text-xl mb-3 group-hover:scale-110 transition-transform">
                         <i class="fa-regular fa-envelope"></i>
                     </div>
@@ -731,7 +766,7 @@
                     </span>
                 </a>
 
-                <a href="https://wa.me/6288225002019" target="_blank" class="glass-panel p-6 rounded-3xl flex flex-col items-center justify-center hover:border-emerald-500 transition group">
+                <a href="https://wa.me/6288225002019" target="_blank" class="glass-panel p-6 rounded-3xl flex flex-col items-center justify-center hover:border-emerald-500 transition group interactive-tab">
                     <div class="w-12 h-12 rounded-2xl bg-emerald-100 dark:bg-emerald-950/80 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl mb-3 group-hover:scale-110 transition-transform">
                         <i class="fa-brands fa-whatsapp"></i>
                     </div>
@@ -747,12 +782,12 @@
             <div class="flex justify-center gap-3">
                 <a href="https://www.linkedin.com/in/aditya-rahman-23892b2a2?utm_source=share_via&utm_content=profile&utm_medium=member_android" 
                    target="_blank" 
-                   class="px-5 py-2.5 bg-blue-600 text-white font-semibold rounded-xl text-xs transition flex items-center gap-2 hover:bg-blue-700 shadow-sm">
+                   class="px-5 py-2.5 bg-blue-600 text-white font-semibold rounded-xl text-xs transition flex items-center gap-2 hover:bg-blue-700 shadow-sm interactive-tab">
                     <i class="fa-brands fa-linkedin text-sm"></i> LinkedIn
                 </a>
                 <a href="https://www.instagram.com/_aditrahman_?stkn=YnI1dGI4OHJiZWI3" 
                    target="_blank" 
-                   class="px-5 py-2.5 glass-pill font-semibold text-slate-800 dark:text-white rounded-xl text-xs transition flex items-center gap-2 hover:bg-slate-200/60 dark:hover:bg-slate-800">
+                   class="px-5 py-2.5 glass-pill font-semibold text-slate-800 dark:text-white rounded-xl text-xs transition flex items-center gap-2 hover:bg-slate-200/60 dark:hover:bg-slate-800 interactive-tab">
                     <i class="fa-brands fa-instagram text-sm text-pink-500"></i> Instagram @_aditrahman_
                 </a>
             </div>
@@ -779,15 +814,15 @@
                 </div>
                 
                 <div class="flex items-center gap-2">
-                    <button onclick="downloadCvPdf()" class="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold rounded-xl shadow-sm transition flex items-center gap-1.5">
+                    <button onclick="downloadCvPdf()" class="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold rounded-xl shadow-sm transition flex items-center gap-1.5 interactive-tab">
                         <i class="fa-solid fa-download"></i> Unduh PDF
                     </button>
 
-                    <button onclick="printCvModal()" class="px-3 py-1.5 bg-slate-900 hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100 text-white text-xs font-semibold rounded-xl transition flex items-center gap-1.5">
+                    <button onclick="printCvModal()" class="px-3 py-1.5 bg-slate-900 hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100 text-white text-xs font-semibold rounded-xl transition flex items-center gap-1.5 interactive-tab">
                         <i class="fa-solid fa-print"></i> Cetak
                     </button>
 
-                    <button onclick="closeCvModal()" class="p-1.5 text-slate-500 hover:text-slate-900 dark:hover:text-white text-base rounded-lg">
+                    <button onclick="closeCvModal()" class="p-1.5 text-slate-500 hover:text-slate-900 dark:hover:text-white text-base rounded-lg interactive-tab">
                         <i class="fa-solid fa-xmark"></i>
                     </button>
                 </div>
@@ -1000,10 +1035,10 @@
             const chartContainer = document.getElementById('chartContainer');
 
             [btnMath, btnSensus, btnCsat].forEach(btn => {
-                btn.className = "px-4 py-2 rounded-xl text-xs font-semibold transition glass-pill text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800";
+                btn.className = "px-4 py-2 rounded-xl text-xs font-semibold transition glass-pill text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 interactive-tab";
             });
 
-            const activeClass = "px-4 py-2 rounded-xl text-xs font-semibold transition bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-sm";
+            const activeClass = "px-4 py-2 rounded-xl text-xs font-semibold transition bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-sm interactive-tab";
 
             if (tabName === 'math') {
                 btnMath.className = activeClass;
@@ -1236,11 +1271,11 @@
             const btns = document.querySelectorAll('.skill-btn');
 
             btns.forEach(btn => {
-                btn.className = "skill-btn px-4 py-2 rounded-xl text-xs font-semibold transition glass-pill text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800";
+                btn.className = "skill-btn px-4 py-2 rounded-xl text-xs font-semibold transition glass-pill text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 interactive-tab";
             });
 
             if (event && event.target) {
-                event.target.className = "skill-btn active px-4 py-2 rounded-xl text-xs font-semibold transition bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-sm";
+                event.target.className = "skill-btn active px-4 py-2 rounded-xl text-xs font-semibold transition bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-sm interactive-tab";
             }
 
             cards.forEach(card => {
