@@ -53,7 +53,7 @@
             --brand-heading: #f8fafc;
         }
 
-        /* Color Theme Presets */
+        /* Color Theme Presets - Total Color Transformation */
         html[data-theme="indigo"] {
             --brand-50: #eef2ff;
             --brand-100: #e0e7ff;
@@ -155,12 +155,14 @@
             background: rgba(255, 255, 255, 0.6);
             backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
         }
 
         .dark .glass-pill {
             background: rgba(30, 41, 59, 0.6);
             backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
         }
 
         .bg-grid-pattern {
@@ -193,16 +195,18 @@
             border-radius: 9999px;
         }
 
-        /* Interactive Hover & Click Tab Animations */
+        /* Interactive Hover & Click Tab Animations with Enhanced Shadow */
         .interactive-tab {
             transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
         }
         .interactive-tab:hover {
             transform: translateY(-2px) scale(1.03);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 6px 16px var(--brand-ring);
         }
         .interactive-tab:active {
             transform: translateY(1px) scale(0.98);
+            box-shadow: 0 1px 4px var(--brand-ring);
         }
     </style>
 </head>
@@ -221,21 +225,21 @@
                         <span class="hidden font-extrabold text-xs">AR</span>
                     </div>
                     <div>
-                        <span class="font-bold text-base text-slate-900 dark:text-white tracking-tight block leading-none">Aditya Rahman</span>
+                        <span class="font-bold text-base theme-heading tracking-tight block leading-none">Aditya Rahman</span>
                         <span class="text-[11px] text-slate-500 dark:text-slate-400 font-medium tracking-wide">S.Si. Matematika</span>
                     </div>
                 </a>
 
                 <!-- Desktop Nav Links -->
                 <div class="hidden md:flex items-center space-x-6 text-xs font-semibold text-slate-600 dark:text-slate-300">
-                    <a href="#about" class="hover:text-brand-600 dark:hover:text-white transition interactive-tab px-2 py-1 rounded-lg">Tentang</a>
-                    <a href="#experience" class="hover:text-brand-600 dark:hover:text-white transition interactive-tab px-2 py-1 rounded-lg">Pengalaman</a>
-                    <a href="#skills" class="hover:text-brand-600 dark:hover:text-white transition interactive-tab px-2 py-1 rounded-lg">Keahlian</a>
-                    <a href="#data-lab" class="hover:text-brand-600 dark:hover:text-white transition interactive-tab px-2 py-1 rounded-lg flex items-center gap-1.5">Math Lab</a>
-                    <a href="#contact" class="hover:text-brand-600 dark:hover:text-white transition interactive-tab px-2 py-1 rounded-lg">Kontak</a>
+                    <a href="#about" class="hover:text-brand-600 dark:hover:text-white transition interactive-tab px-2.5 py-1.5 rounded-lg">Tentang</a>
+                    <a href="#experience" class="hover:text-brand-600 dark:hover:text-white transition interactive-tab px-2.5 py-1.5 rounded-lg">Pengalaman</a>
+                    <a href="#skills" class="hover:text-brand-600 dark:hover:text-white transition interactive-tab px-2.5 py-1.5 rounded-lg">Keahlian</a>
+                    <a href="#data-lab" class="hover:text-brand-600 dark:hover:text-white transition interactive-tab px-2.5 py-1.5 rounded-lg flex items-center gap-1.5">Math Lab</a>
+                    <a href="#contact" class="hover:text-brand-600 dark:hover:text-white transition interactive-tab px-2.5 py-1.5 rounded-lg">Kontak</a>
                 </div>
 
-                <!-- Right Actions (Theme Switcher + Color Palette Dropdown + Dark/Light Mode + CV Preview) -->
+                <!-- Right Actions (Color Palette Dropdown + Dark/Light Mode + CV Preview) -->
                 <div class="hidden md:flex items-center space-x-2.5">
                     
                     <!-- Single Color Palette Dropdown Toggle -->
@@ -313,7 +317,7 @@
 
     <!-- Hero Section -->
     <section id="hero" class="relative py-16 md:py-24 bg-grid-pattern overflow-hidden">
-        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-slate-400/10 dark:bg-slate-700/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-brand-500/10 rounded-full blur-3xl pointer-events-none transition-colors duration-500"></div>
 
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
             
@@ -328,12 +332,12 @@
                 </div>
             </div>
 
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight mb-3">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold theme-heading tracking-tight leading-tight mb-3">
                 Aditya Rahman, <span class="text-slate-500 dark:text-slate-400 font-normal">S.Si.</span>
             </h1>
 
             <p class="text-lg sm:text-xl font-medium text-slate-600 dark:text-slate-300 mb-4">
-                <span id="typing-effect" class="border-r-2 border-slate-800 dark:border-slate-200 pr-1">Lulusan S1 Matematika UNY</span>
+                <span id="typing-effect" class="border-r-2 border-brand-500 pr-1">Lulusan S1 Matematika UNY</span>
             </p>
 
             <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-sm sm:text-base max-w-2xl mx-auto mb-8">
@@ -382,22 +386,22 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
                 <div class="p-4 rounded-2xl glass-pill interactive-tab">
-                    <div class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white mb-0.5">3.27 <span class="text-xs font-normal text-slate-500">/ 4.00</span></div>
+                    <div class="text-2xl sm:text-3xl font-extrabold theme-heading mb-0.5">3.27 <span class="text-xs font-normal text-slate-500">/ 4.00</span></div>
                     <div class="text-[11px] font-medium text-slate-500 dark:text-slate-400">IPK S1 Matematika UNY</div>
                 </div>
 
                 <div class="p-4 rounded-2xl glass-pill interactive-tab">
-                    <div class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white mb-0.5">200+</div>
+                    <div class="text-2xl sm:text-3xl font-extrabold theme-heading mb-0.5">200+</div>
                     <div class="text-[11px] font-medium text-slate-500 dark:text-slate-400">Interaksi Pelanggan / Mgg</div>
                 </div>
 
                 <div class="p-4 rounded-2xl glass-pill interactive-tab">
-                    <div class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white mb-0.5">85%</div>
+                    <div class="text-2xl sm:text-3xl font-extrabold theme-heading mb-0.5">85%</div>
                     <div class="text-[11px] font-medium text-slate-500 dark:text-slate-400">Kepuasan Pelanggan (CSAT)</div>
                 </div>
 
                 <div class="p-4 rounded-2xl glass-pill interactive-tab">
-                    <div class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white mb-0.5">20%</div>
+                    <div class="text-2xl sm:text-3xl font-extrabold theme-heading mb-0.5">20%</div>
                     <div class="text-[11px] font-medium text-slate-500 dark:text-slate-400">Efisiensi Respon Layanan</div>
                 </div>
             </div>
@@ -411,7 +415,7 @@
                 <span class="px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-300 glass-pill rounded-full interactive-tab">
                     Interactive Data Engine
                 </span>
-                <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mt-3">
+                <h2 class="text-2xl sm:text-3xl font-bold theme-heading mt-3">
                     Mathematics & Data Analytics Lab
                 </h2>
                 <p class="text-slate-600 dark:text-slate-400 mt-2 text-xs sm:text-sm">
@@ -420,7 +424,7 @@
 
                 <!-- Navigation Tabs -->
                 <div class="flex justify-center gap-2 mt-6">
-                    <button onclick="switchLabTab('math')" id="tabBtnMath" class="px-4 py-2 rounded-xl text-xs font-semibold transition bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-sm interactive-tab">
+                    <button onclick="switchLabTab('math')" id="tabBtnMath" class="px-4 py-2 rounded-xl text-xs font-semibold transition bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-md interactive-tab">
                         Model Math (x + y)
                     </button>
                     <button onclick="switchLabTab('sensus')" id="tabBtnSensus" class="px-4 py-2 rounded-xl text-xs font-semibold transition glass-pill text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 interactive-tab">
@@ -437,7 +441,7 @@
                 <!-- Controls Panel -->
                 <div id="mathControlsPanel" class="lg:col-span-5 glass-panel p-6 rounded-3xl space-y-4">
                     <div class="flex items-center justify-between">
-                        <h3 class="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                        <h3 class="text-sm font-bold theme-heading flex items-center gap-2">
                             <i class="fa-solid fa-sliders text-brand-500"></i> Variable Controls
                         </h3>
                         <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
@@ -448,7 +452,7 @@
                     <div>
                         <div class="flex justify-between text-xs font-medium mb-1.5">
                             <span class="text-slate-600 dark:text-slate-300">Variabel X:</span>
-                            <span id="valXDisplay" class="font-bold text-slate-900 dark:text-white">15</span>
+                            <span id="valXDisplay" class="font-bold theme-heading">15</span>
                         </div>
                         <input type="range" id="sliderX" min="1" max="100" value="15" oninput="updateMathLab()" class="w-full accent-brand-500 cursor-pointer">
                     </div>
@@ -456,7 +460,7 @@
                     <div>
                         <div class="flex justify-between text-xs font-medium mb-1.5">
                             <span class="text-slate-600 dark:text-slate-300">Variabel Y:</span>
-                            <span id="valYDisplay" class="font-bold text-slate-900 dark:text-white">25</span>
+                            <span id="valYDisplay" class="font-bold theme-heading">25</span>
                         </div>
                         <input type="range" id="sliderY" min="1" max="100" value="25" oninput="updateMathLab()" class="w-full accent-brand-500 cursor-pointer">
                     </div>
@@ -465,15 +469,15 @@
                     <div class="p-4 rounded-2xl bg-slate-100/80 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 space-y-2 text-xs">
                         <div class="flex justify-between border-b border-slate-200 dark:border-slate-800 pb-1.5">
                             <span class="text-slate-500">Penjumlahan Simple (x + y):</span>
-                            <span id="resAdd" class="font-bold text-slate-900 dark:text-white">40</span>
+                            <span id="resAdd" class="font-bold theme-heading">40</span>
                         </div>
                         <div class="flex justify-between border-b border-slate-200 dark:border-slate-800 pb-1.5">
                             <span class="text-slate-500">Perkalian (x * y):</span>
-                            <span id="resMul" class="font-bold text-slate-900 dark:text-white">375</span>
+                            <span id="resMul" class="font-bold theme-heading">375</span>
                         </div>
                         <div class="flex justify-between pt-0.5">
                             <span class="text-slate-500">Jarak Euclidean (&radic;(x&sup2; + y&sup2;)):</span>
-                            <span id="resEuc" class="font-bold text-slate-900 dark:text-white">29.15</span>
+                            <span id="resEuc" class="font-bold theme-heading">29.15</span>
                         </div>
                     </div>
                 </div>
@@ -481,7 +485,7 @@
                 <!-- Visualization Output Canvas -->
                 <div id="chartContainer" class="lg:col-span-7 glass-panel p-6 rounded-3xl">
                     <div class="flex items-center justify-between mb-4">
-                        <h3 id="labChartTitle" class="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                        <h3 id="labChartTitle" class="text-sm font-bold theme-heading flex items-center gap-2">
                             <i class="fa-solid fa-chart-line text-brand-500"></i> Visualisasi Grafik Garis Model Math (x + y)
                         </h3>
                         <span id="labBadge" class="text-[10px] font-semibold text-brand-600 dark:text-brand-400">Line Chart</span>
@@ -502,17 +506,17 @@
 
     <!-- Work Experience Section -->
     <section id="experience" class="py-16">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
                 <span class="px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-300 glass-pill rounded-full interactive-tab">
                     Rekam Jejak Karir
                 </span>
-                <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mt-3">
+                <h2 class="text-2xl sm:text-3xl font-bold theme-heading mt-3">
                     Pengalaman Kerja & Profesional
                 </h2>
             </div>
 
-            <div class="space-y-6">
+            <div class="space-y-6 max-w-4xl mx-auto">
 
                 <!-- Timeline Item 1: Field Enumerator BPS -->
                 <div class="glass-panel p-6 sm:p-8 rounded-3xl relative overflow-hidden transition hover:border-brand-500/50 interactive-tab">
@@ -523,7 +527,7 @@
                         <span class="text-xs text-slate-500 dark:text-slate-400 font-medium">BPS (Badan Pusat Statistik)</span>
                     </div>
 
-                    <h3 class="text-xl font-bold text-slate-900 dark:text-white">Petugas Pencatatan Lapangan (PPL SE2026)</h3>
+                    <h3 class="text-xl font-bold theme-heading">Petugas Pencatatan Lapangan (PPL SE2026)</h3>
                     <p class="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-4">Kulon Progo, DIY</p>
 
                     <ul class="space-y-2 text-xs sm:text-sm text-slate-600 dark:text-slate-300 list-disc list-inside leading-relaxed">
@@ -549,7 +553,7 @@
                         <span class="text-xs text-slate-500 dark:text-slate-400 font-medium">Vads Indonesia (Proyek Shopee)</span>
                     </div>
 
-                    <h3 class="text-xl font-bold text-slate-900 dark:text-white">Customer Service Representative</h3>
+                    <h3 class="text-xl font-bold theme-heading">Customer Service Representative</h3>
                     <p class="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-4">Sleman, DIY</p>
 
                     <ul class="space-y-2 text-xs sm:text-sm text-slate-600 dark:text-slate-300 list-disc list-inside leading-relaxed">
@@ -574,7 +578,7 @@
                         <span class="text-xs text-slate-500 dark:text-slate-400 font-medium">BPS Kabupaten Kulon Progo</span>
                     </div>
 
-                    <h3 class="text-xl font-bold text-slate-900 dark:text-white">Magang Staf Administrasi</h3>
+                    <h3 class="text-xl font-bold theme-heading">Magang Staf Administrasi</h3>
                     <p class="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-4">Kulon Progo, DIY</p>
 
                     <ul class="space-y-2 text-xs sm:text-sm text-slate-600 dark:text-slate-300 list-disc list-inside leading-relaxed">
@@ -594,20 +598,20 @@
 
     <!-- Education & Mentorship Section -->
     <section class="py-16">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-4xl mx-auto">
                 
                 <!-- Education -->
                 <div class="glass-panel p-8 rounded-3xl flex flex-col justify-between interactive-tab">
                     <div>
                         <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider block mb-2">Pendidikan Formal</span>
-                        <h3 class="text-2xl font-bold text-slate-900 dark:text-white">Sarjana Matematika (S.Si.)</h3>
+                        <h3 class="text-2xl font-bold theme-heading">Sarjana Matematika (S.Si.)</h3>
                         <p class="text-sm font-semibold text-slate-700 dark:text-slate-300 mt-1">Universitas Negeri Yogyakarta</p>
                         <p class="text-xs text-slate-500 mb-6">Sept 2020 - Juli 2024 &bull; Sleman, DIY</p>
 
                         <div class="inline-block glass-pill px-4 py-2.5 rounded-2xl border border-slate-200 dark:border-slate-800 mb-6 interactive-tab">
                             <span class="text-[10px] text-slate-500 block uppercase font-bold tracking-wider">Indeks Prestasi Kumulatif (IPK)</span>
-                            <span class="text-2xl font-extrabold text-slate-900 dark:text-white">3,27 <span class="text-xs font-normal text-slate-500">/ 4.00</span></span>
+                            <span class="text-2xl font-extrabold theme-heading">3,27 <span class="text-xs font-normal text-slate-500">/ 4.00</span></span>
                         </div>
 
                         <ul class="space-y-2 text-xs sm:text-sm text-slate-600 dark:text-slate-300 list-disc list-inside">
@@ -621,7 +625,7 @@
                 <div class="glass-panel p-8 rounded-3xl flex flex-col justify-between interactive-tab">
                     <div>
                         <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider block mb-2">Pengalaman Organisasi</span>
-                        <h3 class="text-2xl font-bold text-slate-900 dark:text-white">Pemandu</h3>
+                        <h3 class="text-2xl font-bold theme-heading">Pemandu</h3>
                         <p class="text-sm font-semibold text-slate-700 dark:text-slate-300 mt-1">Program Studi Laboratorium Matematika</p>
                         <p class="text-xs text-slate-500 mb-6">Juli 2022 - Sept 2022 &bull; Sleman, DIY</p>
 
@@ -648,13 +652,13 @@
                 <span class="px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-300 glass-pill rounded-full interactive-tab">
                     Matriks Kompetensi
                 </span>
-                <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mt-3">
+                <h2 class="text-2xl sm:text-3xl font-bold theme-heading mt-3">
                     Keahlian & Perangkat Lunak
                 </h2>
 
                 <!-- Skill Filters -->
                 <div class="flex flex-wrap justify-center gap-2 mt-6">
-                    <button onclick="filterSkills('all')" class="skill-btn active px-4 py-2 rounded-xl text-xs font-semibold transition bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-sm interactive-tab">Semua</button>
+                    <button onclick="filterSkills('all')" class="skill-btn active px-4 py-2 rounded-xl text-xs font-semibold transition bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-md interactive-tab">Semua</button>
                     <button onclick="filterSkills('hard')" class="skill-btn px-4 py-2 rounded-xl text-xs font-semibold transition glass-pill text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 interactive-tab">Hard Skills</button>
                     <button onclick="filterSkills('tools')" class="skill-btn px-4 py-2 rounded-xl text-xs font-semibold transition glass-pill text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 interactive-tab">Software & Tools</button>
                     <button onclick="filterSkills('soft')" class="skill-btn px-4 py-2 rounded-xl text-xs font-semibold transition glass-pill text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 interactive-tab">Soft Skills</button>
@@ -670,10 +674,10 @@
                     <div class="w-9 h-9 rounded-2xl bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-white flex items-center justify-center text-base mb-3">
                         <i class="fa-solid fa-chart-pie"></i>
                     </div>
-                    <h3 class="font-bold text-slate-900 dark:text-white text-sm mb-1">Data Analysis & Verification</h3>
+                    <h3 class="font-bold theme-heading text-sm mb-1">Data Analysis & Verification</h3>
                     <p class="text-xs text-slate-500 mb-3">Pengolahan data numerik, pengujian hipotesis, dan pembersihan basis data.</p>
                     <div class="w-full bg-slate-200 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                        <div class="bg-slate-800 dark:bg-slate-200 h-full w-[90%]"></div>
+                        <div class="bg-brand-500 h-full w-[90%]"></div>
                     </div>
                 </div>
 
@@ -681,10 +685,10 @@
                     <div class="w-9 h-9 rounded-2xl bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-white flex items-center justify-center text-base mb-3">
                         <i class="fa-solid fa-map-location-dot"></i>
                     </div>
-                    <h3 class="font-bold text-slate-900 dark:text-white text-sm mb-1">Field Enumeration & Geotagging</h3>
+                    <h3 class="font-bold theme-heading text-sm mb-1">Field Enumeration & Geotagging</h3>
                     <p class="text-xs text-slate-500 mb-3">Pencacahan usaha lapangan, pemetaan wilayah Wilkerstat, dan geotagging BPS.</p>
                     <div class="w-full bg-slate-200 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                        <div class="bg-slate-800 dark:bg-slate-200 h-full w-[88%]"></div>
+                        <div class="bg-brand-500 h-full w-[88%]"></div>
                     </div>
                 </div>
 
@@ -693,10 +697,10 @@
                     <div class="w-9 h-9 rounded-2xl bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-white flex items-center justify-center text-base mb-3">
                         <i class="fa-brands fa-python"></i>
                     </div>
-                    <h3 class="font-bold text-slate-900 dark:text-white text-sm mb-1">Python & MATLAB</h3>
+                    <h3 class="font-bold theme-heading text-sm mb-1">Python & MATLAB</h3>
                     <p class="text-xs text-slate-500 mb-3">Skrip perhitungan komputasi, analisis matriks, dan skrip manipulasi data.</p>
                     <div class="w-full bg-slate-200 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                        <div class="bg-slate-800 dark:bg-slate-200 h-full w-[82%]"></div>
+                        <div class="bg-brand-500 h-full w-[82%]"></div>
                     </div>
                 </div>
 
@@ -704,10 +708,10 @@
                     <div class="w-9 h-9 rounded-2xl bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-white flex items-center justify-center text-base mb-3">
                         <i class="fa-solid fa-table"></i>
                     </div>
-                    <h3 class="font-bold text-slate-900 dark:text-white text-sm mb-1">SPSS, R & Microsoft Excel</h3>
+                    <h3 class="font-bold theme-heading text-sm mb-1">SPSS, R & Microsoft Excel</h3>
                     <p class="text-xs text-slate-500 mb-3">Pengolahan statistik inferensial, rumus kompleks, dan laporan numerik.</p>
                     <div class="w-full bg-slate-200 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                        <div class="bg-slate-800 dark:bg-slate-200 h-full w-[92%]"></div>
+                        <div class="bg-brand-500 h-full w-[92%]"></div>
                     </div>
                 </div>
 
@@ -716,10 +720,10 @@
                     <div class="w-9 h-9 rounded-2xl bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-white flex items-center justify-center text-base mb-3">
                         <i class="fa-solid fa-headset"></i>
                     </div>
-                    <h3 class="font-bold text-slate-900 dark:text-white text-sm mb-1">Customer Relations & CSAT</h3>
+                    <h3 class="font-bold theme-heading text-sm mb-1">Customer Relations & CSAT</h3>
                     <p class="text-xs text-slate-500 mb-3">Penanganan keluhan pelanggan, solusi efisien, dan kepuasan publik.</p>
                     <div class="w-full bg-slate-200 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                        <div class="bg-slate-800 dark:bg-slate-200 h-full w-[88%]"></div>
+                        <div class="bg-brand-500 h-full w-[88%]"></div>
                     </div>
                 </div>
 
@@ -728,10 +732,10 @@
                     <div class="w-9 h-9 rounded-2xl bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-white flex items-center justify-center text-base mb-3">
                         <i class="fa-solid fa-earth-americas"></i>
                     </div>
-                    <h3 class="font-bold text-slate-900 dark:text-white text-sm mb-1">Bahasa Indonesia & English</h3>
+                    <h3 class="font-bold theme-heading text-sm mb-1">Bahasa Indonesia & English</h3>
                     <p class="text-xs text-slate-500 mb-3">Indonesia (Native) / English (Advanced Level).</p>
                     <div class="w-full bg-slate-200 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                        <div class="bg-slate-800 dark:bg-slate-200 h-full w-[90%]"></div>
+                        <div class="bg-brand-500 h-full w-[90%]"></div>
                     </div>
                 </div>
 
@@ -746,7 +750,7 @@
             <span class="px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-300 glass-pill rounded-full interactive-tab">
                 Hubungi Saya
             </span>
-            <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mt-3 mb-4">
+            <h2 class="text-2xl sm:text-3xl font-bold theme-heading mt-3 mb-4">
                 Mari Berkolaborasi & Terhubung
             </h2>
             <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 max-w-xl mx-auto mb-8">
@@ -759,7 +763,7 @@
                     <div class="w-12 h-12 rounded-2xl bg-slate-200 dark:bg-slate-800 text-slate-900 dark:text-white flex items-center justify-center text-xl mb-3 group-hover:scale-110 transition-transform">
                         <i class="fa-regular fa-envelope"></i>
                     </div>
-                    <div class="text-xs font-bold text-slate-900 dark:text-white">Email Utama</div>
+                    <div class="text-xs font-bold theme-heading">Email Utama</div>
                     <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">aditrahman471@gmail.com</div>
                     <span class="mt-3 text-[10px] font-semibold text-slate-600 dark:text-slate-300 flex items-center gap-1">
                         <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i> Buka Aplikasi Email
@@ -770,7 +774,7 @@
                     <div class="w-12 h-12 rounded-2xl bg-emerald-100 dark:bg-emerald-950/80 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl mb-3 group-hover:scale-110 transition-transform">
                         <i class="fa-brands fa-whatsapp"></i>
                     </div>
-                    <div class="text-xs font-bold text-slate-900 dark:text-white">Telepon / WhatsApp</div>
+                    <div class="text-xs font-bold theme-heading">Telepon / WhatsApp</div>
                     <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">+62 882-2500-2019</div>
                     <span class="mt-3 text-[10px] font-semibold text-emerald-600 dark:text-emerald-400 flex items-center gap-1">
                         <i class="fa-solid fa-comments text-[9px]"></i> Langsung Chat WhatsApp
@@ -782,7 +786,7 @@
             <div class="flex justify-center gap-3">
                 <a href="https://www.linkedin.com/in/aditya-rahman-23892b2a2?utm_source=share_via&utm_content=profile&utm_medium=member_android" 
                    target="_blank" 
-                   class="px-5 py-2.5 bg-blue-600 text-white font-semibold rounded-xl text-xs transition flex items-center gap-2 hover:bg-blue-700 shadow-sm interactive-tab">
+                   class="px-5 py-2.5 bg-brand-600 text-white font-semibold rounded-xl text-xs transition flex items-center gap-2 hover:bg-brand-700 shadow-md interactive-tab">
                     <i class="fa-brands fa-linkedin text-sm"></i> LinkedIn
                 </a>
                 <a href="https://www.instagram.com/_aditrahman_?stkn=YnI1dGI4OHJiZWI3" 
@@ -810,7 +814,7 @@
             <div class="p-4 sm:p-5 bg-slate-100/90 dark:bg-slate-900/90 flex justify-between items-center border-b border-slate-200 dark:border-slate-800">
                 <div class="flex items-center gap-2">
                     <i class="fa-solid fa-file-pdf text-red-500 text-lg"></i>
-                    <h3 class="font-bold text-slate-900 dark:text-white text-xs sm:text-sm">Pratinjau Curriculum Vitae - Aditya Rahman</h3>
+                    <h3 class="font-bold theme-heading text-xs sm:text-sm">Pratinjau Curriculum Vitae - Aditya Rahman</h3>
                 </div>
                 
                 <div class="flex items-center gap-2">
@@ -830,8 +834,8 @@
 
             <div id="printableCvArea" class="p-6 sm:p-10 max-h-[75vh] overflow-y-auto custom-scrollbar text-slate-800 dark:text-slate-200 text-xs sm:text-sm space-y-6">
                 
-                <div class="border-b-2 border-slate-800 dark:border-slate-200 pb-4">
-                    <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white uppercase tracking-tight">ADITYA RAHMAN</h1>
+                <div class="border-b-2 border-brand-500 pb-4">
+                    <h1 class="text-2xl sm:text-3xl font-extrabold theme-heading uppercase tracking-tight">ADITYA RAHMAN</h1>
                     <div class="text-[11px] sm:text-xs text-slate-600 dark:text-slate-400 mt-2 flex flex-wrap gap-x-4 gap-y-1">
                         <span><i class="fa-solid fa-phone mr-1 text-slate-400"></i> +62 882-2500-2019</span>
                         <span><i class="fa-solid fa-envelope mr-1 text-slate-400"></i> aditrahman471@gmail.com</span>
@@ -853,7 +857,7 @@
                     <div class="space-y-4">
                         <div>
                             <div class="flex justify-between items-baseline flex-wrap gap-1">
-                                <h3 class="font-bold text-xs sm:text-sm text-slate-900 dark:text-white">Petugas Pencatatan Lapangan (PPL SE2026) - BPS (Badan Pusat Statistik)</h3>
+                                <h3 class="font-bold text-xs sm:text-sm theme-heading">Petugas Pencatatan Lapangan (PPL SE2026) - BPS (Badan Pusat Statistik)</h3>
                                 <span class="text-[11px] text-slate-500 font-medium">Juni 2026 - Agustus 2026 | Kulon Progo</span>
                             </div>
                             <ul class="list-disc list-inside text-xs text-slate-700 dark:text-slate-300 space-y-1 mt-1 leading-relaxed">
@@ -865,7 +869,7 @@
 
                         <div>
                             <div class="flex justify-between items-baseline flex-wrap gap-1">
-                                <h3 class="font-bold text-xs sm:text-sm text-slate-900 dark:text-white">Customer Service Representative - Vads Indonesia (Proyek Shopee)</h3>
+                                <h3 class="font-bold text-xs sm:text-sm theme-heading">Customer Service Representative - Vads Indonesia (Proyek Shopee)</h3>
                                 <span class="text-[11px] text-slate-500 font-medium">September 2024 - Mei 2026 | Sleman</span>
                             </div>
                             <ul class="list-disc list-inside text-xs text-slate-700 dark:text-slate-300 space-y-1 mt-1 leading-relaxed">
@@ -877,7 +881,7 @@
 
                         <div>
                             <div class="flex justify-between items-baseline flex-wrap gap-1">
-                                <h3 class="font-bold text-xs sm:text-sm text-slate-900 dark:text-white">Magang Staf Administrasi - BPS Kabupaten Kulon Progo</h3>
+                                <h3 class="font-bold text-xs sm:text-sm theme-heading">Magang Staf Administrasi - BPS Kabupaten Kulon Progo</h3>
                                 <span class="text-[11px] text-slate-500 font-medium">Oktober 2023 - Desember 2023 | Kulon Progo</span>
                             </div>
                             <ul class="list-disc list-inside text-xs text-slate-700 dark:text-slate-300 space-y-1 mt-1 leading-relaxed">
@@ -892,7 +896,7 @@
                     <h2 class="font-bold text-[11px] uppercase tracking-wider text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-800 pb-1 mb-2">Pendidikan</h2>
                     <div class="flex justify-between items-baseline flex-wrap gap-1">
                         <div>
-                            <h3 class="font-bold text-xs sm:text-sm text-slate-900 dark:text-white">Sarjana Matematika (S.Si.) - Universitas Negeri Yogyakarta</h3>
+                            <h3 class="font-bold text-xs sm:text-sm theme-heading">Sarjana Matematika (S.Si.) - Universitas Negeri Yogyakarta</h3>
                             <p class="text-[11px] text-slate-600 dark:text-slate-400">IPK: 3,27 / 4,00</p>
                         </div>
                         <span class="text-[11px] text-slate-500 font-medium">September 2020 - Juli 2024 | Sleman</span>
@@ -902,7 +906,7 @@
                 <div>
                     <h2 class="font-bold text-[11px] uppercase tracking-wider text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-800 pb-1 mb-2">Pengalaman Organisasi</h2>
                     <div class="flex justify-between items-baseline flex-wrap gap-1">
-                        <h3 class="font-bold text-xs sm:text-sm text-slate-900 dark:text-white">Pemandu - Program Studi Laboratorium Matematika</h3>
+                        <h3 class="font-bold text-xs sm:text-sm theme-heading">Pemandu - Program Studi Laboratorium Matematika</h3>
                         <span class="text-[11px] text-slate-500 font-medium">Juli 2022 - September 2022 | Sleman</span>
                     </div>
                     <p class="text-xs text-slate-700 dark:text-slate-300 mt-1">
@@ -961,7 +965,7 @@
         if (themeToggle) themeToggle.addEventListener('click', toggleDarkMode);
         if (themeToggleMobile) themeToggleMobile.addEventListener('click', toggleDarkMode);
 
-        // Color Theme Palette Switcher
+        // Color Theme Palette Switcher with Complete Transformation
         function setThemePalette(themeName) {
             if (themeName === 'monochrome') {
                 document.documentElement.removeAttribute('data-theme');
@@ -1038,7 +1042,7 @@
                 btn.className = "px-4 py-2 rounded-xl text-xs font-semibold transition glass-pill text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 interactive-tab";
             });
 
-            const activeClass = "px-4 py-2 rounded-xl text-xs font-semibold transition bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-sm interactive-tab";
+            const activeClass = "px-4 py-2 rounded-xl text-xs font-semibold transition bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-md interactive-tab";
 
             if (tabName === 'math') {
                 btnMath.className = activeClass;
@@ -1051,14 +1055,14 @@
                 btnSensus.className = activeClass;
                 controlsPanel.style.display = "none";
                 chartContainer.className = "lg:col-span-12 glass-panel p-6 rounded-3xl";
-                document.getElementById('labChartTitle').innerHTML = '<i class="fa-solid fa-chart-line text-emerald-500"></i> Grafik Garis Sensus BPS SE2026';
+                document.getElementById('labChartTitle').innerHTML = '<i class="fa-solid fa-chart-line text-brand-500"></i> Grafik Garis Sensus BPS SE2026';
                 document.getElementById('labDescText').textContent = "Metrik realisasi verifikasi data dan pemetaan Wilkerstat pada Sensus Ekonomi BPS-Statistics Indonesia.";
                 renderStaticSensusChart();
             } else if (tabName === 'csat') {
                 btnCsat.className = activeClass;
                 controlsPanel.style.display = "none";
                 chartContainer.className = "lg:col-span-12 glass-panel p-6 rounded-3xl";
-                document.getElementById('labChartTitle').innerHTML = '<i class="fa-solid fa-chart-line text-blue-500"></i> Grafik Garis Kinerja CSAT Vads Shopee';
+                document.getElementById('labChartTitle').innerHTML = '<i class="fa-solid fa-chart-line text-brand-500"></i> Grafik Garis Kinerja CSAT Vads Shopee';
                 document.getElementById('labDescText').textContent = "Metrik riil tingkat kepuasan pelanggan (CSAT 85%) dan efisiensi penanganan keluhan bulanan.";
                 renderStaticCsatChart();
             }
@@ -1088,11 +1092,17 @@
             return document.documentElement.classList.contains('dark') ? '#f8fafc' : '#0f172a';
         }
 
+        function getCurrentBrandColor() {
+            const computedStyle = getComputedStyle(document.documentElement);
+            return computedStyle.getPropertyValue('--brand-500').trim() || '#64748b';
+        }
+
         function renderDynamicLineChart(x, y, sum) {
             const ctx = document.getElementById('mathLabChart').getContext('2d');
             if (labChart) labChart.destroy();
 
             const isDark = document.documentElement.classList.contains('dark');
+            const brandColor = getCurrentBrandColor();
             const gradient = ctx.createLinearGradient(0, 0, 0, 260);
             gradient.addColorStop(0, isDark ? 'rgba(100, 116, 139, 0.4)' : 'rgba(100, 116, 139, 0.25)');
             gradient.addColorStop(1, 'rgba(100, 116, 139, 0.0)');
@@ -1104,14 +1114,14 @@
                     datasets: [{
                         label: 'Nilai',
                         data: [x, y, sum],
-                        borderColor: '#64748b',
+                        borderColor: brandColor,
                         borderWidth: 3,
                         backgroundColor: gradient,
                         fill: true,
                         tension: 0.35,
                         pointRadius: 7,
                         pointHoverRadius: 10,
-                        pointBackgroundColor: '#475569',
+                        pointBackgroundColor: brandColor,
                         pointBorderColor: '#ffffff',
                         pointBorderWidth: 2
                     }]
@@ -1152,6 +1162,7 @@
             if (labChart) labChart.destroy();
 
             const isDark = document.documentElement.classList.contains('dark');
+            const brandColor = getCurrentBrandColor();
             const gradient = ctx.createLinearGradient(0, 0, 0, 260);
             gradient.addColorStop(0, 'rgba(16, 185, 129, 0.35)');
             gradient.addColorStop(1, 'rgba(16, 185, 129, 0.0)');
@@ -1163,14 +1174,14 @@
                     datasets: [{
                         label: 'Realisasi (%)',
                         data: [100, 98, 100, 100],
-                        borderColor: '#10b981',
+                        borderColor: brandColor,
                         borderWidth: 3,
                         backgroundColor: gradient,
                         fill: true,
                         tension: 0.3,
                         pointRadius: 7,
                         pointHoverRadius: 10,
-                        pointBackgroundColor: '#059669',
+                        pointBackgroundColor: brandColor,
                         pointBorderColor: '#ffffff',
                         pointBorderWidth: 2
                     }]
@@ -1211,6 +1222,7 @@
             if (labChart) labChart.destroy();
 
             const isDark = document.documentElement.classList.contains('dark');
+            const brandColor = getCurrentBrandColor();
             const gradient = ctx.createLinearGradient(0, 0, 0, 260);
             gradient.addColorStop(0, 'rgba(59, 130, 246, 0.35)');
             gradient.addColorStop(1, 'rgba(59, 130, 246, 0.0)');
@@ -1222,14 +1234,14 @@
                     datasets: [{
                         label: 'Skor CSAT (%)',
                         data: [82, 85, 87, 85],
-                        borderColor: '#3b82f6',
+                        borderColor: brandColor,
                         borderWidth: 3,
                         backgroundColor: gradient,
                         fill: true,
                         tension: 0.35,
                         pointRadius: 7,
                         pointHoverRadius: 10,
-                        pointBackgroundColor: '#2563eb',
+                        pointBackgroundColor: brandColor,
                         pointBorderColor: '#ffffff',
                         pointBorderWidth: 2
                     }]
@@ -1275,7 +1287,7 @@
             });
 
             if (event && event.target) {
-                event.target.className = "skill-btn active px-4 py-2 rounded-xl text-xs font-semibold transition bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-sm interactive-tab";
+                event.target.className = "skill-btn active px-4 py-2 rounded-xl text-xs font-semibold transition bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-md interactive-tab";
             }
 
             cards.forEach(card => {
