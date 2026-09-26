@@ -380,9 +380,14 @@
 
             <!-- Action Buttons Centered -->
             <div class="flex flex-wrap items-center justify-center gap-3 pt-2">
-                <a href="#contact" class="px-6 py-3 rounded-2xl bg-accent font-medium text-sm shadow-lg hover:scale-[1.02] active:scale-95 transition flex items-center gap-2">
+                <a href="mailto:aditrahman471@gmail.com" class="px-6 py-3 rounded-2xl bg-accent font-medium text-sm shadow-lg hover:scale-[1.02] active:scale-95 transition flex items-center gap-2">
                     <i class="fa-regular fa-envelope"></i>
-                    <span>Kirim Pesan</span>
+                    <span>Kirim Email</span>
+                </a>
+
+                <a href="https://wa.me/6288225002019" target="_blank" rel="noopener noreferrer" class="px-4 py-3 rounded-2xl glass-button text-sm font-medium flex items-center gap-2 text-mono-800 dark:text-mono-200">
+                    <i class="fa-brands fa-whatsapp text-lg text-emerald-500"></i>
+                    <span>WhatsApp</span>
                 </a>
                 
                 <a href="https://www.linkedin.com/in/aditya-rahman-23892b2a2?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" class="px-4 py-3 rounded-2xl glass-button text-sm font-medium flex items-center gap-2 text-mono-800 dark:text-mono-200">
@@ -839,24 +844,28 @@
                 <!-- Quick Contact Badge Cards -->
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
                     
-                    <!-- Email Copy Card -->
-                    <button onclick="copyToClipboard('aditrahman471@gmail.com', 'Email')" class="glass-card p-4 rounded-2xl flex flex-col items-center hover:scale-[1.03] transition group text-center">
+                    <!-- Direct Email Link Card -->
+                    <a href="mailto:aditrahman471@gmail.com" class="glass-card p-4 rounded-2xl flex flex-col items-center hover:scale-[1.03] transition group text-center cursor-pointer">
                         <div class="w-10 h-10 rounded-full bg-mono-900 text-white dark:bg-mono-100 dark:text-mono-900 flex items-center justify-center text-base mb-2 group-hover:rotate-12 transition">
                             <i class="fa-regular fa-envelope"></i>
                         </div>
                         <span class="text-xs text-mono-500 font-mono">Email Utama</span>
                         <span class="text-xs font-bold font-mono mt-1 text-mono-900 dark:text-mono-100 truncate w-full">aditrahman471@gmail.com</span>
-                        <span class="text-[10px] text-mono-400 mt-2 flex items-center gap-1"><i class="fa-regular fa-copy"></i> Klik untuk Salin</span>
-                    </button>
+                        <span class="text-[10px] text-accent font-medium mt-2 flex items-center gap-1">
+                            <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i> Buka Aplikasi Email
+                        </span>
+                    </a>
 
                     <!-- Direct WhatsApp Link Card -->
-                    <a href="https://wa.me/6288225002019" target="_blank" rel="noopener noreferrer" class="glass-card p-4 rounded-2xl flex flex-col items-center hover:scale-[1.03] transition group text-center">
+                    <a href="https://wa.me/6288225002019" target="_blank" rel="noopener noreferrer" class="glass-card p-4 rounded-2xl flex flex-col items-center hover:scale-[1.03] transition group text-center cursor-pointer">
                         <div class="w-10 h-10 rounded-full bg-mono-900 text-white dark:bg-mono-100 dark:text-mono-900 flex items-center justify-center text-base mb-2 group-hover:rotate-12 transition">
-                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                            <i class="fa-brands fa-whatsapp text-lg text-emerald-500"></i>
                         </div>
                         <span class="text-xs text-mono-500 font-mono">Telepon / WhatsApp</span>
                         <span class="text-xs font-bold font-mono mt-1 text-mono-900 dark:text-mono-100">+62 882-2500-2019</span>
-                        <span class="text-[10px] text-mono-400 mt-2 flex items-center gap-1"><i class="fa-brands fa-whatsapp text-emerald-500"></i> Buka WhatsApp Direct</span>
+                        <span class="text-[10px] text-emerald-600 dark:text-emerald-400 font-medium mt-2 flex items-center gap-1">
+                            <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i> Buka Aplikasi WhatsApp
+                        </span>
                     </a>
 
                     <!-- Location Card -->
@@ -1117,6 +1126,10 @@
         function fallbackCopy(text, label) {
             const textArea = document.createElement("textarea");
             textArea.value = text;
+            textArea.style.position = "fixed";
+            textArea.style.left = "-9999px";
+            textArea.style.top = "-9999px";
+            textArea.style.opacity = "0";
             document.body.appendChild(textArea);
             textArea.focus();
             textArea.select();
