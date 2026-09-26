@@ -3,14 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aditya Rahman | Portfolio & Data Analyst</title>
-    
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Portofolio resmi Aditya Rahman - Lulusan Matematika UNY spesialisasi Analisis Data, SPSS, Python, dan Enumerasi Statistik.">
-    <meta name="keywords" content="Aditya Rahman, Data Analyst Yogyakarta, Portofolio Matematika UNY, Petugas Lapangan BPS Kulon Progo, SPSS Python Analyst">
-    <meta name="robots" content="index, follow">
-
-    <!-- Tailwind CSS CDN -->
+    <title>Aditya Rahman - Portofolio & CV Interaktif</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -18,386 +12,1138 @@
             theme: {
                 extend: {
                     colors: {
-                        brand: {
-                            50: '#f0f7ff',
-                            100: '#e0effe',
-                            500: '#0284c7',
-                            600: '#0284c7',
-                            700: '#0369a1',
-                            900: '#0c4a6e',
-                        }
-                    },
-                    animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'pulse-glow': 'pulseGlow 3s ease-in-out infinite',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0px)' },
-                            '50%': { transform: 'translateY(-12px)' },
+                        primary: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a',
                         },
-                        pulseGlow: {
-                            '0%, 100%': { boxShadow: '0 0 15px rgba(2, 132, 199, 0.3)' },
-                            '50%': { boxShadow: '0 0 35px rgba(2, 132, 199, 0.7)' },
-                        }
+                        emeraldCustom: '#10b981',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
                     }
                 }
             }
         }
     </script>
-
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- AOS Animation Library CSS -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Chart.js for interactive Math & Data visualizations -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Custom Style -->
     <style>
-        .glass {
-            background: rgba(255, 255, 255, 0.75);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+        body {
+            font-family: 'Inter', sans-serif;
         }
-        .dark .glass {
-            background: rgba(15, 23, 42, 0.75);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+        .bg-grid-pattern {
+            background-image: radial-gradient(rgba(59, 130, 246, 0.12) 1px, transparent 1px);
+            background-size: 24px 24px;
         }
-        canvas#particleCanvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
+        .dark .bg-grid-pattern {
+            background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(229, 231, 235, 0.8);
+        }
+        .dark .glass-card {
+            background: rgba(17, 24, 39, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(55, 65, 81, 0.5);
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
         }
     </style>
 </head>
-<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 font-sans antialiased transition-colors duration-300 relative overflow-x-hidden">
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 transition-colors duration-300 min-h-screen">
 
-    <!-- Background Particle Canvas -->
-    <canvas id="particleCanvas"></canvas>
-
-    <!-- Navigation Header -->
-    <header class="sticky top-0 z-50 glass border-b border-slate-200 dark:border-slate-800 transition-all duration-300">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-            <a href="#" class="text-xl font-extrabold bg-gradient-to-r from-brand-600 to-indigo-600 bg-clip-text text-transparent hover:scale-105 transition-transform">
-                AR.
-            </a>
-
-            <nav class="hidden md:flex space-x-8 text-sm font-semibold text-slate-600 dark:text-slate-300">
-                <a href="#about" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Tentang Saya</a>
-                <a href="#experience" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Pengalaman</a>
-                <a href="#education" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Pendidikan</a>
-                <a href="#skills" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Keahlian</a>
-                <a href="#contact" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Kontak</a>
-            </nav>
-
-            <div class="flex items-center space-x-4">
-                <button id="themeToggle" class="p-2 rounded-full text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all">
-                    <i class="fas fa-moon text-lg dark:hidden"></i>
-                    <i class="fas fa-sun text-lg hidden dark:block"></i>
-                </button>
-                <a href="#contact" class="px-4 py-2 text-sm font-medium text-white bg-brand-600 hover:bg-brand-700 rounded-lg shadow-md hover:shadow-brand-500/30 transition-all hover:-translate-y-0.5">
-                    Hubungi Saya
+    <!-- Header / Navbar -->
+    <nav class="sticky top-0 z-50 glass-card transition-all duration-300 shadow-sm border-b border-slate-200/60 dark:border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Brand / Logo -->
+                <a href="#hero" class="flex items-center space-x-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center text-white font-bold text-lg shadow-md group-hover:scale-105 transition-transform overflow-hidden">
+                        <img src="Foto Aditya Rahman.jpg" alt="AR" class="w-full h-full object-cover object-center" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="hidden">AR</span>
+                    </div>
+                    <div>
+                        <span class="font-extrabold text-lg text-slate-900 dark:text-white tracking-tight">Aditya Rahman</span>
+                        <span class="block text-xs text-blue-600 dark:text-blue-400 font-medium">S.Si. Matematika</span>
+                    </div>
                 </a>
+
+                <!-- Desktop Navigation Links -->
+                <div class="hidden md:flex items-center space-x-6 text-sm font-medium">
+                    <a href="#about" class="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition">Tentang</a>
+                    <a href="#experience" class="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition">Pengalaman</a>
+                    <a href="#skills" class="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition">Keahlian</a>
+                    <a href="#data-lab" class="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition flex items-center gap-1.5 text-blue-600 dark:text-blue-400 font-semibold">
+                        <i class="fa-solid fa-square-root-variable"></i> Math Lab
+                    </a>
+                    <a href="#contact" class="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition">Kontak</a>
+                </div>
+
+                <!-- Actions Right (Theme toggle + Resume Modal Trigger) -->
+                <div class="hidden md:flex items-center space-x-3">
+                    <button id="themeToggle" class="p-2 rounded-lg text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white bg-slate-100 dark:bg-slate-800 transition" title="Toggle Theme">
+                        <i class="fa-solid fa-moon dark:hidden"></i>
+                        <i class="fa-solid fa-sun hidden dark:block text-amber-400"></i>
+                    </button>
+                    
+                    <button onclick="openCvModal()" class="px-4 py-2 text-xs font-semibold text-white bg-blue-600 hover:bg-blue-700 dark:bg-blue-600 dark:hover:bg-blue-500 rounded-lg shadow-sm transition flex items-center gap-2">
+                        <i class="fa-solid fa-file-pdf"></i> View & Print CV
+                    </button>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center space-x-2">
+                    <button id="themeToggleMobile" class="p-2 rounded-lg text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800">
+                        <i class="fa-solid fa-moon dark:hidden"></i>
+                        <i class="fa-solid fa-sun hidden dark:block text-amber-400"></i>
+                    </button>
+                    <button id="mobileMenuBtn" class="p-2 text-slate-600 dark:text-slate-300 hover:text-blue-600 focus:outline-none">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
             </div>
         </div>
-    </header>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobileMenu" class="hidden md:hidden border-t border-slate-200 dark:border-slate-800 px-4 pt-2 pb-4 space-y-2 bg-white dark:bg-slate-900">
+            <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Tentang</a>
+            <a href="#experience" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Pengalaman</a>
+            <a href="#skills" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Keahlian</a>
+            <a href="#data-lab" class="block px-3 py-2 rounded-md text-base font-medium text-blue-600 dark:text-blue-400 font-semibold hover:bg-slate-100 dark:hover:bg-slate-800">Math & Data Lab</a>
+            <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Kontak</a>
+            <button onclick="openCvModal()" class="w-full mt-2 px-4 py-2 text-center text-sm font-semibold text-white bg-blue-600 rounded-lg">
+                <i class="fa-solid fa-file-pdf mr-2"></i> View & Print CV
+            </button>
+        </div>
+    </nav>
 
     <!-- Hero Section -->
-    <section id="about" class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28 flex flex-col md:flex-row items-center justify-between gap-12">
-        <div class="flex-1 space-y-6 text-center md:text-left" data-aos="fade-right" data-aos-duration="1000">
-            <div class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-brand-100 dark:bg-brand-900/50 text-brand-700 dark:text-brand-300 border border-brand-200 dark:border-brand-800">
-                <span class="w-2 h-2 rounded-full bg-brand-500 animate-ping mr-2"></span>
-                Siap Berkolaborasi & Bekerja
-            </div>
-            
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight">
-                Halo, Saya <span class="bg-gradient-to-r from-brand-600 via-indigo-500 to-purple-600 bg-clip-text text-transparent">Aditya Rahman</span>
-            </h1>
-
-            <p class="text-xl font-medium text-slate-600 dark:text-slate-400 h-8">
-                Saya seorang <span id="typedText" class="text-brand-600 dark:text-brand-400 font-bold border-b-2 border-brand-500"></span>
-            </p>
-
-            <p class="text-base text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed">
-                Lulusan Matematika dari Universitas Negeri Yogyakarta (IPK 3.27)[cite: 1] dengan pola pikir analitis yang kuat serta keahlian pengolahan data statistik[cite: 1]. Berpengalaman dalam enumerasi statistik BPS[cite: 1], layanan pelanggan skala besar[cite: 1], dan pengolahan data menggunakan Python, SPSS, serta Excel[cite: 1].
-            </p>
-
-            <div class="flex flex-wrap items-center justify-center md:justify-start gap-4 pt-4">
-                <a href="#experience" class="px-6 py-3 rounded-xl bg-brand-600 text-white font-semibold shadow-lg shadow-brand-500/25 hover:bg-brand-700 hover:shadow-brand-500/40 transition-all hover:-translate-y-1">
-                    Lihat Pengalaman
-                </a>
-                <!-- Tautan LinkedIn Diperbarui -->
-                <a href="https://www.linkedin.com/in/aditya-rahman-23892b2a2?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" class="px-6 py-3 rounded-xl bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-200 font-semibold border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all hover:-translate-y-1 flex items-center gap-2">
-                    <i class="fab fa-linkedin text-blue-600"></i> LinkedIn
-                </a>
-            </div>
-        </div>
-
-        <!-- Profile Photo -->
-        <div class="relative" data-aos="zoom-in" data-aos-duration="1000">
-            <div class="w-64 h-64 sm:w-80 sm:h-80 rounded-full p-2 bg-gradient-to-tr from-brand-500 via-indigo-500 to-purple-500 animate-pulse-glow animate-float">
-                <img src="Foto Aditya Rahman.jpg" alt="Aditya Rahman" class="w-full h-full object-cover rounded-full border-4 border-white dark:border-slate-950 shadow-2xl">
-            </div>
-        </div>
-    </section>
-
-    <!-- Stat Highlights -->
-    <section class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div data-aos="fade-up" data-aos-delay="100" class="p-6 rounded-2xl glass border border-slate-200 dark:border-slate-800 text-center hover:scale-105 transition-transform">
-                <h3 class="text-3xl font-extrabold text-brand-600 dark:text-brand-400">3.27</h3>
-                <p class="text-sm font-medium text-slate-500 dark:text-slate-400 mt-1">IPK Matematika UNY[cite: 1]</p>
-            </div>
-            <div data-aos="fade-up" data-aos-delay="200" class="p-6 rounded-2xl glass border border-slate-200 dark:border-slate-800 text-center hover:scale-105 transition-transform">
-                <h3 class="text-3xl font-extrabold text-brand-600 dark:text-brand-400">85%</h3>
-                <p class="text-sm font-medium text-slate-500 dark:text-slate-400 mt-1">Kepuasan Pelanggan[cite: 1]</p>
-            </div>
-            <div data-aos="fade-up" data-aos-delay="300" class="p-6 rounded-2xl glass border border-slate-200 dark:border-slate-800 text-center hover:scale-105 transition-transform">
-                <h3 class="text-3xl font-extrabold text-brand-600 dark:text-brand-400">200+</h3>
-                <p class="text-sm font-medium text-slate-500 dark:text-slate-400 mt-1">Klien Mingguan[cite: 1]</p>
-            </div>
-            <div data-aos="fade-up" data-aos-delay="400" class="p-6 rounded-2xl glass border border-slate-200 dark:border-slate-800 text-center hover:scale-105 transition-transform">
-                <h3 class="text-3xl font-extrabold text-brand-600 dark:text-brand-400">20%</h3>
-                <p class="text-sm font-medium text-slate-500 dark:text-slate-400 mt-1">Efisiensi Respon[cite: 1]</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
-            <h2 class="text-3xl font-bold tracking-tight">Pengalaman Kerja</h2>
-            <p class="text-slate-500 dark:text-slate-400 mt-2">Rekam jejak profesional dalam pengolahan data, statistik, dan pelayanan.</p>
-        </div>
-
-        <div class="space-y-8">
-            <!-- Experience Item 1 -->
-            <div data-aos="fade-up" class="p-8 rounded-2xl glass border border-slate-200 dark:border-slate-800 hover:border-brand-500/50 transition-all hover:shadow-xl group">
-                <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
-                    <div>
-                        <h3 class="text-xl font-bold group-hover:text-brand-600 transition-colors">Petugas Lapangan Enumerator (PPL SE2026)[cite: 1]</h3>
-                        <p class="text-brand-600 dark:text-brand-400 font-medium">BPS (Badan Pusat Statistik) Kulon Progo[cite: 1]</p>
+    <section id="hero" class="relative py-16 md:py-24 bg-grid-pattern overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Column: Bio & Intro -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold bg-blue-100 text-blue-800 dark:bg-blue-900/60 dark:text-blue-300 border border-blue-200 dark:border-blue-800">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                        Open for Data Analysis & Operations Roles
                     </div>
-                    <span class="px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 w-fit">
-                        Juni 2026 - Agustus 2026[cite: 1]
-                    </span>
-                </div>
-                <ul class="list-disc list-inside space-y-2 text-slate-600 dark:text-slate-300 text-sm">
-                    <li>Mengidentifikasi dan memetakan batasan operasional (Wilkerstat) serta melakukan geotagging lokasi usaha[cite: 1].</li>
-                    <li>Wawancara langsung dengan responden unit usaha untuk mencatat profil ekonomi secara akurat[cite: 1].</li>
-                    <li>Memverifikasi kelengkapan dan konsistensi data sebelum diserahkan ke Pemeriksa Lapangan (PML)[cite: 1].</li>
-                </ul>
-            </div>
 
-            <!-- Experience Item 2 -->
-            <div data-aos="fade-up" class="p-8 rounded-2xl glass border border-slate-200 dark:border-slate-800 hover:border-brand-500/50 transition-all hover:shadow-xl group">
-                <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
-                    <div>
-                        <h3 class="text-xl font-bold group-hover:text-brand-600 transition-colors">Customer Service Representative[cite: 1]</h3>
-                        <p class="text-brand-600 dark:text-brand-400 font-medium">PT Vads Indonesia (Shopee Project) - Sleman[cite: 1]</p>
-                    </div>
-                    <span class="px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 w-fit">
-                        September 2024 - Mei 2026[cite: 1]
-                    </span>
-                </div>
-                <ul class="list-disc list-inside space-y-2 text-slate-600 dark:text-slate-300 text-sm">
-                    <li>Mengelola interaksi dan menyelesaikan keluhan pelanggan dengan tingkat kepuasan mencapai 85%[cite: 1].</li>
-                    <li>Melayani lebih dari 200 pelanggan setiap minggu dengan standar profesional tinggi[cite: 1].</li>
-                    <li>Meningkatkan kecepatan respon hingga 20% melalui solusi yang efektif[cite: 1].</li>
-                </ul>
-            </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight">
+                        Halo, Saya <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">Aditya Rahman</span>
+                    </h1>
 
-            <!-- Experience Item 3 -->
-            <div data-aos="fade-up" class="p-8 rounded-2xl glass border border-slate-200 dark:border-slate-800 hover:border-brand-500/50 transition-all hover:shadow-xl group">
-                <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
-                    <div>
-                        <h3 class="text-xl font-bold group-hover:text-brand-600 transition-colors">Staf Magang Administrasi Statistik[cite: 1]</h3>
-                        <p class="text-brand-600 dark:text-brand-400 font-medium">BPS Kabupaten Kulon Progo[cite: 1]</p>
-                    </div>
-                    <span class="px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 w-fit">
-                        Oktober 2023 - Desember 2023[cite: 1]
-                    </span>
-                </div>
-                <ul class="list-disc list-inside space-y-2 text-slate-600 dark:text-slate-300 text-sm">
-                    <li>Mengelola arsip data statistik dan dokumentasi operasional bulanan[cite: 1].</li>
-                    <li>Melakukan input dan verifikasi data statistik ke database resmi BPS[cite: 1].</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Education & Skills -->
-    <section id="skills" class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <!-- Skills -->
-            <div data-aos="fade-right">
-                <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
-                    <i class="fas fa-tools text-brand-600"></i> Keahlian & Software[cite: 1]
-                </h2>
-                <div class="space-y-4">
-                    <div>
-                        <div class="flex justify-between text-sm font-semibold mb-1">
-                            <span>Python & SPSS</span>
-                            <span>85%</span>
-                        </div>
-                        <div class="w-full bg-slate-200 dark:bg-slate-800 h-2.5 rounded-full overflow-hidden">
-                            <div class="bg-brand-600 h-2.5 rounded-full" style="width: 85%"></div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="flex justify-between text-sm font-semibold mb-1">
-                            <span>Microsoft Excel & Data Entry</span>
-                            <span>90%</span>
-                        </div>
-                        <div class="w-full bg-slate-200 dark:bg-slate-800 h-2.5 rounded-full overflow-hidden">
-                            <div class="bg-brand-600 h-2.5 rounded-full" style="width: 90%"></div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="flex justify-between text-sm font-semibold mb-1">
-                            <span>Geotagging & Field Enumeration</span>
-                            <span>88%</span>
-                        </div>
-                        <div class="w-full bg-slate-200 dark:bg-slate-800 h-2.5 rounded-full overflow-hidden">
-                            <div class="bg-brand-600 h-2.5 rounded-full" style="width: 88%"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Education -->
-            <div id="education" data-aos="fade-left">
-                <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
-                    <i class="fas fa-graduation-cap text-brand-600"></i> Pendidikan[cite: 1]
-                </h2>
-                <div class="p-6 rounded-2xl glass border border-slate-200 dark:border-slate-800">
-                    <h3 class="text-lg font-bold">S1 Matematika[cite: 1]</h3>
-                    <p class="text-brand-600 font-medium">Universitas Negeri Yogyakarta[cite: 1]</p>
-                    <p class="text-sm text-slate-500 mt-1">2020 - 2024 | IPK: 3.27 / 4.00[cite: 1]</p>
-                    <p class="text-sm text-slate-600 dark:text-slate-300 mt-3 leading-relaxed">
-                        Fokus penelitian pada analisis data matematika dan statistik, pengolahan numerik menggunakan SPSS, R, dan Python[cite: 1].
+                    <p class="text-xl sm:text-2xl font-medium text-slate-600 dark:text-slate-300">
+                        <span id="typing-effect" class="border-r-2 border-blue-600 pr-1">Mathematics Graduate & Data Enthusiast</span>
                     </p>
+
+                    <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-base sm:text-lg max-w-2xl">
+                        Lulusan Matematika Universitas Negeri Yogyakarta (IPK 3.27) dengan pola pikir analitis yang kuat serta berpengalaman dalam administrasi statistik, layanan pelanggan, dan enumerasi lapangan sensus ekonomi nasional BPS-Statistics Indonesia.
+                    </p>
+
+                    <!-- Contact Quick Links -->
+                    <div class="flex flex-wrap items-center gap-3 text-sm text-slate-600 dark:text-slate-300 pt-2">
+                        <div class="flex items-center gap-2 bg-white dark:bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm">
+                            <i class="fa-solid fa-location-dot text-blue-600 dark:text-blue-400"></i>
+                            <span>Kulon Progo, Yogyakarta</span>
+                        </div>
+                        <a href="mailto:aditrahman471@gmail.com" class="flex items-center gap-2 bg-white dark:bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm hover:border-blue-500 transition">
+                            <i class="fa-solid fa-envelope text-blue-600 dark:text-blue-400"></i>
+                            <span>aditrahman471@gmail.com</span>
+                        </a>
+                        <a href="https://wa.me/6288225002019" target="_blank" class="flex items-center gap-2 bg-white dark:bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm hover:border-emerald-500 transition">
+                            <i class="fa-brands fa-whatsapp text-emerald-500"></i>
+                            <span>+62 882-2500-2019</span>
+                        </a>
+                    </div>
+
+                    <!-- Hero Call to Actions & LinkedIn Direct Target -->
+                    <div class="flex flex-wrap items-center gap-4 pt-4">
+                        <a href="https://www.linkedin.com/in/aditya-rahman-23892b2a2?utm_source=share_via&utm_content=profile&utm_medium=member_android" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl shadow-lg shadow-blue-500/25 transition-all flex items-center gap-3 transform hover:-translate-y-0.5">
+                            <i class="fa-brands fa-linkedin text-xl"></i>
+                            <span>Kunjungi LinkedIn</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-xs opacity-80"></i>
+                        </a>
+
+                        <a href="#contact" class="px-6 py-3 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-800 dark:text-white border border-slate-300 dark:border-slate-700 font-semibold rounded-xl transition shadow-sm flex items-center gap-2">
+                            <i class="fa-regular fa-paper-plane text-blue-600 dark:text-blue-400"></i>
+                            <span>Kirim Pesan</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Column: Interactive Profile Card -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative w-full max-w-md">
+                        <!-- Decorative background glow -->
+                        <div class="absolute -top-4 -left-4 w-72 h-72 bg-blue-500/20 rounded-full blur-3xl"></div>
+                        <div class="absolute -bottom-4 -right-4 w-72 h-72 bg-purple-500/20 rounded-full blur-3xl"></div>
+
+                        <!-- Card Body -->
+                        <div class="relative glass-card p-6 sm:p-8 rounded-3xl shadow-2xl border border-white/40 dark:border-slate-700/60 text-center">
+                            <!-- Profile Photo with Fallback -->
+                            <div class="mx-auto w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden shadow-xl border-4 border-white dark:border-slate-800 mb-6 animate-float bg-slate-200 dark:bg-slate-700">
+                                <img src="Foto Aditya Rahman.jpg" alt="Aditya Rahman, S.Si." class="w-full h-full object-cover object-center" onerror="this.onerror=null; this.parentNode.innerHTML='<div class=\'w-full h-full bg-gradient-to-tr from-blue-600 via-indigo-500 to-purple-600 flex items-center justify-center text-white text-4xl font-extrabold\'>AR</div>';">
+                            </div>
+
+                            <h3 class="text-2xl font-bold text-slate-900 dark:text-white">Aditya Rahman, S.Si.</h3>
+                            <p class="text-sm text-blue-600 dark:text-blue-400 font-medium mb-4">Lulusan S1 Matematika UNY</p>
+
+                            <!-- Mini Skills Badges -->
+                            <div class="flex flex-wrap justify-center gap-2 mb-6">
+                                <span class="px-2.5 py-1 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-md text-xs font-semibold">Python</span>
+                                <span class="px-2.5 py-1 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-md text-xs font-semibold">SPSS</span>
+                                <span class="px-2.5 py-1 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-md text-xs font-semibold">Excel</span>
+                                <span class="px-2.5 py-1 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-md text-xs font-semibold">Geotagging</span>
+                                <span class="px-2.5 py-1 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-md text-xs font-semibold">Data Verification</span>
+                            </div>
+
+                            <!-- Social Buttons Inside Card -->
+                            <div class="pt-4 border-t border-slate-200 dark:border-slate-800 flex justify-center gap-4 text-slate-600 dark:text-slate-400">
+                                <a href="https://www.linkedin.com/in/aditya-rahman-23892b2a2?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 transition flex items-center justify-center" title="LinkedIn Profile">
+                                    <i class="fa-brands fa-linkedin-in"></i>
+                                </a>
+                                <a href="mailto:aditrahman471@gmail.com" class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-red-600 hover:text-white dark:hover:bg-red-600 transition flex items-center justify-center" title="Send Email">
+                                    <i class="fa-regular fa-envelope"></i>
+                                </a>
+                                <a href="https://wa.me/6288225002019" target="_blank" class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-emerald-600 hover:text-white dark:hover:bg-emerald-600 transition flex items-center justify-center" title="WhatsApp Chat">
+                                    <i class="fa-brands fa-whatsapp"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Highlight Metrics Counter Section -->
+    <section class="py-10 bg-blue-600 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                <div class="p-4 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20">
+                    <div class="text-3xl sm:text-4xl font-extrabold mb-1">3.27 <span class="text-sm font-normal opacity-80">/ 4.00</span></div>
+                    <div class="text-xs sm:text-sm font-medium opacity-90">IPK S1 Matematika UNY</div>
+                </div>
+
+                <div class="p-4 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20">
+                    <div class="text-3xl sm:text-4xl font-extrabold mb-1">200+</div>
+                    <div class="text-xs sm:text-sm font-medium opacity-90">Interaksi Pelanggan / Minggu</div>
+                </div>
+
+                <div class="p-4 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20">
+                    <div class="text-3xl sm:text-4xl font-extrabold mb-1">85%</div>
+                    <div class="text-xs sm:text-sm font-medium opacity-90">Tingkat Kepuasan Pelanggan (CSAT)</div>
+                </div>
+
+                <div class="p-4 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20">
+                    <div class="text-3xl sm:text-4xl font-extrabold mb-1">20%</div>
+                    <div class="text-xs sm:text-sm font-medium opacity-90">Efisiensi Waktu Respon CS</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer / Contact -->
-    <footer id="contact" class="relative z-10 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 py-12">
-        <div class="max-w-6xl mx-auto px-4 text-center space-y-4">
-            <h2 class="text-2xl font-bold">Mari Terhubung!</h2>
-            <p class="text-slate-500">Hubungi saya untuk kesempatan kerja maupun proyek kolaborasi.</p>
-            <div class="flex justify-center space-x-6 text-xl">
-                <a href="mailto:aditrahman471@gmail.com" class="text-slate-500 hover:text-brand-600 transition-colors" title="Email"><i class="fas fa-envelope"></i></a>
-                <!-- LinkedIn -->
-                <a href="https://www.linkedin.com/in/aditya-rahman-23892b2a2?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" class="text-slate-500 hover:text-brand-600 transition-colors" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    <!-- Interactive Math & Data Lab Section -->
+    <section id="data-lab" class="py-16 bg-slate-100 dark:bg-slate-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="px-3 py-1 text-xs font-semibold uppercase tracking-wider text-blue-600 bg-blue-100 dark:bg-blue-900/50 dark:text-blue-300 rounded-full">
+                    Interactive Showcase
+                </span>
+                <h2 class="text-3xl font-bold text-slate-900 dark:text-white mt-3">
+                    Mathematics & Data Analytics Lab
+                </h2>
+                <p class="text-slate-600 dark:text-slate-400 mt-2 text-sm sm:text-base">
+                    Uji coba modul simulasi analisis data & analisis regresi linear sederhana secara langsung. Fitur ini mencerminkan kompetensi logika matematika & verifikasi data statistik.
+                </p>
             </div>
-            <p class="text-xs text-slate-400 mt-6">&copy; 2026 Aditya Rahman. All Rights Reserved.</p>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                <!-- Controls & Input Panel -->
+                <div class="lg:col-span-5 bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-md border border-slate-200 dark:border-slate-700 space-y-4">
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                        <i class="fa-solid fa-calculator text-blue-600"></i>
+                        Input Sample Dataset (X, Y)
+                    </h3>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">
+                        Masukkan nilai observasi numerik dipisahkan dengan koma untuk menghitung Mean, Standar Deviasi, dan Persamaan Regresi ($Y = a + bX$).
+                    </p>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Variabel X (Misal: Jam Belajar / Operasional):</label>
+                        <input type="text" id="inputX" value="10, 20, 30, 40, 50, 60" class="w-full px-3 py-2 text-sm rounded-lg border border-slate-300 dark:border-slate-600 dark:bg-slate-900 text-slate-800 dark:text-slate-200 focus:ring-2 focus:ring-blue-500 outline-none">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Variabel Y (Misal: Skor Output / Respon):</label>
+                        <input type="text" id="inputY" value="15, 28, 42, 58, 65, 82" class="w-full px-3 py-2 text-sm rounded-lg border border-slate-300 dark:border-slate-600 dark:bg-slate-900 text-slate-800 dark:text-slate-200 focus:ring-2 focus:ring-blue-500 outline-none">
+                    </div>
+
+                    <div class="flex gap-2">
+                        <button onclick="calculateDataStats()" class="flex-1 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs sm:text-sm rounded-lg shadow transition">
+                            <i class="fa-solid fa-play mr-1"></i> Hitung Statistik
+                        </button>
+                        <button onclick="resetDataStats()" class="px-3 py-2.5 bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 font-semibold text-xs rounded-lg transition">
+                            Reset
+                        </button>
+                    </div>
+
+                    <!-- Calculated Output Results -->
+                    <div id="statsSummary" class="p-4 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 text-xs space-y-2">
+                        <div class="flex justify-between border-b pb-1 dark:border-slate-800">
+                            <span class="text-slate-500">Jumlah Sampel (n):</span>
+                            <span id="resN" class="font-bold text-slate-900 dark:text-white">6</span>
+                        </div>
+                        <div class="flex justify-between border-b pb-1 dark:border-slate-800">
+                            <span class="text-slate-500">Rata-rata X (&overline;X):</span>
+                            <span id="resMeanX" class="font-bold text-slate-900 dark:text-white">35.00</span>
+                        </div>
+                        <div class="flex justify-between border-b pb-1 dark:border-slate-800">
+                            <span class="text-slate-500">Rata-rata Y (&overline;Y):</span>
+                            <span id="resMeanY" class="font-bold text-slate-900 dark:text-white">48.33</span>
+                        </div>
+                        <div class="flex justify-between border-b pb-1 dark:border-slate-800">
+                            <span class="text-slate-500">Korelasi Pearson (r):</span>
+                            <span id="resCorr" class="font-bold text-emerald-600 dark:text-emerald-400">0.994</span>
+                        </div>
+                        <div class="flex justify-between pt-1">
+                            <span class="text-slate-500">Persamaan Regresi:</span>
+                            <span id="resEq" class="font-bold text-blue-600 dark:text-blue-400">Y = 1.34 + 1.34X</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Visualization Canvas -->
+                <div class="lg:col-span-7 bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-md border border-slate-200 dark:border-slate-700">
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-4 flex items-center justify-between">
+                        <span><i class="fa-solid fa-chart-line text-blue-600 mr-2"></i> Grafik Scatter Plot & Regresi</span>
+                        <span class="text-xs font-normal text-slate-500">Chart.js Visualizer</span>
+                    </h3>
+                    <div class="relative h-64 sm:h-80 w-full">
+                        <canvas id="regressionChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Experience Section -->
+    <section id="experience" class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="px-3 py-1 text-xs font-semibold uppercase tracking-wider text-blue-600 bg-blue-100 dark:bg-blue-900/50 dark:text-blue-300 rounded-full">
+                    Rekam Jejak Karir
+                </span>
+                <h2 class="text-3xl font-bold text-slate-900 dark:text-white mt-3">
+                    Pengalaman Kerja & Profesional
+                </h2>
+                <p class="text-slate-600 dark:text-slate-400 mt-2">
+                    Pengalaman nyata dalam pengumpulan data statistik nasional, pemetaan wilayah, dan peningkatan kepuasan pelanggan.
+                </p>
+            </div>
+
+            <div class="relative border-l-2 border-blue-200 dark:border-slate-700 ml-4 md:ml-32 space-y-12">
+
+                <!-- Timeline Item 1: Field Enumerator BPS -->
+                <div class="relative pl-8 group">
+                    <!-- Date badge for desktop on left -->
+                    <div class="hidden md:block absolute -left-36 top-1 text-right w-28 text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider">
+                        Juni 2026 - Agustus 2026
+                    </div>
+
+                    <!-- Bullet dot -->
+                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-blue-600 border-4 border-white dark:border-slate-900 group-hover:scale-125 transition-transform"></div>
+
+                    <!-- Content Card -->
+                    <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 hover:shadow-md transition">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                            <span class="md:hidden text-xs font-bold text-blue-600 dark:text-blue-400 uppercase">Juni 2026 - Agustus 2026</span>
+                            <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800 dark:bg-emerald-900/50 dark:text-emerald-300">
+                                Sensus Ekonomi SE2026
+                            </span>
+                        </div>
+
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white">Field Enumerator (PPL SE2026)</h3>
+                        <p class="text-sm font-semibold text-blue-600 dark:text-blue-400 mb-3">BPS (BPS-Statistics Indonesia) &bull; Kulon Progo</p>
+
+                        <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-300 list-disc list-inside">
+                            <li>Mengidentifikasi dan memetakan batas wilayah kerja operasional (Wilkerstat) serta melakukan geotagging lokasi unit usaha lokal menggunakan aplikasi mobile lapangan BPS.</li>
+                            <li>Melakukan wawancara tatap muka secara langsung dengan responden pelaku usaha untuk mencatat profil ekonomi dan karakteristik bisnis secara akurat.</li>
+                            <li>Memverifikasi kelengkapan dan konsistensi data sebelum menyerahkan dokumen pencacahan yang bersih kepada Pemeriksa Lapangan (PML).</li>
+                        </ul>
+
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            <span class="text-xs bg-slate-100 dark:bg-slate-700 px-2.5 py-1 rounded-md text-slate-600 dark:text-slate-300">Geotagging</span>
+                            <span class="text-xs bg-slate-100 dark:bg-slate-700 px-2.5 py-1 rounded-md text-slate-600 dark:text-slate-300">Wilkerstat</span>
+                            <span class="text-xs bg-slate-100 dark:bg-slate-700 px-2.5 py-1 rounded-md text-slate-600 dark:text-slate-300">Field Enumeration</span>
+                            <span class="text-xs bg-slate-100 dark:bg-slate-700 px-2.5 py-1 rounded-md text-slate-600 dark:text-slate-300">BPS Mobile App</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 2: Customer Service Representative Vads Indonesia -->
+                <div class="relative pl-8 group">
+                    <div class="hidden md:block absolute -left-36 top-1 text-right w-28 text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider">
+                        Sept 2024 - Mei 2026
+                    </div>
+
+                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-blue-600 border-4 border-white dark:border-slate-900 group-hover:scale-125 transition-transform"></div>
+
+                    <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 hover:shadow-md transition">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                            <span class="md:hidden text-xs font-bold text-blue-600 dark:text-blue-400 uppercase">Sept 2024 - Mei 2026</span>
+                            <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-orange-100 text-orange-800 dark:bg-orange-900/50 dark:text-orange-300">
+                                Shopee Project
+                            </span>
+                        </div>
+
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white">Customer Service Representative</h3>
+                        <p class="text-sm font-semibold text-blue-600 dark:text-blue-400 mb-3">Vads Indonesia &bull; Sleman</p>
+
+                        <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-300 list-disc list-inside">
+                            <li>Mengelola interaksi pelanggan untuk menyelesaikan pertanyaan dan keluhan, mencapai tingkat kepuasan pelanggan (CSAT) sebesar <strong>85%</strong>.</li>
+                            <li>Menyampaikan rincian produk dan layanan secara presisi kepada lebih dari <strong>200 pelanggan setiap minggu</strong> dengan tetap menjaga standar profesionalitas.</li>
+                            <li>Mengurangi rata-rata waktu respon sebesar <strong>20%</strong> dengan mengidentifikasi solusi yang cepat, tepat, dan efektif.</li>
+                        </ul>
+
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            <span class="text-xs bg-slate-100 dark:bg-slate-700 px-2.5 py-1 rounded-md text-slate-600 dark:text-slate-300">Customer Relations</span>
+                            <span class="text-xs bg-slate-100 dark:bg-slate-700 px-2.5 py-1 rounded-md text-slate-600 dark:text-slate-300">Problem Solving</span>
+                            <span class="text-xs bg-slate-100 dark:bg-slate-700 px-2.5 py-1 rounded-md text-slate-600 dark:text-slate-300">Communication</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 3: Administrative Staff Intern BPS -->
+                <div class="relative pl-8 group">
+                    <div class="hidden md:block absolute -left-36 top-1 text-right w-28 text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider">
+                        Okt 2023 - Des 2023
+                    </div>
+
+                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-blue-600 border-4 border-white dark:border-slate-900 group-hover:scale-125 transition-transform"></div>
+
+                    <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 hover:shadow-md transition">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                            <span class="md:hidden text-xs font-bold text-blue-600 dark:text-blue-400 uppercase">Okt 2023 - Des 2023</span>
+                            <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-purple-100 text-purple-800 dark:bg-purple-900/50 dark:text-purple-300">
+                                Magang Administrasi
+                            </span>
+                        </div>
+
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white">Administrative Staff Intern</h3>
+                        <p class="text-sm font-semibold text-blue-600 dark:text-blue-400 mb-3">BPS-Statistics Kabupaten Kulon Progo</p>
+
+                        <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-300 list-disc list-inside">
+                            <li>Mengelola dan memelihara arsip data statistik serta dokumentasi operasional bulanan internal dengan tingkat presisi tinggi.</li>
+                            <li>Menginput dan memverifikasi rekaman data statistik ke dalam basis data resmi untuk menjamin akurasi data tingkat tinggi.</li>
+                        </ul>
+
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            <span class="text-xs bg-slate-100 dark:bg-slate-700 px-2.5 py-1 rounded-md text-slate-600 dark:text-slate-300">Statistical Archiving</span>
+                            <span class="text-xs bg-slate-100 dark:bg-slate-700 px-2.5 py-1 rounded-md text-slate-600 dark:text-slate-300">Data Entry</span>
+                            <span class="text-xs bg-slate-100 dark:bg-slate-700 px-2.5 py-1 rounded-md text-slate-600 dark:text-slate-300">Database Verification</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Education & Mentorship Section -->
+    <section class="py-16 bg-slate-100 dark:bg-slate-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                
+                <!-- Education Card -->
+                <div class="bg-white dark:bg-slate-800 p-8 rounded-3xl shadow-sm border border-slate-200 dark:border-slate-700 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-12 h-12 rounded-2xl bg-blue-100 dark:bg-blue-900/60 text-blue-600 dark:text-blue-400 flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase">Pendidikan Formal</span>
+                                <h3 class="text-2xl font-bold text-slate-900 dark:text-white">Sarjana Sains (S1) - Matematika</h3>
+                            </div>
+                        </div>
+
+                        <p class="text-base font-semibold text-slate-800 dark:text-slate-200 mb-1">Universitas Negeri Yogyakarta (UNY)</p>
+                        <p class="text-xs text-slate-500 mb-4">September 2020 - Juli 2024 &bull; Sleman, DIY</p>
+
+                        <div class="inline-block bg-blue-50 dark:bg-blue-950/50 px-4 py-2 rounded-xl border border-blue-200 dark:border-blue-800 mb-6">
+                            <span class="text-xs text-slate-500 dark:text-slate-400 block">Indeks Prestasi Kumulatif (IPK)</span>
+                            <span class="text-2xl font-extrabold text-blue-600 dark:text-blue-400">3.27 <span class="text-sm font-medium text-slate-500">/ 4.00</span></span>
+                        </div>
+
+                        <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-300 list-disc list-inside">
+                            <li>Menganalisis data matematika dan statistik untuk penelitian akademik dan proyek tingkat lanjut.</li>
+                            <li>Mengolah dan memverifikasi data numerik menggunakan perangkat lunak statistik termasuk SPSS, R, dan Python.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Organizational & Mentorship Card -->
+                <div class="bg-white dark:bg-slate-800 p-8 rounded-3xl shadow-sm border border-slate-200 dark:border-slate-700 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-12 h-12 rounded-2xl bg-purple-100 dark:bg-purple-900/60 text-purple-600 dark:text-purple-400 flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-users"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs font-bold text-purple-600 dark:text-purple-400 uppercase">Pengalaman Organisasi</span>
+                                <h3 class="text-2xl font-bold text-slate-900 dark:text-white">Student Mentor</h3>
+                            </div>
+                        </div>
+
+                        <p class="text-base font-semibold text-slate-800 dark:text-slate-200 mb-1">Program Studi Laboratorium Matematika UNY</p>
+                        <p class="text-xs text-slate-500 mb-6">Juli 2022 - September 2022 &bull; Sleman, DIY</p>
+
+                        <div class="space-y-4 text-sm text-slate-600 dark:text-slate-300">
+                            <p>
+                                Membimbing dan memfasilitasi mahasiswa baru terkait jadwal orientasi akademik serta tata tertib pelaksanaan praktikum laboratorium matematika.
+                            </p>
+                            <div class="p-4 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700">
+                                <span class="font-semibold text-slate-800 dark:text-slate-200 block mb-1">Fokus Mentorship:</span>
+                                <div class="flex flex-wrap gap-2 text-xs">
+                                    <span class="px-2.5 py-1 bg-white dark:bg-slate-800 rounded border">Kepemimpinan</span>
+                                    <span class="px-2.5 py-1 bg-white dark:bg-slate-800 rounded border">Komunikasi Publik</span>
+                                    <span class="px-2.5 py-1 bg-white dark:bg-slate-800 rounded border">Orientasi Laboratorium</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Skills Section -->
+    <section id="skills" class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="px-3 py-1 text-xs font-semibold uppercase tracking-wider text-blue-600 bg-blue-100 dark:bg-blue-900/50 dark:text-blue-300 rounded-full">
+                    Matriks Kompetensi
+                </span>
+                <h2 class="text-3xl font-bold text-slate-900 dark:text-white mt-3">
+                    Keahlian & Perangkat Lunak
+                </h2>
+                <p class="text-slate-600 dark:text-slate-400 mt-2">
+                    Kombinasi analisis teknis, penguasaan software statistik, dan komunikasi antarpribadi.
+                </p>
+
+                <!-- Filter Buttons -->
+                <div class="flex flex-wrap justify-center gap-2 mt-8">
+                    <button onclick="filterSkills('all')" class="skill-btn active px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition bg-blue-600 text-white">Semua</button>
+                    <button onclick="filterSkills('hard')" class="skill-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-300">Hard Skills</button>
+                    <button onclick="filterSkills('tools')" class="skill-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-300">Software & Tools</button>
+                    <button onclick="filterSkills('soft')" class="skill-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-300">Soft Skills</button>
+                    <button onclick="filterSkills('lang')" class="skill-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-300">Bahasa</button>
+                </div>
+            </div>
+
+            <!-- Skills Grid -->
+            <div id="skillsContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <!-- Hard Skills -->
+                <div class="skill-card hard bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
+                    <div class="w-10 h-10 rounded-xl bg-blue-100 dark:bg-blue-900/60 text-blue-600 flex items-center justify-center text-lg mb-4">
+                        <i class="fa-solid fa-chart-pie"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-900 dark:text-white mb-2">Data Analysis & Verification</h3>
+                    <p class="text-xs text-slate-500 mb-4">Pengolahan data numerik, pengujian hipotesis, dan pembersihan basis data.</p>
+                    <div class="w-full bg-slate-200 dark:bg-slate-700 h-2 rounded-full overflow-hidden">
+                        <div class="bg-blue-600 h-full w-[90%]"></div>
+                    </div>
+                </div>
+
+                <div class="skill-card hard bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
+                    <div class="w-10 h-10 rounded-xl bg-blue-100 dark:bg-blue-900/60 text-blue-600 flex items-center justify-center text-lg mb-4">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-900 dark:text-white mb-2">Field Enumeration & Geotagging</h3>
+                    <p class="text-xs text-slate-500 mb-4">Pencacahan usaha lapangan, pemetaan wilayah Wilkerstat, dan geotagging BPS.</p>
+                    <div class="w-full bg-slate-200 dark:bg-slate-700 h-2 rounded-full overflow-hidden">
+                        <div class="bg-blue-600 h-full w-[88%]"></div>
+                    </div>
+                </div>
+
+                <!-- Tools & Software -->
+                <div class="skill-card tools bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-900/60 text-emerald-600 flex items-center justify-center text-lg mb-4">
+                        <i class="fa-brands fa-python"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-900 dark:text-white mb-2">Python & MATLAB</h3>
+                    <p class="text-xs text-slate-500 mb-4">Skrip perhitungan komputasi, analisis matriks, dan skrip manipulasi data.</p>
+                    <div class="w-full bg-slate-200 dark:bg-slate-700 h-2 rounded-full overflow-hidden">
+                        <div class="bg-emerald-500 h-full w-[82%]"></div>
+                    </div>
+                </div>
+
+                <div class="skill-card tools bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-900/60 text-emerald-600 flex items-center justify-center text-lg mb-4">
+                        <i class="fa-solid fa-table"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-900 dark:text-white mb-2">SPSS, R & Microsoft Excel</h3>
+                    <p class="text-xs text-slate-500 mb-4">Pengolahan statistik inferensial, rumus kompleks, dan pembuatan laporan numerik.</p>
+                    <div class="w-full bg-slate-200 dark:bg-slate-700 h-2 rounded-full overflow-hidden">
+                        <div class="bg-emerald-500 h-full w-[92%]"></div>
+                    </div>
+                </div>
+
+                <div class="skill-card tools bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-900/60 text-emerald-600 flex items-center justify-center text-lg mb-4">
+                        <i class="fa-solid fa-palette"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-900 dark:text-white mb-2">Canva & Figma</h3>
+                    <p class="text-xs text-slate-500 mb-4">Visualisasi presentasi data, laporan infografis, dan tata letak dokumen.</p>
+                    <div class="w-full bg-slate-200 dark:bg-slate-700 h-2 rounded-full overflow-hidden">
+                        <div class="bg-emerald-500 h-full w-[78%]"></div>
+                    </div>
+                </div>
+
+                <!-- Soft Skills -->
+                <div class="skill-card soft bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
+                    <div class="w-10 h-10 rounded-xl bg-purple-100 dark:bg-purple-900/60 text-purple-600 flex items-center justify-center text-lg mb-4">
+                        <i class="fa-solid fa-headset"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-900 dark:text-white mb-2">Customer Relations & CSAT</h3>
+                    <p class="text-xs text-slate-500 mb-4">Penanganan keluhan pelanggan, penyampaian solusi efisien, dan kepuasan publik.</p>
+                    <div class="w-full bg-slate-200 dark:bg-slate-700 h-2 rounded-full overflow-hidden">
+                        <div class="bg-purple-600 h-full w-[88%]"></div>
+                    </div>
+                </div>
+
+                <div class="skill-card soft bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
+                    <div class="w-10 h-10 rounded-xl bg-purple-100 dark:bg-purple-900/60 text-purple-600 flex items-center justify-center text-lg mb-4">
+                        <i class="fa-solid fa-brain"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-900 dark:text-white mb-2">Critical Thinking & Problem Solving</h3>
+                    <p class="text-xs text-slate-500 mb-4">Kemampuan analisis masalah secara sistematis berbasis logika matematika.</p>
+                    <div class="w-full bg-slate-200 dark:bg-slate-700 h-2 rounded-full overflow-hidden">
+                        <div class="bg-purple-600 h-full w-[90%]"></div>
+                    </div>
+                </div>
+
+                <!-- Languages -->
+                <div class="skill-card lang bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
+                    <div class="w-10 h-10 rounded-xl bg-orange-100 dark:bg-orange-900/60 text-orange-600 flex items-center justify-center text-lg mb-4">
+                        <i class="fa-solid fa-language"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-900 dark:text-white mb-2">Bahasa Indonesia</h3>
+                    <p class="text-xs text-slate-500 mb-4">Native / Proficient (Bahasa Utama Operasional & Formal).</p>
+                    <div class="w-full bg-slate-200 dark:bg-slate-700 h-2 rounded-full overflow-hidden">
+                        <div class="bg-orange-500 h-full w-[100%]"></div>
+                    </div>
+                </div>
+
+                <div class="skill-card lang bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
+                    <div class="w-10 h-10 rounded-xl bg-orange-100 dark:bg-orange-900/60 text-orange-600 flex items-center justify-center text-lg mb-4">
+                        <i class="fa-solid fa-earth-americas"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-900 dark:text-white mb-2">English Language</h3>
+                    <p class="text-xs text-slate-500 mb-4">Advanced Level (Komunikasi Lisan & Penulisan Dokumen).</p>
+                    <div class="w-full bg-slate-200 dark:bg-slate-700 h-2 rounded-full overflow-hidden">
+                        <div class="bg-orange-500 h-full w-[85%]"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-slate-100 dark:bg-slate-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left: Direct Contact Information -->
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="px-3 py-1 text-xs font-semibold uppercase tracking-wider text-blue-600 bg-blue-100 dark:bg-blue-900/50 dark:text-blue-300 rounded-full">
+                        Hubungi Saya
+                    </span>
+                    <h2 class="text-3xl font-bold text-slate-900 dark:text-white">
+                        Mari Berkolaborasi & Terhubung
+                    </h2>
+                    <p class="text-slate-600 dark:text-slate-400">
+                        Saya terbuka untuk peluang karir di bidang Data Analysis, Statistics, Research, dan Operations. Silakan hubungi saya melalui saluran di bawah ini.
+                    </p>
+
+                    <div class="space-y-4 pt-2">
+                        <!-- LinkedIn Direct Link Box -->
+                        <a href="https://www.linkedin.com/in/aditya-rahman-23892b2a2?utm_source=share_via&utm_content=profile&utm_medium=member_android" 
+                           target="_blank" 
+                           class="flex items-center gap-4 p-4 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-blue-500 transition shadow-sm group">
+                            <div class="w-12 h-12 rounded-xl bg-blue-100 dark:bg-blue-900/60 text-blue-600 dark:text-blue-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-slate-500 dark:text-slate-400 font-medium">LinkedIn Profile Resmi</div>
+                                <div class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-blue-600">linkedin.com/in/aditya-rahman</div>
+                            </div>
+                        </a>
+
+                        <!-- Email -->
+                        <a href="mailto:aditrahman471@gmail.com" class="flex items-center gap-4 p-4 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-blue-500 transition shadow-sm group">
+                            <div class="w-12 h-12 rounded-xl bg-red-100 dark:bg-red-900/60 text-red-600 dark:text-red-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                                <i class="fa-regular fa-envelope"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-slate-500 dark:text-slate-400 font-medium">Email Pribadi</div>
+                                <div class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-blue-600">aditrahman471@gmail.com</div>
+                            </div>
+                        </a>
+
+                        <!-- WhatsApp / Telepon -->
+                        <a href="https://wa.me/6288225002019" target="_blank" class="flex items-center gap-4 p-4 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-emerald-500 transition shadow-sm group">
+                            <div class="w-12 h-12 rounded-xl bg-emerald-100 dark:bg-emerald-900/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-slate-500 dark:text-slate-400 font-medium">Telepon / WhatsApp</div>
+                                <div class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-emerald-600">+62 882-2500-2019</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right: Interactive Message Form -->
+                <div class="lg:col-span-7 bg-white dark:bg-slate-800 p-8 rounded-3xl shadow-lg border border-slate-200 dark:border-slate-700">
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-6">Kirim Pesan Langsung</h3>
+                    <form id="contactForm" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Nama Lengkap</label>
+                                <input type="text" required placeholder="Nama Anda" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-600 dark:bg-slate-900 text-sm outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Email / Kontak</label>
+                                <input type="email" required placeholder="email@perusahaan.com" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-600 dark:bg-slate-900 text-sm outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Subjek</label>
+                            <input type="text" required placeholder="Peluang Karir / Pertanyaan" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-600 dark:bg-slate-900 text-sm outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Pesan</label>
+                            <textarea rows="4" required placeholder="Tuliskan pesan atau penawaran kerja Anda di sini..." class="w-full px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-600 dark:bg-slate-900 text-sm outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl transition shadow-md flex items-center justify-center gap-2">
+                            <i class="fa-regular fa-paper-plane"></i> Kirim Pesan Sekarang
+                        </button>
+                    </form>
+                    <div id="formSuccessToast" class="hidden mt-4 p-4 bg-emerald-100 text-emerald-800 dark:bg-emerald-900/60 dark:text-emerald-200 rounded-xl text-xs font-medium text-center">
+                        <i class="fa-solid fa-circle-check mr-2"></i> Terima kasih! Pesan Anda simulasi terkirim. Anda juga dapat menghubungi via WhatsApp atau Email secara langsung.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-slate-900 text-slate-400 border-t border-slate-800 text-xs text-center">
+        <div class="max-w-7xl mx-auto px-4">
+            <p>&copy; 2026 Aditya Rahman, S.Si. All rights reserved. Interactive Portfolio & Digital CV.</p>
+            <p class="mt-2 text-slate-500">Universitas Negeri Yogyakarta &bull; BPS-Statistics Indonesia &bull; Vads Indonesia</p>
         </div>
     </footer>
 
-    <!-- AOS JS Library -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- CV Preview Pop-up Modal -->
+    <div id="cvModal" class="fixed inset-0 z-50 hidden bg-slate-900/80 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+        <div class="bg-white dark:bg-slate-900 w-full max-w-4xl rounded-3xl shadow-2xl border border-slate-200 dark:border-slate-700 my-8 overflow-hidden">
+            <!-- Modal Header -->
+            <div class="p-4 sm:p-6 bg-slate-100 dark:bg-slate-800 flex justify-between items-center border-b border-slate-200 dark:border-slate-700">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-file-pdf text-red-500 text-xl"></i>
+                    <h3 class="font-bold text-slate-900 dark:text-white text-base sm:text-lg">Pratinjau Curriculum Vitae - Aditya Rahman</h3>
+                </div>
+                <div class="flex items-center gap-2">
+                    <button onclick="printCv()" class="px-3 py-1.5 bg-blue-600 text-white text-xs font-semibold rounded-lg hover:bg-blue-700 transition flex items-center gap-1.5">
+                        <i class="fa-solid fa-print"></i> Print / Download PDF
+                    </button>
+                    <button onclick="closeCvModal()" class="p-2 text-slate-500 hover:text-slate-800 dark:hover:text-white text-lg">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Modal Content (Formatted Printable Document) -->
+            <div id="printableCvArea" class="p-6 sm:p-10 max-h-[75vh] overflow-y-auto text-slate-800 dark:text-slate-200 text-sm space-y-6">
+                <!-- CV Top Header -->
+                <div class="border-b-2 border-slate-800 dark:border-slate-200 pb-4">
+                    <h1 class="text-3xl font-extrabold text-slate-900 dark:text-white uppercase tracking-tight">ADITYA RAHMAN</h1>
+                    <div class="text-xs text-slate-600 dark:text-slate-400 mt-1 flex flex-wrap gap-4">
+                        <span><i class="fa-solid fa-phone mr-1"></i> +62 882-2500-2019</span>
+                        <span><i class="fa-solid fa-envelope mr-1"></i> aditrahman471@gmail.com</span>
+                        <span><i class="fa-brands fa-linkedin mr-1"></i> linkedin.com/in/aditya-rahman</span>
+                        <span><i class="fa-solid fa-location-dot mr-1"></i> Kulon Progo, Yogyakarta</span>
+                    </div>
+                </div>
+
+                <!-- Professional Summary -->
+                <div>
+                    <h2 class="font-bold text-xs uppercase tracking-wider text-blue-600 dark:text-blue-400 border-b pb-1 mb-2">Ringkasan Profil</h2>
+                    <p class="text-xs leading-relaxed text-slate-700 dark:text-slate-300">
+                        Lulusan Matematika Universitas Negeri Yogyakarta (IPK 3.27) dengan pola pikir analitis yang kuat dan keterampilan pengolahan data. Berpengalaman dalam administrasi statistik, hubungan pelanggan, dan pencacahan lapangan untuk sensus ekonomi nasional utama. Mahir menggunakan alat analisis termasuk Python, SPSS, dan Excel, dengan kemampuan terbukti dalam pengumpulan data, verifikasi, dan pemecahan masalah kritis.
+                    </p>
+                </div>
+
+                <!-- Work Experience -->
+                <div>
+                    <h2 class="font-bold text-xs uppercase tracking-wider text-blue-600 dark:text-blue-400 border-b pb-1 mb-3">Pengalaman Kerja</h2>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between items-baseline">
+                                <h3 class="font-bold text-sm text-slate-900 dark:text-white">Field Enumerator (PPL SE2026) - BPS (BPS-Statistics Indonesia)</h3>
+                                <span class="text-xs text-slate-500 font-semibold">Juni 2026 - Agustus 2026 | Kulon Progo</span>
+                            </div>
+                            <ul class="list-disc list-inside text-xs text-slate-700 dark:text-slate-300 space-y-1 mt-1">
+                                <li>Mengidentifikasi dan memetakan batas wilayah kerja operasional (Wilkerstat) serta melakukan geotagging lokasi unit usaha menggunakan aplikasi lapangan mobile BPS.</li>
+                                <li>Melakukan wawancara tatap muka langsung dengan responden usaha untuk mencatat profil ekonomi dan karakteristik bisnis secara akurat.</li>
+                                <li>Memverifikasi kelengkapan dan konsistensi data sebelum menyerahkan rekam pencacahan bersih kepada Pemeriksa Lapangan (PML).</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between items-baseline">
+                                <h3 class="font-bold text-sm text-slate-900 dark:text-white">Customer Service Representative - Vads Indonesia (Shopee Project)</h3>
+                                <span class="text-xs text-slate-500 font-semibold">September 2024 - Mei 2026 | Sleman</span>
+                            </div>
+                            <ul class="list-disc list-inside text-xs text-slate-700 dark:text-slate-300 space-y-1 mt-1">
+                                <li>Mengelola interaksi pelanggan untuk menyelesaikan pertanyaan dan keluhan, mencapai tingkat kepuasan 85%.</li>
+                                <li>Menyampaikan rincian produk dan layanan secara presisi kepada lebih dari 200 pelanggan setiap minggu secara profesional.</li>
+                                <li>Mengurangi rata-rata waktu respon sebesar 20% dengan mengidentifikasi solusi yang cepat dan efektif.</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between items-baseline">
+                                <h3 class="font-bold text-sm text-slate-900 dark:text-white">Administrative Staff Intern - BPS-Statistics Kulon Progo Regency</h3>
+                                <span class="text-xs text-slate-500 font-semibold">Oktober 2023 - Desember 2023 | Kulon Progo</span>
+                            </div>
+                            <ul class="list-disc list-inside text-xs text-slate-700 dark:text-slate-300 space-y-1 mt-1">
+                                <li>Mengelola dan memelihara arsip data statistik serta dokumentasi operasional bulanan internal dengan presisi tinggi.</li>
+                                <li>Menginput dan memverifikasi data statistik ke dalam basis data resmi untuk menjamin akurasi data.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Education -->
+                <div>
+                    <h2 class="font-bold text-xs uppercase tracking-wider text-blue-600 dark:text-blue-400 border-b pb-1 mb-2">Pendidikan</h2>
+                    <div class="flex justify-between items-baseline">
+                        <div>
+                            <h3 class="font-bold text-sm text-slate-900 dark:text-white">Sarjana Sains (S1) Matematika - Universitas Negeri Yogyakarta</h3>
+                            <p class="text-xs text-slate-600 dark:text-slate-400">IPK: 3.27 / 4.00</p>
+                        </div>
+                        <span class="text-xs text-slate-500 font-semibold">September 2020 - Juli 2024 | Sleman</span>
+                    </div>
+                    <ul class="list-disc list-inside text-xs text-slate-700 dark:text-slate-300 space-y-1 mt-1">
+                        <li>Menganalisis data matematika dan statistik untuk penelitian akademik dan proyek tingkat lanjut.</li>
+                        <li>Mengolah dan memverifikasi data numerik menggunakan alat statistik termasuk SPSS, R, dan Python.</li>
+                    </ul>
+                </div>
+
+                <!-- Organizational -->
+                <div>
+                    <h2 class="font-bold text-xs uppercase tracking-wider text-blue-600 dark:text-blue-400 border-b pb-1 mb-2">Pengalaman Organisasi</h2>
+                    <div class="flex justify-between items-baseline">
+                        <h3 class="font-bold text-sm text-slate-900 dark:text-white">Student Mentor - Program Studi Laboratorium Matematika</h3>
+                        <span class="text-xs text-slate-500 font-semibold">Juli 2022 - September 2022 | Sleman</span>
+                    </div>
+                    <p class="text-xs text-slate-700 dark:text-slate-300 mt-1">
+                        Membimbing mahasiswa baru mengenai jadwal orientasi akademik dan pedoman praktikum laboratorium.
+                    </p>
+                </div>
+
+                <!-- Skills -->
+                <div>
+                    <h2 class="font-bold text-xs uppercase tracking-wider text-blue-600 dark:text-blue-400 border-b pb-1 mb-2">Keahlian & Bahasa</h2>
+                    <div class="grid grid-cols-2 gap-4 text-xs">
+                        <div>
+                            <p><strong>Hard Skills:</strong> Data Analysis, Statistical Data Entry, Field Enumeration, Geotagging, Data Verification</p>
+                            <p class="mt-1"><strong>Software & Tools:</strong> Python, Microsoft Excel, SPSS, MATLAB, Canva, Figma</p>
+                        </div>
+                        <div>
+                            <p><strong>Soft Skills:</strong> Critical Thinking, Teamwork, Multitasking, Customer Service, Accountability, Communication</p>
+                            <p class="mt-1"><strong>Bahasa:</strong> Indonesia (Native/Proficient), English (Advanced)</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Main JavaScript Application Logic -->
     <script>
-        // Initialize AOS Animation
-        AOS.init({
-            duration: 800,
-            once: true,
-            easing: 'ease-in-out'
-        });
+        // Theme Toggle Functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const themeToggleMobile = document.getElementById('themeToggleMobile');
 
-        // Theme Toggle
-        const themeToggleBtn = document.getElementById('themeToggle');
-        themeToggleBtn.addEventListener('click', () => {
+        function toggleDarkMode() {
             document.documentElement.classList.toggle('dark');
-        });
-
-        // Typing Effect JS
-        const typedWords = ["Data Analyst", "Mathematics Graduate", "Statistical Enumerator"];
-        let wordIndex = 0, charIndex = 0, isDeleting = false;
-        const typedTextElement = document.getElementById("typedText");
-
-        function typeEffect() {
-            const currentWord = typedWords[wordIndex];
-            if (isDeleting) {
-                typedTextElement.textContent = currentWord.substring(0, charIndex - 1);
-                charIndex--;
-            } else {
-                typedTextElement.textContent = currentWord.substring(0, charIndex + 1);
-                charIndex++;
-            }
-
-            if (!isDeleting && charIndex === currentWord.length) {
-                isDeleting = true;
-                setTimeout(typeEffect, 1500);
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                wordIndex = (wordIndex + 1) % typedWords.length;
-                setTimeout(typeEffect, 500);
-            } else {
-                setTimeout(typeEffect, isDeleting ? 50 : 100);
-            }
-        }
-        typeEffect();
-
-        // Canvas Particles Animation
-        const canvas = document.getElementById('particleCanvas');
-        const ctx = canvas.getContext('2d');
-        let particles = [];
-
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-        window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
-
-        class Particle {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 2 + 1;
-                this.speedX = Math.random() * 1 - 0.5;
-                this.speedY = Math.random() * 1 - 0.5;
-            }
-            update() {
-                this.x += this.speedX;
-                this.y += this.speedY;
-                if (this.x > canvas.width) this.x = 0;
-                if (this.x < 0) this.x = canvas.width;
-                if (this.y > canvas.height) this.y = 0;
-                if (this.y < 0) this.y = canvas.height;
-            }
-            draw() {
-                ctx.fillStyle = 'rgba(2, 132, 199, 0.3)';
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
-            }
         }
 
-        function initParticles() {
-            particles = [];
-            for (let i = 0; i < 40; i++) {
-                particles.push(new Particle());
-            }
-        }
-        initParticles();
+        if (themeToggle) themeToggle.addEventListener('click', toggleDarkMode);
+        if (themeToggleMobile) themeToggleMobile.addEventListener('click', toggleDarkMode);
 
-        function animateParticles() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            particles.forEach(p => {
-                p.update();
-                p.draw();
+        // Mobile Navigation Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
             });
-            requestAnimationFrame(animateParticles);
         }
-        animateParticles();
+
+        // Typing Effect in Hero Section
+        const phrases = [
+            "Sarjana Sains Matematika (S.Si.)",
+            "Data Analyst & Statistician",
+            "Field Enumerator SE2026 (BPS)",
+            "Customer Relations Specialist"
+        ];
+        let phraseIdx = 0;
+        let charIdx = 0;
+        let isDeleting = false;
+        const typingElement = document.getElementById('typing-effect');
+
+        function typeLoop() {
+            if (!typingElement) return;
+            const currentPhrase = phrases[phraseIdx];
+            
+            if (isDeleting) {
+                typingElement.textContent = currentPhrase.substring(0, charIdx - 1);
+                charIdx--;
+            } else {
+                typingElement.textContent = currentPhrase.substring(0, charIdx + 1);
+                charIdx++;
+            }
+
+            let typeSpeed = isDeleting ? 40 : 80;
+
+            if (!isDeleting && charIdx === currentPhrase.length) {
+                typeSpeed = 2000; // Pause at full word
+                isDeleting = true;
+            } else if (isDeleting && charIdx === 0) {
+                isDeleting = false;
+                phraseIdx = (phraseIdx + 1) % phrases.length;
+                typeSpeed = 400;
+            }
+
+            setTimeout(typeLoop, typeSpeed);
+        }
+
+        // Skills Matrix Filter
+        function filterSkills(category) {
+            const cards = document.querySelectorAll('.skill-card');
+            const btns = document.querySelectorAll('.skill-btn');
+
+            btns.forEach(btn => {
+                btn.classList.remove('bg-blue-600', 'text-white', 'active');
+                btn.classList.add('bg-slate-200', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
+            });
+
+            event.target.classList.remove('bg-slate-200', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
+            event.target.classList.add('bg-blue-600', 'text-white', 'active');
+
+            cards.forEach(card => {
+                if (category === 'all' || card.classList.contains(category)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Chart.js Math & Data Lab Logic
+        let myChart = null;
+
+        function calculateDataStats() {
+            const rawX = document.getElementById('inputX').value.split(',').map(n => parseFloat(n.trim())).filter(n => !isNaN(n));
+            const rawY = document.getElementById('inputY').value.split(',').map(n => parseFloat(n.trim())).filter(n => !isNaN(n));
+
+            const n = Math.min(rawX.length, rawY.length);
+            if (n < 2) {
+                alert('Silakan masukkan minimal 2 pasang angka numerik yang valid!');
+                return;
+            }
+
+            const x = rawX.slice(0, n);
+            const y = rawY.slice(0, n);
+
+            const sumX = x.reduce((a, b) => a + b, 0);
+            const sumY = y.reduce((a, b) => a + b, 0);
+            const meanX = sumX / n;
+            const meanY = sumY / n;
+
+            let num = 0, denX = 0, denY = 0;
+            for (let i = 0; i < n; i++) {
+                const dx = x[i] - meanX;
+                const dy = y[i] - meanY;
+                num += dx * dy;
+                denX += dx * dx;
+                denY += dy * dy;
+            }
+
+            const b = denX !== 0 ? num / denX : 0;
+            const a = meanY - (b * meanX);
+            const r = (denX > 0 && denY > 0) ? num / (Math.sqrt(denX) * Math.sqrt(denY)) : 0;
+
+            // Update UI Summary
+            document.getElementById('resN').textContent = n;
+            document.getElementById('resMeanX').textContent = meanX.toFixed(2);
+            document.getElementById('resMeanY').textContent = meanY.toFixed(2);
+            document.getElementById('resCorr').textContent = r.toFixed(3);
+            document.getElementById('resEq').textContent = `Y = ${a.toFixed(2)} + ${b.toFixed(2)}X`;
+
+            // Render Chart
+            renderRegressionChart(x, y, a, b);
+        }
+
+        function renderRegressionChart(xVals, yVals, a, b) {
+            const ctx = document.getElementById('regressionChart').getContext('2d');
+            
+            const scatterPoints = xVals.map((x, i) => ({ x: x, y: yVals[i] }));
+            
+            const minX = Math.min(...xVals);
+            const maxX = Math.max(...xVals);
+            const linePoints = [
+                { x: minX, y: a + b * minX },
+                { x: maxX, y: a + b * maxX }
+            ];
+
+            if (myChart) {
+                myChart.destroy();
+            }
+
+            myChart = new Chart(ctx, {
+                type: 'scatter',
+                data: {
+                    datasets: [
+                        {
+                            label: 'Data Observasi (Scatter)',
+                            data: scatterPoints,
+                            backgroundColor: '#3b82f6',
+                            borderColor: '#1d4ed8',
+                            pointRadius: 6,
+                            pointHoverRadius: 8
+                        },
+                        {
+                            label: 'Garis Regresi Linear (Fit)',
+                            data: linePoints,
+                            type: 'line',
+                            borderColor: '#10b981',
+                            borderWidth: 2,
+                            fill: false,
+                            pointRadius: 0
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: document.documentElement.classList.contains('dark') ? '#cbd5e1' : '#334155'
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            type: 'linear',
+                            position: 'bottom',
+                            title: { display: true, text: 'Variabel X' },
+                            grid: { color: 'rgba(150,150,150,0.1)' }
+                        },
+                        y: {
+                            title: { display: true, text: 'Variabel Y' },
+                            grid: { color: 'rgba(150,150,150,0.1)' }
+                        }
+                    }
+                }
+            });
+        }
+
+        function resetDataStats() {
+            document.getElementById('inputX').value = "10, 20, 30, 40, 50, 60";
+            document.getElementById('inputY').value = "15, 28, 42, 58, 65, 82";
+            calculateDataStats();
+        }
+
+        // Contact Form Handling
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const toast = document.getElementById('formSuccessToast');
+            toast.classList.remove('hidden');
+            document.getElementById('contactForm').reset();
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 6000);
+        }
+
+        // Modal Controls for Printable CV
+        function openCvModal() {
+            document.getElementById('cvModal').classList.remove('hidden');
+        }
+
+        function closeCvModal() {
+            document.getElementById('cvModal').classList.add('hidden');
+        }
+
+        function printCv() {
+            const printContent = document.getElementById('printableCvArea').innerHTML;
+            const originalContent = document.body.innerHTML;
+
+            document.body.innerHTML = `
+                <div style="padding: 20px; font-family: 'Inter', sans-serif;">
+                    ${printContent}
+                </div>
+            `;
+            window.print();
+            document.body.innerHTML = originalContent;
+            window.location.reload();
+        }
+
+        // Window onload initialization
+        window.onload = function() {
+            typeLoop();
+            calculateDataStats();
+        };
     </script>
 </body>
 </html>
