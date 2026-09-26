@@ -306,9 +306,32 @@
 
                 <!-- Mobile Navigation Controls -->
                 <div class="md:hidden flex items-center space-x-2">
-                    <button onclick="togglePaletteMenu(event)" class="p-2 rounded-xl glass-pill text-slate-600 dark:text-slate-300 interactive-tab">
-                        <i class="fa-solid fa-palette text-xs"></i>
-                    </button>
+                    <div class="relative">
+                        <button onclick="togglePaletteMenu(event)" class="p-2 rounded-xl glass-pill text-slate-600 dark:text-slate-300 interactive-tab">
+                            <i class="fa-solid fa-palette text-xs"></i>
+                        </button>
+                        <div id="paletteDropdownMobile" class="absolute right-0 mt-2 w-48 rounded-2xl glass-panel p-2 shadow-2xl hidden border border-slate-200 dark:border-slate-800 space-y-1 text-xs z-50">
+                            <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider px-2.5 py-1">Pilih Tema Warna</div>
+                            <button onclick="setThemePalette('monochrome')" class="w-full text-left px-2.5 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/80 flex items-center gap-2 interactive-tab">
+                                <span class="w-3 h-3 rounded-full bg-slate-600"></span> Monokrom
+                            </button>
+                            <button onclick="setThemePalette('indigo')" class="w-full text-left px-2.5 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/80 flex items-center gap-2 interactive-tab">
+                                <span class="w-3 h-3 rounded-full bg-indigo-500"></span> Sapphire Indigo
+                            </button>
+                            <button onclick="setThemePalette('emerald')" class="w-full text-left px-2.5 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/80 flex items-center gap-2 interactive-tab">
+                                <span class="w-3 h-3 rounded-full bg-emerald-500"></span> Emerald Mint
+                            </button>
+                            <button onclick="setThemePalette('violet')" class="w-full text-left px-2.5 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/80 flex items-center gap-2 interactive-tab">
+                                <span class="w-3 h-3 rounded-full bg-violet-500"></span> Amethyst Violet
+                            </button>
+                            <button onclick="setThemePalette('maroon')" class="w-full text-left px-2.5 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/80 flex items-center gap-2 interactive-tab">
+                                <span class="w-3 h-3 rounded-full bg-rose-900"></span> Crimson Ruby
+                            </button>
+                            <button onclick="setThemePalette('amber')" class="w-full text-left px-2.5 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/80 flex items-center gap-2 interactive-tab">
+                                <span class="w-3 h-3 rounded-full bg-amber-500"></span> Amber Gold
+                            </button>
+                        </div>
+                    </div>
                     <button class="themeToggleBtn p-2 rounded-xl glass-pill text-slate-600 dark:text-slate-300 interactive-tab">
                         <i class="fa-solid fa-moon dark:hidden text-xs"></i>
                         <i class="fa-solid fa-sun hidden dark:block text-xs text-amber-400"></i>
@@ -532,6 +555,7 @@
 
             <div class="space-y-6 max-w-7xl mx-auto">
 
+                <!-- Timeline Item 1: Field Enumerator BPS -->
                 <div class="glass-panel p-6 sm:p-8 rounded-3xl relative overflow-hidden transition hover:border-brand-500/50 interactive-tab">
                     <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
                         <span class="px-2.5 py-1 rounded-full text-[11px] font-semibold bg-emerald-100 text-emerald-800 dark:bg-emerald-950/80 dark:text-emerald-300">
@@ -557,6 +581,7 @@
                     </div>
                 </div>
 
+                <!-- Timeline Item 2: Customer Service Representative Vads Indonesia -->
                 <div class="glass-panel p-6 sm:p-8 rounded-3xl relative overflow-hidden transition hover:border-brand-500/50 interactive-tab">
                     <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
                         <span class="px-2.5 py-1 rounded-full text-[11px] font-semibold bg-blue-100 text-blue-800 dark:bg-blue-950/80 dark:text-blue-300">
@@ -581,6 +606,7 @@
                     </div>
                 </div>
 
+                <!-- Timeline Item 3: Administrative Staff Intern BPS -->
                 <div class="glass-panel p-6 sm:p-8 rounded-3xl relative overflow-hidden transition hover:border-brand-500/50 interactive-tab">
                     <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
                         <span class="px-2.5 py-1 rounded-full text-[11px] font-semibold bg-purple-100 text-purple-800 dark:bg-purple-950/80 dark:text-purple-300">
@@ -607,10 +633,12 @@
         </div>
     </section>
 
+    <!-- Education & Organization Section -->
     <section class="py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-7xl mx-auto">
                 
+                <!-- Education -->
                 <div class="glass-panel p-8 rounded-3xl flex flex-col justify-between interactive-tab">
                     <div>
                         <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider block mb-2">Pendidikan Formal</span>
@@ -630,6 +658,7 @@
                     </div>
                 </div>
 
+                <!-- Mentorship / Organization -->
                 <div class="glass-panel p-8 rounded-3xl flex flex-col justify-between interactive-tab">
                     <div>
                         <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider block mb-2">Pengalaman Organisasi</span>
@@ -653,6 +682,7 @@
         </div>
     </section>
 
+    <!-- Skills Matrix Section -->
     <section id="skills" class="py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-10">
@@ -663,6 +693,7 @@
                     Keahlian & Perangkat Lunak
                 </h2>
 
+                <!-- Skill Filters with hover & click animations -->
                 <div class="flex flex-wrap justify-center gap-2 mt-6">
                     <button onclick="filterSkills('all')" class="skill-btn active px-4 py-2 rounded-xl text-xs font-semibold transition bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-md interactive-tab">Semua</button>
                     <button onclick="filterSkills('hard')" class="skill-btn px-4 py-2 rounded-xl text-xs font-semibold transition glass-pill text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 interactive-tab">Hard Skills</button>
@@ -672,8 +703,10 @@
                 </div>
             </div>
 
+            <!-- Skills Cards Grid -->
             <div id="skillsContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-7xl mx-auto">
 
+                <!-- Hard Skills -->
                 <div class="skill-card hard glass-panel p-6 rounded-3xl interactive-tab">
                     <div class="w-9 h-9 rounded-2xl bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-white flex items-center justify-center text-base mb-3">
                         <i class="fa-solid fa-chart-pie"></i>
@@ -696,6 +729,7 @@
                     </div>
                 </div>
 
+                <!-- Tools & Software -->
                 <div class="skill-card tools glass-panel p-6 rounded-3xl interactive-tab">
                     <div class="w-9 h-9 rounded-2xl bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-white flex items-center justify-center text-base mb-3">
                         <i class="fa-brands fa-python"></i>
@@ -718,6 +752,7 @@
                     </div>
                 </div>
 
+                <!-- Soft Skills -->
                 <div class="skill-card soft glass-panel p-6 rounded-3xl interactive-tab">
                     <div class="w-9 h-9 rounded-2xl bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-white flex items-center justify-center text-base mb-3">
                         <i class="fa-solid fa-headset"></i>
@@ -729,6 +764,7 @@
                     </div>
                 </div>
 
+                <!-- Languages -->
                 <div class="skill-card lang glass-panel p-6 rounded-3xl interactive-tab">
                     <div class="w-9 h-9 rounded-2xl bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-white flex items-center justify-center text-base mb-3">
                         <i class="fa-solid fa-earth-americas"></i>
@@ -744,6 +780,7 @@
         </div>
     </section>
 
+    <!-- Contact Section -->
     <section id="contact" class="py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             
@@ -757,7 +794,7 @@
                 Saya terbuka untuk peluang karir di bidang Data Analysis, Statistics, Research, dan Operations.
             </p>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto mb-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto mb-10">
                 
                 <a href="mailto:aditrahman471@gmail.com" class="glass-panel p-6 rounded-3xl flex flex-col items-center justify-center hover:border-brand-500 transition group interactive-tab">
                     <div class="w-12 h-12 rounded-2xl bg-slate-200 dark:bg-slate-800 text-slate-900 dark:text-white flex items-center justify-center text-xl mb-3 group-hover:scale-110 transition-transform">
@@ -783,15 +820,16 @@
 
             </div>
 
-            <div class="flex flex-wrap justify-center items-center gap-3 max-w-2xl mx-auto">
+            <!-- Social Media Buttons with Precise Grid Alignment -->
+            <div class="grid grid-cols-2 gap-3 max-w-sm mx-auto">
                 <a href="https://www.linkedin.com/in/aditya-rahman-23892b2a2?utm_source=share_via&utm_content=profile&utm_medium=member_android" 
                    target="_blank" 
-                   class="px-6 py-3 bg-brand-600 text-white font-semibold rounded-2xl text-xs transition flex items-center justify-center gap-2 hover:bg-brand-700 shadow-md interactive-tab min-w-[160px]">
+                   class="w-full px-4 py-3 bg-brand-600 text-white font-semibold rounded-2xl text-xs transition flex items-center justify-center gap-2 hover:bg-brand-700 shadow-md interactive-tab">
                     <i class="fa-brands fa-linkedin text-sm"></i> LinkedIn
                 </a>
                 <a href="https://www.instagram.com/_aditrahman_?stkn=YnI1dGI4OHJiZWI3" 
                    target="_blank" 
-                   class="px-6 py-3 glass-pill font-semibold text-slate-800 dark:text-white rounded-2xl text-xs transition flex items-center justify-center gap-2 hover:bg-slate-200/60 dark:hover:bg-slate-800 interactive-tab min-w-[160px]">
+                   class="w-full px-4 py-3 glass-pill font-semibold text-slate-800 dark:text-white rounded-2xl text-xs transition flex items-center justify-center gap-2 hover:bg-slate-200/60 dark:hover:bg-slate-800 interactive-tab">
                     <i class="fa-brands fa-instagram text-sm text-pink-500"></i> Instagram
                 </a>
             </div>
@@ -799,6 +837,7 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <footer class="py-8 border-t border-slate-200/50 dark:border-slate-800/50 text-slate-500 text-center text-xs">
         <div class="max-w-7xl mx-auto px-4">
             <p>&copy; 2026 Aditya Rahman, S.Si. All rights reserved.</p>
@@ -935,17 +974,23 @@
             Chart.register(ChartDataLabels);
         }
 
-        // Palette Dropdown Toggle
+        // Palette Dropdown Toggle for both desktop and mobile
         function togglePaletteMenu(e) {
             e.stopPropagation();
             const dropdown = document.getElementById('paletteDropdown');
-            dropdown.classList.toggle('hidden');
+            const dropdownMobile = document.getElementById('paletteDropdownMobile');
+            if (dropdown) dropdown.classList.toggle('hidden');
+            if (dropdownMobile) dropdownMobile.classList.toggle('hidden');
         }
 
         window.addEventListener('click', () => {
             const dropdown = document.getElementById('paletteDropdown');
+            const dropdownMobile = document.getElementById('paletteDropdownMobile');
             if (dropdown && !dropdown.classList.contains('hidden')) {
                 dropdown.classList.add('hidden');
+            }
+            if (dropdownMobile && !dropdownMobile.classList.contains('hidden')) {
+                dropdownMobile.classList.add('hidden');
             }
         });
 
