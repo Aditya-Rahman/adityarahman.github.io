@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id" class="scroll-smooth">
+<html lang="id" class="scroll-smooth dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -79,7 +79,7 @@
             border-color: rgba(255, 255, 255, 0.15);
         }
 
-        /* Interactive animated nav link */
+        /* Interactive animated nav link with hover scale & glow */
         .nav-link {
             position: relative;
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -97,22 +97,22 @@
         }
         .nav-link:hover {
             transform: translateY(-2px) scale(1.08);
-            text-shadow: 0 0 12px rgba(59, 130, 246, 0.5);
+            text-shadow: 0 0 12px rgba(59, 130, 246, 0.6);
         }
         .nav-link:hover::after {
             width: 100%;
         }
 
-        /* Interactive action button click shadow/glow effect */
+        /* Interactive button active glow effect */
         .btn-interactive {
             transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .btn-interactive:active {
             transform: scale(0.97);
-            box-shadow: 0 0 25px currentColor;
+            box-shadow: 0 0 30px currentColor;
         }
 
-        /* Lanyard 3D Physics Swing Styles */
+        /* Lanyard 3D Physics Swing Styles (Swings on touch or screen scroll) */
         .lanyard-container {
             perspective: 1000px;
             display: flex;
@@ -175,14 +175,14 @@
 
                 <!-- True Dark / Light Mode Toggle -->
                 <button onclick="toggleDarkMode()" class="p-2.5 rounded-2xl bg-gray-200/60 dark:bg-white/10 text-gray-700 dark:text-gray-200 hover:bg-brand-100 dark:hover:bg-white/20 transition backdrop-blur-md hover:scale-110" title="Ganti Mode Terang/Gelap">
-                    <i id="themeIcon" class="fa-solid fa-moon"></i>
+                    <i id="themeIcon" class="fa-solid fa-sun"></i>
                 </button>
             </div>
         </div>
     </nav>
 
     <header class="pt-32 pb-16 md:pt-40 md:pb-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
-        <!-- Interactive 3D Lanyard & ID Card Physics Swing (Swings only when touched or screen moves) -->
+        <!-- Interactive 3D Lanyard & ID Card Physics Swing (Swings on touch or scroll) -->
         <div class="lanyard-container flex-shrink-0" id="lanyardContainer">
             <div id="lanyardStringWrapper" class="lanyard-string-wrapper">
                 <svg class="lanyard-svg" viewBox="0 0 60 90">
@@ -191,7 +191,7 @@
             </div>
             <div id="idCard" class="id-card-wrapper w-44 md:w-52 rounded-3xl overflow-hidden shadow-2xl border-4 border-brand-500 apple-card relative group">
                 <div class="w-full h-36 md:h-44 overflow-hidden relative">
-                    <img src="https://raw.githubusercontent.com/aditrahman471/aditrahman471/main/Foto%20Aditya%20Rahman.jpg" 
+                    <img src="Foto Aditya Rahman.jpg" 
                          alt="Aditya Rahman" 
                          onerror="this.src='https://placehold.co/400x400/3b82f6/ffffff?text=Aditya+Rahman'"
                          class="w-full h-full object-cover group-hover:scale-105 transition duration-500 pointer-events-none">
@@ -476,7 +476,7 @@
             </div>
             
             <div class="flex-1 p-4 bg-gray-100 dark:bg-black overflow-y-auto flex items-center justify-center">
-                <iframe src="https://raw.githubusercontent.com/aditrahman471/aditrahman471/main/CV_Aditya_Rahman.pdf" class="w-full h-[65vh] rounded-2xl border border-gray-300 dark:border-white/10 shadow-inner" onerror="this.outerHTML='<div class=\'text-center p-8\'><p class=\'mb-4 text-sm\'>Pratinjau PDF langsung tidak didukung browser ini, silakan unduh file:</p><button onclick=\'downloadCV()\' class=\'px-6 py-3 bg-orange-600 text-white rounded-xl font-semibold\'>Unduh CV Sekarang</button></div>'"></iframe>
+                <iframe src="CV_Aditya_Rahman.pdf" class="w-full h-[65vh] rounded-2xl border border-gray-300 dark:border-white/10 shadow-inner" onerror="this.outerHTML='<div class=\'text-center p-8\'><p class=\'mb-4 text-sm\'>Pratinjau PDF langsung tidak didukung browser ini, silakan unduh file:</p><button onclick=\'downloadCV()\' class=\'px-6 py-3 bg-orange-600 text-white rounded-xl font-semibold\'>Unduh CV Sekarang</button></div>'"></iframe>
             </div>
 
             <div class="p-4 sm:p-6 border-t border-gray-200 dark:border-white/10 flex items-center justify-end gap-3 bg-white/50 dark:bg-black/50 backdrop-blur-md">
@@ -509,7 +509,10 @@
         }
 
         // Initialize theme based on preference
-        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        if (localStorage.getItem('theme') === 'light') {
+            document.documentElement.classList.remove('dark');
+            document.getElementById('themeIcon').className = "fa-solid fa-moon";
+        } else {
             document.documentElement.classList.add('dark');
             document.getElementById('themeIcon').className = "fa-solid fa-sun";
         }
@@ -537,10 +540,10 @@
             document.getElementById('cvModal').classList.add('hidden');
         }
 
-        // Download CV Function using GitHub raw link
+        // Download CV Function using local file path
         function downloadCV() {
             const link = document.createElement('a');
-            link.href = 'https://raw.githubusercontent.com/aditrahman471/aditrahman471/main/CV_Aditya_Rahman.pdf';
+            link.href = 'CV_Aditya_Rahman.pdf';
             link.download = 'CV_Aditya_Rahman.pdf';
             link.target = '_blank';
             document.body.appendChild(link);
