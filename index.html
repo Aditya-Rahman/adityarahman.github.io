@@ -41,7 +41,6 @@
         .theme-rose { --color-50: #fff1f2; --color-100: #ffe4e6; --color-500: #f43f5e; --color-600: #e11d48; --color-700: #be123c; }
         .theme-cyan { --color-50: #ecfeff; --color-100: #cffafe; --color-500: #06b6d4; --color-600: #0891b2; --color-700: #0e7490; }
 
-        /* True Dark OLED Black (#000000) & Apple Glassmorphism */
         .apple-glass {
             background: rgba(255, 255, 255, 0.75);
             backdrop-filter: blur(20px);
@@ -79,7 +78,6 @@
             border-color: rgba(255, 255, 255, 0.15);
         }
 
-        /* Interactive animated nav link with hover scale & glow */
         .nav-link {
             position: relative;
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -103,7 +101,6 @@
             width: 100%;
         }
 
-        /* Interactive button active glow effect */
         .btn-interactive {
             transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
         }
@@ -112,7 +109,6 @@
             box-shadow: 0 0 30px currentColor;
         }
 
-        /* Lanyard 3D Physics Swing Styles (Swings on touch or screen scroll) */
         .lanyard-container {
             perspective: 1000px;
             display: flex;
@@ -158,7 +154,6 @@
             </div>
 
             <div class="flex items-center space-x-3">
-                <!-- Theme Color Picker -->
                 <div class="relative group">
                     <button class="p-2.5 rounded-2xl bg-gray-200/60 dark:bg-white/10 text-gray-700 dark:text-gray-200 hover:bg-brand-100 dark:hover:bg-white/20 transition backdrop-blur-md hover:scale-110" title="Pilih Warna Tema">
                         <i class="fa-solid fa-palette"></i>
@@ -173,7 +168,6 @@
                     </div>
                 </div>
 
-                <!-- True Dark / Light Mode Toggle -->
                 <button onclick="toggleDarkMode()" class="p-2.5 rounded-2xl bg-gray-200/60 dark:bg-white/10 text-gray-700 dark:text-gray-200 hover:bg-brand-100 dark:hover:bg-white/20 transition backdrop-blur-md hover:scale-110" title="Ganti Mode Terang/Gelap">
                     <i id="themeIcon" class="fa-solid fa-sun"></i>
                 </button>
@@ -182,7 +176,6 @@
     </nav>
 
     <header class="pt-32 pb-16 md:pt-40 md:pb-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
-        <!-- Interactive 3D Lanyard & ID Card Physics Swing (Swings on touch or scroll) -->
         <div class="lanyard-container flex-shrink-0" id="lanyardContainer">
             <div id="lanyardStringWrapper" class="lanyard-string-wrapper">
                 <svg class="lanyard-svg" viewBox="0 0 60 90">
@@ -476,7 +469,18 @@
             </div>
             
             <div class="flex-1 p-4 bg-gray-100 dark:bg-black overflow-y-auto flex items-center justify-center">
-                <iframe src="CV_Aditya_Rahman.pdf" class="w-full h-[65vh] rounded-2xl border border-gray-300 dark:border-white/10 shadow-inner" onerror="this.outerHTML='<div class=\'text-center p-8\'><p class=\'mb-4 text-sm\'>Pratinjau PDF langsung tidak didukung browser ini, silakan unduh file:</p><button onclick=\'downloadCV()\' class=\'px-6 py-3 bg-orange-600 text-white rounded-xl font-semibold\'>Unduh CV Sekarang</button></div>'"></iframe>
+                <div id="pdfViewerContainer" class="w-full h-[65vh] rounded-2xl border border-gray-300 dark:border-white/10 shadow-inner overflow-hidden bg-white dark:bg-neutral-900 flex flex-col items-center justify-center p-6 text-center">
+                    <div class="w-16 h-16 rounded-full bg-orange-500/10 text-orange-500 flex items-center justify-center text-3xl mb-4">
+                        <i class="fa-solid fa-file-pdf"></i>
+                    </div>
+                    <h4 class="font-bold text-lg mb-2">CV_Aditya_Rahman.pdf</h4>
+                    <p class="text-xs text-gray-500 dark:text-gray-400 max-w-md mb-6">Dokumen CV profesional siap ditinjau atau diunduh langsung ke perangkat Anda.</p>
+                    <div class="flex gap-3">
+                        <button onclick="downloadCV()" class="px-6 py-3 bg-orange-600 hover:bg-orange-700 text-white rounded-xl font-semibold text-xs flex items-center gap-2 shadow-lg shadow-orange-600/30 transition">
+                            <i class="fa-solid fa-download"></i> Unduh File PDF Sekarang
+                        </button>
+                    </div>
+                </div>
             </div>
 
             <div class="p-4 sm:p-6 border-t border-gray-200 dark:border-white/10 flex items-center justify-end gap-3 bg-white/50 dark:bg-black/50 backdrop-blur-md">
@@ -493,7 +497,6 @@
     </footer>
 
     <script>
-        // Toggle True Dark / Light Mode (OLED Black #000000)
         function toggleDarkMode() {
             const html = document.documentElement;
             const icon = document.getElementById('themeIcon');
@@ -508,7 +511,6 @@
             }
         }
 
-        // Initialize theme based on preference
         if (localStorage.getItem('theme') === 'light') {
             document.documentElement.classList.remove('dark');
             document.getElementById('themeIcon').className = "fa-solid fa-moon";
@@ -517,7 +519,6 @@
             document.getElementById('themeIcon').className = "fa-solid fa-sun";
         }
 
-        // Change Theme Color Palette
         function setThemeColor(themeClass) {
             const body = document.getElementById('bodyTheme');
             body.className = body.className.replace(/theme-\w+/g, '') + ' ' + themeClass;
@@ -529,7 +530,6 @@
             document.getElementById('bodyTheme').classList.add(savedTheme);
         }
 
-        // Open & Close CV Preview Modal
         function openCVPreview() {
             document.getElementById('cvModal').classList.remove('hidden');
             document.getElementById('cvModal').classList.add('flex');
@@ -540,7 +540,6 @@
             document.getElementById('cvModal').classList.add('hidden');
         }
 
-        // Download CV Function using local file path
         function downloadCV() {
             const link = document.createElement('a');
             link.href = 'CV_Aditya_Rahman.pdf';
@@ -551,7 +550,7 @@
             document.body.removeChild(link);
         }
 
-        // 3D Lanyard & ID Card Physics Swing Effect (Swings when touched or screen moves)
+        // Lanyard 3D physics swing on touch / scroll
         const idCard = document.getElementById('idCard');
         const lanyardStringWrapper = document.getElementById('lanyardStringWrapper');
         const stringPath = document.getElementById('stringPath');
@@ -581,7 +580,7 @@
 
         function animateLanyard() {
             currentAngle += (targetAngle - currentAngle) * 0.1;
-            targetAngle *= 0.93; // damping return to center
+            targetAngle *= 0.93;
 
             lanyardStringWrapper.style.transform = `rotate(${currentAngle * 0.5}deg)`;
             idCard.style.transform = `rotate(${currentAngle}deg)`;
