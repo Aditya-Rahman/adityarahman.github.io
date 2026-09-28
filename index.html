@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aditya Rahman, S.Si. - Portofolio & CV Interaktif</title>
     
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -28,10 +29,11 @@
         }
     </script>
     
+    <!-- Font Awesome & Chart.js -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -54,7 +56,7 @@
             --grid-color: rgba(255, 255, 255, 0.06);
         }
 
-        /* Color Theme Presets - Total Background and Accent Transformation */
+        /* Color Theme Presets */
         html[data-theme="indigo"] {
             --brand-50: #eef2ff;
             --brand-100: #e0e7ff;
@@ -162,7 +164,7 @@
             color: var(--brand-heading) !important;
         }
 
-        /* Apple Frosted Glass Card */
+        /* Glassmorphism Panel */
         .glass-panel {
             background: rgba(255, 255, 255, 0.78);
             backdrop-filter: blur(20px) saturate(180%);
@@ -199,15 +201,48 @@
             transition: background-image 0.4s ease;
         }
 
-        @keyframes subtleFloat {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-6px); }
+        /* Interactive Lanyard Canvas & 3D Container */
+        .lanyard-stage {
+            perspective: 1200px;
+            transform-style: preserve-3d;
+            user-select: none;
+            touch-action: none;
         }
 
-        .animate-subtle-float {
-            animation: subtleFloat 5s ease-in-out infinite;
+        .lanyard-assembly-container {
+            transform-style: preserve-3d;
+            transform-origin: top center;
+            will-change: transform;
         }
 
+        /* Lanyard Strap Styling */
+        .lanyard-strap {
+            background: #0a0a0c;
+            box-shadow: inset 0 0 4px rgba(255, 255, 255, 0.15), 0 8px 20px rgba(0, 0, 0, 0.4);
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .lanyard-text {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            letter-spacing: 0.22em;
+            font-family: 'Space Grotesk', sans-serif;
+            text-transform: uppercase;
+        }
+
+        /* Card Sheen Effect */
+        .card-glare {
+            background: linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.35) 0%,
+                rgba(255, 255, 255, 0.08) 35%,
+                rgba(255, 255, 255, 0) 60%
+            );
+            pointer-events: none;
+        }
+
+        /* Custom scrollbar */
         .custom-scrollbar::-webkit-scrollbar {
             width: 6px;
         }
@@ -243,8 +278,7 @@
                 <!-- Brand / Avatar -->
                 <a href="#hero" class="flex items-center space-x-3 group">
                     <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-slate-700 to-slate-900 dark:from-slate-200 dark:to-white flex items-center justify-center text-white dark:text-slate-900 font-bold text-sm shadow-md group-hover:scale-105 transition-transform overflow-hidden p-0.5">
-                        <img src="Foto Aditya Rahman.jpg" alt="Aditya Rahman" class="w-full h-full object-cover object-center rounded-[10px]" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                        <span class="hidden font-extrabold text-xs">AR</span>
+                        <img src="Foto Aditya Rahman.jpg" alt="Aditya Rahman" class="w-full h-full object-cover object-center rounded-[10px]" onerror="this.onerror=null; this.src='Wisuda_Aditya Rahman.JPG';">
                     </div>
                     <div>
                         <span class="font-bold text-base theme-heading tracking-tight block leading-none">Aditya Rahman</span>
@@ -364,9 +398,88 @@
         </div>
     </nav>
 
-    <section id="hero" class="relative py-16 md:py-24 bg-grid-pattern overflow-hidden">
-        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-brand-500/15 rounded-full blur-3xl pointer-events-none transition-colors duration-500"></div>
+    <section id="hero" class="relative py-12 md:py-20 bg-grid-pattern overflow-hidden min-h-[85vh] flex items-center justify-center">
+        <!-- Background Ambient Glow -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-brand-500/15 rounded-full blur-3xl pointer-events-none transition-colors duration-500"></div>
 
+        <!-- Floating Top-Right 3D Hanging Lanyard Element -->
+        <div class="absolute top-0 right-0 sm:right-2 lg:right-5 z-20 hidden sm:flex flex-col items-center">
+            
+            <!-- Lanyard Stage Container -->
+            <div id="lanyardStage" class="lanyard-stage relative w-[220px] lg:w-[260px] h-[380px] lg:h-[440px] flex flex-col items-center pt-0">
+                
+                <!-- Ceiling Anchor Point Pin -->
+                <div class="absolute top-0 z-30 w-4 h-3 bg-slate-800 rounded-b-md border border-slate-600 shadow-md"></div>
+
+                <!-- Whole Swinging Lanyard Assembly (Strap + Clip + Card move TOGETHER) -->
+                <div id="lanyardAssembly" class="lanyard-assembly-container absolute top-0 z-10 w-full flex flex-col items-center origin-top transform-gpu cursor-grab active:cursor-grabbing">
+                    
+                    <!-- Hanging Black Woven Stretchable Strap -->
+                    <div id="lanyardStrap" class="lanyard-strap w-6 lg:w-7 h-28 lg:h-32 flex items-center justify-center relative overflow-hidden rounded-t-sm shadow-xl origin-top transition-transform duration-75">
+                        <span class="lanyard-text text-[8px] lg:text-[9px] font-bold text-white opacity-90 tracking-widest whitespace-nowrap py-0.5">
+                            ADITYA RAHMAN
+                        </span>
+                    </div>
+                    
+                    <!-- Lower Assembly: Clip + Card (Shifts smoothly when strap elongates) -->
+                    <div id="lanyardLowerAssembly" class="flex flex-col items-center w-full origin-top transform-gpu">
+                        <!-- Metallic Ring & Carabiner Clip Assembly -->
+                        <div class="relative -mt-1 flex flex-col items-center z-20">
+                            <div class="w-6 h-3.5 border-2 lg:border-4 border-slate-700 rounded-b-full bg-slate-900 shadow-md"></div>
+                            <div class="w-2.5 h-2.5 bg-slate-950 border border-slate-700 rounded-full -mt-1"></div>
+                            <div class="w-2 h-4 bg-gradient-to-b from-slate-700 via-slate-800 to-slate-950 rounded-b-md border border-slate-600 shadow-sm"></div>
+                        </div>
+
+                        <!-- ID Card (Attached to bottom of lanyard clip) -->
+                        <div id="lanyardCard" class="relative -mt-1 z-10 w-[180px] lg:w-[210px] h-[250px] lg:h-[290px] transform-gpu origin-top">
+                            <div class="relative w-full h-full bg-gradient-to-b from-slate-950 via-slate-900 to-black rounded-[24px] p-2.5 shadow-2xl border border-slate-800/80 flex flex-col items-center justify-between overflow-hidden group">
+                                
+                                <!-- Top Hook Hole -->
+                                <div class="w-3.5 h-3.5 rounded-full bg-slate-950 border border-slate-700 shadow-inner flex items-center justify-center z-20 mb-0.5">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-slate-900"></div>
+                                </div>
+
+                                <!-- Inner Card Frame -->
+                                <div class="relative w-full h-[215px] lg:h-[250px] rounded-[16px] border-2 border-white/90 p-0.5 flex flex-col justify-between overflow-hidden bg-slate-950 shadow-inner">
+                                    
+                                    <!-- Wisuda Photo -->
+                                    <div class="relative w-full h-[160px] lg:h-[190px] rounded-[12px] overflow-hidden bg-slate-900">
+                                        <img src="Wisuda_Aditya Rahman.JPG" 
+                                             alt="Aditya Rahman Wisuda UNY" 
+                                             class="w-full h-full object-cover object-top filter contrast-[1.03] brightness-[1.02] transition-transform duration-500 group-hover:scale-105"
+                                             onerror="this.onerror=null; this.src='Foto Aditya Rahman.jpg';">
+                                    </div>
+
+                                    <!-- Bottom ID Label -->
+                                    <div class="w-full py-1 bg-slate-950 text-center flex flex-col items-center justify-center rounded-b-[12px]">
+                                        <span class="text-[9px] font-bold tracking-widest text-purple-400 uppercase font-sans">
+                                            S1 MATEMATIKA
+                                        </span>
+                                        <h4 class="text-[11px] font-black tracking-wider text-white uppercase font-sans leading-tight">
+                                            DATA ANALYST
+                                        </h4>
+                                    </div>
+
+                                </div>
+
+                                <!-- Glare Effect -->
+                                <div id="cardGlare" class="card-glare absolute inset-0 rounded-[24px] z-30 transition-opacity duration-300 opacity-40"></div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Hint reset -->
+            <button onclick="resetLanyard()" class="mt-2 px-2.5 py-1 text-[10px] font-semibold glass-pill text-slate-600 dark:text-slate-400 hover:text-brand-500 transition rounded-full interactive-tab" title="Klik atau tarik lanyard untuk mengayunkan">
+                <i class="fa-solid fa-hand-pointer text-brand-500 animate-bounce mr-1"></i> Tarik & Lepas Lanyard
+            </button>
+        </div>
+
+        <!-- Main Centered Content Area -->
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
             
             <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold glass-pill text-slate-700 dark:text-slate-300 shadow-sm mb-6 interactive-tab">
@@ -374,9 +487,10 @@
                 <span>Siap Berkontribusi: Data Analysis & Operational Roles</span>
             </div>
 
+            <!-- Centered Main Photo (Foto Aditya Rahman.jpg) -->
             <div class="mx-auto w-32 h-32 sm:w-36 sm:h-36 rounded-3xl p-1.5 glass-panel shadow-2xl mb-6 animate-subtle-float">
                 <div class="w-full h-full rounded-[20px] overflow-hidden bg-slate-200 dark:bg-slate-800 relative">
-                    <img src="Foto Aditya Rahman.jpg" alt="Aditya Rahman, S.Si." class="w-full h-full object-cover object-center" onerror="this.onerror=null; this.parentNode.innerHTML='<div class=\'w-full h-full bg-slate-800 flex items-center justify-center text-white text-3xl font-extrabold\'>AR</div>';">
+                    <img src="Foto Aditya Rahman.jpg" alt="Aditya Rahman, S.Si." class="w-full h-full object-cover object-center" onerror="this.onerror=null; this.src='Wisuda_Aditya Rahman.JPG';">
                 </div>
             </div>
 
@@ -609,7 +723,7 @@
                     Keahlian & Perangkat Lunak
                 </h2>
 
-                <!-- Skill Filters with hover & click animations -->
+                <!-- Skill Filters -->
                 <div class="flex flex-wrap justify-center gap-2 mt-6">
                     <button onclick="filterSkills('all')" class="skill-btn active px-4 py-2 rounded-xl text-xs font-semibold transition bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-md interactive-tab">Semua</button>
                     <button onclick="filterSkills('hard')" class="skill-btn px-4 py-2 rounded-xl text-xs font-semibold transition glass-pill text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 interactive-tab">Hard Skills</button>
@@ -622,7 +736,6 @@
             <!-- Skills Cards Grid -->
             <div id="skillsContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-7xl mx-auto">
 
-                <!-- Hard Skills -->
                 <div class="skill-card hard glass-panel p-6 rounded-3xl interactive-tab">
                     <div class="w-9 h-9 rounded-2xl bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-white flex items-center justify-center text-base mb-3">
                         <i class="fa-solid fa-chart-pie"></i>
@@ -645,7 +758,6 @@
                     </div>
                 </div>
 
-                <!-- Tools & Software -->
                 <div class="skill-card tools glass-panel p-6 rounded-3xl interactive-tab">
                     <div class="w-9 h-9 rounded-2xl bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-white flex items-center justify-center text-base mb-3">
                         <i class="fa-brands fa-python"></i>
@@ -668,7 +780,6 @@
                     </div>
                 </div>
 
-                <!-- Soft Skills -->
                 <div class="skill-card soft glass-panel p-6 rounded-3xl interactive-tab">
                     <div class="w-9 h-9 rounded-2xl bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-white flex items-center justify-center text-base mb-3">
                         <i class="fa-solid fa-headset"></i>
@@ -680,7 +791,6 @@
                     </div>
                 </div>
 
-                <!-- Languages -->
                 <div class="skill-card lang glass-panel p-6 rounded-3xl interactive-tab">
                     <div class="w-9 h-9 rounded-2xl bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-white flex items-center justify-center text-base mb-3">
                         <i class="fa-solid fa-earth-americas"></i>
@@ -807,7 +917,6 @@
 
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
                     
-                    <!-- Left Details -->
                     <div class="lg:col-span-7 space-y-4">
                         <div class="flex flex-wrap items-center gap-2">
                             <span class="px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-brand-500 text-white shadow-sm">
@@ -826,7 +935,6 @@
                             Proyek web interaktif <strong>Lepii</strong> dirancang sebagai modul aplikasi mandiri yang mengintegrasikan pengolahan data, visualisasi antarmuka intuitif, serta elemen fungsional modern. Proyek ini memfasilitasi eksperimen data dan memberikan pengalaman pengguna yang responsif.
                         </p>
 
-                        <!-- Tech Badges -->
                         <div class="flex flex-wrap gap-2 pt-1">
                             <span class="text-[11px] font-semibold glass-pill px-3 py-1 rounded-xl text-slate-700 dark:text-slate-300">
                                 <i class="fa-brands fa-html5 text-orange-500 mr-1"></i> HTML5
@@ -842,7 +950,6 @@
                             </span>
                         </div>
 
-                        <!-- Action Buttons -->
                         <div class="flex flex-wrap items-center gap-3 pt-3">
                             <a href="lepii.html" target="_blank" class="px-5 py-2.5 bg-slate-900 hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100 text-white text-xs font-bold rounded-xl shadow-md transition flex items-center gap-2 interactive-tab">
                                 <i class="fa-solid fa-arrow-up-right-from-square"></i>
@@ -856,10 +963,8 @@
                         </div>
                     </div>
 
-                    <!-- Right Interactive Mockup Container -->
                     <div class="lg:col-span-5">
                         <div class="relative rounded-2xl overflow-hidden glass-panel border border-slate-200/80 dark:border-slate-800 shadow-2xl group-hover:scale-[1.02] transition-transform duration-300">
-                            <!-- Window Bar -->
                             <div class="bg-slate-200/80 dark:bg-slate-900/80 px-3 py-2 border-b border-slate-300/50 dark:border-slate-800 flex items-center justify-between">
                                 <div class="flex space-x-1.5">
                                     <span class="w-2.5 h-2.5 rounded-full bg-red-400 block"></span>
@@ -869,7 +974,6 @@
                                 <span class="text-[10px] font-mono text-slate-500 dark:text-slate-400 tracking-wider">lepii.html</span>
                                 <div class="w-4"></div>
                             </div>
-                            <!-- Mini Preview Area -->
                             <div class="p-6 bg-gradient-to-br from-slate-900 via-slate-950 to-brand-950 text-white min-h-[200px] flex flex-col justify-between relative">
                                 <div class="space-y-2">
                                     <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-brand-500/30 text-brand-300 text-[10px] font-mono">
@@ -909,7 +1013,6 @@
                 </p>
             </div>
 
-            <!-- Certificates Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
                 
                 <!-- Certificate 1: LIKMII -->
@@ -1000,7 +1103,6 @@
             </p>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto mb-10">
-                
                 <a href="mailto:aditrahman471@gmail.com" class="glass-panel p-6 rounded-3xl flex flex-col items-center justify-center hover:border-brand-500 transition group interactive-tab">
                     <div class="w-12 h-12 rounded-2xl bg-slate-200 dark:bg-slate-800 text-slate-900 dark:text-white flex items-center justify-center text-xl mb-3 group-hover:scale-110 transition-transform">
                         <i class="fa-regular fa-envelope"></i>
@@ -1022,10 +1124,8 @@
                         <i class="fa-solid fa-comments text-[9px]"></i> Langsung Chat WhatsApp
                     </span>
                 </a>
-
             </div>
 
-            <!-- Social Media Buttons -->
             <div class="grid grid-cols-2 gap-3 max-w-sm mx-auto">
                 <a href="https://www.linkedin.com/in/aditya-rahman-23892b2a2?utm_source=share_via&utm_content=profile&utm_medium=member_android" 
                    target="_blank" 
@@ -1245,7 +1345,228 @@
             Chart.register(ChartDataLabels);
         }
 
-        // Palette Dropdown Toggle for both desktop and mobile
+        /* -------------------------------------------------------------
+           1. INTERACTIVE 3D ELASTIC LANYARD PHYSICS ENGINE
+           - Permanently anchored at ceiling pin (top: 0)
+           - Dynamic vertical stretch & pendulum swing rotation
+        ------------------------------------------------------------- */
+        const lanyardAssembly = document.getElementById('lanyardAssembly');
+        const lanyardStrap = document.getElementById('lanyardStrap');
+        const lanyardLowerAssembly = document.getElementById('lanyardLowerAssembly');
+        const lanyardCard = document.getElementById('lanyardCard');
+        const cardGlare = document.getElementById('cardGlare');
+        const lanyardStage = document.getElementById('lanyardStage');
+
+        // Physics State Variables (Rotation & Stretch around fixed top anchor)
+        let angleZ = 0;
+        let angleY = 0;
+        let angleX = 0;
+        let stretch = 1;
+        let stretchVel = 0;
+
+        let velZ = 0;
+        let velY = 0;
+        let velX = 0;
+
+        let cardLagZ = 0;
+        let cardLagVelZ = 0;
+
+        let isDragging = false;
+        let pointerDownPos = { x: 0, y: 0 };
+        let hasDragged = false;
+
+        // Soft, highly fluid spring constants for elastic flexibility
+        const stiffness = 0.022;
+        const damping = 0.88;
+        const stretchStiffness = 0.038;
+        const stretchDamping = 0.82;
+
+        function getAnchorPoint() {
+            if (!lanyardStage) return { x: 0, y: 0 };
+            const rect = lanyardStage.getBoundingClientRect();
+            return { x: rect.left + rect.width / 2, y: rect.top };
+        }
+
+        function onPointerDown(e) {
+            isDragging = true;
+            hasDragged = false;
+            const clientX = e.clientX || (e.touches && e.touches[0].clientX);
+            const clientY = e.clientY || (e.touches && e.touches[0].clientY);
+            pointerDownPos = { x: clientX, y: clientY };
+
+            if (lanyardAssembly) {
+                lanyardAssembly.classList.remove('cursor-grab');
+                lanyardAssembly.classList.add('cursor-grabbing');
+            }
+            if (!animating) {
+                animating = true;
+                requestAnimationFrame(animateLanyard);
+            }
+        }
+
+        function onPointerMove(e) {
+            if (!isDragging) return;
+
+            const clientX = e.clientX || (e.touches && e.touches[0].clientX);
+            const clientY = e.clientY || (e.touches && e.touches[0].clientY);
+
+            const dx = clientX - pointerDownPos.x;
+            const dy = clientY - pointerDownPos.y;
+            if (Math.abs(dx) > 2 || Math.abs(dy) > 2) {
+                hasDragged = true;
+            }
+
+            const anchor = getAnchorPoint();
+            const relX = clientX - anchor.x;
+            const relY = clientY - anchor.y;
+
+            // Pendulum Angle Z relative to fixed top anchor
+            const targetZ = Math.atan2(relX, Math.max(relY, 15)) * (180 / Math.PI);
+            const targetY = Math.min(Math.max((relX / 100) * 45, -60), 60);
+            const targetX = Math.min(Math.max((-relY / 120) * 35, -45), 30);
+
+            // Calculate distance from top anchor to determine elastic stretch length
+            const distFromAnchor = Math.hypot(relX, relY);
+            const strapBaseHeight = window.innerWidth >= 1024 ? 128 : 112;
+            const targetStretch = Math.max(0.95, distFromAnchor / (strapBaseHeight + 80));
+
+            angleZ += (targetZ - angleZ) * 0.28;
+            angleY += (targetY - angleY) * 0.28;
+            angleX += (targetX - angleX) * 0.28;
+            stretch += (targetStretch - stretch) * 0.28;
+        }
+
+        function onPointerUp(e) {
+            if (!isDragging) return;
+            isDragging = false;
+
+            if (lanyardAssembly) {
+                lanyardAssembly.classList.remove('cursor-grabbing');
+                lanyardAssembly.classList.add('cursor-grab');
+            }
+
+            if (!hasDragged) {
+                velZ = (Math.random() > 0.5 ? 1 : -1) * (18 + Math.random() * 8);
+                velY = (Math.random() - 0.5) * 20;
+                velX = (Math.random() - 0.5) * 15;
+                stretchVel = 0.08;
+            } else {
+                velZ = angleZ * 0.15;
+                stretchVel = (stretch - 1) * 0.25;
+            }
+        }
+
+        if (lanyardStage) {
+            lanyardStage.addEventListener('mousedown', onPointerDown);
+            window.addEventListener('mousemove', onPointerMove);
+            window.addEventListener('mouseup', onPointerUp);
+
+            lanyardStage.addEventListener('touchstart', onPointerDown, { passive: true });
+            window.addEventListener('touchmove', onPointerMove, { passive: true });
+            window.addEventListener('touchend', onPointerUp);
+        }
+
+        function resetLanyard() {
+            angleZ = 0;
+            angleY = 0;
+            angleX = 0;
+            stretch = 1.35; // Trigger elastic snap bounce on reset
+            velZ = 22;
+            velY = 16;
+            if (!animating) {
+                animating = true;
+                requestAnimationFrame(animateLanyard);
+            }
+        }
+
+        let animating = false;
+
+        function animateLanyard() {
+            if (!isDragging) {
+                // Elastic spring recoil physics for smooth motion
+                const forceZ = -angleZ * stiffness;
+                const forceY = -angleY * stiffness;
+                const forceX = -angleX * stiffness;
+                const forceStretch = -(stretch - 1) * stretchStiffness;
+
+                velZ = (velZ + forceZ) * damping;
+                velY = (velY + forceY) * damping;
+                velX = (velX + forceX) * damping;
+                stretchVel = (stretchVel + forceStretch) * stretchDamping;
+
+                angleZ += velZ;
+                angleY += velY;
+                angleX += velX;
+                stretch += stretchVel;
+
+                // Fluid card hinge lag relative to strap movement
+                const cardTargetLag = -velZ * 0.65;
+                cardLagVelZ = (cardLagVelZ + (cardTargetLag - cardLagZ) * 0.12) * 0.82;
+                cardLagZ += cardLagVelZ;
+            } else {
+                velZ = 0;
+                velY = 0;
+                velX = 0;
+                stretchVel = 0;
+                cardLagZ += (-angleZ * 0.25 - cardLagZ) * 0.22;
+            }
+
+            if (stretch < 0.92) stretch = 0.92;
+
+            // Always anchored at top center pin - strictly rotates from top center
+            if (lanyardAssembly) {
+                lanyardAssembly.style.transform = `
+                    rotateZ(${angleZ.toFixed(2)}deg)
+                    rotateY(${angleY.toFixed(2)}deg)
+                    rotateX(${angleX.toFixed(2)}deg)
+                `;
+            }
+
+            // Flexible Strap Elongation + Squeeze Effect (Poisson ratio)
+            if (lanyardStrap) {
+                const scaleX = (1 / Math.sqrt(stretch)).toFixed(3);
+                const scaleY = stretch.toFixed(3);
+                lanyardStrap.style.transform = `scaleY(${scaleY}) scaleX(${scaleX})`;
+            }
+
+            // Shift lower assembly (carabiner + card) seamlessly as strap stretches
+            if (lanyardLowerAssembly) {
+                const strapBaseHeight = window.innerWidth >= 1024 ? 128 : 112;
+                const strapExtensionOffset = (stretch - 1) * strapBaseHeight;
+                lanyardLowerAssembly.style.transform = `translateY(${strapExtensionOffset.toFixed(2)}px)`;
+            }
+
+            if (lanyardCard) {
+                lanyardCard.style.transform = `rotateZ(${cardLagZ.toFixed(2)}deg)`;
+            }
+
+            if (cardGlare) {
+                const glareOpacity = Math.min(0.85, Math.abs(angleY) / 40 + 0.2);
+                cardGlare.style.opacity = glareOpacity;
+                cardGlare.style.background = `linear-gradient(${135 + angleZ}deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.05) 50%, rgba(0,0,0,0) 100%)`;
+            }
+
+            const isMoving = Math.abs(angleZ) > 0.05 || Math.abs(angleY) > 0.05 || Math.abs(angleX) > 0.05 || Math.abs(velZ) > 0.05 || Math.abs(cardLagZ) > 0.05 || Math.abs(stretch - 1) > 0.005 || Math.abs(stretchVel) > 0.002;
+
+            if (isDragging || isMoving) {
+                requestAnimationFrame(animateLanyard);
+            } else {
+                angleZ = 0;
+                angleY = 0;
+                angleX = 0;
+                stretch = 1;
+                cardLagZ = 0;
+                if (lanyardAssembly) lanyardAssembly.style.transform = 'none';
+                if (lanyardStrap) lanyardStrap.style.transform = 'none';
+                if (lanyardLowerAssembly) lanyardLowerAssembly.style.transform = 'none';
+                if (lanyardCard) lanyardCard.style.transform = 'none';
+                animating = false;
+            }
+        }
+
+        /* -------------------------------------------------------------
+           2. PALETTE & THEME CONTROL SCRIPTS
+        ------------------------------------------------------------- */
         function togglePaletteMenu(e) {
             e.stopPropagation();
             const dropdown = document.getElementById('paletteDropdown');
@@ -1265,7 +1586,6 @@
             }
         });
 
-        // Dark/Light Mode Toggle
         function toggleDarkMode() {
             document.documentElement.classList.toggle('dark');
             if (currentTab === 'math') updateMathLab();
@@ -1277,7 +1597,6 @@
             btn.addEventListener('click', toggleDarkMode);
         });
 
-        // Color Theme Palette Switcher with Complete Background Transformation
         function setThemePalette(themeName) {
             if (themeName === 'monochrome') {
                 document.documentElement.removeAttribute('data-theme');
@@ -1289,7 +1608,7 @@
             else if (currentTab === 'csat') renderStaticCsatChart();
         }
 
-        // Mobile Navigation Menu Toggle
+        // Mobile Menu Toggle
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
 
@@ -1305,7 +1624,9 @@
             });
         });
 
-        // Typing Effect
+        /* -------------------------------------------------------------
+           3. TYPING EFFECT
+        ------------------------------------------------------------- */
         const phrases = [
             "Sarjana Sains Matematika (S.Si.)",
             "Data Analyst & Statistician",
@@ -1344,7 +1665,9 @@
             setTimeout(typeLoop, typeSpeed);
         }
 
-        // Lepii Modal Controls
+        /* -------------------------------------------------------------
+           4. MODALS & PREVIEWS CONTROLS
+        ------------------------------------------------------------- */
         function openLepiiModal() {
             const modal = document.getElementById('lepiiModal');
             const iframe = document.getElementById('lepiiIframe');
@@ -1365,7 +1688,6 @@
             }
         }
 
-        // Certificate Viewer Modal Controls
         function openCertModal(imgSrc, title) {
             const modal = document.getElementById('certModal');
             const certImg = document.getElementById('certModalImg');
@@ -1389,7 +1711,9 @@
             }
         }
 
-        // Line Chart Engine
+        /* -------------------------------------------------------------
+           5. INTERACTIVE DATA LAB ENGINE (CHART.JS LINE CHARTS)
+        ------------------------------------------------------------- */
         let labChart = null;
         let currentTab = 'math';
 
@@ -1641,7 +1965,9 @@
             });
         }
 
-        // Skill Matrix Filter
+        /* -------------------------------------------------------------
+           6. SKILL MATRIX FILTERS
+        ------------------------------------------------------------- */
         function filterSkills(category) {
             const cards = document.querySelectorAll('.skill-card');
             const btns = document.querySelectorAll('.skill-btn');
@@ -1663,7 +1989,9 @@
             });
         }
 
-        // CV Modal Controls & PDF Download
+        /* -------------------------------------------------------------
+           7. CV MODAL & PRINT CONTROLS
+        ------------------------------------------------------------- */
         function openCvModal() {
             document.getElementById('cvModal').classList.remove('hidden');
             document.body.style.overflow = 'hidden';
