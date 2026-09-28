@@ -442,11 +442,11 @@
                                 <!-- Inner Card Frame -->
                                 <div class="relative w-full h-[215px] lg:h-[250px] rounded-[16px] border-2 border-white/90 p-0.5 flex flex-col justify-between overflow-hidden bg-slate-950 shadow-inner">
                                     
-                                    <!-- Wisuda Photo -->
+                                    <!-- Wisuda Photo (Without scale/zoom on hover/click) -->
                                     <div class="relative w-full h-[160px] lg:h-[190px] rounded-[12px] overflow-hidden bg-slate-900">
                                         <img src="Wisuda_Aditya Rahman.JPG" 
                                              alt="Aditya Rahman Wisuda UNY" 
-                                             class="w-full h-full object-cover object-top filter contrast-[1.03] brightness-[1.02] transition-transform duration-500 group-hover:scale-105"
+                                             class="w-full h-full object-cover object-top filter contrast-[1.03] brightness-[1.02]"
                                              onerror="this.onerror=null; this.src='Foto Aditya Rahman.jpg';">
                                     </div>
 
@@ -462,8 +462,8 @@
 
                                 </div>
 
-                                <!-- Glare Effect -->
-                                <div id="cardGlare" class="card-glare absolute inset-0 rounded-[24px] z-30 transition-opacity duration-300 opacity-40"></div>
+                                <!-- Glare / Silau Effect -->
+                                <div id="cardGlare" class="card-glare absolute inset-0 rounded-[24px] z-30 transition-opacity duration-150 opacity-40 pointer-events-none"></div>
 
                             </div>
                         </div>
@@ -1348,7 +1348,8 @@
         /* -------------------------------------------------------------
            1. INTERACTIVE 3D ELASTIC LANYARD PHYSICS ENGINE
            - Permanently anchored at ceiling pin (top: 0)
-           - Dynamic vertical stretch & pendulum swing rotation
+           - Dynamic vertical stretch, bounce oscillations & spring physics
+           - Upward glare sheen reflection effect
         ------------------------------------------------------------- */
         const lanyardAssembly = document.getElementById('lanyardAssembly');
         const lanyardStrap = document.getElementById('lanyardStrap');
@@ -1375,11 +1376,11 @@
         let pointerDownPos = { x: 0, y: 0 };
         let hasDragged = false;
 
-        // Soft, highly fluid spring constants for elastic flexibility
-        const stiffness = 0.022;
-        const damping = 0.88;
-        const stretchStiffness = 0.038;
-        const stretchDamping = 0.82;
+        // Bouncy spring physics parameters for lively elastic oscillations
+        const stiffness = 0.028;
+        const damping = 0.92; // Slightly higher momentum retention for springy bounces
+        const stretchStiffness = 0.055;
+        const stretchDamping = 0.85;
 
         function getAnchorPoint() {
             if (!lanyardStage) return { x: 0, y: 0 };
@@ -1446,13 +1447,17 @@
             }
 
             if (!hasDragged) {
-                velZ = (Math.random() > 0.5 ? 1 : -1) * (18 + Math.random() * 8);
-                velY = (Math.random() - 0.5) * 20;
-                velX = (Math.random() - 0.5) * 15;
-                stretchVel = 0.08;
+                // Initial bounce impulse when clicked without dragging
+                velZ = (Math.random() > 0.5 ? 1 : -1) * (20 + Math.random() * 10);
+                velY = (Math.random() - 0.5) * 25;
+                velX = (Math.random() - 0.5) * 20;
+                stretchVel = 0.12;
             } else {
-                velZ = angleZ * 0.15;
-                stretchVel = (stretch - 1) * 0.25;
+                // Realistic spring recoil momentum when released from a pull
+                velZ = angleZ * 0.35;
+                velY = angleY * 0.35;
+                velX = angleX * 0.35;
+                stretchVel = -(stretch - 1) * 0.45; // Bounce up and down elastically
             }
         }
 
@@ -1469,10 +1474,11 @@
         function resetLanyard() {
             angleZ = 0;
             angleY = 0;
-            angleX = 0;
-            stretch = 1.35; // Trigger elastic snap bounce on reset
-            velZ = 22;
-            velY = 16;
+            angleX = 25; // Tilt up briefly to show glare shine
+            stretch = 1.38; // Trigger elastic snap bounce on reset
+            velZ = 24;
+            velY = 18;
+            stretchVel = -0.15;
             if (!animating) {
                 animating = true;
                 requestAnimationFrame(animateLanyard);
@@ -1483,7 +1489,7 @@
 
         function animateLanyard() {
             if (!isDragging) {
-                // Elastic spring recoil physics for smooth motion
+                // Elastic spring recoil physics for realistic bouncing motion
                 const forceZ = -angleZ * stiffness;
                 const forceY = -angleY * stiffness;
                 const forceX = -angleX * stiffness;
@@ -1501,7 +1507,7 @@
 
                 // Fluid card hinge lag relative to strap movement
                 const cardTargetLag = -velZ * 0.65;
-                cardLagVelZ = (cardLagVelZ + (cardTargetLag - cardLagZ) * 0.12) * 0.82;
+                cardLagVelZ = (cardLagVelZ + (cardTargetLag - cardLagZ) * 0.14) * 0.84;
                 cardLagZ += cardLagVelZ;
             } else {
                 velZ = 0;
@@ -1540,10 +1546,23 @@
                 lanyardCard.style.transform = `rotateZ(${cardLagZ.toFixed(2)}deg)`;
             }
 
+            // Dynamic Glare / Silau Effect when card tilts facing upwards
             if (cardGlare) {
-                const glareOpacity = Math.min(0.85, Math.abs(angleY) / 40 + 0.2);
+                // When angleX is positive/tilted upwards, glare brightens significantly
+                const upwardTiltFactor = Math.max(0, (angleX + 15) / 45);
+                const sideTiltFactor = Math.abs(angleY) / 50;
+                const glareOpacity = Math.min(0.92, Math.max(0.1, upwardTiltFactor * 0.8 + sideTiltFactor * 0.3));
+
+                // Glare angle and gradient sheen band move as the card rotates
+                const glareAngle = 135 + angleZ + angleY * 0.4;
+                const sheenPos = Math.min(80, Math.max(10, 35 + angleX * 1.1));
+
                 cardGlare.style.opacity = glareOpacity;
-                cardGlare.style.background = `linear-gradient(${135 + angleZ}deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.05) 50%, rgba(0,0,0,0) 100%)`;
+                cardGlare.style.background = `linear-gradient(${glareAngle}deg, 
+                    rgba(255, 255, 255, 0.75) 0%, 
+                    rgba(255, 255, 255, 0.45) ${sheenPos}%, 
+                    rgba(255, 255, 255, 0.08) ${sheenPos + 22}%, 
+                    rgba(0, 0, 0, 0) 100%)`;
             }
 
             const isMoving = Math.abs(angleZ) > 0.05 || Math.abs(angleY) > 0.05 || Math.abs(angleX) > 0.05 || Math.abs(velZ) > 0.05 || Math.abs(cardLagZ) > 0.05 || Math.abs(stretch - 1) > 0.005 || Math.abs(stretchVel) > 0.002;
@@ -1560,6 +1579,7 @@
                 if (lanyardStrap) lanyardStrap.style.transform = 'none';
                 if (lanyardLowerAssembly) lanyardLowerAssembly.style.transform = 'none';
                 if (lanyardCard) lanyardCard.style.transform = 'none';
+                if (cardGlare) cardGlare.style.opacity = '0.25';
                 animating = false;
             }
         }
