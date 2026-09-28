@@ -41,670 +41,517 @@
         ::-webkit-scrollbar-thumb:hover { background: #1e88e5; }
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        
-        /* Layout Modes (App vs Web) */
-        .app-mode {
-            max-width: 26rem; /* Mobile width */
-            height: 820px;
-            border-radius: 2.5rem;
-            border-width: 8px;
-            border-color: #0f172a; /* Dark border resembling phone bezel */
-            box-shadow: 0 25px 50px -12px rgba(13, 71, 161, 0.3);
-            flex-direction: column;
-        }
-        
-        .web-mode {
-            max-width: 72rem; /* Web Dashboard width */
-            height: 85vh;
-            min-height: 700px;
-            border-radius: 1rem;
-            border-width: 1px;
-            border-color: #cbd5e1;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-            flex-direction: row;
-        }
-
-        .dark .web-mode {
-            border-color: #1e293b;
-            box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.5);
-        }
-        
-        /* Web Mode Specific Overrides */
-        .web-mode #webSideNav { display: flex !important; }
-        .web-mode #mobileBottomNav { display: none !important; }
-        .web-mode .content-wrapper { border-radius: 0 1rem 1rem 0; width: 100%; display: flex; flex-direction: column; }
-        .web-mode #screenContent { padding: 2rem !important; padding-bottom: 2rem !important; }
-        .web-mode #mobileTopBar { border-radius: 0 1rem 0 0; }
-        
-        /* Grid Adjustments for Web View */
-        .web-mode .promo-container {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 1.5rem;
-            overflow: visible;
-        }
-        .web-mode .laptop-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 1.5rem;
-        }
-        .web-mode .laptop-grid > div { margin-bottom: 0 !important; }
-        .web-mode .quick-nav-grid { gap: 1.5rem; }
     </style>
 </head>
 <body class="bg-slate-100 dark:bg-slate-950 font-sans text-slate-800 dark:text-slate-100 antialiased min-h-screen flex flex-col transition-colors duration-300">
 
-    <!-- Top Global Header -->
+    <!-- Top Main Header & Navigation -->
     <header class="bg-gradient-to-r from-blue-900 via-blue-800 to-lepii-blue text-white shadow-md sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-            <div class="flex items-center space-x-3">
+            <div class="flex items-center space-x-3 cursor-pointer" onclick="switchTab('home')">
                 <div class="w-10 h-10 bg-white rounded-xl flex items-center justify-center text-lepii-blue font-black text-2xl shadow-inner">
                     L.
                 </div>
                 <div>
                     <h1 class="text-xl font-black tracking-wider text-white leading-tight">LEPII.</h1>
-                    <p class="text-[10px] text-blue-200 hidden md:block">Start-up Kredit Laptop Pemodelan Matematika UNY</p>
+                    <p class="text-[10px] text-blue-200 hidden sm:block">Start-up Kredit Laptop Pemodelan Matematika UNY</p>
                 </div>
             </div>
 
-            <!-- Header Controls & Mode Switches -->
-            <div class="flex items-center space-x-2.5">
-                <!-- Theme Toggle Button (Dark / Light) -->
-                <button onclick="toggleTheme()" class="bg-white/10 hover:bg-white/20 text-white text-xs px-3 py-1.5 rounded-xl border border-white/20 transition flex items-center gap-1.5 shadow-sm active:scale-95" title="Ganti Mode Gelap / Terang">
+            <!-- Header Controls & Desktop Navigation Links -->
+            <div class="flex items-center space-x-2 md:space-x-3">
+                <!-- Theme Toggle Button -->
+                <button onclick="toggleTheme()" class="bg-white/10 hover:bg-white/20 text-white text-xs px-3 py-2 rounded-xl border border-white/20 transition flex items-center gap-1.5 shadow-sm active:scale-95" title="Ganti Mode Gelap / Terang">
                     <i id="themeIcon" class="fa-solid fa-moon text-amber-300"></i>
                     <span id="themeText" class="hidden sm:inline font-semibold">Mode Gelap</span>
                 </button>
 
-                <button onclick="openPortfolioModal()" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs px-3 py-1.5 rounded-xl border border-emerald-400/40 transition flex items-center gap-1.5 shadow-sm">
-                    <i class="fa-solid fa-user-tie text-white"></i> <span class="hidden xs:inline">Portofolio</span>
+                <button onclick="openPortfolioModal()" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs px-3.5 py-2 rounded-xl border border-emerald-400/40 transition flex items-center gap-1.5 shadow-sm font-semibold">
+                    <i class="fa-solid fa-user-tie"></i> <span class="hidden xs:inline">Portofolio</span>
                 </button>
 
-                <button onclick="openBusinessPlanModal()" class="bg-blue-950/60 hover:bg-blue-900 text-xs px-3 py-1.5 rounded-xl border border-blue-400/30 transition flex items-center gap-1.5 hidden lg:flex">
+                <button onclick="openBusinessPlanModal()" class="bg-blue-950/60 hover:bg-blue-900 text-xs px-3.5 py-2 rounded-xl border border-blue-400/30 transition flex items-center gap-1.5 hidden md:flex font-semibold">
                     <i class="fa-solid fa-chart-line text-emerald-400"></i> Proposal
                 </button>
-                
-                <div class="h-6 w-px bg-blue-400/30 hidden sm:block"></div>
-
-                <!-- Version Toggles -->
-                <div class="bg-blue-950/50 p-1 rounded-xl flex space-x-1 border border-blue-500/30">
-                    <button id="btnAppMode" onclick="setMode('app')" class="bg-white/20 text-white px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 shadow-sm">
-                        <i class="fa-solid fa-mobile-screen"></i> <span class="hidden xs:inline">App</span>
-                    </button>
-                    <button id="btnWebMode" onclick="setMode('web')" class="hover:bg-white/10 text-blue-100 px-3 py-1.5 rounded-lg text-xs font-medium transition flex items-center gap-1.5">
-                        <i class="fa-solid fa-display"></i> <span class="hidden xs:inline">Web</span>
-                    </button>
-                </div>
             </div>
         </div>
     </header>
 
-    <!-- Main Container -->
-    <main class="flex-grow w-full p-4 md:p-6 flex items-center justify-center">
+    <!-- Main Content Wrapper -->
+    <main class="flex-grow max-w-7xl w-full mx-auto p-4 sm:p-6 md:p-8 pb-24">
 
-        <!-- Responsive App/Web Container -->
-        <div id="appContainer" class="app-mode bg-white dark:bg-slate-900 dark:border-slate-800 flex transition-all duration-500 relative overflow-hidden">
-            
-            <!-- Side Navigation (Visible ONLY in Web Mode) -->
-            <aside id="webSideNav" class="hidden w-64 bg-slate-900 dark:bg-slate-950 text-slate-300 flex-col flex-shrink-0 transition-all border-r border-slate-800">
-                <div class="p-6 border-b border-slate-800">
-                    <div class="flex items-center gap-3 mb-2">
-                        <div class="w-12 h-12 rounded-full bg-slate-700 border-2 border-emerald-500 overflow-hidden shadow">
+        <!-- Unified Container View -->
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-xl overflow-hidden p-4 sm:p-6 md:p-8 transition-all">
+
+            <!-- SCREEN 1: HOME VIEW -->
+            <div id="screen-home" class="space-y-6">
+                <!-- User Greeting Header -->
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center bg-gradient-to-r from-lepii-blue via-blue-600 to-lepii-darkBlue dark:from-slate-800 dark:to-slate-900 border dark:border-slate-700/80 rounded-2xl p-5 sm:p-6 text-white shadow-md gap-4">
+                    <div class="flex items-center space-x-4">
+                        <div class="w-16 h-16 rounded-2xl bg-white/20 border-2 border-white/50 overflow-hidden shadow-inner flex-shrink-0 cursor-pointer" onclick="openPortfolioModal()">
                             <img src="Foto Aditya Rahman.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80';" alt="Aditya Rahman" class="w-full h-full object-cover">
                         </div>
                         <div>
-                            <p class="text-white font-bold text-sm">Aditya Rahman</p>
-                            <p class="text-[10px] text-emerald-400">Founder & Lead Dev</p>
+                            <p class="text-xs text-blue-100 dark:text-slate-400 font-medium sm:text-sm">Selamat Datang di Ekosistem Lepii,</p>
+                            <h2 class="text-xl sm:text-2xl font-bold mt-0.5 text-white">Hi, Aditya Rahman <i class="fa-solid fa-circle-check text-green-400 text-sm"></i></h2>
+                            <p class="text-xs text-blue-200 dark:text-slate-400 mt-0.5">NIM: 20305141025 • S1 Matematika UNY Lead Dev</p>
                         </div>
                     </div>
-                </div>
-                
-                <nav class="flex-1 p-4 space-y-1.5 overflow-y-auto">
-                    <p class="text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-2 px-2">Menu Utama</p>
-                    <button id="nav-side-home" onclick="switchTab('home')" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl bg-lepii-blue text-white transition text-sm font-medium">
-                        <i class="fa-solid fa-house w-5 text-center"></i> Beranda Dashboard
-                    </button>
-                    <button id="nav-side-calculator" onclick="switchTab('calculator')" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-slate-800 hover:text-white transition text-sm font-medium">
-                        <i class="fa-solid fa-calculator w-5 text-center"></i> Kalkulator Cicilan
-                    </button>
-                    <button id="nav-side-stores" onclick="switchTab('stores')" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-slate-800 hover:text-white transition text-sm font-medium">
-                        <i class="fa-solid fa-store w-5 text-center"></i> Mitra Toko Laptop
-                    </button>
-                    
-                    <p class="text-[10px] font-bold text-slate-500 uppercase tracking-wider mt-6 mb-2 px-2">Keuangan & Transaksi</p>
-                    <button id="nav-side-savings" onclick="switchTab('savings')" class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl hover:bg-slate-800 hover:text-white transition text-sm font-medium">
-                        <div class="flex items-center gap-3">
-                            <i class="fa-solid fa-piggy-bank w-5 text-center"></i> Tabungan Lepii
-                        </div>
-                        <span class="bg-red-500 text-white text-[9px] px-1.5 py-0.5 rounded-full">Baru</span>
-                    </button>
-                    <button id="nav-side-apply" onclick="switchTab('apply')" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-slate-800 hover:text-white transition text-sm font-medium">
-                        <i class="fa-solid fa-file-signature w-5 text-center"></i> Formulir Kredit
-                    </button>
-
-                    <p class="text-[10px] font-bold text-slate-500 uppercase tracking-wider mt-6 mb-2 px-2">Portofolio & Resume</p>
-                    <button onclick="openPortfolioModal()" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-slate-800 text-emerald-400 hover:text-emerald-300 transition text-sm font-medium">
-                        <i class="fa-solid fa-address-card w-5 text-center"></i> Portofolio & CV Aditya
-                    </button>
-                    <a href="index.html" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-slate-800 text-slate-300 hover:text-white transition text-sm font-medium">
-                        <i class="fa-solid fa-arrow-up-right-from-square w-5 text-center text-blue-400"></i> Buka Utama Portofolio
-                    </a>
-                </nav>
-                
-                <div class="p-4 border-t border-slate-800 bg-slate-950/50">
-                    <button onclick="openBusinessPlanModal()" class="w-full bg-slate-800 hover:bg-slate-700 text-white text-xs py-2 rounded-lg transition flex justify-center items-center gap-2">
-                        <i class="fa-solid fa-book-open text-lepii-blue"></i> Lihat Proposal Lepii
-                    </button>
-                </div>
-            </aside>
-
-            <div class="content-wrapper flex-1 relative flex flex-col bg-slate-50 dark:bg-slate-900/90 text-slate-800 dark:text-slate-100 overflow-hidden">
-                
-                <!-- Mobile App Top Bar -->
-                <div id="mobileTopBar" class="bg-lepii-blue dark:bg-slate-900 text-white px-5 pt-4 pb-3 flex items-center justify-between z-10 shrink-0 shadow-sm border-b dark:border-slate-800">
-                    <div class="flex items-center space-x-3">
-                        <button onclick="switchTab('home')" class="text-white hover:opacity-80 transition md:hidden">
-                            <i class="fa-solid fa-arrow-left text-lg"></i>
-                        </button>
-                        <span id="screenTitle" class="font-bold text-lg tracking-wide">LEPII. Mobile</span>
-                    </div>
-                    <div class="flex items-center space-x-3 md:hidden">
-                        <button onclick="toggleTheme()" class="text-white hover:text-amber-300 transition" title="Ganti Tema">
-                            <i class="fa-solid fa-circle-half-stroke text-lg"></i>
-                        </button>
-                        <button onclick="switchTab('savings')" class="relative text-white hover:text-blue-100">
-                            <i class="fa-solid fa-wallet text-lg"></i>
-                            <span class="absolute -top-1 -right-1 bg-red-500 w-2 h-2 rounded-full"></span>
+                    <div class="flex items-center gap-2 self-end sm:self-auto">
+                        <span class="text-xs bg-white/20 dark:bg-slate-700 px-3 py-1.5 rounded-lg uppercase tracking-wider font-semibold backdrop-blur-sm shadow-sm">Founder</span>
+                        <button onclick="openPortfolioModal()" class="text-xs bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-3 py-1.5 rounded-lg shadow transition flex items-center gap-1.5">
+                            <i class="fa-solid fa-briefcase"></i> Portofolio
                         </button>
                     </div>
                 </div>
 
-                <!-- Screen Content Views -->
-                <div id="screenContent" class="flex-1 overflow-y-auto p-4 pb-20 relative">
-
-                    <!-- SCREEN 1: HOME VIEW -->
-                    <div id="screen-home" class="space-y-5">
-                        <!-- User Greeting Header -->
-                        <div class="flex justify-between items-center bg-gradient-to-r from-lepii-blue to-blue-600 dark:from-slate-800 dark:to-slate-900 border dark:border-slate-700/80 rounded-2xl p-4 md:p-6 text-white shadow-md">
-                            <div class="flex items-center space-x-3">
-                                <div class="w-14 h-14 rounded-2xl bg-white/20 border-2 border-white/50 overflow-hidden shadow-inner hidden xs:block cursor-pointer" onclick="openPortfolioModal()">
-                                    <img src="Foto Aditya Rahman.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80';" alt="Aditya Rahman" class="w-full h-full object-cover">
-                                </div>
-                                <div>
-                                    <p class="text-xs text-blue-100 dark:text-slate-400 font-medium md:text-sm">Selamat Datang di Ekosistem Lepii,</p>
-                                    <h2 class="text-xl md:text-2xl font-bold mt-0.5 text-white">Hi, Aditya Rahman <i class="fa-solid fa-circle-check text-green-400 text-sm"></i></h2>
-                                    <p class="text-xs text-blue-200 dark:text-slate-400 mt-0.5 md:text-sm">NIM: 20305141025 • UNY Math Lead Dev</p>
-                                </div>
-                            </div>
-                            <div class="text-right flex flex-col items-end gap-1.5">
-                                <span class="text-[10px] md:text-xs bg-white/20 dark:bg-slate-700 px-2.5 py-1 rounded-lg uppercase tracking-wider font-semibold backdrop-blur-sm shadow-sm">Founder</span>
-                                <button onclick="openPortfolioModal()" class="text-[10px] bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-2.5 py-1 rounded-lg shadow transition flex items-center gap-1">
-                                    <i class="fa-solid fa-briefcase"></i> Portofolio
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Search Bar -->
-                        <div class="relative max-w-2xl">
-                            <input type="text" id="searchInput" placeholder="Cari laptop murah, spesifikasi, merk..." onkeyup="filterLaptops()" class="w-full pl-10 pr-4 py-3 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-100 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-lepii-blue shadow-sm transition">
-                            <i class="fa-solid fa-magnifying-glass absolute left-4 top-3.5 text-slate-400"></i>
-                        </div>
-
-                        <!-- Quick Navigation Grid -->
-                        <div class="quick-nav-grid grid grid-cols-4 gap-2 text-center">
-                            <button onclick="switchTab('calculator')" class="flex flex-col items-center group">
-                                <div class="w-12 h-12 md:w-16 md:h-16 bg-blue-100 dark:bg-blue-950/80 group-hover:bg-lepii-blue group-hover:text-white text-lepii-blue dark:text-blue-400 rounded-2xl md:rounded-3xl flex items-center justify-center transition shadow-sm mb-1.5 md:mb-2 border dark:border-blue-900">
-                                    <i class="fa-solid fa-calculator text-xl md:text-2xl"></i>
-                                </div>
-                                <span class="text-[11px] md:text-xs font-semibold text-slate-700 dark:text-slate-300 leading-tight">Kalkulator<br>Cicilan</span>
-                            </button>
-                            <button onclick="switchTab('savings')" class="flex flex-col items-center group">
-                                <div class="w-12 h-12 md:w-16 md:h-16 bg-emerald-100 dark:bg-emerald-950/80 group-hover:bg-emerald-600 group-hover:text-white text-emerald-600 dark:text-emerald-400 rounded-2xl md:rounded-3xl flex items-center justify-center transition shadow-sm mb-1.5 md:mb-2 border dark:border-emerald-900">
-                                    <i class="fa-solid fa-piggy-bank text-xl md:text-2xl"></i>
-                                </div>
-                                <span class="text-[11px] md:text-xs font-semibold text-slate-700 dark:text-slate-300 leading-tight">Tabungan<br>Lepii</span>
-                            </button>
-                            <button onclick="switchTab('apply')" class="flex flex-col items-center group">
-                                <div class="w-12 h-12 md:w-16 md:h-16 bg-orange-100 dark:bg-orange-950/80 group-hover:bg-orange-600 group-hover:text-white text-orange-600 dark:text-orange-400 rounded-2xl md:rounded-3xl flex items-center justify-center transition shadow-sm mb-1.5 md:mb-2 border dark:border-orange-900">
-                                    <i class="fa-solid fa-file-signature text-xl md:text-2xl"></i>
-                                </div>
-                                <span class="text-[11px] md:text-xs font-semibold text-slate-700 dark:text-slate-300 leading-tight">Ajukan<br>Kredit</span>
-                            </button>
-                            <button onclick="switchTab('stores')" class="flex flex-col items-center group">
-                                <div class="w-12 h-12 md:w-16 md:h-16 bg-purple-100 dark:bg-purple-950/80 group-hover:bg-purple-600 group-hover:text-white text-purple-600 dark:text-purple-400 rounded-2xl md:rounded-3xl flex items-center justify-center transition shadow-sm mb-1.5 md:mb-2 border dark:border-purple-900">
-                                    <i class="fa-solid fa-map-location-dot text-xl md:text-2xl"></i>
-                                </div>
-                                <span class="text-[11px] md:text-xs font-semibold text-slate-700 dark:text-slate-300 leading-tight">Toko<br>Sekitar</span>
-                            </button>
-                        </div>
-
-                        <!-- Promo Banner Slider / Grid -->
-                        <div>
-                            <div class="flex justify-between items-center mb-3">
-                                <h3 class="font-bold text-slate-800 dark:text-slate-100 text-sm md:text-base">Promo Spesial Hari Ini</h3>
-                                <a href="#" onclick="switchTab('calculator')" class="text-xs md:text-sm text-lepii-blue dark:text-blue-400 font-semibold hover:underline">Lihat Semua</a>
-                            </div>
-                            <div class="promo-container flex space-x-3 overflow-x-auto no-scrollbar pb-2">
-                                <!-- Card Promo 1 -->
-                                <div class="promo-card min-w-[220px] bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-4 shadow-sm flex-shrink-0 group hover:border-blue-400 transition cursor-pointer" onclick="selectLaptopForCalculator('Lenovo V130', 5400000)">
-                                    <span class="bg-red-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-lg">Diskon 12%</span>
-                                    <div class="h-28 my-3 flex items-center justify-center group-hover:scale-105 transition-transform">
-                                        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=300&auto=format&fit=crop&q=80" alt="Lenovo V130" class="max-h-full object-contain">
-                                    </div>
-                                    <h4 class="font-bold text-sm text-slate-800 dark:text-slate-100 truncate">Lenovo V130 Core i3</h4>
-                                    <p class="text-xs text-slate-500 dark:text-slate-400 mb-2">Mulai <span class="text-lepii-blue dark:text-blue-400 font-bold text-sm">Rp470.000</span>/bln</p>
-                                    <button class="w-full bg-slate-100 dark:bg-slate-700 group-hover:bg-lepii-blue group-hover:text-white text-slate-700 dark:text-slate-200 text-xs font-semibold py-1.5 rounded-lg transition">Hitung Simulasi</button>
-                                </div>
-
-                                <!-- Card Promo 2 -->
-                                <div class="promo-card min-w-[220px] bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-4 shadow-sm flex-shrink-0 group hover:border-blue-400 transition cursor-pointer" onclick="selectLaptopForCalculator('HP 14s CF1051TU', 5200000)">
-                                    <span class="bg-orange-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-lg">Bebas Admin</span>
-                                    <div class="h-28 my-3 flex items-center justify-center group-hover:scale-105 transition-transform">
-                                        <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=300&auto=format&fit=crop&q=80" alt="HP 14s" class="max-h-full object-contain">
-                                    </div>
-                                    <h4 class="font-bold text-sm text-slate-800 dark:text-slate-100 truncate">HP 14s CF1051TU</h4>
-                                    <p class="text-xs text-slate-500 dark:text-slate-400 mb-2">Mulai <span class="text-lepii-blue dark:text-blue-400 font-bold text-sm">Rp459.999</span>/bln</p>
-                                    <button class="w-full bg-slate-100 dark:bg-slate-700 group-hover:bg-lepii-blue group-hover:text-white text-slate-700 dark:text-slate-200 text-xs font-semibold py-1.5 rounded-lg transition">Hitung Simulasi</button>
-                                </div>
-
-                                <!-- Card Promo 3 -->
-                                <div class="promo-card min-w-[220px] bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-4 shadow-sm flex-shrink-0 group hover:border-blue-400 transition cursor-pointer" onclick="selectLaptopForCalculator('Asus Vivobook 14', 6800000)">
-                                    <span class="bg-emerald-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-lg">DP 0% Mahasiswa</span>
-                                    <div class="h-28 my-3 flex items-center justify-center group-hover:scale-105 transition-transform">
-                                        <img src="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=300&auto=format&fit=crop&q=80" alt="Asus Vivobook" class="max-h-full object-contain">
-                                    </div>
-                                    <h4 class="font-bold text-sm text-slate-800 dark:text-slate-100 truncate">Asus Vivobook 14</h4>
-                                    <p class="text-xs text-slate-500 dark:text-slate-400 mb-2">Mulai <span class="text-lepii-blue dark:text-blue-400 font-bold text-sm">Rp580.000</span>/bln</p>
-                                    <button class="w-full bg-slate-100 dark:bg-slate-700 group-hover:bg-lepii-blue group-hover:text-white text-slate-700 dark:text-slate-200 text-xs font-semibold py-1.5 rounded-lg transition">Hitung Simulasi</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Recommended Laptops -->
-                        <div class="space-y-3">
-                            <div class="flex justify-between items-center">
-                                <h3 class="font-bold text-slate-800 dark:text-slate-100 text-sm md:text-base">Rekomendasi Matematika</h3>
-                                <span class="text-[10px] md:text-xs bg-blue-100 dark:bg-blue-950 text-lepii-blue dark:text-blue-300 px-2.5 py-1 rounded-lg font-semibold flex items-center gap-1 border dark:border-blue-800">
-                                    <i class="fa-solid fa-bolt text-yellow-500"></i> AI Lepii
-                                </span>
-                            </div>
-                            <div id="laptopListContainer" class="laptop-grid space-y-2.5">
-                                <!-- Items injected dynamically via JS -->
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- SCREEN 2: KALKULATOR CICILAN -->
-                    <div id="screen-calculator" class="space-y-4 hidden h-full">
-                        <div class="bg-blue-50 dark:bg-slate-800 border border-blue-200 dark:border-slate-700 rounded-2xl p-4 text-slate-700 dark:text-slate-200 shadow-sm">
-                            <div class="flex items-center space-x-2 text-lepii-blue dark:text-blue-400 font-bold mb-1">
-                                <i class="fa-solid fa-square-root-variable text-xl"></i>
-                                <h3 class="text-sm md:text-base">Kalkulator Cicilan Presisi</h3>
-                            </div>
-                            <p class="text-xs md:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                                Algoritma matematika Lepii. menghitung simulasi cicilan bulanan ideal berdasarkan preferensi DP, jangka waktu, & bunga flat terjangkau.
-                            </p>
-                        </div>
-
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <!-- Calculator Form -->
-                            <form id="calcForm" onsubmit="calculateInstallment(event)" class="bg-white dark:bg-slate-800 rounded-2xl p-4 md:p-5 border border-slate-200 dark:border-slate-700 shadow-sm space-y-4">
-                                <div>
-                                    <label class="block text-xs md:text-sm font-bold text-slate-700 dark:text-slate-200 mb-1.5">Harga Total Laptop (Rp)</label>
-                                    <div class="relative">
-                                        <span class="absolute left-3 top-2.5 md:top-3 text-xs md:text-sm text-slate-400 font-bold">Rp</span>
-                                        <input type="number" id="calcPrice" value="5400000" min="1000000" step="100000" class="w-full pl-9 pr-3 py-2.5 border border-slate-200 dark:border-slate-700 rounded-xl text-sm md:text-base font-semibold focus:outline-none focus:ring-2 focus:ring-lepii-blue bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 transition" required>
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <label class="block text-xs md:text-sm font-bold text-slate-700 dark:text-slate-200 mb-1.5">Uang Muka / DP (Rp)</label>
-                                    <div class="relative">
-                                        <span class="absolute left-3 top-2.5 md:top-3 text-xs md:text-sm text-slate-400 font-bold">Rp</span>
-                                        <input type="number" id="calcDp" value="1100000" min="0" step="100000" class="w-full pl-9 pr-3 py-2.5 border border-slate-200 dark:border-slate-700 rounded-xl text-sm md:text-base font-semibold focus:outline-none focus:ring-2 focus:ring-lepii-blue bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 transition" required>
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <label class="block text-xs md:text-sm font-bold text-slate-700 dark:text-slate-200 mb-1.5">Jangka Waktu (Tenor)</label>
-                                    <select id="calcTenor" class="w-full px-3 py-2.5 border border-slate-200 dark:border-slate-700 rounded-xl text-sm md:text-base font-semibold focus:outline-none focus:ring-2 focus:ring-lepii-blue bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 transition cursor-pointer">
-                                        <option value="3">3 Bulan (Bunga Flat 0.5%)</option>
-                                        <option value="6">6 Bulan (Bunga Flat 0.8%)</option>
-                                        <option value="9" selected>9 Bulan (Bunga Flat 0.95%)</option>
-                                        <option value="12">12 Bulan (Bunga Flat 1.1%)</option>
-                                        <option value="18">18 Bulan (Bunga Flat 1.25%)</option>
-                                        <option value="24">24 Bulan (Bunga Flat 1.4%)</option>
-                                    </select>
-                                </div>
-
-                                <button type="submit" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 rounded-xl shadow-md transition-all flex items-center justify-center gap-2 mt-2">
-                                    <i class="fa-solid fa-calculator"></i> Kalkulasi Sekarang
-                                </button>
-                            </form>
-
-                            <!-- Calculator Results -->
-                            <div class="space-y-4 flex flex-col">
-                                <div id="calcResultBox" class="bg-gradient-to-br from-lepii-darkBlue to-lepii-blue dark:from-slate-900 dark:to-slate-800 border dark:border-slate-700 text-white rounded-2xl p-5 shadow-md text-center space-y-1.5">
-                                    <p class="text-xs md:text-sm text-blue-100 dark:text-slate-300 font-medium">Estimasi Cicilan Maksimal per Bulan:</p>
-                                    <p id="calcMonthlyResult" class="text-3xl font-black text-yellow-300 tracking-tight">Rp475.000 <span class="text-sm text-white font-normal">/bulan</span></p>
-                                    <p id="calcFormulaDetail" class="text-xs text-blue-200 dark:text-slate-400 pt-2 mt-1 border-t border-blue-400/30 dark:border-slate-700">
-                                        Pokok: Rp4.300.000 • Bunga: 0.95% • 9x Angsuran
-                                    </p>
-                                </div>
-
-                                <div class="flex-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-4 shadow-sm">
-                                    <h4 class="text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-3">Rekomendasi Sistem:</h4>
-                                    <div id="calcRecommendations" class="grid grid-cols-2 gap-3">
-                                        <!-- Injected dynamically -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- SCREEN 3: TOKO DI SEKITAR ANDA -->
-                    <div id="screen-stores" class="space-y-4 hidden h-full">
-                        <div class="flex items-center justify-between bg-white dark:bg-slate-800 p-4 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
-                            <div>
-                                <h3 class="font-bold text-slate-800 dark:text-slate-100 text-sm md:text-base">Mitra Toko Terdekat</h3>
-                                <p class="text-xs text-slate-500 dark:text-slate-400">Lokasi Anda: Sleman, Yogyakarta</p>
-                            </div>
-                            <span class="bg-purple-100 dark:bg-purple-950 text-purple-700 dark:text-purple-300 text-xs px-3 py-1.5 rounded-lg font-bold flex items-center gap-1.5 border dark:border-purple-800">
-                                <span class="relative flex h-2 w-2">
-                                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
-                                  <span class="relative inline-flex rounded-full h-2 w-2 bg-purple-600"></span>
-                                </span>
-                                GPS Aktif
-                            </span>
-                        </div>
-
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 h-full pb-6">
-                            <!-- Interactive Mockup Map View -->
-                            <div class="bg-slate-200 dark:bg-slate-800 rounded-2xl overflow-hidden h-64 md:h-full relative border border-slate-300 dark:border-slate-700 shadow-inner">
-                                <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?w=800&auto=format&fit=crop&q=80" alt="Map Background" class="w-full h-full object-cover opacity-60 mix-blend-multiply filter grayscale blur-[1px]">
-                                
-                                <svg class="absolute inset-0 w-full h-full" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M50 150 Q 150 100, 250 80 T 350 200" stroke="#3B82F6" stroke-width="4" stroke-dasharray="6 6"/>
-                                </svg>
-                                
-                                <div class="absolute top-[30%] left-[60%] transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center group cursor-pointer" onclick="highlightStore(1)">
-                                    <div class="bg-red-600 text-white text-[10px] font-bold px-2 py-1 rounded shadow-md whitespace-nowrap mb-1">Toko 1 (3.9 km)</div>
-                                    <i class="fa-solid fa-location-pin text-red-600 text-3xl filter drop-shadow hover:scale-110 transition"></i>
-                                </div>
-
-                                <div class="absolute bottom-[30%] right-[30%] transform translate-x-1/2 flex flex-col items-center group cursor-pointer" onclick="highlightStore(2)">
-                                    <div class="bg-indigo-600 text-white text-[10px] font-bold px-2 py-1 rounded shadow-md whitespace-nowrap mb-1">Toko 2 (4.7 km)</div>
-                                    <i class="fa-solid fa-location-pin text-indigo-600 text-3xl filter drop-shadow hover:scale-110 transition"></i>
-                                </div>
-
-                                <div class="absolute top-1/2 left-[20%] transform -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
-                                    <span class="bg-lepii-blue text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full absolute -top-5">Anda</span>
-                                    <span class="animate-ping absolute inline-flex h-10 w-10 rounded-full bg-blue-400 opacity-75"></span>
-                                    <span class="relative inline-flex rounded-full h-4 w-4 bg-lepii-blue border-2 border-white shadow-md"></span>
-                                </div>
-                            </div>
-
-                            <!-- Store Listing Cards -->
-                            <div class="space-y-3 overflow-y-auto pr-1">
-                                <!-- Toko 1 -->
-                                <div id="storeCard1" class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-4 shadow-sm space-y-3 hover:border-lepii-blue transition cursor-pointer" onclick="highlightStore(1)">
-                                    <div class="flex justify-between items-start">
-                                        <div class="flex items-center space-x-3">
-                                            <div class="w-12 h-12 bg-red-50 dark:bg-red-950/80 text-red-600 dark:text-red-400 rounded-xl flex items-center justify-center">
-                                                <i class="fa-solid fa-store text-xl"></i>
-                                            </div>
-                                            <div>
-                                                <h4 class="font-bold text-sm text-slate-800 dark:text-slate-100">TOKO 1 - Soropadan</h4>
-                                                <p class="text-xs text-slate-500 dark:text-slate-400 max-w-[200px] truncate">Jl. Soropadan Timur, Condongcatur</p>
-                                            </div>
-                                        </div>
-                                        <span class="bg-red-100 dark:bg-red-950 text-red-700 dark:text-red-300 text-xs font-bold px-2.5 py-1 rounded-lg">3.9 KM</span>
-                                    </div>
-                                    <div class="bg-slate-50 dark:bg-slate-900 rounded-xl p-3 text-xs space-y-1.5 border border-slate-100 dark:border-slate-800">
-                                        <div class="flex justify-between border-b border-slate-200 dark:border-slate-800 pb-1">
-                                            <span class="text-slate-500 dark:text-slate-400">Stok Laptop Ready:</span>
-                                            <span class="font-bold text-emerald-600 dark:text-emerald-400">14 Unit</span>
-                                        </div>
-                                        <div class="flex justify-between pt-0.5">
-                                            <span class="text-slate-500 dark:text-slate-400">Layanan Lepii:</span>
-                                            <span class="font-semibold text-slate-700 dark:text-slate-300 text-right">Ambil Langsung & Verifikasi</span>
-                                        </div>
-                                    </div>
-                                    <button onclick="selectStoreForApplication('TOKO 1 - Soropadan')" class="w-full bg-slate-100 dark:bg-slate-700 hover:bg-lepii-blue hover:text-white dark:hover:bg-lepii-blue text-lepii-blue dark:text-blue-300 text-xs md:text-sm font-bold py-2.5 rounded-xl transition flex items-center justify-center gap-2">
-                                        Pilih Toko Ini Untuk Ajukan <i class="fa-solid fa-arrow-right"></i>
-                                    </button>
-                                </div>
-
-                                <!-- Toko 2 -->
-                                <div id="storeCard2" class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-4 shadow-sm space-y-3 hover:border-lepii-blue transition cursor-pointer" onclick="highlightStore(2)">
-                                    <div class="flex justify-between items-start">
-                                        <div class="flex items-center space-x-3">
-                                            <div class="w-12 h-12 bg-indigo-50 dark:bg-indigo-950/80 text-indigo-600 dark:text-indigo-400 rounded-xl flex items-center justify-center">
-                                                <i class="fa-solid fa-store text-xl"></i>
-                                            </div>
-                                            <div>
-                                                <h4 class="font-bold text-sm text-slate-800 dark:text-slate-100">TOKO 2 - Pringwulung</h4>
-                                                <p class="text-xs text-slate-500 dark:text-slate-400 max-w-[200px] truncate">Jl. Empu Panuluh 79-81, Depok</p>
-                                            </div>
-                                        </div>
-                                        <span class="bg-indigo-100 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300 text-xs font-bold px-2.5 py-1 rounded-lg">4.7 KM</span>
-                                    </div>
-                                    <div class="bg-slate-50 dark:bg-slate-900 rounded-xl p-3 text-xs space-y-1.5 border border-slate-100 dark:border-slate-800">
-                                        <div class="flex justify-between border-b border-slate-200 dark:border-slate-800 pb-1">
-                                            <span class="text-slate-500 dark:text-slate-400">Stok Laptop Ready:</span>
-                                            <span class="font-bold text-emerald-600 dark:text-emerald-400">22 Unit</span>
-                                        </div>
-                                        <div class="flex justify-between pt-0.5">
-                                            <span class="text-slate-500 dark:text-slate-400">Layanan Lepii:</span>
-                                            <span class="font-semibold text-slate-700 dark:text-slate-300 text-right">Tes Spek & Free Software</span>
-                                        </div>
-                                    </div>
-                                    <button onclick="selectStoreForApplication('TOKO 2 - Pringwulung')" class="w-full bg-slate-100 dark:bg-slate-700 hover:bg-lepii-blue hover:text-white dark:hover:bg-lepii-blue text-lepii-blue dark:text-blue-300 text-xs md:text-sm font-bold py-2.5 rounded-xl transition flex items-center justify-center gap-2">
-                                        Pilih Toko Ini Untuk Ajukan <i class="fa-solid fa-arrow-right"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- SCREEN 4: TABUNGAN & RENCANA ANGSURAN -->
-                    <div id="screen-savings" class="space-y-4 hidden h-full max-w-3xl mx-auto">
-                        <!-- Balance Card -->
-                        <div class="bg-gradient-to-tr from-teal-700 via-emerald-600 to-teal-500 rounded-3xl p-5 md:p-6 text-white shadow-lg relative overflow-hidden">
-                            <div class="absolute -right-10 -top-10 w-40 h-40 bg-white opacity-10 rounded-full blur-2xl"></div>
-                            
-                            <div class="flex justify-between items-start mb-4 relative z-10">
-                                <div>
-                                    <p class="text-xs md:text-sm text-emerald-100 font-medium mb-1">Saldo Tabungan Kredit Lepii</p>
-                                    <div class="flex items-center space-x-3 mt-1">
-                                        <span id="savingsBalanceText" class="text-3xl md:text-4xl font-black tracking-tight">Rp1.850.000</span>
-                                        <button onclick="toggleBalanceMask()" class="text-emerald-100 hover:text-white p-1 rounded-full hover:bg-white/10 transition">
-                                            <i id="eyeIcon" class="fa-solid fa-eye text-lg"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                <span class="bg-white/20 backdrop-blur-md text-xs px-3 py-1 rounded-lg font-bold border border-white/30 shadow-sm">Aktif</span>
-                            </div>
-                            <p class="text-xs text-emerald-100 relative z-10 bg-black/10 inline-block px-3 py-1 rounded-lg">
-                                <i class="fa-solid fa-bolt text-yellow-300 mr-1"></i> Digunakan otomatis untuk autodebet cicilan bulanan
-                            </p>
-                        </div>
-
-                        <!-- Action Quick Buttons Grid -->
-                        <div class="grid grid-cols-4 gap-2 md:gap-4 text-center">
-                            <button onclick="openModalMessage('Fitur Transfer', 'Gunakan Virtual Account Lepii untuk top up saldo.')" class="bg-white dark:bg-slate-800 p-3 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-emerald-500 transition flex flex-col items-center">
-                                <div class="w-10 h-10 bg-emerald-50 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 rounded-full flex items-center justify-center mb-2">
-                                    <i class="fa-solid fa-paper-plane text-lg"></i>
-                                </div>
-                                <span class="text-xs font-bold text-slate-700 dark:text-slate-300">Top Up</span>
-                            </button>
-                            <button onclick="openModalMessage('Riwayat Mutasi', 'Menampilkan mutasi masuk dan keluar transaksi angsuran.')" class="bg-white dark:bg-slate-800 p-3 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-emerald-500 transition flex flex-col items-center">
-                                <div class="w-10 h-10 bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-400 rounded-full flex items-center justify-center mb-2">
-                                    <i class="fa-solid fa-list-check text-lg"></i>
-                                </div>
-                                <span class="text-xs font-bold text-slate-700 dark:text-slate-300">Mutasi</span>
-                            </button>
-                            <button onclick="openModalMessage('Dompet Digital', 'Hubungkan e-Wallet pilihan (GoPay, OVO, DANA).')" class="bg-white dark:bg-slate-800 p-3 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-emerald-500 transition flex flex-col items-center">
-                                <div class="w-10 h-10 bg-purple-50 dark:bg-purple-950 text-purple-600 dark:text-purple-400 rounded-full flex items-center justify-center mb-2">
-                                    <i class="fa-solid fa-wallet text-lg"></i>
-                                </div>
-                                <span class="text-xs font-bold text-slate-700 dark:text-slate-300">E-Wallet</span>
-                            </button>
-                            <button onclick="openModalMessage('Lainnya', 'Pengaturan autodebet & cetak bukti Laporan Pemodelan.')" class="bg-white dark:bg-slate-800 p-3 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-emerald-500 transition flex flex-col items-center">
-                                <div class="w-10 h-10 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded-full flex items-center justify-center mb-2">
-                                    <i class="fa-solid fa-ellipsis text-lg"></i>
-                                </div>
-                                <span class="text-xs font-bold text-slate-700 dark:text-slate-300">Lainnya</span>
-                            </button>
-                        </div>
-
-                        <!-- Active Credit Repayment Tracking -->
-                        <div class="bg-white dark:bg-slate-800 rounded-2xl p-4 border border-slate-200 dark:border-slate-700 shadow-sm space-y-3">
-                            <div class="flex justify-between items-center border-b border-slate-100 dark:border-slate-700 pb-2">
-                                <h4 class="font-bold text-sm text-slate-800 dark:text-slate-100">Status Angsuran</h4>
-                                <span class="bg-blue-100 dark:bg-blue-950 text-lepii-blue dark:text-blue-300 text-xs font-bold px-2.5 py-1 rounded-lg">Bulan Ke-3 dari 9</span>
-                            </div>
-                            
-                            <div class="flex items-center space-x-3">
-                                <div class="w-14 h-14 bg-slate-100 dark:bg-slate-700 rounded-xl p-1.5 flex-shrink-0 flex items-center justify-center">
-                                    <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=100&auto=format&fit=crop&q=80" alt="Lenovo V130" class="max-h-full">
-                                </div>
-                                <div class="flex-grow">
-                                    <h5 class="font-bold text-sm text-slate-800 dark:text-slate-100">Lenovo V130 Core i3</h5>
-                                    <p class="text-xs text-slate-500 dark:text-slate-400">Angsuran: <span class="font-bold text-slate-800 dark:text-slate-200">Rp470.000 / bln</span></p>
-                                    <div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2 mt-2">
-                                        <div class="bg-emerald-500 h-2 rounded-full" style="width: 33%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- SCREEN 5: FORMULIR PENGAJUAN KREDIT -->
-                    <div id="screen-apply" class="space-y-4 hidden h-full max-w-2xl mx-auto">
-                        <div class="bg-orange-50 dark:bg-slate-800 border border-orange-200 dark:border-slate-700 rounded-2xl p-4 text-slate-700 dark:text-slate-200 shadow-sm flex gap-3 items-start">
-                            <i class="fa-solid fa-file-contract text-2xl text-orange-600 dark:text-orange-400 mt-1"></i>
-                            <div>
-                                <h3 class="text-sm md:text-base font-bold text-orange-700 dark:text-orange-300">Formulir Pengajuan Kredit Laptop</h3>
-                                <p class="text-xs md:text-sm text-slate-600 dark:text-slate-300 mt-1">Isi identitas diri & konfirmasi pilihan kredit Anda secara mudah tanpa ribet administrasi fisik.</p>
-                            </div>
-                        </div>
-
-                        <form id="applyCreditForm" onsubmit="submitCreditApplication(event)" class="bg-white dark:bg-slate-800 rounded-2xl p-5 border border-slate-200 dark:border-slate-700 shadow-sm space-y-4">
-                            <h4 class="text-xs md:text-sm font-bold text-lepii-blue dark:text-blue-400 uppercase tracking-wider border-b border-slate-200 dark:border-slate-700 pb-2 flex items-center gap-2">
-                                <span class="bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-300 w-6 h-6 rounded-full flex items-center justify-center">1</span> Data Diri Pemohon
-                            </h4>
-
-                            <div>
-                                <label class="block text-xs font-bold text-slate-700 dark:text-slate-200 mb-1">Nama Sesuai KTP</label>
-                                <input type="text" id="appNama" value="Aditya Rahman" class="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-100 rounded-xl text-sm focus:ring-2 focus:ring-lepii-blue transition" required>
-                            </div>
-
-                            <div class="grid grid-cols-2 gap-3">
-                                <div>
-                                    <label class="block text-xs font-bold text-slate-700 dark:text-slate-200 mb-1">NIK KTP</label>
-                                    <input type="text" id="appNik" value="3404010501010002" class="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-100 rounded-xl text-sm focus:ring-2 focus:ring-lepii-blue transition" required>
-                                </div>
-                                <div>
-                                    <label class="block text-xs font-bold text-slate-700 dark:text-slate-200 mb-1">Kode Pos</label>
-                                    <input type="text" id="appKodePos" value="55584" class="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-100 rounded-xl text-sm focus:ring-2 focus:ring-lepii-blue transition" required>
-                                </div>
-                            </div>
-
-                            <div>
-                                <label class="block text-xs font-bold text-slate-700 dark:text-slate-200 mb-1">Pilihan Kredit Laptop</label>
-                                <select id="appLaptopSelection" class="w-full px-4 py-3 border border-blue-300 dark:border-slate-700 rounded-xl text-sm font-bold text-blue-900 dark:text-blue-300 focus:ring-2 focus:ring-lepii-blue bg-blue-50 dark:bg-slate-900 transition cursor-pointer shadow-sm">
-                                    <option value="Lenovo V130 - Rp470.000/bulan">Lenovo V130 Core i3 - Rp470.000 / bulan (9 Bln)</option>
-                                    <option value="HP 14s CF1051TU - Rp459.999/bulan">HP 14s CF1051TU - Rp459.999 / bulan (9 Bln)</option>
-                                    <option value="Asus Vivobook 14 - Rp580.000/bulan">Asus Vivobook 14 - Rp580.000 / bulan (12 Bln)</option>
-                                </select>
-                            </div>
-
-                            <div>
-                                <label class="block text-xs font-bold text-slate-700 dark:text-slate-200 mb-1">Toko Mitra Pengambilan</label>
-                                <input type="text" id="appSelectedStore" value="TOKO 1 - Soropadan (3.9 KM)" class="w-full px-4 py-3 border border-slate-200 dark:border-slate-700 rounded-xl text-sm bg-slate-100 dark:bg-slate-900 text-slate-500 dark:text-slate-400 font-medium cursor-not-allowed" readonly>
-                            </div>
-
-                            <div class="pt-4">
-                                <button type="submit" class="w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-bold py-3.5 rounded-xl text-sm md:text-base shadow-lg transition-all flex items-center justify-center gap-2">
-                                    <i class="fa-solid fa-paper-plane"></i> AJUKAN PERMOHONAN SEKARANG
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-
+                <!-- Search Bar -->
+                <div class="relative max-w-2xl">
+                    <input type="text" id="searchInput" placeholder="Cari laptop murah, spesifikasi, merk..." onkeyup="filterLaptops()" class="w-full pl-10 pr-4 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-100 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-lepii-blue shadow-sm transition">
+                    <i class="fa-solid fa-magnifying-glass absolute left-4 top-3.5 text-slate-400"></i>
                 </div>
 
-                <!-- Fixed Bottom Navigation Bar (App Mode Only) -->
-                <div id="mobileBottomNav" class="absolute bottom-0 left-0 right-0 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 px-2 py-2 flex justify-around items-center z-20 shadow-[0_-5px_15px_-5px_rgba(0,0,0,0.1)]">
-                    <button onclick="switchTab('home')" id="nav-home" class="flex flex-col items-center text-lepii-blue w-16 transition">
-                        <i class="fa-solid fa-house text-xl mb-1"></i>
-                        <span class="text-[9px] font-bold">Beranda</span>
+                <!-- Quick Action Buttons -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                    <button onclick="switchTab('calculator')" class="p-4 bg-blue-50 dark:bg-blue-950/60 hover:bg-lepii-blue hover:text-white text-lepii-blue dark:text-blue-300 rounded-2xl transition shadow-sm border border-blue-100 dark:border-blue-900/50 flex flex-col items-center group">
+                        <i class="fa-solid fa-calculator text-2xl mb-2 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-xs font-bold">Kalkulator Cicilan</span>
                     </button>
-                    <button onclick="switchTab('calculator')" id="nav-calculator" class="flex flex-col items-center text-slate-400 hover:text-lepii-blue w-16 transition">
-                        <i class="fa-solid fa-calculator text-xl mb-1"></i>
-                        <span class="text-[9px] font-medium">Hitung</span>
+                    <button onclick="switchTab('savings')" class="p-4 bg-emerald-50 dark:bg-emerald-950/60 hover:bg-emerald-600 hover:text-white text-emerald-600 dark:text-emerald-300 rounded-2xl transition shadow-sm border border-emerald-100 dark:border-emerald-900/50 flex flex-col items-center group">
+                        <i class="fa-solid fa-piggy-bank text-2xl mb-2 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-xs font-bold">Tabungan Lepii</span>
                     </button>
-                    <button onclick="switchTab('stores')" id="nav-stores" class="flex flex-col items-center text-slate-400 hover:text-lepii-blue w-16 transition">
-                        <i class="fa-solid fa-store text-xl mb-1"></i>
-                        <span class="text-[9px] font-medium">Toko</span>
+                    <button onclick="switchTab('apply')" class="p-4 bg-orange-50 dark:bg-orange-950/60 hover:bg-orange-600 hover:text-white text-orange-600 dark:text-orange-300 rounded-2xl transition shadow-sm border border-orange-100 dark:border-orange-900/50 flex flex-col items-center group">
+                        <i class="fa-solid fa-file-signature text-2xl mb-2 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-xs font-bold">Ajukan Kredit</span>
                     </button>
-                    <button onclick="switchTab('savings')" id="nav-savings" class="flex flex-col items-center text-slate-400 hover:text-lepii-blue w-16 transition">
-                        <i class="fa-solid fa-piggy-bank text-xl mb-1"></i>
-                        <span class="text-[9px] font-medium">Tabungan</span>
-                    </button>
-                    <button onclick="switchTab('apply')" id="nav-apply" class="flex flex-col items-center text-slate-400 hover:text-lepii-blue w-16 transition">
-                        <i class="fa-solid fa-file-pen text-xl mb-1"></i>
-                        <span class="text-[9px] font-medium">Kredit</span>
+                    <button onclick="switchTab('stores')" class="p-4 bg-purple-50 dark:bg-purple-950/60 hover:bg-purple-600 hover:text-white text-purple-600 dark:text-purple-300 rounded-2xl transition shadow-sm border border-purple-100 dark:border-purple-900/50 flex flex-col items-center group">
+                        <i class="fa-solid fa-map-location-dot text-2xl mb-2 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-xs font-bold">Toko Terdekat</span>
                     </button>
                 </div>
 
+                <!-- Promo Banner Cards Grid -->
+                <div>
+                    <div class="flex justify-between items-center mb-3">
+                        <h3 class="font-bold text-slate-800 dark:text-slate-100 text-base">Promo Spesial Hari Ini</h3>
+                        <a href="#" onclick="switchTab('calculator')" class="text-xs text-lepii-blue dark:text-blue-400 font-semibold hover:underline">Lihat Semua</a>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                        <!-- Card Promo 1 -->
+                        <div class="bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-2xl p-4 shadow-sm group hover:border-blue-400 transition cursor-pointer" onclick="selectLaptopForCalculator('Lenovo V130', 5400000)">
+                            <span class="bg-red-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-lg">Diskon 12%</span>
+                            <div class="h-32 my-3 flex items-center justify-center group-hover:scale-105 transition-transform">
+                                <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=300&auto=format&fit=crop&q=80" alt="Lenovo V130" class="max-h-full object-contain">
+                            </div>
+                            <h4 class="font-bold text-sm text-slate-800 dark:text-slate-100 truncate">Lenovo V130 Core i3</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mb-3">Mulai <span class="text-lepii-blue dark:text-blue-400 font-bold text-sm">Rp470.000</span>/bln</p>
+                            <button class="w-full bg-white dark:bg-slate-700 group-hover:bg-lepii-blue group-hover:text-white text-slate-700 dark:text-slate-200 text-xs font-semibold py-2 rounded-xl border border-slate-200 dark:border-slate-600 transition">Hitung Simulasi</button>
+                        </div>
+
+                        <!-- Card Promo 2 -->
+                        <div class="bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-2xl p-4 shadow-sm group hover:border-blue-400 transition cursor-pointer" onclick="selectLaptopForCalculator('HP 14s CF1051TU', 5200000)">
+                            <span class="bg-orange-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-lg">Bebas Admin</span>
+                            <div class="h-32 my-3 flex items-center justify-center group-hover:scale-105 transition-transform">
+                                <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=300&auto=format&fit=crop&q=80" alt="HP 14s" class="max-h-full object-contain">
+                            </div>
+                            <h4 class="font-bold text-sm text-slate-800 dark:text-slate-100 truncate">HP 14s CF1051TU</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mb-3">Mulai <span class="text-lepii-blue dark:text-blue-400 font-bold text-sm">Rp459.999</span>/bln</p>
+                            <button class="w-full bg-white dark:bg-slate-700 group-hover:bg-lepii-blue group-hover:text-white text-slate-700 dark:text-slate-200 text-xs font-semibold py-2 rounded-xl border border-slate-200 dark:border-slate-600 transition">Hitung Simulasi</button>
+                        </div>
+
+                        <!-- Card Promo 3 -->
+                        <div class="bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-2xl p-4 shadow-sm group hover:border-blue-400 transition cursor-pointer" onclick="selectLaptopForCalculator('Asus Vivobook 14', 6800000)">
+                            <span class="bg-emerald-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-lg">DP 0% Mahasiswa</span>
+                            <div class="h-32 my-3 flex items-center justify-center group-hover:scale-105 transition-transform">
+                                <img src="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=300&auto=format&fit=crop&q=80" alt="Asus Vivobook" class="max-h-full object-contain">
+                            </div>
+                            <h4 class="font-bold text-sm text-slate-800 dark:text-slate-100 truncate">Asus Vivobook 14</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mb-3">Mulai <span class="text-lepii-blue dark:text-blue-400 font-bold text-sm">Rp580.000</span>/bln</p>
+                            <button class="w-full bg-white dark:bg-slate-700 group-hover:bg-lepii-blue group-hover:text-white text-slate-700 dark:text-slate-200 text-xs font-semibold py-2 rounded-xl border border-slate-200 dark:border-slate-600 transition">Hitung Simulasi</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recommended Laptops Dataset -->
+                <div class="space-y-3">
+                    <div class="flex justify-between items-center">
+                        <h3 class="font-bold text-slate-800 dark:text-slate-100 text-base">Rekomendasi Pemodelan Matematika</h3>
+                        <span class="text-xs bg-blue-100 dark:bg-blue-950 text-lepii-blue dark:text-blue-300 px-3 py-1 rounded-lg font-semibold flex items-center gap-1 border dark:border-blue-800">
+                            <i class="fa-solid fa-bolt text-yellow-500"></i> AI Lepii Engine
+                        </span>
+                    </div>
+                    <div id="laptopListContainer" class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <!-- Items injected dynamically via JS -->
+                    </div>
+                </div>
             </div>
-        </div>
 
+            <!-- SCREEN 2: KALKULATOR CICILAN -->
+            <div id="screen-calculator" class="space-y-6 hidden">
+                <div class="bg-blue-50 dark:bg-slate-800/90 border border-blue-200 dark:border-slate-700 rounded-2xl p-5 text-slate-700 dark:text-slate-200 shadow-sm">
+                    <div class="flex items-center space-x-2 text-lepii-blue dark:text-blue-400 font-bold mb-1">
+                        <i class="fa-solid fa-square-root-variable text-2xl"></i>
+                        <h3 class="text-base sm:text-lg">Kalkulator Cicilan Presisi</h3>
+                    </div>
+                    <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                        Algoritma matematika Lepii menghitung simulasi cicilan bulanan ideal berdasarkan preferensi Uang Muka (DP), jangka waktu tenor, & suku bunga flat terjangkau.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <!-- Calculator Form -->
+                    <form id="calcForm" onsubmit="calculateInstallment(event)" class="bg-slate-50 dark:bg-slate-800/80 rounded-2xl p-5 sm:p-6 border border-slate-200 dark:border-slate-700 shadow-sm space-y-4">
+                        <div>
+                            <label class="block text-xs sm:text-sm font-bold text-slate-700 dark:text-slate-200 mb-1.5">Harga Total Laptop (Rp)</label>
+                            <div class="relative">
+                                <span class="absolute left-3 top-3 text-sm text-slate-400 font-bold">Rp</span>
+                                <input type="number" id="calcPrice" value="5400000" min="1000000" step="100000" class="w-full pl-10 pr-4 py-2.5 border border-slate-200 dark:border-slate-700 rounded-xl text-base font-semibold focus:outline-none focus:ring-2 focus:ring-lepii-blue bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 transition" required>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs sm:text-sm font-bold text-slate-700 dark:text-slate-200 mb-1.5">Uang Muka / DP (Rp)</label>
+                            <div class="relative">
+                                <span class="absolute left-3 top-3 text-sm text-slate-400 font-bold">Rp</span>
+                                <input type="number" id="calcDp" value="1100000" min="0" step="100000" class="w-full pl-10 pr-4 py-2.5 border border-slate-200 dark:border-slate-700 rounded-xl text-base font-semibold focus:outline-none focus:ring-2 focus:ring-lepii-blue bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 transition" required>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs sm:text-sm font-bold text-slate-700 dark:text-slate-200 mb-1.5">Jangka Waktu (Tenor)</label>
+                            <select id="calcTenor" class="w-full px-4 py-2.5 border border-slate-200 dark:border-slate-700 rounded-xl text-base font-semibold focus:outline-none focus:ring-2 focus:ring-lepii-blue bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 transition cursor-pointer">
+                                <option value="3">3 Bulan (Bunga Flat 0.5%)</option>
+                                <option value="6">6 Bulan (Bunga Flat 0.8%)</option>
+                                <option value="9" selected>9 Bulan (Bunga Flat 0.95%)</option>
+                                <option value="12">12 Bulan (Bunga Flat 1.1%)</option>
+                                <option value="18">18 Bulan (Bunga Flat 1.25%)</option>
+                                <option value="24">24 Bulan (Bunga Flat 1.4%)</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3.5 rounded-xl shadow-md transition-all flex items-center justify-center gap-2 mt-2">
+                            <i class="fa-solid fa-calculator"></i> Kalkulasi Sekarang
+                        </button>
+                    </form>
+
+                    <!-- Calculator Results -->
+                    <div class="space-y-4 flex flex-col">
+                        <div id="calcResultBox" class="bg-gradient-to-br from-lepii-darkBlue to-lepii-blue dark:from-slate-900 dark:to-slate-800 border dark:border-slate-700 text-white rounded-2xl p-6 shadow-md text-center space-y-2">
+                            <p class="text-xs sm:text-sm text-blue-100 dark:text-slate-300 font-medium">Estimasi Cicilan Maksimal per Bulan:</p>
+                            <p id="calcMonthlyResult" class="text-3xl sm:text-4xl font-black text-yellow-300 tracking-tight">Rp475.000 <span class="text-sm text-white font-normal">/bulan</span></p>
+                            <p id="calcFormulaDetail" class="text-xs text-blue-200 dark:text-slate-400 pt-3 mt-2 border-t border-blue-400/30 dark:border-slate-700">
+                                Pokok: Rp4.300.000 • Bunga: 0.95% • 9x Angsuran
+                            </p>
+                        </div>
+
+                        <div class="flex-1 bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-2xl p-5 shadow-sm">
+                            <h4 class="text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-3">Rekomendasi Sistem:</h4>
+                            <div id="calcRecommendations" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                <!-- Injected dynamically -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SCREEN 3: TOKO DI SEKITAR ANDA -->
+            <div id="screen-stores" class="space-y-6 hidden">
+                <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between bg-slate-50 dark:bg-slate-800/80 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm gap-3">
+                    <div>
+                        <h3 class="font-bold text-slate-800 dark:text-slate-100 text-base">Mitra Toko Terdekat</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Lokasi Anda: Sleman, Yogyakarta</p>
+                    </div>
+                    <span class="bg-purple-100 dark:bg-purple-950 text-purple-700 dark:text-purple-300 text-xs px-3 py-1.5 rounded-lg font-bold flex items-center gap-1.5 border dark:border-purple-800">
+                        <span class="relative flex h-2 w-2">
+                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
+                          <span class="relative inline-flex rounded-full h-2 w-2 bg-purple-600"></span>
+                        </span>
+                        GPS Aktif
+                    </span>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <!-- Interactive Mockup Map View -->
+                    <div class="bg-slate-200 dark:bg-slate-800 rounded-2xl overflow-hidden min-h-[280px] lg:min-h-[400px] relative border border-slate-300 dark:border-slate-700 shadow-inner">
+                        <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?w=800&auto=format&fit=crop&q=80" alt="Map Background" class="w-full h-full object-cover opacity-60 mix-blend-multiply filter grayscale blur-[1px]">
+                        
+                        <svg class="absolute inset-0 w-full h-full" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M50 150 Q 150 100, 250 80 T 350 200" stroke="#3B82F6" stroke-width="4" stroke-dasharray="6 6"/>
+                        </svg>
+                        
+                        <div class="absolute top-[30%] left-[60%] transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center group cursor-pointer" onclick="highlightStore(1)">
+                            <div class="bg-red-600 text-white text-[10px] font-bold px-2 py-1 rounded shadow-md whitespace-nowrap mb-1">Toko 1 (3.9 km)</div>
+                            <i class="fa-solid fa-location-pin text-red-600 text-3xl filter drop-shadow hover:scale-110 transition"></i>
+                        </div>
+
+                        <div class="absolute bottom-[30%] right-[30%] transform translate-x-1/2 flex flex-col items-center group cursor-pointer" onclick="highlightStore(2)">
+                            <div class="bg-indigo-600 text-white text-[10px] font-bold px-2 py-1 rounded shadow-md whitespace-nowrap mb-1">Toko 2 (4.7 km)</div>
+                            <i class="fa-solid fa-location-pin text-indigo-600 text-3xl filter drop-shadow hover:scale-110 transition"></i>
+                        </div>
+
+                        <div class="absolute top-1/2 left-[20%] transform -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
+                            <span class="bg-lepii-blue text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full absolute -top-5">Anda</span>
+                            <span class="animate-ping absolute inline-flex h-10 w-10 rounded-full bg-blue-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-4 w-4 bg-lepii-blue border-2 border-white shadow-md"></span>
+                        </div>
+                    </div>
+
+                    <!-- Store Listing Cards -->
+                    <div class="space-y-4">
+                        <!-- Toko 1 -->
+                        <div id="storeCard1" class="bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-2xl p-5 shadow-sm space-y-4 hover:border-lepii-blue transition cursor-pointer" onclick="highlightStore(1)">
+                            <div class="flex justify-between items-start">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-12 h-12 bg-red-100 dark:bg-red-950/80 text-red-600 dark:text-red-400 rounded-xl flex items-center justify-center">
+                                        <i class="fa-solid fa-store text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-base text-slate-800 dark:text-slate-100">TOKO 1 - Soropadan</h4>
+                                        <p class="text-xs text-slate-500 dark:text-slate-400">Jl. Soropadan Timur, Condongcatur</p>
+                                    </div>
+                                </div>
+                                <span class="bg-red-100 dark:bg-red-950 text-red-700 dark:text-red-300 text-xs font-bold px-3 py-1 rounded-lg">3.9 KM</span>
+                            </div>
+                            <div class="bg-white dark:bg-slate-900 rounded-xl p-3.5 text-xs space-y-2 border border-slate-200 dark:border-slate-800">
+                                <div class="flex justify-between border-b border-slate-100 dark:border-slate-800 pb-1.5">
+                                    <span class="text-slate-500 dark:text-slate-400">Stok Laptop Ready:</span>
+                                    <span class="font-bold text-emerald-600 dark:text-emerald-400">14 Unit</span>
+                                </div>
+                                <div class="flex justify-between pt-0.5">
+                                    <span class="text-slate-500 dark:text-slate-400">Layanan Lepii:</span>
+                                    <span class="font-semibold text-slate-700 dark:text-slate-300 text-right">Ambil Langsung & Verifikasi</span>
+                                </div>
+                            </div>
+                            <button onclick="selectStoreForApplication('TOKO 1 - Soropadan')" class="w-full bg-white dark:bg-slate-700 hover:bg-lepii-blue hover:text-white dark:hover:bg-lepii-blue text-lepii-blue dark:text-blue-300 border border-slate-200 dark:border-slate-600 text-xs sm:text-sm font-bold py-2.5 rounded-xl transition flex items-center justify-center gap-2">
+                                Pilih Toko Ini Untuk Ajukan Kredit <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+
+                        <!-- Toko 2 -->
+                        <div id="storeCard2" class="bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-2xl p-5 shadow-sm space-y-4 hover:border-lepii-blue transition cursor-pointer" onclick="highlightStore(2)">
+                            <div class="flex justify-between items-start">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-12 h-12 bg-indigo-100 dark:bg-indigo-950/80 text-indigo-600 dark:text-indigo-400 rounded-xl flex items-center justify-center">
+                                        <i class="fa-solid fa-store text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-base text-slate-800 dark:text-slate-100">TOKO 2 - Pringwulung</h4>
+                                        <p class="text-xs text-slate-500 dark:text-slate-400">Jl. Empu Panuluh 79-81, Depok</p>
+                                    </div>
+                                </div>
+                                <span class="bg-indigo-100 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300 text-xs font-bold px-3 py-1 rounded-lg">4.7 KM</span>
+                            </div>
+                            <div class="bg-white dark:bg-slate-900 rounded-xl p-3.5 text-xs space-y-2 border border-slate-200 dark:border-slate-800">
+                                <div class="flex justify-between border-b border-slate-100 dark:border-slate-800 pb-1.5">
+                                    <span class="text-slate-500 dark:text-slate-400">Stok Laptop Ready:</span>
+                                    <span class="font-bold text-emerald-600 dark:text-emerald-400">22 Unit</span>
+                                </div>
+                                <div class="flex justify-between pt-0.5">
+                                    <span class="text-slate-500 dark:text-slate-400">Layanan Lepii:</span>
+                                    <span class="font-semibold text-slate-700 dark:text-slate-300 text-right">Tes Spek & Free Software</span>
+                                </div>
+                            </div>
+                            <button onclick="selectStoreForApplication('TOKO 2 - Pringwulung')" class="w-full bg-white dark:bg-slate-700 hover:bg-lepii-blue hover:text-white dark:hover:bg-lepii-blue text-lepii-blue dark:text-blue-300 border border-slate-200 dark:border-slate-600 text-xs sm:text-sm font-bold py-2.5 rounded-xl transition flex items-center justify-center gap-2">
+                                Pilih Toko Ini Untuk Ajukan Kredit <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SCREEN 4: TABUNGAN & RENCANA ANGSURAN -->
+            <div id="screen-savings" class="space-y-6 hidden max-w-4xl mx-auto">
+                <!-- Balance Card -->
+                <div class="bg-gradient-to-tr from-teal-700 via-emerald-600 to-teal-500 rounded-3xl p-6 sm:p-8 text-white shadow-lg relative overflow-hidden">
+                    <div class="absolute -right-10 -top-10 w-48 h-48 bg-white opacity-10 rounded-full blur-2xl"></div>
+                    
+                    <div class="flex justify-between items-start mb-6 relative z-10">
+                        <div>
+                            <p class="text-xs sm:text-sm text-emerald-100 font-medium mb-1">Saldo Tabungan Kredit Lepii</p>
+                            <div class="flex items-center space-x-3 mt-1">
+                                <span id="savingsBalanceText" class="text-3xl sm:text-4xl font-black tracking-tight">Rp1.850.000</span>
+                                <button onclick="toggleBalanceMask()" class="text-emerald-100 hover:text-white p-1 rounded-full hover:bg-white/10 transition">
+                                    <i id="eyeIcon" class="fa-solid fa-eye text-lg"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <span class="bg-white/20 backdrop-blur-md text-xs px-3.5 py-1.5 rounded-xl font-bold border border-white/30 shadow-sm">Aktif</span>
+                    </div>
+                    <p class="text-xs text-emerald-100 relative z-10 bg-black/10 inline-block px-3.5 py-1.5 rounded-xl">
+                        <i class="fa-solid fa-bolt text-yellow-300 mr-1"></i> Digunakan otomatis untuk autodebet cicilan bulanan
+                    </p>
+                </div>
+
+                <!-- Action Quick Buttons Grid -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
+                    <button onclick="openModalMessage('Fitur Top Up', 'Gunakan Virtual Account Lepii untuk top up saldo.')" class="bg-slate-50 dark:bg-slate-800/80 p-4 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-emerald-500 transition flex flex-col items-center">
+                        <div class="w-12 h-12 bg-emerald-100 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 rounded-full flex items-center justify-center mb-2">
+                            <i class="fa-solid fa-paper-plane text-xl"></i>
+                        </div>
+                        <span class="text-xs font-bold text-slate-700 dark:text-slate-300">Top Up</span>
+                    </button>
+                    <button onclick="openModalMessage('Riwayat Mutasi', 'Menampilkan mutasi masuk dan keluar transaksi angsuran.')" class="bg-slate-50 dark:bg-slate-800/80 p-4 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-emerald-500 transition flex flex-col items-center">
+                        <div class="w-12 h-12 bg-blue-100 dark:bg-blue-950 text-blue-600 dark:text-blue-400 rounded-full flex items-center justify-center mb-2">
+                            <i class="fa-solid fa-list-check text-xl"></i>
+                        </div>
+                        <span class="text-xs font-bold text-slate-700 dark:text-slate-300">Mutasi</span>
+                    </button>
+                    <button onclick="openModalMessage('Dompet Digital', 'Hubungkan e-Wallet pilihan (GoPay, OVO, DANA).')" class="bg-slate-50 dark:bg-slate-800/80 p-4 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-emerald-500 transition flex flex-col items-center">
+                        <div class="w-12 h-12 bg-purple-100 dark:bg-purple-950 text-purple-600 dark:text-purple-400 rounded-full flex items-center justify-center mb-2">
+                            <i class="fa-solid fa-wallet text-xl"></i>
+                        </div>
+                        <span class="text-xs font-bold text-slate-700 dark:text-slate-300">E-Wallet</span>
+                    </button>
+                    <button onclick="openModalMessage('Lainnya', 'Pengaturan autodebet & cetak bukti Laporan Pemodelan.')" class="bg-slate-50 dark:bg-slate-800/80 p-4 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-emerald-500 transition flex flex-col items-center">
+                        <div class="w-12 h-12 bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded-full flex items-center justify-center mb-2">
+                            <i class="fa-solid fa-ellipsis text-xl"></i>
+                        </div>
+                        <span class="text-xs font-bold text-slate-700 dark:text-slate-300">Lainnya</span>
+                    </button>
+                </div>
+
+                <!-- Active Credit Repayment Tracking -->
+                <div class="bg-slate-50 dark:bg-slate-800/80 rounded-2xl p-5 border border-slate-200 dark:border-slate-700 shadow-sm space-y-4">
+                    <div class="flex justify-between items-center border-b border-slate-200 dark:border-slate-700 pb-3">
+                        <h4 class="font-bold text-sm text-slate-800 dark:text-slate-100">Status Angsuran Aktif</h4>
+                        <span class="bg-blue-100 dark:bg-blue-950 text-lepii-blue dark:text-blue-300 text-xs font-bold px-3 py-1 rounded-lg">Bulan Ke-3 dari 9</span>
+                    </div>
+                    
+                    <div class="flex items-center space-x-4">
+                        <div class="w-16 h-16 bg-white dark:bg-slate-700 rounded-xl p-2 flex-shrink-0 flex items-center justify-center border border-slate-200 dark:border-slate-600">
+                            <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=100&auto=format&fit=crop&q=80" alt="Lenovo V130" class="max-h-full object-contain">
+                        </div>
+                        <div class="flex-grow">
+                            <h5 class="font-bold text-sm text-slate-800 dark:text-slate-100">Lenovo V130 Core i3</h5>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Angsuran: <span class="font-bold text-slate-800 dark:text-slate-200">Rp470.000 / bln</span></p>
+                            <div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2.5 mt-2 overflow-hidden">
+                                <div class="bg-emerald-500 h-2.5 rounded-full" style="width: 33%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SCREEN 5: FORMULIR PENGAJUAN KREDIT -->
+            <div id="screen-apply" class="space-y-6 hidden max-w-3xl mx-auto">
+                <div class="bg-orange-50 dark:bg-slate-800/80 border border-orange-200 dark:border-slate-700 rounded-2xl p-5 text-slate-700 dark:text-slate-200 shadow-sm flex gap-4 items-start">
+                    <i class="fa-solid fa-file-contract text-3xl text-orange-600 dark:text-orange-400 mt-1"></i>
+                    <div>
+                        <h3 class="text-base sm:text-lg font-bold text-orange-700 dark:text-orange-300">Formulir Pengajuan Kredit Laptop</h3>
+                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-1">Isi identitas diri & konfirmasi pilihan kredit Anda secara mudah tanpa administrasi fisik yang rumit.</p>
+                    </div>
+                </div>
+
+                <form id="applyCreditForm" onsubmit="submitCreditApplication(event)" class="bg-slate-50 dark:bg-slate-800/80 rounded-2xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm space-y-4">
+                    <h4 class="text-xs sm:text-sm font-bold text-lepii-blue dark:text-blue-400 uppercase tracking-wider border-b border-slate-200 dark:border-slate-700 pb-2.5 flex items-center gap-2">
+                        <span class="bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-300 w-6 h-6 rounded-full flex items-center justify-center text-xs">1</span> Data Diri Pemohon
+                    </h4>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 dark:text-slate-200 mb-1">Nama Sesuai KTP</label>
+                        <input type="text" id="appNama" value="Aditya Rahman" class="w-full px-4 py-2.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-100 rounded-xl text-sm focus:ring-2 focus:ring-lepii-blue transition" required>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 dark:text-slate-200 mb-1">NIK KTP</label>
+                            <input type="text" id="appNik" value="3404010501010002" class="w-full px-4 py-2.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-100 rounded-xl text-sm focus:ring-2 focus:ring-lepii-blue transition" required>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 dark:text-slate-200 mb-1">Kode Pos</label>
+                            <input type="text" id="appKodePos" value="55584" class="w-full px-4 py-2.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-100 rounded-xl text-sm focus:ring-2 focus:ring-lepii-blue transition" required>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 dark:text-slate-200 mb-1">Pilihan Kredit Laptop</label>
+                        <select id="appLaptopSelection" class="w-full px-4 py-3 border border-blue-300 dark:border-slate-700 rounded-xl text-sm font-bold text-blue-900 dark:text-blue-300 focus:ring-2 focus:ring-lepii-blue bg-blue-50 dark:bg-slate-900 transition cursor-pointer shadow-sm">
+                            <option value="Lenovo V130 - Rp470.000/bulan">Lenovo V130 Core i3 - Rp470.000 / bulan (9 Bln)</option>
+                            <option value="HP 14s CF1051TU - Rp459.999/bulan">HP 14s CF1051TU - Rp459.999 / bulan (9 Bln)</option>
+                            <option value="Asus Vivobook 14 - Rp580.000/bulan">Asus Vivobook 14 - Rp580.000 / bulan (12 Bln)</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 dark:text-slate-200 mb-1">Toko Mitra Pengambilan</label>
+                        <input type="text" id="appSelectedStore" value="TOKO 1 - Soropadan (3.9 KM)" class="w-full px-4 py-3 border border-slate-200 dark:border-slate-700 rounded-xl text-sm bg-slate-200 dark:bg-slate-900 text-slate-500 dark:text-slate-400 font-medium cursor-not-allowed" readonly>
+                    </div>
+
+                    <div class="pt-4">
+                        <button type="submit" class="w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-bold py-3.5 rounded-xl text-base shadow-lg transition-all flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-paper-plane"></i> AJUKAN PERMOHONAN SEKARANG
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
     </main>
 
+    <!-- Bottom Navigation Bar -->
+    <nav class="fixed bottom-0 left-0 right-0 bg-slate-900/95 backdrop-blur-md border-t border-slate-800 px-4 py-2.5 z-50 shadow-2xl">
+        <div class="max-w-7xl mx-auto flex items-center justify-around sm:justify-center space-x-1 sm:space-x-3 overflow-x-auto no-scrollbar">
+            <button id="nav-home" onclick="switchTab('home')" class="nav-tab-btn bg-lepii-blue text-white px-3.5 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 whitespace-nowrap shadow-sm">
+                <i class="fa-solid fa-house"></i> Beranda
+            </button>
+            <button id="nav-calculator" onclick="switchTab('calculator')" class="nav-tab-btn text-slate-300 hover:bg-slate-800 hover:text-white px-3.5 py-2 rounded-xl text-xs font-medium transition flex items-center gap-2 whitespace-nowrap">
+                <i class="fa-solid fa-calculator"></i> Kalkulator Cicilan
+            </button>
+            <button id="nav-stores" onclick="switchTab('stores')" class="nav-tab-btn text-slate-300 hover:bg-slate-800 hover:text-white px-3.5 py-2 rounded-xl text-xs font-medium transition flex items-center gap-2 whitespace-nowrap">
+                <i class="fa-solid fa-store"></i> Mitra Toko
+            </button>
+            <button id="nav-savings" onclick="switchTab('savings')" class="nav-tab-btn text-slate-300 hover:bg-slate-800 hover:text-white px-3.5 py-2 rounded-xl text-xs font-medium transition flex items-center gap-2 whitespace-nowrap">
+                <i class="fa-solid fa-piggy-bank"></i> Tabungan Lepii
+            </button>
+            <button id="nav-apply" onclick="switchTab('apply')" class="nav-tab-btn text-slate-300 hover:bg-slate-800 hover:text-white px-3.5 py-2 rounded-xl text-xs font-medium transition flex items-center gap-2 whitespace-nowrap">
+                <i class="fa-solid fa-file-signature"></i> Formulir Kredit
+            </button>
+        </div>
+    </nav>
+
     <!-- Business Plan Modal -->
-    <div id="businessModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-3 sm:p-5 hidden opacity-0 transition-opacity duration-300">
-        <div class="bg-white dark:bg-slate-900 border dark:border-slate-800 w-full max-w-4xl rounded-2xl md:rounded-3xl shadow-2xl max-h-[90vh] flex flex-col overflow-hidden transform scale-95 transition-transform duration-300" id="businessModalContent">
-            <div class="bg-gradient-to-r from-slate-900 via-lepii-darkBlue to-lepii-blue text-white px-5 py-4 flex items-center justify-between">
+    <div id="businessModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden opacity-0 transition-opacity duration-300">
+        <div class="bg-white dark:bg-slate-900 border dark:border-slate-800 w-full max-w-4xl rounded-3xl shadow-2xl max-h-[90vh] flex flex-col overflow-hidden transform scale-95 transition-transform duration-300" id="businessModalContent">
+            <div class="bg-gradient-to-r from-slate-900 via-lepii-darkBlue to-lepii-blue text-white px-6 py-4 flex items-center justify-between">
                 <div>
-                    <h3 class="text-base md:text-xl font-bold flex items-center gap-2.5">
+                    <h3 class="text-base sm:text-xl font-bold flex items-center gap-2.5">
                         <i class="fa-solid fa-book-open"></i> Proposal Start-up LEPII.
                     </h3>
-                    <p class="text-[10px] md:text-xs text-blue-200">Aplikasi Kredit Laptop Berbasis Pemodelan Matematika - UNY</p>
+                    <p class="text-xs text-blue-200">Aplikasi Kredit Laptop Berbasis Pemodelan Matematika - UNY</p>
                 </div>
                 <button onclick="closeBusinessPlanModal()" class="bg-white/10 hover:bg-white/20 rounded-full w-8 h-8 flex items-center justify-center text-white transition">
                     <i class="fa-solid fa-xmark text-lg"></i>
                 </button>
             </div>
 
-            <div class="p-5 md:p-8 overflow-y-auto space-y-6 text-slate-700 dark:text-slate-300">
+            <div class="p-6 md:p-8 overflow-y-auto space-y-6 text-slate-700 dark:text-slate-300">
                 <div>
-                    <h4 class="font-bold text-slate-800 dark:text-slate-100 text-sm md:text-base border-b border-slate-200 dark:border-slate-800 pb-2 mb-4 flex items-center justify-between text-lepii-blue">
+                    <h4 class="font-bold text-slate-800 dark:text-slate-100 text-base border-b border-slate-200 dark:border-slate-800 pb-2 mb-4 flex items-center justify-between text-lepii-blue">
                         <span><i class="fa-solid fa-user-group mr-2"></i> Tim Pendiri (UNY Math)</span>
                     </h4>
                     <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
-                        <div class="bg-emerald-50 dark:bg-emerald-950/40 p-3 rounded-2xl border border-emerald-300 dark:border-emerald-800">
-                            <p class="font-bold text-xs md:text-sm text-slate-800 dark:text-slate-100">Aditya Rahman</p>
+                        <div class="bg-emerald-50 dark:bg-emerald-950/40 p-3.5 rounded-2xl border border-emerald-300 dark:border-emerald-800">
+                            <p class="font-bold text-xs sm:text-sm text-slate-800 dark:text-slate-100">Aditya Rahman</p>
                             <p class="text-[10px] text-emerald-700 dark:text-emerald-400 font-semibold">20305141025</p>
                         </div>
-                        <div class="bg-slate-50 dark:bg-slate-800 p-3 rounded-2xl border border-slate-200 dark:border-slate-700">
-                            <p class="font-bold text-xs md:text-sm text-slate-800 dark:text-slate-100">Aldy Hasbiya S.</p>
+                        <div class="bg-slate-50 dark:bg-slate-800 p-3.5 rounded-2xl border border-slate-200 dark:border-slate-700">
+                            <p class="font-bold text-xs sm:text-sm text-slate-800 dark:text-slate-100">Aldy Hasbiya S.</p>
                             <p class="text-[10px] text-slate-500 dark:text-slate-400">20305144042</p>
                         </div>
-                        <div class="bg-slate-50 dark:bg-slate-800 p-3 rounded-2xl border border-slate-200 dark:border-slate-700">
-                            <p class="font-bold text-xs md:text-sm text-slate-800 dark:text-slate-100">Surya Aprilian</p>
+                        <div class="bg-slate-50 dark:bg-slate-800 p-3.5 rounded-2xl border border-slate-200 dark:border-slate-700">
+                            <p class="font-bold text-xs sm:text-sm text-slate-800 dark:text-slate-100">Surya Aprilian</p>
                             <p class="text-[10px] text-slate-500 dark:text-slate-400">20305141049</p>
                         </div>
-                        <div class="bg-slate-50 dark:bg-slate-800 p-3 rounded-2xl border border-slate-200 dark:border-slate-700">
-                            <p class="font-bold text-xs md:text-sm text-slate-800 dark:text-slate-100">Toat Alif Z.</p>
+                        <div class="bg-slate-50 dark:bg-slate-800 p-3.5 rounded-2xl border border-slate-200 dark:border-slate-700">
+                            <p class="font-bold text-xs sm:text-sm text-slate-800 dark:text-slate-100">Toat Alif Z.</p>
                             <p class="text-[10px] text-slate-500 dark:text-slate-400">20305144042</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="bg-slate-50 dark:bg-slate-950 px-5 py-4 border-t border-slate-200 dark:border-slate-800 text-right">
+            <div class="bg-slate-50 dark:bg-slate-950 px-6 py-4 border-t border-slate-200 dark:border-slate-800 text-right">
                 <button onclick="closeBusinessPlanModal()" class="bg-lepii-blue hover:bg-blue-700 text-white font-bold px-6 py-2.5 rounded-xl text-sm transition">
                     Tutup Proposal
                 </button>
@@ -712,7 +559,7 @@
         </div>
     </div>
 
-    <!-- Generic Notification / Alert Modal -->
+    <!-- Generic Notification Modal -->
     <div id="customAlertModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-[60] flex items-center justify-center p-4 hidden opacity-0 transition-opacity duration-200">
         <div class="bg-white dark:bg-slate-800 rounded-2xl border dark:border-slate-700 shadow-xl max-w-sm w-full p-6 text-center space-y-4 transform scale-95 transition-transform duration-200" id="alertModalContent">
             <div id="alertIcon" class="w-14 h-14 bg-blue-50 dark:bg-blue-950 text-lepii-blue dark:text-blue-400 rounded-full flex items-center justify-center mx-auto text-2xl">
@@ -727,16 +574,16 @@
     </div>
 
     <!-- Portfolio Modal -->
-    <div id="portfolioModal" class="fixed inset-0 bg-black/70 backdrop-blur-md z-[70] flex items-center justify-center p-3 sm:p-5 hidden opacity-0 transition-opacity duration-300">
-        <div class="bg-white dark:bg-slate-900 border dark:border-slate-800 w-full max-w-2xl rounded-2xl md:rounded-3xl shadow-2xl overflow-hidden transform scale-95 transition-transform duration-300 flex flex-col max-h-[90vh]" id="portfolioModalContent">
+    <div id="portfolioModal" class="fixed inset-0 bg-black/70 backdrop-blur-md z-[70] flex items-center justify-center p-4 hidden opacity-0 transition-opacity duration-300">
+        <div class="bg-white dark:bg-slate-900 border dark:border-slate-800 w-full max-w-2xl rounded-3xl shadow-2xl overflow-hidden transform scale-95 transition-transform duration-300 flex flex-col max-h-[90vh]" id="portfolioModalContent">
             <div class="bg-gradient-to-r from-slate-900 via-emerald-950 to-slate-900 text-white px-6 py-5 flex items-center justify-between border-b border-emerald-800/40">
                 <div class="flex items-center gap-3">
                     <div class="w-10 h-10 rounded-xl bg-emerald-500 text-white flex items-center justify-center text-xl font-black">
                         <i class="fa-solid fa-briefcase"></i>
                     </div>
                     <div>
-                        <h3 class="font-extrabold text-base md:text-lg text-white">Portofolio & Resume Developer</h3>
-                        <p class="text-[11px] text-emerald-300">Integrated Profile • Lepii. Project</p>
+                        <h3 class="font-extrabold text-base sm:text-lg text-white">Portofolio & Resume Developer</h3>
+                        <p class="text-xs text-emerald-300">Integrated Profile • Lepii Project</p>
                     </div>
                 </div>
                 <button onclick="closePortfolioModal()" class="bg-white/10 hover:bg-white/20 rounded-full w-8 h-8 flex items-center justify-center text-white transition">
@@ -816,99 +663,60 @@
         window.onload = function() {
             renderLaptops(laptopDatabase);
             calculateInstallment();
-            setMode('app');
         };
 
-        // MODE SWITCHER (App vs Web)
+        // Fallback for deprecated setMode calls
         function setMode(mode) {
-            const container = document.getElementById('appContainer');
-            const btnApp = document.getElementById('btnAppMode');
-            const btnWeb = document.getElementById('btnWebMode');
-
-            if (mode === 'web') {
-                container.classList.remove('app-mode');
-                container.classList.add('web-mode');
-                btnWeb.classList.add('bg-white/30', 'text-white');
-                btnWeb.classList.remove('text-blue-100', 'hover:bg-white/10');
-                btnApp.classList.remove('bg-white/20', 'text-white');
-                btnApp.classList.add('text-blue-100', 'hover:bg-white/10');
-            } else {
-                container.classList.remove('web-mode');
-                container.classList.add('app-mode');
-                btnApp.classList.add('bg-white/20', 'text-white');
-                btnApp.classList.remove('text-blue-100', 'hover:bg-white/10');
-                btnWeb.classList.remove('bg-white/30', 'text-white');
-                btnWeb.classList.add('text-blue-100', 'hover:bg-white/10');
-            }
+            // Mode switching is deprecated; layout now adapts responsively by default
         }
 
         // NAVIGATION TAB SWITCHER
         function switchTab(tabName) {
             const tabs = ['home', 'calculator', 'stores', 'savings', 'apply'];
-            const titles = {
-                'home': 'LEPII. Mobile',
-                'calculator': 'Kalkulator Cicilan',
-                'stores': 'Toko Terdekat',
-                'savings': 'Tabungan Lepii',
-                'apply': 'Formulir Kredit'
-            };
 
             tabs.forEach(t => {
                 const screen = document.getElementById(`screen-${t}`);
-                const navBottom = document.getElementById(`nav-${t}`);
-                const navSide = document.getElementById(`nav-side-${t}`);
+                const navBtn = document.getElementById(`nav-${t}`);
 
                 if (t === tabName) {
-                    screen.classList.remove('hidden');
-                    if (navBottom) {
-                        navBottom.classList.remove('text-slate-400');
-                        navBottom.classList.add('text-lepii-blue');
-                        navBottom.querySelector('span').classList.add('font-bold');
-                    }
-                    if (navSide) {
-                        navSide.classList.add('bg-lepii-blue', 'text-white');
-                        navSide.classList.remove('hover:bg-slate-800', 'text-slate-300');
+                    if (screen) screen.classList.remove('hidden');
+                    if (navBtn) {
+                        navBtn.className = "nav-tab-btn bg-lepii-blue text-white px-3.5 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-2 whitespace-nowrap shadow-sm";
                     }
                 } else {
-                    screen.classList.add('hidden');
-                    if (navBottom) {
-                        navBottom.classList.add('text-slate-400');
-                        navBottom.classList.remove('text-lepii-blue');
-                        navBottom.querySelector('span').classList.remove('font-bold');
-                    }
-                    if (navSide) {
-                        navSide.classList.remove('bg-lepii-blue', 'text-white');
-                        navSide.classList.add('hover:bg-slate-800', 'text-slate-300');
+                    if (screen) screen.classList.add('hidden');
+                    if (navBtn) {
+                        navBtn.className = "nav-tab-btn text-slate-300 hover:bg-slate-800 hover:text-white px-3.5 py-1.5 rounded-xl text-xs font-medium transition flex items-center gap-2 whitespace-nowrap";
                     }
                 }
             });
 
-            document.getElementById('screenTitle').innerText = titles[tabName] || 'LEPII.';
-            document.getElementById('screenContent').scrollTop = 0;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         // RENDER HOMEPAGE RECOMMENDED LAPTOPS
         function renderLaptops(list) {
             const container = document.getElementById('laptopListContainer');
+            if (!container) return;
             container.innerHTML = '';
 
             list.forEach(item => {
                 const formattedMonthly = item.monthly9m.toLocaleString('id-ID');
                 const cardHtml = `
-                    <div class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-3 shadow-sm flex items-center space-x-3 hover:border-lepii-blue transition group cursor-pointer" onclick="selectLaptopForCalculator('${item.name}', ${item.price})">
-                        <div class="w-20 h-20 bg-slate-50 dark:bg-slate-900 rounded-xl p-1.5 flex-shrink-0 flex items-center justify-center group-hover:bg-blue-50 dark:group-hover:bg-slate-700 transition">
+                    <div class="bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-2xl p-3.5 shadow-sm flex items-center space-x-3.5 hover:border-lepii-blue transition group cursor-pointer" onclick="selectLaptopForCalculator('${item.name}', ${item.price})">
+                        <div class="w-20 h-20 bg-white dark:bg-slate-900 rounded-xl p-2 flex-shrink-0 flex items-center justify-center group-hover:bg-blue-50 dark:group-hover:bg-slate-700 transition border border-slate-100 dark:border-slate-800">
                             <img src="${item.image}" alt="${item.name}" class="max-h-full object-contain">
                         </div>
                         <div class="flex-grow min-w-0">
-                            <span class="text-[9px] bg-blue-100 dark:bg-blue-950 text-lepii-blue dark:text-blue-300 font-bold px-1.5 py-0.5 rounded">${item.badge}</span>
+                            <span class="text-[9px] bg-blue-100 dark:bg-blue-950 text-lepii-blue dark:text-blue-300 font-bold px-2 py-0.5 rounded">${item.badge}</span>
                             <h4 class="font-bold text-sm text-slate-800 dark:text-slate-100 truncate mt-1">${item.name}</h4>
-                            <p class="text-[10px] text-slate-400 truncate">${item.specs}</p>
+                            <p class="text-[11px] text-slate-400 truncate">${item.specs}</p>
                             <div class="mt-1.5 flex items-baseline space-x-1">
                                 <span class="text-sm font-black text-lepii-blue dark:text-blue-400">Rp${formattedMonthly}</span>
                                 <span class="text-[10px] text-slate-400">/bln (9x)</span>
                             </div>
                         </div>
-                        <div class="w-8 h-8 bg-slate-100 dark:bg-slate-700 group-hover:bg-lepii-blue group-hover:text-white text-slate-400 rounded-full flex items-center justify-center transition flex-shrink-0">
+                        <div class="w-8 h-8 bg-white dark:bg-slate-700 group-hover:bg-lepii-blue group-hover:text-white text-slate-400 rounded-full flex items-center justify-center transition flex-shrink-0 border border-slate-200 dark:border-slate-600">
                             <i class="fa-solid fa-angle-right"></i>
                         </div>
                     </div>
@@ -948,12 +756,13 @@
             document.getElementById('calcFormulaDetail').innerText = `Pokok: Rp${principal.toLocaleString('id-ID')} • Bunga: ${(monthlyInterestRate * 100).toFixed(2)}% • ${tenor}x Angsuran`;
 
             const recContainer = document.getElementById('calcRecommendations');
+            if (!recContainer) return;
             recContainer.innerHTML = '';
             
             const matches = laptopDatabase.slice(0, 2); 
             matches.forEach(laptop => {
                 recContainer.innerHTML += `
-                    <div class="bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl p-3 text-center shadow-sm hover:border-emerald-400 transition cursor-pointer" onclick="selectStoreAndApply('${laptop.name} - Rp${laptop.monthly9m.toLocaleString('id-ID')}/bulan')">
+                    <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl p-3 text-center shadow-sm hover:border-emerald-400 transition cursor-pointer" onclick="selectStoreAndApply('${laptop.name} - Rp${laptop.monthly9m.toLocaleString('id-ID')}/bulan')">
                         <div class="h-16 flex items-center justify-center mb-2">
                             <img src="${laptop.image}" class="max-h-full object-contain" alt="${laptop.name}">
                         </div>
