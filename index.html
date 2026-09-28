@@ -1420,9 +1420,9 @@
             const relX = clientX - anchor.x;
             const relY = clientY - anchor.y;
 
-            // Pendulum Angle Z relative to fixed top anchor
-            const targetZ = Math.atan2(relX, Math.max(relY, 15)) * (180 / Math.PI);
-            const targetY = Math.min(Math.max((relX / 100) * 45, -60), 60);
+            // Pendulum Angle Z relative to fixed top anchor (negated so card swings directly towards cursor)
+            const targetZ = -Math.atan2(relX, Math.max(relY, 15)) * (180 / Math.PI);
+            const targetY = -Math.min(Math.max((relX / 100) * 45, -60), 60);
             const targetX = Math.min(Math.max((-relY / 120) * 35, -45), 30);
 
             // Calculate distance from top anchor to determine elastic stretch length
