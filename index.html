@@ -287,7 +287,7 @@
                 <!-- Brand / Logo -->
                 <a href="#hero" class="flex items-center space-x-3 group">
                     <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-slate-700 to-slate-900 dark:from-slate-200 dark:to-white flex items-center justify-center text-white dark:text-slate-900 font-bold text-sm shadow-md group-hover:scale-105 transition-transform overflow-hidden p-0.5">
-                        <img src="Foto Aditya Rahman.jpg" alt="Aditya Rahman" class="w-full h-full object-cover object-center rounded-[10px]" onerror="this.onerror=null; this.src='Wisuda_Aditya Rahman.JPG';">
+                        <img src="Wisuda_Aditya Rahman.JPG" alt="Aditya Rahman" class="w-full h-full object-cover object-center rounded-[10px]" onerror="this.onerror=null; this.src='Foto Aditya Rahman.jpg';">
                     </div>
                     <div>
                         <span class="font-bold text-base theme-heading tracking-tight block leading-none">Aditya Rahman</span>
@@ -407,15 +407,16 @@
         </div>
     </nav>
 
-    <section id="hero" class="relative py-8 md:py-14 bg-grid-pattern overflow-hidden min-h-[82vh] flex items-center">
+    <!-- Hero Section with Reduced Top/Bottom Spacing and Shifted Lanyard -->
+    <section id="hero" class="relative py-4 md:py-6 bg-grid-pattern overflow-hidden min-h-[72vh] flex items-center">
         <!-- Background Ambient Glow -->
         <div class="absolute top-1/3 right-8 w-[450px] h-[450px] bg-brand-500/15 rounded-full blur-3xl pointer-events-none transition-colors duration-500"></div>
 
-        <!-- 3D Hanging Lanyard Positioned Flush at Top Right Border of Navigation -->
-        <div class="absolute top-0 right-3 sm:right-6 md:right-10 lg:right-16 z-20 flex flex-col items-center">
+        <!-- 3D Hanging Lanyard Positioned Slightly Further Left -->
+        <div class="absolute top-0 right-10 sm:right-16 md:right-24 lg:right-32 z-20 flex flex-col items-center">
             
             <!-- Lanyard Stage Container anchored cleanly at top right flush with nav -->
-            <div id="lanyardStage" class="lanyard-stage relative w-[200px] sm:w-[230px] lg:w-[260px] h-[500px] sm:h-[570px] lg:h-[640px] flex flex-col items-center pt-0">
+            <div id="lanyardStage" class="lanyard-stage relative w-[190px] sm:w-[220px] lg:w-[250px] h-[440px] sm:h-[500px] lg:h-[560px] flex flex-col items-center pt-0">
                 
                 <!-- Ceiling Anchor Pin Flush with Navigation Bar -->
                 <div class="absolute top-0 z-30 w-6 h-3.5 bg-slate-800 rounded-b-md border border-slate-600 shadow-md"></div>
@@ -423,8 +424,8 @@
                 <!-- 3D Swinging Lanyard Assembly -->
                 <div id="lanyardAssembly" class="lanyard-assembly-container absolute top-0 z-10 w-full flex flex-col items-center origin-top transform-gpu cursor-grab active:cursor-grabbing">
                     
-                    <!-- Woven Strap (Extra Long & Enlarged to touch Navigation) -->
-                    <div id="lanyardStrap" class="lanyard-strap w-6 sm:w-7 lg:w-8 h-44 sm:h-52 lg:h-60 flex items-center justify-center relative overflow-hidden rounded-t-sm shadow-xl origin-top transition-transform duration-75">
+                    <!-- Woven Strap (Adjusted height for tighter layout) -->
+                    <div id="lanyardStrap" class="lanyard-strap w-6 sm:w-7 lg:w-8 h-36 sm:h-44 lg:h-50 flex items-center justify-center relative overflow-hidden rounded-t-sm shadow-xl origin-top transition-transform duration-75">
                         <span class="lanyard-text text-[9px] sm:text-[10px] font-bold text-white opacity-90 tracking-widest whitespace-nowrap py-0.5">
                             ADITYA RAHMAN
                         </span>
@@ -439,8 +440,8 @@
                             <div class="w-2.5 h-4 bg-gradient-to-b from-slate-700 via-slate-800 to-slate-950 rounded-b-md border border-slate-600 shadow-sm"></div>
                         </div>
 
-                        <!-- ID Card -->
-                        <div id="lanyardCard" class="relative -mt-1 z-10 w-[170px] sm:w-[200px] lg:w-[230px] h-[230px] sm:h-[270px] lg:h-[310px] transform-gpu origin-top">
+                        <!-- ID Card with Wisuda Photo -->
+                        <div id="lanyardCard" class="relative -mt-1 z-10 w-[160px] sm:w-[190px] lg:w-[220px] h-[215px] sm:h-[250px] lg:h-[290px] transform-gpu origin-top">
                             <div class="relative w-full h-full bg-gradient-to-b from-slate-950 via-slate-900 to-black rounded-[22px] sm:rounded-[26px] p-2.5 sm:p-3 shadow-2xl border border-slate-800/80 flex flex-col items-center justify-between overflow-hidden group">
                                 
                                 <!-- Top Hole -->
@@ -449,14 +450,14 @@
                                 </div>
 
                                 <!-- Inner Card Content -->
-                                <div class="relative w-full h-[195px] sm:h-[235px] lg:h-[270px] rounded-[16px] sm:rounded-[18px] border-2 border-white/90 p-0.5 flex flex-col justify-between overflow-hidden bg-slate-950 shadow-inner">
+                                <div class="relative w-full h-[180px] sm:h-[215px] lg:h-[250px] rounded-[16px] sm:rounded-[18px] border-2 border-white/90 p-0.5 flex flex-col justify-between overflow-hidden bg-slate-950 shadow-inner">
                                     
-                                    <!-- Main Photo -->
-                                    <div class="relative w-full h-[145px] sm:h-[175px] lg:h-[205px] rounded-[12px] sm:rounded-[14px] overflow-hidden bg-slate-900">
-                                        <img src="Foto Aditya Rahman.jpg" 
-                                             alt="Aditya Rahman" 
+                                    <!-- Main Photo: Wisuda_Aditya Rahman.JPG -->
+                                    <div class="relative w-full h-[130px] sm:h-[155px] lg:h-[185px] rounded-[12px] sm:rounded-[14px] overflow-hidden bg-slate-900">
+                                        <img src="Wisuda_Aditya Rahman.JPG" 
+                                             alt="Aditya Rahman Wisuda" 
                                              class="w-full h-full object-cover object-center filter contrast-[1.03] brightness-[1.02]"
-                                             onerror="this.onerror=null; this.src='Wisuda_Aditya Rahman.JPG';">
+                                             onerror="this.onerror=null; this.src='Foto Aditya Rahman.jpg';">
                                     </div>
 
                                     <!-- Card Bottom Label -->
@@ -490,10 +491,10 @@
         </div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full my-auto">
-            <div class="relative min-h-[460px] flex flex-col md:flex-row items-center justify-between">
+            <div class="relative min-h-[400px] flex flex-col md:flex-row items-center justify-between">
                 
                 <!-- LEFT COLUMN: Profile Text & Information -->
-                <div class="w-full md:w-7/12 lg:w-2/3 text-left space-y-3.5 pr-0 md:pr-8 py-4 sm:py-6 my-auto z-10">
+                <div class="w-full md:w-7/12 lg:w-2/3 text-left space-y-3 pr-0 md:pr-12 py-2 sm:py-4 my-auto z-10">
                     
                     <!-- Availability Pill Tag -->
                     <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold glass-pill text-slate-700 dark:text-slate-300 shadow-sm interactive-tab">
@@ -522,7 +523,7 @@
                     </p>
 
                     <!-- Location & Quick Contact Badges -->
-                    <div class="flex flex-wrap items-center gap-2.5 text-xs text-slate-600 dark:text-slate-300 pt-2">
+                    <div class="flex flex-wrap items-center gap-2.5 text-xs text-slate-600 dark:text-slate-300 pt-1">
                         <div class="flex items-center gap-1.5 glass-pill px-3 py-1.5 rounded-xl interactive-tab">
                             <i class="fa-solid fa-location-dot text-brand-500"></i>
                             <span>Kulon Progo, Yogyakarta</span>
@@ -538,7 +539,7 @@
                     </div>
 
                     <!-- Primary Action CTA Buttons -->
-                    <div class="flex flex-wrap items-center gap-3 pt-3">
+                    <div class="flex flex-wrap items-center gap-3 pt-2">
                         <a href="https://www.linkedin.com/in/aditya-rahman-23892b2a2?utm_source=share_via&utm_content=profile&utm_medium=member_android" 
                            target="_blank" 
                            rel="noopener noreferrer"
@@ -1228,7 +1229,7 @@
         </div>
     </div>
 
-    <!-- CV Modal Matching Portfolio Theme -->
+    <!-- CV Modal Matching Portfolio Theme Without Outer Border Box -->
     <div id="cvModal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
         <div class="glass-panel w-full max-w-4xl rounded-3xl shadow-2xl border border-slate-200/80 dark:border-slate-800 my-auto overflow-hidden">
             
@@ -1253,7 +1254,7 @@
                 </div>
             </div>
 
-            <!-- Paper Sheet CV Container inheriting portfolio theme colors without outer container border -->
+            <!-- Paper Sheet CV Container inheriting portfolio theme colors without outer box border -->
             <div class="p-3 sm:p-8 bg-slate-950/40 max-h-[78vh] overflow-y-auto custom-scrollbar flex justify-center">
                 <div id="printableCvArea" class="bg-transparent text-slate-800 dark:text-slate-100 p-2 sm:p-6 rounded-none shadow-none max-w-3xl w-full text-xs font-sans leading-relaxed border-0">
                     
@@ -1461,7 +1462,7 @@
             const targetX = Math.min(Math.max((-relY / 120) * 35, -45), 30);
 
             const distFromAnchor = Math.hypot(relX, relY);
-            const strapBaseHeight = window.innerWidth >= 1024 ? 240 : (window.innerWidth >= 640 ? 208 : 176);
+            const strapBaseHeight = window.innerWidth >= 1024 ? 200 : (window.innerWidth >= 640 ? 176 : 144);
             const targetStretch = Math.max(0.95, distFromAnchor / (strapBaseHeight + 80));
 
             angleZ += (targetZ - angleZ) * 0.28;
@@ -1560,7 +1561,7 @@
             }
 
             if (lanyardLowerAssembly) {
-                const strapBaseHeight = window.innerWidth >= 1024 ? 240 : (window.innerWidth >= 640 ? 208 : 176);
+                const strapBaseHeight = window.innerWidth >= 1024 ? 200 : (window.innerWidth >= 640 ? 176 : 144);
                 const strapExtensionOffset = (stretch - 1) * strapBaseHeight;
                 lanyardLowerAssembly.style.transform = `translateY(${strapExtensionOffset.toFixed(2)}px)`;
             }
