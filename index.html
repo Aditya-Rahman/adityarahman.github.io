@@ -276,59 +276,6 @@
             opacity: 1 !important;
             transform: translate(0, 0) scale(1) !important;
         }
-
-        @media print {
-            body * {
-                visibility: hidden !important;
-            }
-            #printableCvArea, #printableCvArea * {
-                visibility: visible !important;
-            }
-            #printableCvArea {
-                position: absolute !important;
-                left: 0 !important;
-                top: 0 !important;
-                width: 100% !important;
-                max-width: 100% !important;
-                margin: 0 !important;
-                padding: 6mm 10mm !important;
-                font-size: 8.5px !important;
-                line-height: 1.1 !important;
-                color: #000 !important;
-                background: white !important;
-                box-shadow: none !important;
-                overflow: visible !important;
-                height: auto !important;
-            }
-            #printableCvArea h1 {
-                font-size: 16px !important;
-                margin-bottom: 2px !important;
-                color: #000 !important;
-            }
-            #printableCvArea h2 {
-                font-size: 10px !important;
-                margin-top: 3px !important;
-                margin-bottom: 2px !important;
-                border-bottom: 1px solid #333 !important;
-                color: #000 !important;
-            }
-            #printableCvArea h3 {
-                font-size: 9.5px !important;
-                color: #000 !important;
-            }
-            #printableCvArea p, #printableCvArea li, #printableCvArea span {
-                font-size: 8.5px !important;
-                margin-bottom: 1px !important;
-                color: #111 !important;
-            }
-            #printableCvArea .space-y-2\.5 > div, #printableCvArea .mb-3 {
-                margin-bottom: 2.5px !important;
-            }
-            @page {
-                size: A4 portrait;
-                margin: 5mm;
-            }
-        }
     </style>
 </head>
 
@@ -1266,8 +1213,8 @@
 
     <!-- CV Modal Without Outer Border Box -->
     <div id="cvModal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
-        <div class="glass-panel w-full max-w-4xl rounded-3xl shadow-2xl border border-slate-200/80 dark:border-slate-800 my-auto overflow-hidden flex flex-col max-h-[92vh]">
-            <div class="p-4 sm:p-5 bg-slate-100/90 dark:bg-slate-900/90 flex justify-between items-center border-b border-slate-200 dark:border-slate-800 flex-shrink-0">
+        <div class="glass-panel w-full max-w-4xl rounded-3xl shadow-2xl border border-slate-200/80 dark:border-slate-800 my-auto overflow-hidden">
+            <div class="p-4 sm:p-5 bg-slate-100/90 dark:bg-slate-900/90 flex justify-between items-center border-b border-slate-200 dark:border-slate-800">
                 <div class="flex items-center gap-2">
                     <i class="fa-solid fa-file-pdf text-brand-500 text-lg"></i>
                     <h3 class="font-bold theme-heading text-xs sm:text-sm">Pratinjau Curriculum Vitae - Aditya Rahman</h3>
@@ -1279,7 +1226,7 @@
                     </button>
 
                     <button onclick="printCvModal()" class="px-3 py-1.5 bg-slate-900 hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100 text-white text-xs font-semibold rounded-xl transition flex items-center gap-1.5 interactive-card">
-                        <i class="fa-solid fa-print"></i> Cetak / Print
+                        <i class="fa-solid fa-print"></i> Cetak
                     </button>
 
                     <button onclick="closeCvModal()" class="p-1.5 text-slate-500 hover:text-slate-900 dark:hover:text-white text-base rounded-lg interactive-card">
@@ -1289,11 +1236,11 @@
             </div>
 
             <!-- Paper Sheet CV Container inheriting portfolio theme colors without outer box border -->
-            <div class="p-4 sm:p-8 bg-slate-950/40 flex-1 overflow-y-auto custom-scrollbar flex justify-center">
-                <div id="printableCvArea" class="bg-transparent text-slate-800 dark:text-slate-100 p-2 sm:p-6 rounded-none shadow-none max-w-3xl w-full text-xs font-sans leading-relaxed border-0 mb-4">
-                    <div class="text-center mb-2 sm:mb-3">
-                        <h1 class="text-xl sm:text-2xl font-extrabold tracking-tight theme-heading uppercase mb-1 font-sans">ADITYA RAHMAN</h1>
-                        <p class="text-[10.5px] sm:text-xs text-slate-600 dark:text-slate-300 font-medium flex flex-wrap items-center justify-center gap-x-2 gap-y-0.5">
+            <div class="p-3 sm:p-8 bg-slate-950/40 max-h-[78vh] overflow-y-auto custom-scrollbar flex justify-center">
+                <div id="printableCvArea" class="bg-transparent text-slate-800 dark:text-slate-100 p-2 sm:p-6 rounded-none shadow-none max-w-3xl w-full text-xs font-sans leading-relaxed border-0">
+                    <div class="text-center mb-4">
+                        <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight theme-heading uppercase mb-1.5 font-sans">ADITYA RAHMAN</h1>
+                        <p class="text-[11px] sm:text-xs text-slate-600 dark:text-slate-300 font-medium flex flex-wrap items-center justify-center gap-x-2 gap-y-1">
                             <span>+62 882-2500-2019</span>
                             <span>|</span>
                             <span>aditrahman471@gmail.com</span>
@@ -1304,22 +1251,22 @@
                         </p>
                     </div>
 
-                    <div class="mb-2 sm:mb-3 text-slate-700 dark:text-slate-300 text-[11px] leading-normal text-justify">
+                    <div class="mb-4 text-slate-700 dark:text-slate-300 text-[11.5px] leading-normal text-justify">
                         Lulusan Matematika dari Universitas Negeri Yogyakarta (<strong>IPK 3,27</strong>) dengan pola pikir analitis yang kuat serta keterampilan pengolahan data. Berpengalaman dalam administrasi statistik, hubungan pelanggan, dan pencacahan lapangan untuk sensus ekonomi nasional. Menguasai alat analisis termasuk Python, SPSS, dan Excel, dengan kemampuan teruji dalam pengumpulan data, verifikasi, serta penyelesaian masalah secara kritis.
                     </div>
 
-                    <div class="border-b-2 border-brand-500 mb-3"></div>
+                    <div class="border-b-2 border-brand-500 mb-5"></div>
 
-                    <div class="mb-3">
-                        <h2 class="font-bold text-[11px] uppercase tracking-wider theme-heading border-b border-slate-300 dark:border-slate-700 pb-0.5 mb-2">PENGALAMAN KERJA</h2>
-                        <div class="space-y-2.5">
+                    <div class="mb-5">
+                        <h2 class="font-bold text-xs uppercase tracking-wider theme-heading border-b border-slate-300 dark:border-slate-700 pb-1 mb-3">PENGALAMAN KERJA</h2>
+                        <div class="space-y-4">
                             <div>
                                 <div class="flex justify-between items-baseline flex-wrap gap-1">
-                                    <h3 class="font-bold theme-heading text-[11px]">Petugas Pencatatan Lapangan (PPL SE2026) – BPS (Badan Pusat Statistik)</h3>
-                                    <span class="font-bold text-brand-600 dark:text-brand-400 text-[10.5px]">Juni 2026 – Agustus 2026</span>
+                                    <h3 class="font-bold theme-heading text-[12px]">Petugas Pencatatan Lapangan (PPL SE2026) – BPS (Badan Pusat Statistik)</h3>
+                                    <span class="font-bold text-brand-600 dark:text-brand-400 text-[11px]">Juni 2026 – Agustus 2026</span>
                                 </div>
-                                <p class="italic text-slate-500 dark:text-slate-400 text-[10.5px] mb-0.5">Kulon Progo</p>
-                                <ul class="list-disc list-outside ml-4 text-[10.5px] text-slate-700 dark:text-slate-300 space-y-0.5 leading-snug">
+                                <p class="italic text-slate-500 dark:text-slate-400 text-[11px] mb-1">Kulon Progo</p>
+                                <ul class="list-disc list-outside ml-4 text-[11px] text-slate-700 dark:text-slate-300 space-y-0.5 leading-snug">
                                     <li>Mengidentifikasi dan memetakan wilayah kerja statistik (Wilkerstat) serta melakukan <em>geotagging</em> lokasi unit usaha lokal menggunakan aplikasi seluler lapangan BPS.</li>
                                     <li>Melakukan wawancara tatap muka secara langsung dengan responden pelaku usaha untuk mencatat profil ekonomi dan karakteristik bisnis secara akurat.</li>
                                     <li>Memverifikasi kelengkapan dan konsistensi data sebelum menyerahkan catatan hasil pencacahan yang bersih kepada Pemeriksa Lapangan (PML).</li>
@@ -1328,11 +1275,11 @@
 
                             <div>
                                 <div class="flex justify-between items-baseline flex-wrap gap-1">
-                                    <h3 class="font-bold theme-heading text-[11px]">Customer Service Representative – Vads Indonesia (Proyek Shopee)</h3>
-                                    <span class="font-bold text-brand-600 dark:text-brand-400 text-[10.5px]">September 2024 – Mei 2026</span>
+                                    <h3 class="font-bold theme-heading text-[12px]">Customer Service Representative – Vads Indonesia (Proyek Shopee)</h3>
+                                    <span class="font-bold text-brand-600 dark:text-brand-400 text-[11px]">September 2024 – Mei 2026</span>
                                 </div>
-                                <p class="italic text-slate-500 dark:text-slate-400 text-[10.5px] mb-0.5">Sleman</p>
-                                <ul class="list-disc list-outside ml-4 text-[10.5px] text-slate-700 dark:text-slate-300 space-y-0.5 leading-snug">
+                                <p class="italic text-slate-500 dark:text-slate-400 text-[11px] mb-1">Sleman</p>
+                                <ul class="list-disc list-outside ml-4 text-[11px] text-slate-700 dark:text-slate-300 space-y-0.5 leading-snug">
                                     <li>Mengelola interaksi dengan pelanggan untuk menyelesaikan pertanyaan dan keluhan, mencapai tingkat kepuasan pelanggan sebesar 85%.</li>
                                     <li>Menyampaikan rincian produk dan layanan secara tepat kepada lebih dari 200 pelanggan setiap minggunya dengan tetap menjaga standar profesional.</li>
                                     <li>Mengurangi rata-rata waktu respon sebesar 20% dengan mengidentifikasi solusi yang cepat dan efektif.</li>
@@ -1341,11 +1288,11 @@
 
                             <div>
                                 <div class="flex justify-between items-baseline flex-wrap gap-1">
-                                    <h3 class="font-bold theme-heading text-[11px]">Magang Staf Administrasi – BPS Kabupaten Kulon Progo</h3>
-                                    <span class="font-bold text-brand-600 dark:text-brand-400 text-[10.5px]">Oktober 2023 – Desember 2023</span>
+                                    <h3 class="font-bold theme-heading text-[12px]">Magang Staf Administrasi – BPS Kabupaten Kulon Progo</h3>
+                                    <span class="font-bold text-brand-600 dark:text-brand-400 text-[11px]">Oktober 2023 – Desember 2023</span>
                                 </div>
-                                <p class="italic text-slate-500 dark:text-slate-400 text-[10.5px] mb-0.5">Kulon Progo</p>
-                                <ul class="list-disc list-outside ml-4 text-[10.5px] text-slate-700 dark:text-slate-300 space-y-0.5 leading-snug">
+                                <p class="italic text-slate-500 dark:text-slate-400 text-[11px] mb-1">Kulon Progo</p>
+                                <ul class="list-disc list-outside ml-4 text-[11px] text-slate-700 dark:text-slate-300 space-y-0.5 leading-snug">
                                     <li>Mengelola dan memelihara arsip data statistik serta dokumentasi operasional bulanan internal dengan tingkat ketelitian tinggi.</li>
                                     <li>Memasukkan dan memverifikasi catatan data statistik ke dalam basis data resmi untuk menjamin akurasi tingkat tinggi.</li>
                                 </ul>
@@ -1353,38 +1300,38 @@
                         </div>
                     </div>
 
-                    <div class="mb-3">
-                        <h2 class="font-bold text-[11px] uppercase tracking-wider theme-heading border-b border-slate-300 dark:border-slate-700 pb-0.5 mb-2">PENDIDIKAN</h2>
+                    <div class="mb-5">
+                        <h2 class="font-bold text-xs uppercase tracking-wider theme-heading border-b border-slate-300 dark:border-slate-700 pb-1 mb-3">PENDIDIKAN</h2>
                         <div>
                             <div class="flex justify-between items-baseline flex-wrap gap-1">
-                                <h3 class="font-bold theme-heading text-[11px]">Sarjana Matematika (S.Si.) – Universitas Negeri Yogyakarta</h3>
-                                <span class="font-bold text-brand-600 dark:text-brand-400 text-[10.5px]">September 2020 – Juli 2024</span>
+                                <h3 class="font-bold theme-heading text-[12px]">Sarjana Matematika (S.Si.) – Universitas Negeri Yogyakarta</h3>
+                                <span class="font-bold text-brand-600 dark:text-brand-400 text-[11px]">September 2020 – Juli 2024</span>
                             </div>
-                            <p class="italic text-slate-500 dark:text-slate-400 text-[10.5px] mb-0.5">Sleman | IPK: 3,27 / 4,00</p>
-                            <ul class="list-disc list-outside ml-4 text-[10.5px] text-slate-700 dark:text-slate-300 space-y-0.5 leading-snug">
+                            <p class="italic text-slate-500 dark:text-slate-400 text-[11px] mb-1">Sleman | IPK: 3,27 / 4,00</p>
+                            <ul class="list-disc list-outside ml-4 text-[11px] text-slate-700 dark:text-slate-300 space-y-0.5 leading-snug">
                                 <li>Menganalisis data matematika dan statistik untuk penelitian akademik serta pengerjaan proyek tingkat lanjut.</li>
                                 <li>Mengolah dan memverifikasi data numerik menggunakan perangkat statistik termasuk SPSS, R, dan Python.</li>
                             </ul>
                         </div>
                     </div>
 
-                    <div class="mb-3">
-                        <h2 class="font-bold text-[11px] uppercase tracking-wider theme-heading border-b border-slate-300 dark:border-slate-700 pb-0.5 mb-2">PENGALAMAN ORGANISASI</h2>
+                    <div class="mb-5">
+                        <h2 class="font-bold text-xs uppercase tracking-wider theme-heading border-b border-slate-300 dark:border-slate-700 pb-1 mb-3">PENGALAMAN ORGANISASI</h2>
                         <div>
                             <div class="flex justify-between items-baseline flex-wrap gap-1">
-                                <h3 class="font-bold theme-heading text-[11px]">Pemandu – Program Studi Laboratorium Matematika</h3>
-                                <span class="font-bold text-brand-600 dark:text-brand-400 text-[10.5px]">Juli 2022 – September 2022</span>
+                                <h3 class="font-bold theme-heading text-[12px]">Pemandu – Program Studi Laboratorium Matematika</h3>
+                                <span class="font-bold text-brand-600 dark:text-brand-400 text-[11px]">Juli 2022 – September 2022</span>
                             </div>
-                            <p class="italic text-slate-500 dark:text-slate-400 text-[10.5px] mb-0.5">Sleman</p>
-                            <ul class="list-disc list-outside ml-4 text-[10.5px] text-slate-700 dark:text-slate-300 space-y-0.5 leading-snug">
+                            <p class="italic text-slate-500 dark:text-slate-400 text-[11px] mb-1">Sleman</p>
+                            <ul class="list-disc list-outside ml-4 text-[11px] text-slate-700 dark:text-slate-300 space-y-0.5 leading-snug">
                                 <li>Membimbing dan memandu mahasiswa baru terkait jadwal orientasi akademik serta panduan laboratorium.</li>
                             </ul>
                         </div>
                     </div>
 
-                    <div class="mb-3">
-                        <h2 class="font-bold text-[11px] uppercase tracking-wider theme-heading border-b border-slate-300 dark:border-slate-700 pb-0.5 mb-2">KETERAMPILAN & BAHASA</h2>
-                        <div class="space-y-1 text-[10.5px] text-slate-700 dark:text-slate-300">
+                    <div class="mb-6">
+                        <h2 class="font-bold text-xs uppercase tracking-wider theme-heading border-b border-slate-300 dark:border-slate-700 pb-1 mb-3">KETERAMPILAN & BAHASA</h2>
+                        <div class="space-y-1.5 text-[11px] text-slate-700 dark:text-slate-300">
                             <div class="grid grid-cols-12 gap-2">
                                 <span class="col-span-4 sm:col-span-3 font-bold theme-heading">Keterampilan Teknis:</span>
                                 <span class="col-span-8 sm:col-span-9">Analisis Data, Entri Data Statistik, Pencacahan Lapangan, <em>Geotagging</em>, Verifikasi Data</span>
@@ -1404,7 +1351,7 @@
                         </div>
                     </div>
 
-                    <div class="pt-2 border-t border-slate-200 dark:border-slate-800 flex justify-between items-center text-[9.5px] text-slate-500">
+                    <div class="pt-3 border-t border-slate-200 dark:border-slate-800 flex justify-between items-center text-[10px] text-slate-500">
                         <span>Aditya Rahman — Curriculum Vitae</span>
                         <span>Halaman 1 dari 1</span>
                     </div>
@@ -2035,11 +1982,21 @@
         }
 
         function downloadCvPdf() {
+            const printContent = document.getElementById('printableCvArea').innerHTML;
+            const originalBody = document.body.innerHTML;
+
+            document.body.innerHTML = `
+                <div style="padding: 32px; font-family: -apple-system, sans-serif; color: #111; background: #fff;">
+                    ${printContent}
+                </div>
+            `;
             window.print();
+            document.body.innerHTML = originalBody;
+            window.location.reload();
         }
 
         function printCvModal() {
-            window.print();
+            downloadCvPdf();
         }
 
         window.addEventListener('keydown', (e) => {
@@ -2103,10 +2060,6 @@
             typeLoop();
             updateMathLab();
             initScrollReveal();
-            
-            // Ensure full document expansion and smooth scroll responsiveness
-            document.documentElement.style.height = 'auto';
-            document.body.style.minHeight = '100vh';
         };
     </script>
 </body>
