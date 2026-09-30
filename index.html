@@ -407,15 +407,15 @@
         </div>
     </nav>
 
-    <section id="hero" class="relative py-4 md:py-6 bg-grid-pattern overflow-hidden min-h-[72vh] flex items-center">
+    <section id="hero" class="relative py-4 md:py-8 bg-grid-pattern overflow-hidden min-h-[78vh] flex items-center">
         <!-- Background Ambient Glow -->
-        <div class="absolute top-1/3 right-12 w-[450px] h-[450px] bg-brand-500/15 rounded-full blur-3xl pointer-events-none transition-colors duration-500"></div>
+        <div class="absolute top-1/3 right-1/4 w-[450px] h-[450px] bg-brand-500/15 rounded-full blur-3xl pointer-events-none transition-colors duration-500"></div>
 
-        <!-- 3D Hanging Lanyard Positioned Closer to the Left (Right below Navigation Theme area) -->
-        <div class="absolute top-0 right-[28rem] sm:right-[32rem] md:right-[36rem] lg:right-[42rem] z-20 flex flex-col items-center">
+        <!-- 3D Hanging Lanyard Positioned just below navigation, shifted slightly to the right of the extreme left border -->
+        <div class="absolute top-0 right-12 sm:right-24 md:right-36 lg:right-48 z-20 flex flex-col items-center">
             
             <!-- Lanyard Stage Container -->
-            <div id="lanyardStage" class="lanyard-stage relative w-[180px] sm:w-[210px] lg:w-[240px] h-[420px] sm:h-[480px] lg:h-[540px] flex flex-col items-center pt-0">
+            <div id="lanyardStage" class="lanyard-stage relative w-[190px] sm:w-[220px] lg:w-[250px] h-[440px] sm:h-[500px] lg:h-[560px] flex flex-col items-center pt-0">
                 
                 <!-- Ceiling Anchor Pin Flush with Navigation Bar -->
                 <div class="absolute top-0 z-30 w-6 h-3.5 bg-slate-800 rounded-b-md border border-slate-600 shadow-md"></div>
@@ -424,7 +424,7 @@
                 <div id="lanyardAssembly" class="lanyard-assembly-container absolute top-0 z-10 w-full flex flex-col items-center origin-top transform-gpu cursor-grab active:cursor-grabbing">
                     
                     <!-- Woven Strap -->
-                    <div id="lanyardStrap" class="lanyard-strap w-6 sm:w-7 lg:w-8 h-36 sm:h-42 lg:h-48 flex items-center justify-center relative overflow-hidden rounded-t-sm shadow-xl origin-top transition-transform duration-75">
+                    <div id="lanyardStrap" class="lanyard-strap w-6 sm:w-7 lg:w-8 h-36 sm:h-44 lg:h-52 flex items-center justify-center relative overflow-hidden rounded-t-sm shadow-xl origin-top transition-transform duration-75">
                         <span class="lanyard-text text-[9px] sm:text-[10px] font-bold text-white opacity-90 tracking-widest whitespace-nowrap py-0.5">
                             ADITYA RAHMAN
                         </span>
@@ -440,8 +440,8 @@
                         </div>
 
                         <!-- ID Card with Wisuda Photo -->
-                        <div id="lanyardCard" class="relative -mt-1 z-10 w-[155px] sm:w-[185px] lg:w-[215px] h-[210px] sm:h-[245px] lg:h-[280px] transform-gpu origin-top">
-                            <div class="relative w-full h-full bg-gradient-to-b from-slate-950 via-slate-900 to-black rounded-[22px] sm:rounded-[26px] p-2 sm:p-2.5 shadow-2xl border border-slate-800/80 flex flex-col items-center justify-between overflow-hidden group">
+                        <div id="lanyardCard" class="relative -mt-1 z-10 w-[165px] sm:w-[195px] lg:w-[225px] h-[210px] sm:h-[245px] lg:h-[280px] transform-gpu origin-top">
+                            <div class="relative w-full h-full bg-gradient-to-b from-slate-950 via-slate-900 to-black rounded-[22px] sm:rounded-[26px] p-2.5 sm:p-3 shadow-2xl border border-slate-800/80 flex flex-col items-center justify-between overflow-hidden group">
                                 
                                 <!-- Top Hole -->
                                 <div class="w-3.5 h-3.5 rounded-full bg-slate-950 border border-slate-700 shadow-inner flex items-center justify-center z-20 mb-0.5">
@@ -461,10 +461,10 @@
 
                                     <!-- Card Bottom Label -->
                                     <div class="w-full py-1 bg-slate-950 text-center flex flex-col items-center justify-center rounded-b-[12px] sm:rounded-b-[14px]">
-                                        <span class="text-[8px] sm:text-[9px] font-bold tracking-widest text-brand-400 uppercase font-sans">
+                                        <span class="text-[8px] sm:text-[9.5px] font-bold tracking-widest text-brand-400 uppercase font-sans">
                                             S1 MATEMATIKA UNY
                                         </span>
-                                        <h4 class="text-[10px] sm:text-[11.5px] font-black tracking-wider text-white uppercase font-sans leading-tight">
+                                        <h4 class="text-[10.5px] sm:text-[12px] font-black tracking-wider text-white uppercase font-sans leading-tight">
                                             DATA ANALYST
                                         </h4>
                                     </div>
@@ -484,7 +484,7 @@
 
             <!-- Reset / Interactive Hint Button -->
             <button onclick="resetLanyard()" class="mt-1 px-2.5 py-1 text-[9px] sm:text-[10px] font-semibold glass-pill text-slate-600 dark:text-slate-400 hover:text-brand-500 transition rounded-full interactive-tab" title="Klik atau tarik lanyard untuk mengayunkan">
-                <i class="fa-solid fa-hand-pointer text-brand-500 animate-bounce mr-1"></i> Tarik & Ayunkan
+                <i class="fa-solid fa-hand-pointer text-brand-500 animate-bounce mr-1"></i> Tarik & Ayunkan Lanyard
             </button>
 
         </div>
@@ -492,8 +492,8 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full my-auto">
             <div class="relative min-h-[380px] flex flex-col md:flex-row items-center justify-between">
                 
-                <!-- LEFT COLUMN: Profile Text & Information -->
-                <div class="w-full md:w-7/12 lg:w-2/3 text-left space-y-3 pr-0 md:pr-16 py-2 my-auto z-10">
+                <!-- LEFT COLUMN: Profile Text & Information (Made Wider) -->
+                <div class="w-full md:w-8/12 lg:w-7/12 text-left space-y-3 pr-0 md:pr-10 py-2 my-auto z-10">
                     
                     <!-- Availability Pill Tag -->
                     <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold glass-pill text-slate-700 dark:text-slate-300 shadow-sm interactive-tab">
@@ -517,7 +517,7 @@
                     </p>
 
                     <!-- Profile Bio Description -->
-                    <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-xs sm:text-sm max-w-xl">
+                    <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-xs sm:text-sm max-w-2xl">
                         Lulusan Matematika dari Universitas Negeri Yogyakarta (IPK 3,27) dengan pola pikir analitis yang kuat serta keterampilan pengolahan data. Berpengalaman dalam administrasi statistik, hubungan pelanggan, dan pencacahan lapangan untuk sensus ekonomi nasional. Menguasai alat analisis termasuk Python, RStudio, dan Excel.
                     </p>
 
@@ -606,8 +606,6 @@
             </div>
 
             <div class="space-y-6 max-w-7xl mx-auto">
-
-                <!-- Timeline Item 1: Field Enumerator BPS -->
                 <div class="glass-panel p-6 sm:p-8 rounded-3xl relative overflow-hidden transition hover:border-brand-500/50 interactive-tab">
                     <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
                         <span class="px-2.5 py-1 rounded-full text-[11px] font-semibold bg-emerald-100 text-emerald-800 dark:bg-emerald-950/80 dark:text-emerald-300">
@@ -633,7 +631,6 @@
                     </div>
                 </div>
 
-                <!-- Timeline Item 2: Customer Service Representative Vads Indonesia -->
                 <div class="glass-panel p-6 sm:p-8 rounded-3xl relative overflow-hidden transition hover:border-brand-500/50 interactive-tab">
                     <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
                         <span class="px-2.5 py-1 rounded-full text-[11px] font-semibold bg-blue-100 text-blue-800 dark:bg-blue-950/80 dark:text-blue-300">
@@ -658,7 +655,6 @@
                     </div>
                 </div>
 
-                <!-- Timeline Item 3: Administrative Staff Intern BPS -->
                 <div class="glass-panel p-6 sm:p-8 rounded-3xl relative overflow-hidden transition hover:border-brand-500/50 interactive-tab">
                     <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
                         <span class="px-2.5 py-1 rounded-full text-[11px] font-semibold bg-purple-100 text-purple-800 dark:bg-purple-950/80 dark:text-purple-300">
@@ -680,7 +676,6 @@
                         <span class="text-[10px] font-medium glass-pill px-2.5 py-1 rounded-lg">Data Entry & Verification</span>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -688,8 +683,6 @@
     <section class="py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-7xl mx-auto">
-                
-                <!-- Education -->
                 <div class="glass-panel p-8 rounded-3xl flex flex-col justify-between interactive-tab">
                     <div>
                         <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider block mb-2">Pendidikan Formal</span>
@@ -709,7 +702,6 @@
                     </div>
                 </div>
 
-                <!-- Mentorship / Organization -->
                 <div class="glass-panel p-8 rounded-3xl flex flex-col justify-between interactive-tab">
                     <div>
                         <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider block mb-2">Pengalaman Organisasi</span>
@@ -728,7 +720,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -743,7 +734,6 @@
                     Keahlian & Perangkat Lunak
                 </h2>
 
-                <!-- Skill Filters -->
                 <div class="flex flex-wrap justify-center gap-2 mt-6">
                     <button onclick="filterSkills('all')" class="skill-btn active px-4 py-2 rounded-xl text-xs font-semibold transition bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-md interactive-tab">Semua</button>
                     <button onclick="filterSkills('hard')" class="skill-btn px-4 py-2 rounded-xl text-xs font-semibold transition glass-pill text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 interactive-tab">Hard Skills</button>
@@ -753,9 +743,7 @@
                 </div>
             </div>
 
-            <!-- Skills Cards Grid -->
             <div id="skillsContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-7xl mx-auto">
-
                 <div class="skill-card hard glass-panel p-6 rounded-3xl interactive-tab">
                     <div class="w-9 h-9 rounded-2xl bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-white flex items-center justify-center text-base mb-3">
                         <i class="fa-solid fa-chart-pie"></i>
@@ -821,7 +809,6 @@
                         <div class="bg-brand-500 h-full w-[90%]"></div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -853,7 +840,6 @@
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-                
                 <div id="mathControlsPanel" class="lg:col-span-5 glass-panel p-6 rounded-3xl space-y-4">
                     <div class="flex items-center justify-between">
                         <h3 class="text-sm font-bold theme-heading flex items-center gap-2">
@@ -912,7 +898,6 @@
                         Geser slider X dan Y pada panel kiri untuk memperbarui grafik garis dan perhitungan matematika secara langsung.
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -931,12 +916,10 @@
                 </p>
             </div>
 
-            <!-- Project Card: LEPII -->
             <div class="glass-panel rounded-3xl p-6 sm:p-8 border border-slate-200/80 dark:border-slate-800 shadow-xl transition-all hover:border-brand-500/60 max-w-4xl mx-auto relative overflow-hidden group">
                 <div class="absolute -right-12 -top-12 w-48 h-48 bg-brand-500/10 rounded-full blur-2xl group-hover:bg-brand-500/20 transition-all pointer-events-none"></div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-                    
                     <div class="lg:col-span-7 space-y-4">
                         <div class="flex flex-wrap items-center gap-2">
                             <span class="px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-brand-500 text-white shadow-sm">
@@ -1012,10 +995,8 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -1034,8 +1015,6 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                
-                <!-- Certificate 1: LIKMII -->
                 <div class="glass-panel p-6 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-xl flex flex-col justify-between transition-all hover:border-brand-500/60 group interactive-tab">
                     <div>
                         <div class="relative w-full h-52 sm:h-60 rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/60 dark:border-slate-800 mb-5">
@@ -1070,7 +1049,6 @@
                     </div>
                 </div>
 
-                <!-- Certificate 2: SLM -->
                 <div class="glass-panel p-6 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-xl flex flex-col justify-between transition-all hover:border-brand-500/60 group interactive-tab">
                     <div>
                         <div class="relative w-full h-52 sm:h-60 rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/60 dark:border-slate-800 mb-5">
@@ -1104,14 +1082,12 @@
                         </a>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
     <section id="contact" class="py-16 border-t border-slate-200/50 dark:border-slate-800/50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            
             <span class="px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-300 glass-pill rounded-full interactive-tab">
                 Hubungi Saya
             </span>
@@ -1158,10 +1134,10 @@
                     <i class="fa-brands fa-instagram text-sm text-pink-500"></i> Instagram
                 </a>
             </div>
-
         </div>
     </section>
 
+    <!-- Footer -->
     <footer class="py-8 border-t border-slate-200/50 dark:border-slate-800/50 text-slate-500 text-center text-xs">
         <div class="max-w-7xl mx-auto px-4">
             <p>&copy; 2026 Aditya Rahman, S.Si. All rights reserved.</p>
@@ -1172,7 +1148,6 @@
     <!-- Lepii Modal -->
     <div id="lepiiModal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-3 sm:p-6">
         <div class="glass-panel w-full max-w-5xl h-[88vh] rounded-3xl shadow-2xl border border-slate-200/80 dark:border-slate-800 flex flex-col overflow-hidden">
-            
             <div class="p-4 bg-slate-100/90 dark:bg-slate-900/90 flex justify-between items-center border-b border-slate-200 dark:border-slate-800">
                 <div class="flex items-center gap-2">
                     <i class="fa-solid fa-laptop-code text-brand-500 text-lg"></i>
@@ -1202,7 +1177,6 @@
     <!-- Certificate View Modal -->
     <div id="certModal" class="fixed inset-0 z-50 hidden bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-6">
         <div class="glass-panel w-full max-w-4xl rounded-3xl shadow-2xl border border-slate-200/80 dark:border-slate-800 flex flex-col overflow-hidden max-h-[90vh]">
-            
             <div class="p-4 bg-slate-100/90 dark:bg-slate-900/90 flex justify-between items-center border-b border-slate-200 dark:border-slate-800">
                 <div class="flex items-center gap-2">
                     <i class="fa-solid fa-certificate text-brand-500 text-lg"></i>
@@ -1229,7 +1203,6 @@
     <!-- CV Modal Matching Portfolio Theme Without Outer Border Box -->
     <div id="cvModal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
         <div class="glass-panel w-full max-w-4xl rounded-3xl shadow-2xl border border-slate-200/80 dark:border-slate-800 my-auto overflow-hidden">
-            
             <div class="p-4 sm:p-5 bg-slate-100/90 dark:bg-slate-900/90 flex justify-between items-center border-b border-slate-200 dark:border-slate-800">
                 <div class="flex items-center gap-2">
                     <i class="fa-solid fa-file-pdf text-brand-500 text-lg"></i>
@@ -1254,8 +1227,6 @@
             <!-- Paper Sheet CV Container inheriting portfolio theme colors without outer box border -->
             <div class="p-3 sm:p-8 bg-slate-950/40 max-h-[78vh] overflow-y-auto custom-scrollbar flex justify-center">
                 <div id="printableCvArea" class="bg-transparent text-slate-800 dark:text-slate-100 p-2 sm:p-6 rounded-none shadow-none max-w-3xl w-full text-xs font-sans leading-relaxed border-0">
-                    
-                    <!-- Header -->
                     <div class="text-center mb-4">
                         <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight theme-heading uppercase mb-1.5 font-sans">ADITYA RAHMAN</h1>
                         <p class="text-[11px] sm:text-xs text-slate-600 dark:text-slate-300 font-medium flex flex-wrap items-center justify-center gap-x-2 gap-y-1">
@@ -1269,20 +1240,15 @@
                         </p>
                     </div>
 
-                    <!-- Summary -->
                     <div class="mb-4 text-slate-700 dark:text-slate-300 text-[11.5px] leading-normal text-justify">
                         Lulusan Matematika dari Universitas Negeri Yogyakarta (<strong>IPK 3,27</strong>) dengan pola pikir analitis yang kuat serta keterampilan pengolahan data. Berpengalaman dalam administrasi statistik, hubungan pelanggan, dan pencacahan lapangan untuk sensus ekonomi nasional. Menguasai alat analisis termasuk Python, SPSS, dan Excel, dengan kemampuan teruji dalam pengumpulan data, verifikasi, serta penyelesaian masalah secara kritis.
                     </div>
 
-                    <!-- Theme Accent Dividing Line -->
                     <div class="border-b-2 border-brand-500 mb-5"></div>
 
-                    <!-- PENGALAMAN KERJA -->
                     <div class="mb-5">
                         <h2 class="font-bold text-xs uppercase tracking-wider theme-heading border-b border-slate-300 dark:border-slate-700 pb-1 mb-3">PENGALAMAN KERJA</h2>
-                        
                         <div class="space-y-4">
-                            <!-- Job 1 -->
                             <div>
                                 <div class="flex justify-between items-baseline flex-wrap gap-1">
                                     <h3 class="font-bold theme-heading text-[12px]">Petugas Pencatatan Lapangan (PPL SE2026) – BPS (Badan Pusat Statistik)</h3>
@@ -1296,7 +1262,6 @@
                                 </ul>
                             </div>
 
-                            <!-- Job 2 -->
                             <div>
                                 <div class="flex justify-between items-baseline flex-wrap gap-1">
                                     <h3 class="font-bold theme-heading text-[12px]">Customer Service Representative – Vads Indonesia (Proyek Shopee)</h3>
@@ -1310,7 +1275,6 @@
                                 </ul>
                             </div>
 
-                            <!-- Job 3 -->
                             <div>
                                 <div class="flex justify-between items-baseline flex-wrap gap-1">
                                     <h3 class="font-bold theme-heading text-[12px]">Magang Staf Administrasi – BPS Kabupaten Kulon Progo</h3>
@@ -1325,7 +1289,6 @@
                         </div>
                     </div>
 
-                    <!-- PENDIDIKAN -->
                     <div class="mb-5">
                         <h2 class="font-bold text-xs uppercase tracking-wider theme-heading border-b border-slate-300 dark:border-slate-700 pb-1 mb-3">PENDIDIKAN</h2>
                         <div>
@@ -1341,7 +1304,6 @@
                         </div>
                     </div>
 
-                    <!-- PENGALAMAN ORGANISASI -->
                     <div class="mb-5">
                         <h2 class="font-bold text-xs uppercase tracking-wider theme-heading border-b border-slate-300 dark:border-slate-700 pb-1 mb-3">PENGALAMAN ORGANISASI</h2>
                         <div>
@@ -1356,7 +1318,6 @@
                         </div>
                     </div>
 
-                    <!-- KETERAMPILAN & BAHASA -->
                     <div class="mb-6">
                         <h2 class="font-bold text-xs uppercase tracking-wider theme-heading border-b border-slate-300 dark:border-slate-700 pb-1 mb-3">KETERAMPILAN & BAHASA</h2>
                         <div class="space-y-1.5 text-[11px] text-slate-700 dark:text-slate-300">
@@ -1379,12 +1340,10 @@
                         </div>
                     </div>
 
-                    <!-- Document Footer -->
                     <div class="pt-3 border-t border-slate-200 dark:border-slate-800 flex justify-between items-center text-[10px] text-slate-500">
                         <span>Aditya Rahman — Curriculum Vitae</span>
                         <span>Halaman 1 dari 1</span>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -1459,7 +1418,7 @@
             const targetX = Math.min(Math.max((-relY / 120) * 35, -45), 30);
 
             const distFromAnchor = Math.hypot(relX, relY);
-            const strapBaseHeight = window.innerWidth >= 1024 ? 224 : (window.innerWidth >= 640 ? 192 : 160);
+            const strapBaseHeight = window.innerWidth >= 1024 ? 208 : (window.innerWidth >= 640 ? 176 : 144);
             const targetStretch = Math.max(0.95, distFromAnchor / (strapBaseHeight + 80));
 
             angleZ += (targetZ - angleZ) * 0.28;
@@ -1558,7 +1517,7 @@
             }
 
             if (lanyardLowerAssembly) {
-                const strapBaseHeight = window.innerWidth >= 1024 ? 224 : (window.innerWidth >= 640 ? 192 : 160);
+                const strapBaseHeight = window.innerWidth >= 1024 ? 208 : (window.innerWidth >= 640 ? 176 : 144);
                 const strapExtensionOffset = (stretch - 1) * strapBaseHeight;
                 lanyardLowerAssembly.style.transform = `translateY(${strapExtensionOffset.toFixed(2)}px)`;
             }
