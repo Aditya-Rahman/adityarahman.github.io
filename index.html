@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aditya Rahman, S.Si. - Portofolio & CV Interaktif</title>
     
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -29,7 +28,6 @@
         }
     </script>
     
-    <!-- Font Awesome & Chart.js -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0"></script>
@@ -266,6 +264,22 @@
             transform: translateY(1px) scale(0.98);
             box-shadow: 0 2px 6px var(--brand-ring);
         }
+
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(32px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+
+        .scroll-reveal.scroll-reveal-scale {
+            transform: scale(0.93) translateY(24px);
+        }
+
+        .scroll-reveal.revealed {
+            opacity: 1 !important;
+            transform: translate(0, 0) scale(1) !important;
+        }
     </style>
 </head>
 
@@ -278,7 +292,7 @@
                 <!-- Brand / Avatar -->
                 <a href="#hero" class="flex items-center space-x-3 group">
                     <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-slate-700 to-slate-900 dark:from-slate-200 dark:to-white flex items-center justify-center text-white dark:text-slate-900 font-bold text-sm shadow-md group-hover:scale-105 transition-transform overflow-hidden p-0.5">
-                        <img src="Foto Aditya Rahman.jpg" alt="Aditya Rahman" class="w-full h-full object-cover object-center rounded-[10px]" onerror="this.onerror=null; this.src='Wisuda_Aditya Rahman.JPG';">
+                        <img src="Foto Aditya Rahman.jpg" alt="Aditya Rahman" class="w-full h-full object-cover object-center rounded-[10px]" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=250';">
                     </div>
                     <div>
                         <span class="font-bold text-base theme-heading tracking-tight block leading-none">Aditya Rahman</span>
@@ -411,7 +425,7 @@
                 <!-- Ceiling Anchor Point Pin -->
                 <div class="absolute top-0 z-30 w-4 h-3 bg-slate-800 rounded-b-md border border-slate-600 shadow-md"></div>
 
-                <!-- Whole Swinging Lanyard Assembly (Strap + Clip + Card move TOGETHER) -->
+                <!-- Whole Swinging Lanyard Assembly -->
                 <div id="lanyardAssembly" class="lanyard-assembly-container absolute top-0 z-10 w-full flex flex-col items-center origin-top transform-gpu cursor-grab active:cursor-grabbing">
                     
                     <!-- Hanging Black Woven Stretchable Strap -->
@@ -421,7 +435,7 @@
                         </span>
                     </div>
                     
-                    <!-- Lower Assembly: Clip + Card (Shifts smoothly when strap elongates) -->
+                    <!-- Lower Assembly: Clip + Card -->
                     <div id="lanyardLowerAssembly" class="flex flex-col items-center w-full origin-top transform-gpu">
                         <!-- Metallic Ring & Carabiner Clip Assembly -->
                         <div class="relative -mt-1 flex flex-col items-center z-20">
@@ -430,7 +444,7 @@
                             <div class="w-2 h-4 bg-gradient-to-b from-slate-700 via-slate-800 to-slate-950 rounded-b-md border border-slate-600 shadow-sm"></div>
                         </div>
 
-                        <!-- ID Card (Attached to bottom of lanyard clip) -->
+                        <!-- ID Card -->
                         <div id="lanyardCard" class="relative -mt-1 z-10 w-[180px] lg:w-[210px] h-[250px] lg:h-[290px] transform-gpu origin-top">
                             <div class="relative w-full h-full bg-gradient-to-b from-slate-950 via-slate-900 to-black rounded-[24px] p-2.5 shadow-2xl border border-slate-800/80 flex flex-col items-center justify-between overflow-hidden group">
                                 
@@ -442,12 +456,12 @@
                                 <!-- Inner Card Frame -->
                                 <div class="relative w-full h-[215px] lg:h-[250px] rounded-[16px] border-2 border-white/90 p-0.5 flex flex-col justify-between overflow-hidden bg-slate-950 shadow-inner">
                                     
-                                    <!-- Wisuda Photo (Without scale/zoom on hover/click) -->
+                                    <!-- Photo -->
                                     <div class="relative w-full h-[160px] lg:h-[190px] rounded-[12px] overflow-hidden bg-slate-900">
                                         <img src="Wisuda_Aditya Rahman.JPG" 
                                              alt="Aditya Rahman Wisuda UNY" 
                                              class="w-full h-full object-cover object-top filter contrast-[1.03] brightness-[1.02]"
-                                             onerror="this.onerror=null; this.src='Foto Aditya Rahman.jpg';">
+                                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=250';">
                                     </div>
 
                                     <!-- Bottom ID Label -->
@@ -487,10 +501,10 @@
                 <span>Siap Berkontribusi: Data Analysis & Operational Roles</span>
             </div>
 
-            <!-- Centered Main Photo (Foto Aditya Rahman.jpg) -->
-            <div class="mx-auto w-32 h-32 sm:w-36 sm:h-36 rounded-3xl p-1.5 glass-panel shadow-2xl mb-6 animate-subtle-float">
+            <!-- Centered Main Photo -->
+            <div class="mx-auto w-32 h-32 sm:w-36 sm:h-36 rounded-3xl p-1.5 glass-panel shadow-2xl mb-6">
                 <div class="w-full h-full rounded-[20px] overflow-hidden bg-slate-200 dark:bg-slate-800 relative">
-                    <img src="Foto Aditya Rahman.jpg" alt="Aditya Rahman, S.Si." class="w-full h-full object-cover object-center" onerror="this.onerror=null; this.src='Wisuda_Aditya Rahman.JPG';">
+                    <img src="Foto Aditya Rahman.jpg" alt="Aditya Rahman, S.Si." class="w-full h-full object-cover object-center" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=250';">
                 </div>
             </div>
 
@@ -503,7 +517,7 @@
             </p>
 
             <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-sm sm:text-base max-w-2xl mx-auto mb-8">
-                Lulusan Matematika dari Universitas Negeri Yogyakarta (IPK 3,27) dengan pola pikir analitis yang kuat serta keterampilan pengolahan data. Berpengalaman dalam administrasi statistik, hubungan pelanggan, dan pencacahan lapangan untuk sensus ekonomi nasional. Menguasai alat analisis termasuk Python, SPSS, dan Excel, dengan kemampuan teruji dalam pengumpulan data, verifikasi, serta penyelesaian masalah secara kritis.
+                Lulusan Matematika dari Universitas Negeri Yogyakarta (IPK 3,27) dengan pola pikir analitis yang kuat serta keterampilan pengolahan data. Berpengalaman dalam administrasi statistik, hubungan pelanggan, dan pencacahan lapangan untuk sensus ekonomi nasional. Menguasai alat analisis termasuk Python, SPSS, dan Excel.
             </p>
 
             <div class="flex flex-wrap items-center justify-center gap-2.5 text-xs text-slate-600 dark:text-slate-300 mb-8">
@@ -932,7 +946,7 @@
                         </h3>
 
                         <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                            Proyek web interaktif <strong>Lepii</strong> dirancang sebagai modul aplikasi mandiri yang mengintegrasikan pengolahan data, visualisasi antarmuka intuitif, serta elemen fungsional modern. Proyek ini memfasilitasi eksperimen data dan memberikan pengalaman pengguna yang responsif.
+                            Proyek web interaktif <strong>Lepii</strong> dirancang sebagai modul aplikasi mandiri yang mengintegrasikan pengolahan data, visualisasi antarmuka intuitif, serta elemen fungsional modern.
                         </p>
 
                         <div class="flex flex-wrap gap-2 pt-1">
@@ -944,9 +958,6 @@
                             </span>
                             <span class="text-[11px] font-semibold glass-pill px-3 py-1 rounded-xl text-slate-700 dark:text-slate-300">
                                 <i class="fa-brands fa-js text-yellow-500 mr-1"></i> JavaScript
-                            </span>
-                            <span class="text-[11px] font-semibold glass-pill px-3 py-1 rounded-xl text-slate-700 dark:text-slate-300">
-                                <i class="fa-solid fa-chart-simple text-purple-500 mr-1"></i> Interactive UI
                             </span>
                         </div>
 
@@ -1247,7 +1258,7 @@
                 <div>
                     <h2 class="font-bold text-[11px] uppercase tracking-wider text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-800 pb-1 mb-2">Ringkasan Profil</h2>
                     <p class="text-xs leading-relaxed text-slate-700 dark:text-slate-300">
-                        Lulusan Matematika dari Universitas Negeri Yogyakarta (IPK 3,27) dengan pola pikir analitis yang kuat serta keterampilan pengolahan data. Berpengalaman dalam administrasi statistik, hubungan pelanggan, dan pencacahan lapangan untuk sensus ekonomi nasional. Menguasai alat analisis termasuk Python, SPSS, dan Excel, dengan kemampuan teruji dalam pengumpulan data, verifikasi, serta penyelesaian masalah secara kritis.
+                        Lulusan Matematika dari Universitas Negeri Yogyakarta (IPK 3,27) dengan pola pikir analitis yang kuat serta keterampilan pengolahan data. Berpengalaman dalam administrasi statistik, hubungan pelanggan, dan pencacahan lapangan untuk sensus ekonomi nasional. Menguasai alat analisis termasuk Python, SPSS, dan Excel.
                     </p>
                 </div>
 
@@ -1257,36 +1268,25 @@
                     <div class="space-y-4">
                         <div>
                             <div class="flex justify-between items-baseline flex-wrap gap-1">
-                                <h3 class="font-bold text-xs sm:text-sm theme-heading">Petugas Pencatatan Lapangan (PPL SE2026) - BPS (Badan Pusat Statistik)</h3>
+                                <h3 class="font-bold text-xs sm:text-sm theme-heading">Petugas Pencatatan Lapangan (PPL SE2026) - BPS</h3>
                                 <span class="text-[11px] text-slate-500 font-medium">Juni 2026 - Agustus 2026 | Kulon Progo</span>
                             </div>
                             <ul class="list-disc list-inside text-xs text-slate-700 dark:text-slate-300 space-y-1 mt-1 leading-relaxed">
-                                <li>Mengidentifikasi dan memetakan wilayah kerja statistik (Wilkerstat) serta melakukan geotagging lokasi unit usaha lokal menggunakan aplikasi seluler lapangan BPS.</li>
-                                <li>Melakukan wawancara tatap muka secara langsung dengan responden pelaku usaha untuk mencatat profil ekonomi dan karakteristik bisnis secara akurat.</li>
-                                <li>Memverifikasi kelengkapan dan konsistensi data sebelum menyerahkan catatan hasil pencacahan yang bersih kepada Pemeriksa Lapangan (PML).</li>
+                                <li>Mengidentifikasi dan memetakan wilayah kerja statistik (Wilkerstat) serta melakukan geotagging lokasi unit usaha lokal.</li>
+                                <li>Melakukan wawancara tatap muka secara langsung dengan responden pelaku usaha.</li>
+                                <li>Memverifikasi kelengkapan dan konsistensi data sebelum menyerahkan catatan hasil pencacahan yang bersih.</li>
                             </ul>
                         </div>
 
                         <div>
                             <div class="flex justify-between items-baseline flex-wrap gap-1">
-                                <h3 class="font-bold text-xs sm:text-sm theme-heading">Customer Service Representative - Vads Indonesia (Proyek Shopee)</h3>
+                                <h3 class="font-bold text-xs sm:text-sm theme-heading">Customer Service Representative - Vads Indonesia (Shopee)</h3>
                                 <span class="text-[11px] text-slate-500 font-medium">September 2024 - Mei 2026 | Sleman</span>
                             </div>
                             <ul class="list-disc list-inside text-xs text-slate-700 dark:text-slate-300 space-y-1 mt-1 leading-relaxed">
-                                <li>Mengelola interaksi dengan pelanggan untuk menyelesaikan pertanyaan dan keluhan, mencapai tingkat kepuasan pelanggan sebesar 85%.</li>
-                                <li>Menyampaikan rincian produk dan layanan secara tepat kepada lebih dari 200 pelanggan setiap minggunya dengan tetap menjaga standar profesional.</li>
-                                <li>Mengurangi rata-rata waktu respon sebesar 20% dengan mengidentifikasi solusi yang cepat dan efektif.</li>
-                            </ul>
-                        </div>
-
-                        <div>
-                            <div class="flex justify-between items-baseline flex-wrap gap-1">
-                                <h3 class="font-bold text-xs sm:text-sm theme-heading">Magang Staf Administrasi - BPS Kabupaten Kulon Progo</h3>
-                                <span class="text-[11px] text-slate-500 font-medium">Oktober 2023 - Desember 2023 | Kulon Progo</span>
-                            </div>
-                            <ul class="list-disc list-inside text-xs text-slate-700 dark:text-slate-300 space-y-1 mt-1 leading-relaxed">
-                                <li>Mengelola dan memelihara arsip data statistik serta dokumentasi operasional bulanan internal dengan tingkat ketelitian tinggi.</li>
-                                <li>Memasukkan dan memverifikasi catatan data statistik ke dalam basis data resmi untuk menjamin akurasi tingkat tinggi.</li>
+                                <li>Mengelola interaksi dengan pelanggan untuk menyelesaikan pertanyaan dan keluhan (CSAT 85%).</li>
+                                <li>Menyampaikan rincian produk dan layanan secara tepat kepada lebih dari 200 pelanggan setiap minggunya.</li>
+                                <li>Mengurangi rata-rata waktu respon sebesar 20%.</li>
                             </ul>
                         </div>
                     </div>
@@ -1303,39 +1303,6 @@
                     </div>
                 </div>
 
-                <div>
-                    <h2 class="font-bold text-[11px] uppercase tracking-wider text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-800 pb-1 mb-2">Pengalaman Organisasi</h2>
-                    <div class="flex justify-between items-baseline flex-wrap gap-1">
-                        <h3 class="font-bold text-xs sm:text-sm theme-heading">Pemandu - Program Studi Laboratorium Matematika</h3>
-                        <span class="text-[11px] text-slate-500 font-medium">Juli 2022 - September 2022 | Sleman</span>
-                    </div>
-                    <p class="text-xs text-slate-700 dark:text-slate-300 mt-1">
-                        Membimbing dan memandu mahasiswa baru terkait jadwal orientasi akademik serta panduan laboratorium.
-                    </p>
-                </div>
-
-                <div>
-                    <h2 class="font-bold text-[11px] uppercase tracking-wider text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-800 pb-1 mb-2">Hasil Proyek & Sertifikat</h2>
-                    <div class="text-xs text-slate-700 dark:text-slate-300 space-y-1">
-                        <p><strong>Proyek Lepii (lepii.html):</strong> Aplikasi Web Interaktif & Pengolahan Data Intuitive UI.</p>
-                        <p><strong>Sertifikat Resmi:</strong> LIKM II & SLM Training Certification.</p>
-                    </div>
-                </div>
-
-                <div>
-                    <h2 class="font-bold text-[11px] uppercase tracking-wider text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-800 pb-1 mb-2">Keterampilan & Bahasa</h2>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-                        <div>
-                            <p><strong>Keterampilan Teknis:</strong> Analisis Data, Entri Data Statistik, Pencacahan Lapangan, Geotagging, Verifikasi Data</p>
-                            <p class="mt-1"><strong>Perangkat Lunak & Alat:</strong> Python, Microsoft Excel, SPSS, MATLAB, Canva, Figma</p>
-                        </div>
-                        <div>
-                            <p><strong>Soft Skills:</strong> Berpikir Kritis, Kerja Sama Tim, Multitasking, Layanan Pelanggan, Akuntabilitas, Komunikasi</p>
-                            <p class="mt-1"><strong>Bahasa:</strong> Bahasa Indonesia (Penutur Asli/Mahir), Bahasa Inggris (Lanjutan)</p>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
     </div>
@@ -1347,9 +1314,6 @@
 
         /* -------------------------------------------------------------
            1. INTERACTIVE 3D ELASTIC LANYARD PHYSICS ENGINE
-           - Permanently anchored at ceiling pin (top: 0)
-           - Dynamic vertical stretch, bounce oscillations & spring physics
-           - Upward glare sheen reflection effect
         ------------------------------------------------------------- */
         const lanyardAssembly = document.getElementById('lanyardAssembly');
         const lanyardStrap = document.getElementById('lanyardStrap');
@@ -1358,27 +1322,16 @@
         const cardGlare = document.getElementById('cardGlare');
         const lanyardStage = document.getElementById('lanyardStage');
 
-        // Physics State Variables (Rotation & Stretch around fixed top anchor)
-        let angleZ = 0;
-        let angleY = 0;
-        let angleX = 0;
-        let stretch = 1;
-        let stretchVel = 0;
-
-        let velZ = 0;
-        let velY = 0;
-        let velX = 0;
-
-        let cardLagZ = 0;
-        let cardLagVelZ = 0;
-
+        let angleZ = 0, angleY = 0, angleX = 0;
+        let stretch = 1, stretchVel = 0;
+        let velZ = 0, velY = 0, velX = 0;
+        let cardLagZ = 0, cardLagVelZ = 0;
         let isDragging = false;
         let pointerDownPos = { x: 0, y: 0 };
         let hasDragged = false;
 
-        // Bouncy spring physics parameters for lively elastic oscillations
         const stiffness = 0.028;
-        const damping = 0.92; // Slightly higher momentum retention for springy bounces
+        const damping = 0.92;
         const stretchStiffness = 0.055;
         const stretchDamping = 0.85;
 
@@ -1421,12 +1374,10 @@
             const relX = clientX - anchor.x;
             const relY = clientY - anchor.y;
 
-            // Pendulum Angle Z relative to fixed top anchor (negated so card swings directly towards cursor)
             const targetZ = -Math.atan2(relX, Math.max(relY, 15)) * (180 / Math.PI);
             const targetY = -Math.min(Math.max((relX / 100) * 45, -60), 60);
             const targetX = Math.min(Math.max((-relY / 120) * 35, -45), 30);
 
-            // Calculate distance from top anchor to determine elastic stretch length
             const distFromAnchor = Math.hypot(relX, relY);
             const strapBaseHeight = window.innerWidth >= 1024 ? 128 : 112;
             const targetStretch = Math.max(0.95, distFromAnchor / (strapBaseHeight + 80));
@@ -1437,7 +1388,7 @@
             stretch += (targetStretch - stretch) * 0.28;
         }
 
-        function onPointerUp(e) {
+        function onPointerUp() {
             if (!isDragging) return;
             isDragging = false;
 
@@ -1447,17 +1398,15 @@
             }
 
             if (!hasDragged) {
-                // Initial bounce impulse when clicked without dragging
                 velZ = (Math.random() > 0.5 ? 1 : -1) * (20 + Math.random() * 10);
                 velY = (Math.random() - 0.5) * 25;
                 velX = (Math.random() - 0.5) * 20;
                 stretchVel = 0.12;
             } else {
-                // Realistic spring recoil momentum when released from a pull
                 velZ = angleZ * 0.35;
                 velY = angleY * 0.35;
                 velX = angleX * 0.35;
-                stretchVel = -(stretch - 1) * 0.45; // Bounce up and down elastically
+                stretchVel = -(stretch - 1) * 0.45;
             }
         }
 
@@ -1474,8 +1423,8 @@
         function resetLanyard() {
             angleZ = 0;
             angleY = 0;
-            angleX = 25; // Tilt up briefly to show glare shine
-            stretch = 1.38; // Trigger elastic snap bounce on reset
+            angleX = 25;
+            stretch = 1.38;
             velZ = 24;
             velY = 18;
             stretchVel = -0.15;
@@ -1489,7 +1438,6 @@
 
         function animateLanyard() {
             if (!isDragging) {
-                // Elastic spring recoil physics for realistic bouncing motion
                 const forceZ = -angleZ * stiffness;
                 const forceY = -angleY * stiffness;
                 const forceX = -angleX * stiffness;
@@ -1505,21 +1453,16 @@
                 angleX += velX;
                 stretch += stretchVel;
 
-                // Fluid card hinge lag relative to strap movement
                 const cardTargetLag = -velZ * 0.65;
                 cardLagVelZ = (cardLagVelZ + (cardTargetLag - cardLagZ) * 0.14) * 0.84;
                 cardLagZ += cardLagVelZ;
             } else {
-                velZ = 0;
-                velY = 0;
-                velX = 0;
-                stretchVel = 0;
+                velZ = 0; velY = 0; velX = 0; stretchVel = 0;
                 cardLagZ += (-angleZ * 0.25 - cardLagZ) * 0.22;
             }
 
             if (stretch < 0.92) stretch = 0.92;
 
-            // Always anchored at top center pin - strictly rotates from top center
             if (lanyardAssembly) {
                 lanyardAssembly.style.transform = `
                     rotateZ(${angleZ.toFixed(2)}deg)
@@ -1528,14 +1471,12 @@
                 `;
             }
 
-            // Flexible Strap Elongation + Squeeze Effect (Poisson ratio)
             if (lanyardStrap) {
                 const scaleX = (1 / Math.sqrt(stretch)).toFixed(3);
                 const scaleY = stretch.toFixed(3);
                 lanyardStrap.style.transform = `scaleY(${scaleY}) scaleX(${scaleX})`;
             }
 
-            // Shift lower assembly (carabiner + card) seamlessly as strap stretches
             if (lanyardLowerAssembly) {
                 const strapBaseHeight = window.innerWidth >= 1024 ? 128 : 112;
                 const strapExtensionOffset = (stretch - 1) * strapBaseHeight;
@@ -1546,14 +1487,11 @@
                 lanyardCard.style.transform = `rotateZ(${cardLagZ.toFixed(2)}deg)`;
             }
 
-            // Dynamic Glare / Silau Effect when card tilts facing upwards
             if (cardGlare) {
-                // When angleX is positive/tilted upwards, glare brightens significantly
                 const upwardTiltFactor = Math.max(0, (angleX + 15) / 45);
                 const sideTiltFactor = Math.abs(angleY) / 50;
                 const glareOpacity = Math.min(0.92, Math.max(0.1, upwardTiltFactor * 0.8 + sideTiltFactor * 0.3));
 
-                // Glare angle and gradient sheen band move as the card rotates
                 const glareAngle = 135 + angleZ + angleY * 0.4;
                 const sheenPos = Math.min(80, Math.max(10, 35 + angleX * 1.1));
 
@@ -1570,11 +1508,7 @@
             if (isDragging || isMoving) {
                 requestAnimationFrame(animateLanyard);
             } else {
-                angleZ = 0;
-                angleY = 0;
-                angleX = 0;
-                stretch = 1;
-                cardLagZ = 0;
+                angleZ = 0; angleY = 0; angleX = 0; stretch = 1; cardLagZ = 0;
                 if (lanyardAssembly) lanyardAssembly.style.transform = 'none';
                 if (lanyardStrap) lanyardStrap.style.transform = 'none';
                 if (lanyardLowerAssembly) lanyardLowerAssembly.style.transform = 'none';
@@ -1598,12 +1532,8 @@
         window.addEventListener('click', () => {
             const dropdown = document.getElementById('paletteDropdown');
             const dropdownMobile = document.getElementById('paletteDropdownMobile');
-            if (dropdown && !dropdown.classList.contains('hidden')) {
-                dropdown.classList.add('hidden');
-            }
-            if (dropdownMobile && !dropdownMobile.classList.contains('hidden')) {
-                dropdownMobile.classList.add('hidden');
-            }
+            if (dropdown && !dropdown.classList.contains('hidden')) dropdown.classList.add('hidden');
+            if (dropdownMobile && !dropdownMobile.classList.contains('hidden')) dropdownMobile.classList.add('hidden');
         });
 
         function toggleDarkMode() {
@@ -1654,9 +1584,7 @@
             "Field Enumerator SE2026 (BPS)",
             "Customer Relations Specialist"
         ];
-        let phraseIdx = 0;
-        let charIdx = 0;
-        let isDeleting = false;
+        let phraseIdx = 0, charIdx = 0, isDeleting = false;
         const typingElement = document.getElementById('typing-effect');
 
         function typeLoop() {
@@ -2063,7 +1991,48 @@
         window.onload = function() {
             typeLoop();
             updateMathLab();
+            initScrollReveal();
         };
+
+        function initScrollReveal() {
+            // Target key text elements, headings, cards, and sections
+            const targets = document.querySelectorAll('h1, h2, h3, .glass-panel, .skill-card, .interactive-tab');
+            
+            targets.forEach((el) => {
+                // Ignore elements inside CV modal or navbar to keep them static
+                if (!el.closest('#printableCvArea') && !el.closest('nav') && !el.classList.contains('scroll-reveal')) {
+                    el.classList.add('scroll-reveal');
+                }
+            });
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px 0px -40px 0px',
+                threshold: 0.12
+            };
+
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.scroll-reveal').forEach((el) => {
+                // Apply staggered entrance delay for sibling cards & text blocks
+                const parent = el.parentElement;
+                if (parent) {
+                    const siblings = Array.from(parent.children).filter(child => child.classList.contains('scroll-reveal'));
+                    const siblingIndex = siblings.indexOf(el);
+                    if (siblingIndex > 0) {
+                        el.style.transitionDelay = `${(siblingIndex % 6) * 90}ms`;
+                    }
+                }
+                revealObserver.observe(el);
+            });
+        }
     </script>
 </body>
 </html>
