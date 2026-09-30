@@ -407,15 +407,15 @@
         </div>
     </nav>
 
-    <section id="hero" class="relative py-6 md:py-10 bg-grid-pattern overflow-hidden min-h-[76vh] flex items-center">
+    <section id="hero" class="relative py-4 md:py-6 bg-grid-pattern overflow-hidden min-h-[72vh] flex items-center">
         <!-- Background Ambient Glow -->
-        <div class="absolute top-1/3 right-8 w-[450px] h-[450px] bg-brand-500/15 rounded-full blur-3xl pointer-events-none transition-colors duration-500"></div>
+        <div class="absolute top-1/3 right-12 w-[450px] h-[450px] bg-brand-500/15 rounded-full blur-3xl pointer-events-none transition-colors duration-500"></div>
 
-        <!-- 3D Hanging Lanyard Positioned Further to the Left as Requested -->
-        <div class="absolute top-0 right-16 sm:right-24 md:right-36 lg:right-48 z-20 flex flex-col items-center">
+        <!-- 3D Hanging Lanyard Positioned Closer to the Left (Right below Navigation Theme area) -->
+        <div class="absolute top-0 right-[28rem] sm:right-[32rem] md:right-[36rem] lg:right-[42rem] z-20 flex flex-col items-center">
             
             <!-- Lanyard Stage Container -->
-            <div id="lanyardStage" class="lanyard-stage relative w-[190px] sm:w-[220px] lg:w-[250px] h-[460px] sm:h-[530px] lg:h-[600px] flex flex-col items-center pt-0">
+            <div id="lanyardStage" class="lanyard-stage relative w-[180px] sm:w-[210px] lg:w-[240px] h-[420px] sm:h-[480px] lg:h-[540px] flex flex-col items-center pt-0">
                 
                 <!-- Ceiling Anchor Pin Flush with Navigation Bar -->
                 <div class="absolute top-0 z-30 w-6 h-3.5 bg-slate-800 rounded-b-md border border-slate-600 shadow-md"></div>
@@ -424,7 +424,7 @@
                 <div id="lanyardAssembly" class="lanyard-assembly-container absolute top-0 z-10 w-full flex flex-col items-center origin-top transform-gpu cursor-grab active:cursor-grabbing">
                     
                     <!-- Woven Strap -->
-                    <div id="lanyardStrap" class="lanyard-strap w-6 sm:w-7 lg:w-8 h-40 sm:h-48 lg:h-56 flex items-center justify-center relative overflow-hidden rounded-t-sm shadow-xl origin-top transition-transform duration-75">
+                    <div id="lanyardStrap" class="lanyard-strap w-6 sm:w-7 lg:w-8 h-36 sm:h-42 lg:h-48 flex items-center justify-center relative overflow-hidden rounded-t-sm shadow-xl origin-top transition-transform duration-75">
                         <span class="lanyard-text text-[9px] sm:text-[10px] font-bold text-white opacity-90 tracking-widest whitespace-nowrap py-0.5">
                             ADITYA RAHMAN
                         </span>
@@ -440,8 +440,8 @@
                         </div>
 
                         <!-- ID Card with Wisuda Photo -->
-                        <div id="lanyardCard" class="relative -mt-1 z-10 w-[165px] sm:w-[195px] lg:w-[225px] h-[220px] sm:h-[260px] lg:h-[300px] transform-gpu origin-top">
-                            <div class="relative w-full h-full bg-gradient-to-b from-slate-950 via-slate-900 to-black rounded-[22px] sm:rounded-[26px] p-2.5 sm:p-3 shadow-2xl border border-slate-800/80 flex flex-col items-center justify-between overflow-hidden group">
+                        <div id="lanyardCard" class="relative -mt-1 z-10 w-[155px] sm:w-[185px] lg:w-[215px] h-[210px] sm:h-[245px] lg:h-[280px] transform-gpu origin-top">
+                            <div class="relative w-full h-full bg-gradient-to-b from-slate-950 via-slate-900 to-black rounded-[22px] sm:rounded-[26px] p-2 sm:p-2.5 shadow-2xl border border-slate-800/80 flex flex-col items-center justify-between overflow-hidden group">
                                 
                                 <!-- Top Hole -->
                                 <div class="w-3.5 h-3.5 rounded-full bg-slate-950 border border-slate-700 shadow-inner flex items-center justify-center z-20 mb-0.5">
@@ -449,10 +449,10 @@
                                 </div>
 
                                 <!-- Inner Card Content -->
-                                <div class="relative w-full h-[185px] sm:h-[220px] lg:h-[255px] rounded-[16px] sm:rounded-[18px] border-2 border-white/90 p-0.5 flex flex-col justify-between overflow-hidden bg-slate-950 shadow-inner">
+                                <div class="relative w-full h-[175px] sm:h-[205px] lg:h-[235px] rounded-[16px] sm:rounded-[18px] border-2 border-white/90 p-0.5 flex flex-col justify-between overflow-hidden bg-slate-950 shadow-inner">
                                     
                                     <!-- Main Photo: Wisuda_Aditya Rahman.JPG -->
-                                    <div class="relative w-full h-[135px] sm:h-[160px] lg:h-[190px] rounded-[12px] sm:rounded-[14px] overflow-hidden bg-slate-900">
+                                    <div class="relative w-full h-[125px] sm:h-[150px] lg:h-[175px] rounded-[12px] sm:rounded-[14px] overflow-hidden bg-slate-900">
                                         <img src="Wisuda_Aditya Rahman.JPG" 
                                              alt="Aditya Rahman Wisuda" 
                                              class="w-full h-full object-cover object-center filter contrast-[1.03] brightness-[1.02]"
@@ -461,10 +461,10 @@
 
                                     <!-- Card Bottom Label -->
                                     <div class="w-full py-1 bg-slate-950 text-center flex flex-col items-center justify-center rounded-b-[12px] sm:rounded-b-[14px]">
-                                        <span class="text-[8px] sm:text-[9.5px] font-bold tracking-widest text-brand-400 uppercase font-sans">
+                                        <span class="text-[8px] sm:text-[9px] font-bold tracking-widest text-brand-400 uppercase font-sans">
                                             S1 MATEMATIKA UNY
                                         </span>
-                                        <h4 class="text-[10.5px] sm:text-[12px] font-black tracking-wider text-white uppercase font-sans leading-tight">
+                                        <h4 class="text-[10px] sm:text-[11.5px] font-black tracking-wider text-white uppercase font-sans leading-tight">
                                             DATA ANALYST
                                         </h4>
                                     </div>
@@ -484,16 +484,16 @@
 
             <!-- Reset / Interactive Hint Button -->
             <button onclick="resetLanyard()" class="mt-1 px-2.5 py-1 text-[9px] sm:text-[10px] font-semibold glass-pill text-slate-600 dark:text-slate-400 hover:text-brand-500 transition rounded-full interactive-tab" title="Klik atau tarik lanyard untuk mengayunkan">
-                <i class="fa-solid fa-hand-pointer text-brand-500 animate-bounce mr-1"></i> Tarik & Ayunkan Lanyard
+                <i class="fa-solid fa-hand-pointer text-brand-500 animate-bounce mr-1"></i> Tarik & Ayunkan
             </button>
 
         </div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full my-auto">
-            <div class="relative min-h-[400px] flex flex-col md:flex-row items-center justify-between">
+            <div class="relative min-h-[380px] flex flex-col md:flex-row items-center justify-between">
                 
                 <!-- LEFT COLUMN: Profile Text & Information -->
-                <div class="w-full md:w-7/12 lg:w-2/3 text-left space-y-3 pr-0 md:pr-12 py-2 sm:py-3 my-auto z-10">
+                <div class="w-full md:w-7/12 lg:w-2/3 text-left space-y-3 pr-0 md:pr-16 py-2 my-auto z-10">
                     
                     <!-- Availability Pill Tag -->
                     <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold glass-pill text-slate-700 dark:text-slate-300 shadow-sm interactive-tab">
