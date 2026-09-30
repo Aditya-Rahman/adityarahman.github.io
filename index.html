@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aditya Rahman, S.Si. - Portofolio & CV Interaktif</title>
     
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -28,6 +29,7 @@
         }
     </script>
     
+    <!-- Font Awesome, Chart.js & Google Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0"></script>
@@ -162,7 +164,6 @@
             color: var(--brand-heading) !important;
         }
 
-        /* Glassmorphism Panel */
         .glass-panel {
             background: rgba(255, 255, 255, 0.78);
             backdrop-filter: blur(20px) saturate(180%);
@@ -199,7 +200,7 @@
             transition: background-image 0.4s ease;
         }
 
-        /* Interactive Lanyard Canvas & 3D Container */
+        /* Interactive Lanyard Stage */
         .lanyard-stage {
             perspective: 1200px;
             transform-style: preserve-3d;
@@ -213,7 +214,6 @@
             will-change: transform;
         }
 
-        /* Lanyard Strap Styling */
         .lanyard-strap {
             background: #0a0a0c;
             box-shadow: inset 0 0 4px rgba(255, 255, 255, 0.15), 0 8px 20px rgba(0, 0, 0, 0.4);
@@ -229,7 +229,6 @@
             text-transform: uppercase;
         }
 
-        /* Card Sheen Effect */
         .card-glare {
             background: linear-gradient(
                 135deg,
@@ -240,7 +239,6 @@
             pointer-events: none;
         }
 
-        /* Custom scrollbar */
         .custom-scrollbar::-webkit-scrollbar {
             width: 6px;
         }
@@ -273,10 +271,6 @@
             will-change: opacity, transform;
         }
 
-        .scroll-reveal.scroll-reveal-scale {
-            transform: scale(0.92) translateY(32px);
-        }
-
         .scroll-reveal.revealed {
             opacity: 1 !important;
             transform: translate(0, 0) scale(1) !important;
@@ -290,10 +284,10 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 
-                <!-- Brand / Avatar -->
+                <!-- Brand / Logo -->
                 <a href="#hero" class="flex items-center space-x-3 group">
                     <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-slate-700 to-slate-900 dark:from-slate-200 dark:to-white flex items-center justify-center text-white dark:text-slate-900 font-bold text-sm shadow-md group-hover:scale-105 transition-transform overflow-hidden p-0.5">
-                        <img src="Foto Aditya Rahman.jpg" alt="Aditya Rahman" class="w-full h-full object-cover object-center rounded-[10px]" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=250';">
+                        <img src="Foto Aditya Rahman.jpg" alt="Aditya Rahman" class="w-full h-full object-cover object-center rounded-[10px]" onerror="this.onerror=null; this.src='Wisuda_Aditya Rahman.JPG';">
                     </div>
                     <div>
                         <span class="font-bold text-base theme-heading tracking-tight block leading-none">Aditya Rahman</span>
@@ -413,72 +407,72 @@
         </div>
     </nav>
 
-    <section id="hero" class="relative py-12 md:py-20 bg-grid-pattern overflow-hidden min-h-[85vh] flex items-center justify-center">
+    <section id="hero" class="relative py-8 md:py-14 bg-grid-pattern overflow-hidden min-h-[82vh] flex items-center">
         <!-- Background Ambient Glow -->
-        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-brand-500/15 rounded-full blur-3xl pointer-events-none transition-colors duration-500"></div>
+        <div class="absolute top-1/3 right-8 w-[450px] h-[450px] bg-brand-500/15 rounded-full blur-3xl pointer-events-none transition-colors duration-500"></div>
 
-        <!-- Floating Top-Right 3D Hanging Lanyard Element -->
-        <div class="absolute top-0 right-0 sm:right-2 lg:right-5 z-20 hidden sm:flex flex-col items-center">
+        <!-- 3D Hanging Lanyard Positioned Flush at Top Right Border of Navigation -->
+        <div class="absolute top-0 right-3 sm:right-6 md:right-10 lg:right-16 z-20 flex flex-col items-center">
             
-            <!-- Lanyard Stage Container -->
-            <div id="lanyardStage" class="lanyard-stage relative w-[220px] lg:w-[260px] h-[380px] lg:h-[440px] flex flex-col items-center pt-0">
+            <!-- Lanyard Stage Container anchored cleanly at top right flush with nav -->
+            <div id="lanyardStage" class="lanyard-stage relative w-[200px] sm:w-[230px] lg:w-[260px] h-[500px] sm:h-[570px] lg:h-[640px] flex flex-col items-center pt-0">
                 
-                <!-- Ceiling Anchor Point Pin -->
-                <div class="absolute top-0 z-30 w-4 h-3 bg-slate-800 rounded-b-md border border-slate-600 shadow-md"></div>
+                <!-- Ceiling Anchor Pin Flush with Navigation Bar -->
+                <div class="absolute top-0 z-30 w-6 h-3.5 bg-slate-800 rounded-b-md border border-slate-600 shadow-md"></div>
 
-                <!-- Whole Swinging Lanyard Assembly -->
+                <!-- 3D Swinging Lanyard Assembly -->
                 <div id="lanyardAssembly" class="lanyard-assembly-container absolute top-0 z-10 w-full flex flex-col items-center origin-top transform-gpu cursor-grab active:cursor-grabbing">
                     
-                    <!-- Hanging Black Woven Stretchable Strap -->
-                    <div id="lanyardStrap" class="lanyard-strap w-6 lg:w-7 h-28 lg:h-32 flex items-center justify-center relative overflow-hidden rounded-t-sm shadow-xl origin-top transition-transform duration-75">
-                        <span class="lanyard-text text-[8px] lg:text-[9px] font-bold text-white opacity-90 tracking-widest whitespace-nowrap py-0.5">
+                    <!-- Woven Strap (Extra Long & Enlarged to touch Navigation) -->
+                    <div id="lanyardStrap" class="lanyard-strap w-6 sm:w-7 lg:w-8 h-44 sm:h-52 lg:h-60 flex items-center justify-center relative overflow-hidden rounded-t-sm shadow-xl origin-top transition-transform duration-75">
+                        <span class="lanyard-text text-[9px] sm:text-[10px] font-bold text-white opacity-90 tracking-widest whitespace-nowrap py-0.5">
                             ADITYA RAHMAN
                         </span>
                     </div>
                     
                     <!-- Lower Assembly: Clip + Card -->
                     <div id="lanyardLowerAssembly" class="flex flex-col items-center w-full origin-top transform-gpu">
-                        <!-- Metallic Ring & Carabiner Clip Assembly -->
+                        <!-- Metallic Clip -->
                         <div class="relative -mt-1 flex flex-col items-center z-20">
-                            <div class="w-6 h-3.5 border-2 lg:border-4 border-slate-700 rounded-b-full bg-slate-900 shadow-md"></div>
+                            <div class="w-6 sm:w-7 h-3.5 border-2 lg:border-4 border-slate-700 rounded-b-full bg-slate-900 shadow-md"></div>
                             <div class="w-2.5 h-2.5 bg-slate-950 border border-slate-700 rounded-full -mt-1"></div>
-                            <div class="w-2 h-4 bg-gradient-to-b from-slate-700 via-slate-800 to-slate-950 rounded-b-md border border-slate-600 shadow-sm"></div>
+                            <div class="w-2.5 h-4 bg-gradient-to-b from-slate-700 via-slate-800 to-slate-950 rounded-b-md border border-slate-600 shadow-sm"></div>
                         </div>
 
                         <!-- ID Card -->
-                        <div id="lanyardCard" class="relative -mt-1 z-10 w-[180px] lg:w-[210px] h-[250px] lg:h-[290px] transform-gpu origin-top">
-                            <div class="relative w-full h-full bg-gradient-to-b from-slate-950 via-slate-900 to-black rounded-[24px] p-2.5 shadow-2xl border border-slate-800/80 flex flex-col items-center justify-between overflow-hidden group">
+                        <div id="lanyardCard" class="relative -mt-1 z-10 w-[170px] sm:w-[200px] lg:w-[230px] h-[230px] sm:h-[270px] lg:h-[310px] transform-gpu origin-top">
+                            <div class="relative w-full h-full bg-gradient-to-b from-slate-950 via-slate-900 to-black rounded-[22px] sm:rounded-[26px] p-2.5 sm:p-3 shadow-2xl border border-slate-800/80 flex flex-col items-center justify-between overflow-hidden group">
                                 
-                                <!-- Top Hook Hole -->
+                                <!-- Top Hole -->
                                 <div class="w-3.5 h-3.5 rounded-full bg-slate-950 border border-slate-700 shadow-inner flex items-center justify-center z-20 mb-0.5">
                                     <div class="w-1.5 h-1.5 rounded-full bg-slate-900"></div>
                                 </div>
 
-                                <!-- Inner Card Frame -->
-                                <div class="relative w-full h-[215px] lg:h-[250px] rounded-[16px] border-2 border-white/90 p-0.5 flex flex-col justify-between overflow-hidden bg-slate-950 shadow-inner">
+                                <!-- Inner Card Content -->
+                                <div class="relative w-full h-[195px] sm:h-[235px] lg:h-[270px] rounded-[16px] sm:rounded-[18px] border-2 border-white/90 p-0.5 flex flex-col justify-between overflow-hidden bg-slate-950 shadow-inner">
                                     
-                                    <!-- Photo -->
-                                    <div class="relative w-full h-[160px] lg:h-[190px] rounded-[12px] overflow-hidden bg-slate-900">
-                                        <img src="Wisuda_Aditya Rahman.JPG" 
-                                             alt="Aditya Rahman Wisuda UNY" 
-                                             class="w-full h-full object-cover object-top filter contrast-[1.03] brightness-[1.02]"
-                                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=250';">
+                                    <!-- Main Photo -->
+                                    <div class="relative w-full h-[145px] sm:h-[175px] lg:h-[205px] rounded-[12px] sm:rounded-[14px] overflow-hidden bg-slate-900">
+                                        <img src="Foto Aditya Rahman.jpg" 
+                                             alt="Aditya Rahman" 
+                                             class="w-full h-full object-cover object-center filter contrast-[1.03] brightness-[1.02]"
+                                             onerror="this.onerror=null; this.src='Wisuda_Aditya Rahman.JPG';">
                                     </div>
 
-                                    <!-- Bottom ID Label -->
-                                    <div class="w-full py-1 bg-slate-950 text-center flex flex-col items-center justify-center rounded-b-[12px]">
-                                        <span class="text-[9px] font-bold tracking-widest text-purple-400 uppercase font-sans">
-                                            S1 MATEMATIKA
+                                    <!-- Card Bottom Label -->
+                                    <div class="w-full py-1 bg-slate-950 text-center flex flex-col items-center justify-center rounded-b-[12px] sm:rounded-b-[14px]">
+                                        <span class="text-[8px] sm:text-[9.5px] font-bold tracking-widest text-brand-400 uppercase font-sans">
+                                            S1 MATEMATIKA UNY
                                         </span>
-                                        <h4 class="text-[11px] font-black tracking-wider text-white uppercase font-sans leading-tight">
+                                        <h4 class="text-[10.5px] sm:text-[12px] font-black tracking-wider text-white uppercase font-sans leading-tight">
                                             DATA ANALYST
                                         </h4>
                                     </div>
 
                                 </div>
 
-                                <!-- Glare / Silau Effect -->
-                                <div id="cardGlare" class="card-glare absolute inset-0 rounded-[24px] z-30 transition-opacity duration-150 opacity-40 pointer-events-none"></div>
+                                <!-- Card Glare Sheen -->
+                                <div id="cardGlare" class="card-glare absolute inset-0 rounded-[22px] sm:rounded-[26px] z-30 transition-opacity duration-150 opacity-40 pointer-events-none"></div>
 
                             </div>
                         </div>
@@ -488,78 +482,89 @@
 
             </div>
 
-            <!-- Hint reset -->
-            <button onclick="resetLanyard()" class="mt-2 px-2.5 py-1 text-[10px] font-semibold glass-pill text-slate-600 dark:text-slate-400 hover:text-brand-500 transition rounded-full interactive-tab" title="Klik atau tarik lanyard untuk mengayunkan">
-                <i class="fa-solid fa-hand-pointer text-brand-500 animate-bounce mr-1"></i> Tarik & Lepas Lanyard
+            <!-- Reset / Interactive Hint Button -->
+            <button onclick="resetLanyard()" class="mt-1 px-2.5 py-1 text-[9px] sm:text-[10px] font-semibold glass-pill text-slate-600 dark:text-slate-400 hover:text-brand-500 transition rounded-full interactive-tab" title="Klik atau tarik lanyard untuk mengayunkan">
+                <i class="fa-solid fa-hand-pointer text-brand-500 animate-bounce mr-1"></i> Tarik & Ayunkan Lanyard
             </button>
+
         </div>
 
-        <!-- Main Centered Content Area -->
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-            
-            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold glass-pill text-slate-700 dark:text-slate-300 shadow-sm mb-6 interactive-tab">
-                <span class="w-2 h-2 rounded-full bg-brand-500 animate-pulse"></span>
-                <span>Siap Berkontribusi: Data Analysis & Operational Roles</span>
-            </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full my-auto">
+            <div class="relative min-h-[460px] flex flex-col md:flex-row items-center justify-between">
+                
+                <!-- LEFT COLUMN: Profile Text & Information -->
+                <div class="w-full md:w-7/12 lg:w-2/3 text-left space-y-3.5 pr-0 md:pr-8 py-4 sm:py-6 my-auto z-10">
+                    
+                    <!-- Availability Pill Tag -->
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold glass-pill text-slate-700 dark:text-slate-300 shadow-sm interactive-tab">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                        <span class="font-mono tracking-wider text-[11px] uppercase">✦ AVAILABLE FOR WORK</span>
+                    </div>
 
-            <!-- Centered Main Photo -->
-            <div class="mx-auto w-32 h-32 sm:w-36 sm:h-36 rounded-3xl p-1.5 glass-panel shadow-2xl mb-6">
-                <div class="w-full h-full rounded-[20px] overflow-hidden bg-slate-200 dark:bg-slate-800 relative">
-                    <img src="Foto Aditya Rahman.jpg" alt="Aditya Rahman, S.Si." class="w-full h-full object-cover object-center" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=250';">
+                    <!-- Main Headline Title -->
+                    <div>
+                        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black theme-heading tracking-tight leading-[1.1] mb-2">
+                            Aditya Rahman, <span class="text-slate-500 dark:text-slate-400 font-normal">S.Si.</span>
+                        </h1>
+                        <h2 class="text-lg sm:text-xl md:text-2xl font-bold text-brand-600 dark:text-brand-400 tracking-tight">
+                            Data Analyst & Statistician
+                        </h2>
+                    </div>
+
+                    <!-- Typing Effect Subtitle -->
+                    <p class="text-sm sm:text-base md:text-lg font-medium text-slate-600 dark:text-slate-300">
+                        <span id="typing-effect" class="border-r-2 border-brand-500 pr-1">Lulusan S1 Matematika UNY</span>
+                    </p>
+
+                    <!-- Profile Bio Description -->
+                    <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-xs sm:text-sm max-w-xl">
+                        Lulusan Matematika dari Universitas Negeri Yogyakarta (IPK 3,27) dengan pola pikir analitis yang kuat serta keterampilan pengolahan data. Berpengalaman dalam administrasi statistik, hubungan pelanggan, dan pencacahan lapangan untuk sensus ekonomi nasional. Menguasai alat analisis termasuk Python, RStudio, dan Excel.
+                    </p>
+
+                    <!-- Location & Quick Contact Badges -->
+                    <div class="flex flex-wrap items-center gap-2.5 text-xs text-slate-600 dark:text-slate-300 pt-2">
+                        <div class="flex items-center gap-1.5 glass-pill px-3 py-1.5 rounded-xl interactive-tab">
+                            <i class="fa-solid fa-location-dot text-brand-500"></i>
+                            <span>Kulon Progo, Yogyakarta</span>
+                        </div>
+                        <a href="mailto:aditrahman471@gmail.com" class="flex items-center gap-1.5 glass-pill px-3 py-1.5 rounded-xl hover:text-slate-900 dark:hover:text-white transition interactive-tab">
+                            <i class="fa-solid fa-envelope text-brand-500"></i>
+                            <span>aditrahman471@gmail.com</span>
+                        </a>
+                        <a href="https://wa.me/6288225002019" target="_blank" class="flex items-center gap-1.5 glass-pill px-3 py-1.5 rounded-xl hover:text-emerald-500 transition interactive-tab">
+                            <i class="fa-brands fa-whatsapp text-emerald-500"></i>
+                            <span>+62 882-2500-2019</span>
+                        </a>
+                    </div>
+
+                    <!-- Primary Action CTA Buttons -->
+                    <div class="flex flex-wrap items-center gap-3 pt-3">
+                        <a href="https://www.linkedin.com/in/aditya-rahman-23892b2a2?utm_source=share_via&utm_content=profile&utm_medium=member_android" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           class="px-5 py-2.5 bg-slate-900 hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100 text-white font-semibold rounded-xl text-xs sm:text-sm shadow-md transition flex items-center gap-2 interactive-tab">
+                            <i class="fa-brands fa-linkedin text-base"></i>
+                            <span>LinkedIn</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-[10px] opacity-70"></i>
+                        </a>
+
+                        <a href="https://www.instagram.com/_aditrahman_?stkn=YnI1dGI4OHJiZWI3" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           class="px-5 py-2.5 glass-pill text-slate-800 dark:text-white font-semibold rounded-xl text-xs sm:text-sm transition flex items-center gap-2 hover:bg-slate-200/50 dark:hover:bg-slate-800 interactive-tab">
+                            <i class="fa-brands fa-instagram text-base text-pink-500"></i>
+                            <span>Instagram</span>
+                        </a>
+
+                        <a href="#projects" class="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-xl text-xs sm:text-sm shadow-md transition flex items-center gap-2 interactive-tab">
+                            <i class="fa-solid fa-laptop-code text-base"></i>
+                            <span>Lihat Hasil Karya</span>
+                        </a>
+                    </div>
+
                 </div>
+
             </div>
-
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold theme-heading tracking-tight leading-tight mb-3">
-                Aditya Rahman, <span class="text-slate-500 dark:text-slate-400 font-normal">S.Si.</span>
-            </h1>
-
-            <p class="text-lg sm:text-xl font-medium text-slate-600 dark:text-slate-300 mb-4">
-                <span id="typing-effect" class="border-r-2 border-brand-500 pr-1">Lulusan S1 Matematika UNY</span>
-            </p>
-
-            <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-sm sm:text-base max-w-2xl mx-auto mb-8">
-                Lulusan Matematika dari Universitas Negeri Yogyakarta (IPK 3,27) dengan pola pikir analitis yang kuat serta keterampilan pengolahan data. Berpengalaman dalam administrasi statistik, hubungan pelanggan, dan pencacahan lapangan untuk sensus ekonomi nasional. Menguasai alat analisis termasuk Python, SPSS, dan Excel.
-            </p>
-
-            <div class="flex flex-wrap items-center justify-center gap-2.5 text-xs text-slate-600 dark:text-slate-300 mb-8">
-                <div class="flex items-center gap-1.5 glass-pill px-3 py-1.5 rounded-xl interactive-tab">
-                    <i class="fa-solid fa-location-dot text-brand-500"></i>
-                    <span>Kulon Progo, Yogyakarta</span>
-                </div>
-                <a href="mailto:aditrahman471@gmail.com" class="flex items-center gap-1.5 glass-pill px-3 py-1.5 rounded-xl hover:text-slate-900 dark:hover:text-white transition interactive-tab">
-                    <i class="fa-solid fa-envelope text-brand-500"></i>
-                    <span>aditrahman471@gmail.com</span>
-                </a>
-                <a href="https://wa.me/6288225002019" target="_blank" class="flex items-center gap-1.5 glass-pill px-3 py-1.5 rounded-xl hover:text-brand-500 transition interactive-tab">
-                    <i class="fa-brands fa-whatsapp text-brand-500"></i>
-                    <span>+62 882-2500-2019</span>
-                </a>
-            </div>
-
-            <div class="flex flex-wrap items-center justify-center gap-3">
-                <a href="https://www.linkedin.com/in/aditya-rahman-23892b2a2?utm_source=share_via&utm_content=profile&utm_medium=member_android" 
-                   target="_blank" 
-                   rel="noopener noreferrer"
-                   class="px-5 py-2.5 bg-slate-900 hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100 text-white font-semibold rounded-xl text-xs sm:text-sm shadow-md transition flex items-center gap-2 interactive-tab">
-                    <i class="fa-brands fa-linkedin text-base"></i>
-                    <span>LinkedIn</span>
-                    <i class="fa-solid fa-arrow-up-right-from-square text-[10px] opacity-70"></i>
-                </a>
-
-                <a href="https://www.instagram.com/_aditrahman_?stkn=YnI1dGI4OHJiZWI3" 
-                   target="_blank" 
-                   rel="noopener noreferrer"
-                   class="px-5 py-2.5 glass-pill text-slate-800 dark:text-white font-semibold rounded-xl text-xs sm:text-sm transition flex items-center gap-2 hover:bg-slate-200/50 dark:hover:bg-slate-800 interactive-tab">
-                    <i class="fa-brands fa-instagram text-base text-pink-500"></i>
-                    <span>Instagram</span>
-                </a>
-
-                <a href="#projects" class="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-xl text-xs sm:text-sm shadow-md transition flex items-center gap-2 interactive-tab">
-                    <i class="fa-solid fa-laptop-code text-base"></i>
-                    <span>Lihat Hasil Karya</span>
-                </a>
-            </div>
-
         </div>
     </section>
 
@@ -699,7 +704,7 @@
 
                         <ul class="space-y-2 text-xs sm:text-sm text-slate-600 dark:text-slate-300 list-disc list-inside">
                             <li>Menganalisis data matematika dan statistik untuk penelitian akademik serta pengerjaan proyek tingkat lanjut.</li>
-                            <li>Mengolah dan memverifikasi data numerik menggunakan perangkat statistik termasuk SPSS, R, dan Python.</li>
+                            <li>Mengolah dan memverifikasi data numerik menggunakan perangkat statistik termasuk RStudio, R, dan Python.</li>
                         </ul>
                     </div>
                 </div>
@@ -788,7 +793,7 @@
                     <div class="w-9 h-9 rounded-2xl bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-white flex items-center justify-center text-base mb-3">
                         <i class="fa-solid fa-table"></i>
                     </div>
-                    <h3 class="font-bold theme-heading text-sm mb-1">SPSS, R & Microsoft Excel</h3>
+                    <h3 class="font-bold theme-heading text-sm mb-1">RStudio, R & Microsoft Excel</h3>
                     <p class="text-xs text-slate-500 mb-3">Pengolahan statistik inferensial, rumus kompleks, dan laporan numerik.</p>
                     <div class="w-full bg-slate-200 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
                         <div class="bg-brand-500 h-full w-[92%]"></div>
@@ -947,7 +952,7 @@
                         </h3>
 
                         <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                            Proyek web interaktif <strong>Lepii</strong> dirancang sebagai modul aplikasi mandiri yang mengintegrasikan pengolahan data, visualisasi antarmuka intuitif, serta elemen fungsional modern.
+                            Proyek web interaktif <strong>Lepii</strong> dirancang sebagai modul aplikasi mandiri yang mengintegrasikan pengolahan data, visualisasi antarmuka intuitif, serta elemen fungsional modern. Proyek ini memfasilitasi eksperimen data dan memberikan pengalaman pengguna yang responsif.
                         </p>
 
                         <div class="flex flex-wrap gap-2 pt-1">
@@ -959,6 +964,9 @@
                             </span>
                             <span class="text-[11px] font-semibold glass-pill px-3 py-1 rounded-xl text-slate-700 dark:text-slate-300">
                                 <i class="fa-brands fa-js text-yellow-500 mr-1"></i> JavaScript
+                            </span>
+                            <span class="text-[11px] font-semibold glass-pill px-3 py-1 rounded-xl text-slate-700 dark:text-slate-300">
+                                <i class="fa-solid fa-chart-simple text-purple-500 mr-1"></i> Interactive UI
                             </span>
                         </div>
 
@@ -1162,6 +1170,7 @@
         </div>
     </footer>
 
+
     <!-- Lepii Modal -->
     <div id="lepiiModal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-3 sm:p-6">
         <div class="glass-panel w-full max-w-5xl h-[88vh] rounded-3xl shadow-2xl border border-slate-200/80 dark:border-slate-800 flex flex-col overflow-hidden">
@@ -1219,18 +1228,18 @@
         </div>
     </div>
 
-    <!-- CV Modal -->
+    <!-- CV Modal Matching Portfolio Theme -->
     <div id="cvModal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
         <div class="glass-panel w-full max-w-4xl rounded-3xl shadow-2xl border border-slate-200/80 dark:border-slate-800 my-auto overflow-hidden">
             
             <div class="p-4 sm:p-5 bg-slate-100/90 dark:bg-slate-900/90 flex justify-between items-center border-b border-slate-200 dark:border-slate-800">
                 <div class="flex items-center gap-2">
-                    <i class="fa-solid fa-file-pdf text-red-500 text-lg"></i>
+                    <i class="fa-solid fa-file-pdf text-brand-500 text-lg"></i>
                     <h3 class="font-bold theme-heading text-xs sm:text-sm">Pratinjau Curriculum Vitae - Aditya Rahman</h3>
                 </div>
                 
                 <div class="flex items-center gap-2">
-                    <button onclick="downloadCvPdf()" class="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold rounded-xl shadow-sm transition flex items-center gap-1.5 interactive-tab">
+                    <button onclick="downloadCvPdf()" class="px-3 py-1.5 bg-brand-600 hover:bg-brand-700 text-white text-xs font-semibold rounded-xl shadow-sm transition flex items-center gap-1.5 interactive-tab">
                         <i class="fa-solid fa-download"></i> Unduh PDF
                     </button>
 
@@ -1244,66 +1253,141 @@
                 </div>
             </div>
 
-            <div id="printableCvArea" class="p-6 sm:p-10 max-h-[75vh] overflow-y-auto custom-scrollbar text-slate-800 dark:text-slate-200 text-xs sm:text-sm space-y-6">
-                
-                <div class="border-b-2 border-brand-500 pb-4">
-                    <h1 class="text-2xl sm:text-3xl font-extrabold theme-heading uppercase tracking-tight">ADITYA RAHMAN</h1>
-                    <div class="text-[11px] sm:text-xs text-slate-600 dark:text-slate-400 mt-2 flex flex-wrap gap-x-4 gap-y-1">
-                        <span><i class="fa-solid fa-phone mr-1 text-slate-400"></i> +62 882-2500-2019</span>
-                        <span><i class="fa-solid fa-envelope mr-1 text-slate-400"></i> aditrahman471@gmail.com</span>
-                        <span><i class="fa-brands fa-linkedin mr-1 text-slate-400"></i> linkedin.com/in/aditya-rahman</span>
-                        <span><i class="fa-solid fa-location-dot mr-1 text-slate-400"></i> Kulon Progo, Yogyakarta</span>
-                    </div>
-                </div>
-
-                <div>
-                    <h2 class="font-bold text-[11px] uppercase tracking-wider text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-800 pb-1 mb-2">Ringkasan Profil</h2>
-                    <p class="text-xs leading-relaxed text-slate-700 dark:text-slate-300">
-                        Lulusan Matematika dari Universitas Negeri Yogyakarta (IPK 3,27) dengan pola pikir analitis yang kuat serta keterampilan pengolahan data. Berpengalaman dalam administrasi statistik, hubungan pelanggan, dan pencacahan lapangan untuk sensus ekonomi nasional. Menguasai alat analisis termasuk Python, SPSS, dan Excel.
-                    </p>
-                </div>
-
-                <div>
-                    <h2 class="font-bold text-[11px] uppercase tracking-wider text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-800 pb-1 mb-3">Pengalaman Kerja</h2>
+            <!-- Paper Sheet CV Container inheriting portfolio theme colors without outer container border -->
+            <div class="p-3 sm:p-8 bg-slate-950/40 max-h-[78vh] overflow-y-auto custom-scrollbar flex justify-center">
+                <div id="printableCvArea" class="bg-transparent text-slate-800 dark:text-slate-100 p-2 sm:p-6 rounded-none shadow-none max-w-3xl w-full text-xs font-sans leading-relaxed border-0">
                     
-                    <div class="space-y-4">
-                        <div>
-                            <div class="flex justify-between items-baseline flex-wrap gap-1">
-                                <h3 class="font-bold text-xs sm:text-sm theme-heading">Petugas Pencatatan Lapangan (PPL SE2026) - BPS</h3>
-                                <span class="text-[11px] text-slate-500 font-medium">Juni 2026 - Agustus 2026 | Kulon Progo</span>
-                            </div>
-                            <ul class="list-disc list-inside text-xs text-slate-700 dark:text-slate-300 space-y-1 mt-1 leading-relaxed">
-                                <li>Mengidentifikasi dan memetakan wilayah kerja statistik (Wilkerstat) serta melakukan geotagging lokasi unit usaha lokal.</li>
-                                <li>Melakukan wawancara tatap muka secara langsung dengan responden pelaku usaha.</li>
-                                <li>Memverifikasi kelengkapan dan konsistensi data sebelum menyerahkan catatan hasil pencacahan yang bersih.</li>
-                            </ul>
-                        </div>
+                    <!-- Header -->
+                    <div class="text-center mb-4">
+                        <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight theme-heading uppercase mb-1.5 font-sans">ADITYA RAHMAN</h1>
+                        <p class="text-[11px] sm:text-xs text-slate-600 dark:text-slate-300 font-medium flex flex-wrap items-center justify-center gap-x-2 gap-y-1">
+                            <span>+62 882-2500-2019</span>
+                            <span>|</span>
+                            <span>aditrahman471@gmail.com</span>
+                            <span>|</span>
+                            <span>linkedin.com/in/aditya-rahman</span>
+                            <span>|</span>
+                            <span>Kulon Progo, Yogyakarta</span>
+                        </p>
+                    </div>
 
+                    <!-- Summary -->
+                    <div class="mb-4 text-slate-700 dark:text-slate-300 text-[11.5px] leading-normal text-justify">
+                        Lulusan Matematika dari Universitas Negeri Yogyakarta (<strong>IPK 3,27</strong>) dengan pola pikir analitis yang kuat serta keterampilan pengolahan data. Berpengalaman dalam administrasi statistik, hubungan pelanggan, dan pencacahan lapangan untuk sensus ekonomi nasional. Menguasai alat analisis termasuk Python, SPSS, dan Excel, dengan kemampuan teruji dalam pengumpulan data, verifikasi, serta penyelesaian masalah secara kritis.
+                    </div>
+
+                    <!-- Theme Accent Dividing Line -->
+                    <div class="border-b-2 border-brand-500 mb-5"></div>
+
+                    <!-- PENGALAMAN KERJA -->
+                    <div class="mb-5">
+                        <h2 class="font-bold text-xs uppercase tracking-wider theme-heading border-b border-slate-300 dark:border-slate-700 pb-1 mb-3">PENGALAMAN KERJA</h2>
+                        
+                        <div class="space-y-4">
+                            <!-- Job 1 -->
+                            <div>
+                                <div class="flex justify-between items-baseline flex-wrap gap-1">
+                                    <h3 class="font-bold theme-heading text-[12px]">Petugas Pencatatan Lapangan (PPL SE2026) – BPS (Badan Pusat Statistik)</h3>
+                                    <span class="font-bold text-brand-600 dark:text-brand-400 text-[11px]">Juni 2026 – Agustus 2026</span>
+                                </div>
+                                <p class="italic text-slate-500 dark:text-slate-400 text-[11px] mb-1">Kulon Progo</p>
+                                <ul class="list-disc list-outside ml-4 text-[11px] text-slate-700 dark:text-slate-300 space-y-0.5 leading-snug">
+                                    <li>Mengidentifikasi dan memetakan wilayah kerja statistik (Wilkerstat) serta melakukan <em>geotagging</em> lokasi unit usaha lokal menggunakan aplikasi seluler lapangan BPS.</li>
+                                    <li>Melakukan wawancara tatap muka secara langsung dengan responden pelaku usaha untuk mencatat profil ekonomi dan karakteristik bisnis secara akurat.</li>
+                                    <li>Memverifikasi kelengkapan dan konsistensi data sebelum menyerahkan catatan hasil pencacahan yang bersih kepada Pemeriksa Lapangan (PML).</li>
+                                </ul>
+                            </div>
+
+                            <!-- Job 2 -->
+                            <div>
+                                <div class="flex justify-between items-baseline flex-wrap gap-1">
+                                    <h3 class="font-bold theme-heading text-[12px]">Customer Service Representative – Vads Indonesia (Proyek Shopee)</h3>
+                                    <span class="font-bold text-brand-600 dark:text-brand-400 text-[11px]">September 2024 – Mei 2026</span>
+                                </div>
+                                <p class="italic text-slate-500 dark:text-slate-400 text-[11px] mb-1">Sleman</p>
+                                <ul class="list-disc list-outside ml-4 text-[11px] text-slate-700 dark:text-slate-300 space-y-0.5 leading-snug">
+                                    <li>Mengelola interaksi dengan pelanggan untuk menyelesaikan pertanyaan dan keluhan, mencapai tingkat kepuasan pelanggan sebesar 85%.</li>
+                                    <li>Menyampaikan rincian produk dan layanan secara tepat kepada lebih dari 200 pelanggan setiap minggunya dengan tetap menjaga standar profesional.</li>
+                                    <li>Mengurangi rata-rata waktu respon sebesar 20% dengan mengidentifikasi solusi yang cepat dan efektif.</li>
+                                </ul>
+                            </div>
+
+                            <!-- Job 3 -->
+                            <div>
+                                <div class="flex justify-between items-baseline flex-wrap gap-1">
+                                    <h3 class="font-bold theme-heading text-[12px]">Magang Staf Administrasi – BPS Kabupaten Kulon Progo</h3>
+                                    <span class="font-bold text-brand-600 dark:text-brand-400 text-[11px]">Oktober 2023 – Desember 2023</span>
+                                </div>
+                                <p class="italic text-slate-500 dark:text-slate-400 text-[11px] mb-1">Kulon Progo</p>
+                                <ul class="list-disc list-outside ml-4 text-[11px] text-slate-700 dark:text-slate-300 space-y-0.5 leading-snug">
+                                    <li>Mengelola dan memelihara arsip data statistik serta dokumentasi operasional bulanan internal dengan tingkat ketelitian tinggi.</li>
+                                    <li>Memasukkan dan memverifikasi catatan data statistik ke dalam basis data resmi untuk menjamin akurasi tingkat tinggi.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PENDIDIKAN -->
+                    <div class="mb-5">
+                        <h2 class="font-bold text-xs uppercase tracking-wider theme-heading border-b border-slate-300 dark:border-slate-700 pb-1 mb-3">PENDIDIKAN</h2>
                         <div>
                             <div class="flex justify-between items-baseline flex-wrap gap-1">
-                                <h3 class="font-bold text-xs sm:text-sm theme-heading">Customer Service Representative - Vads Indonesia (Shopee)</h3>
-                                <span class="text-[11px] text-slate-500 font-medium">September 2024 - Mei 2026 | Sleman</span>
+                                <h3 class="font-bold theme-heading text-[12px]">Sarjana Matematika (S.Si.) – Universitas Negeri Yogyakarta</h3>
+                                <span class="font-bold text-brand-600 dark:text-brand-400 text-[11px]">September 2020 – Juli 2024</span>
                             </div>
-                            <ul class="list-disc list-inside text-xs text-slate-700 dark:text-slate-300 space-y-1 mt-1 leading-relaxed">
-                                <li>Mengelola interaksi dengan pelanggan untuk menyelesaikan pertanyaan dan keluhan (CSAT 85%).</li>
-                                <li>Menyampaikan rincian produk dan layanan secara tepat kepada lebih dari 200 pelanggan setiap minggunya.</li>
-                                <li>Mengurangi rata-rata waktu respon sebesar 20%.</li>
+                            <p class="italic text-slate-500 dark:text-slate-400 text-[11px] mb-1">Sleman | IPK: 3,27 / 4,00</p>
+                            <ul class="list-disc list-outside ml-4 text-[11px] text-slate-700 dark:text-slate-300 space-y-0.5 leading-snug">
+                                <li>Menganalisis data matematika dan statistik untuk penelitian akademik serta pengerjaan proyek tingkat lanjut.</li>
+                                <li>Mengolah dan memverifikasi data numerik menggunakan perangkat statistik termasuk SPSS, R, dan Python.</li>
                             </ul>
                         </div>
                     </div>
-                </div>
 
-                <div>
-                    <h2 class="font-bold text-[11px] uppercase tracking-wider text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-800 pb-1 mb-2">Pendidikan</h2>
-                    <div class="flex justify-between items-baseline flex-wrap gap-1">
+                    <!-- PENGALAMAN ORGANISASI -->
+                    <div class="mb-5">
+                        <h2 class="font-bold text-xs uppercase tracking-wider theme-heading border-b border-slate-300 dark:border-slate-700 pb-1 mb-3">PENGALAMAN ORGANISASI</h2>
                         <div>
-                            <h3 class="font-bold text-xs sm:text-sm theme-heading">Sarjana Matematika (S.Si.) - Universitas Negeri Yogyakarta</h3>
-                            <p class="text-[11px] text-slate-600 dark:text-slate-400">IPK: 3,27 / 4,00</p>
+                            <div class="flex justify-between items-baseline flex-wrap gap-1">
+                                <h3 class="font-bold theme-heading text-[12px]">Pemandu – Program Studi Laboratorium Matematika</h3>
+                                <span class="font-bold text-brand-600 dark:text-brand-400 text-[11px]">Juli 2022 – September 2022</span>
+                            </div>
+                            <p class="italic text-slate-500 dark:text-slate-400 text-[11px] mb-1">Sleman</p>
+                            <ul class="list-disc list-outside ml-4 text-[11px] text-slate-700 dark:text-slate-300 space-y-0.5 leading-snug">
+                                <li>Membimbing dan memandu mahasiswa baru terkait jadwal orientasi akademik serta panduan laboratorium.</li>
+                            </ul>
                         </div>
-                        <span class="text-[11px] text-slate-500 font-medium">September 2020 - Juli 2024 | Sleman</span>
                     </div>
-                </div>
 
+                    <!-- KETERAMPILAN & BAHASA -->
+                    <div class="mb-6">
+                        <h2 class="font-bold text-xs uppercase tracking-wider theme-heading border-b border-slate-300 dark:border-slate-700 pb-1 mb-3">KETERAMPILAN & BAHASA</h2>
+                        <div class="space-y-1.5 text-[11px] text-slate-700 dark:text-slate-300">
+                            <div class="grid grid-cols-12 gap-2">
+                                <span class="col-span-4 sm:col-span-3 font-bold theme-heading">Keterampilan Teknis:</span>
+                                <span class="col-span-8 sm:col-span-9">Analisis Data, Entri Data Statistik, Pencacahan Lapangan, <em>Geotagging</em>, Verifikasi Data</span>
+                            </div>
+                            <div class="grid grid-cols-12 gap-2">
+                                <span class="col-span-4 sm:col-span-3 font-bold theme-heading">Perangkat Lunak & Alat:</span>
+                                <span class="col-span-8 sm:col-span-9">Python, Microsoft Excel, SPSS, MATLAB, Canva, Figma</span>
+                            </div>
+                            <div class="grid grid-cols-12 gap-2">
+                                <span class="col-span-4 sm:col-span-3 font-bold theme-heading">Soft Skills:</span>
+                                <span class="col-span-8 sm:col-span-9">Berpikir Kritis, Kerja Sama Tim, <em>Multitasking</em>, Layanan Pelanggan, Akuntabilitas, Komunikasi</span>
+                            </div>
+                            <div class="grid grid-cols-12 gap-2">
+                                <span class="col-span-4 sm:col-span-3 font-bold theme-heading">Bahasa:</span>
+                                <span class="col-span-8 sm:col-span-9">Bahasa Indonesia (Penutur Asli/Mahir), Bahasa Inggris (Lanjutan)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Document Footer -->
+                    <div class="pt-3 border-t border-slate-200 dark:border-slate-800 flex justify-between items-center text-[10px] text-slate-500">
+                        <span>Aditya Rahman — Curriculum Vitae</span>
+                        <span>Halaman 1 dari 1</span>
+                    </div>
+
+                </div>
             </div>
         </div>
     </div>
@@ -1313,9 +1397,6 @@
             Chart.register(ChartDataLabels);
         }
 
-        /* -------------------------------------------------------------
-           1. INTERACTIVE 3D ELASTIC LANYARD PHYSICS ENGINE
-        ------------------------------------------------------------- */
         const lanyardAssembly = document.getElementById('lanyardAssembly');
         const lanyardStrap = document.getElementById('lanyardStrap');
         const lanyardLowerAssembly = document.getElementById('lanyardLowerAssembly');
@@ -1380,7 +1461,7 @@
             const targetX = Math.min(Math.max((-relY / 120) * 35, -45), 30);
 
             const distFromAnchor = Math.hypot(relX, relY);
-            const strapBaseHeight = window.innerWidth >= 1024 ? 128 : 112;
+            const strapBaseHeight = window.innerWidth >= 1024 ? 240 : (window.innerWidth >= 640 ? 208 : 176);
             const targetStretch = Math.max(0.95, distFromAnchor / (strapBaseHeight + 80));
 
             angleZ += (targetZ - angleZ) * 0.28;
@@ -1479,7 +1560,7 @@
             }
 
             if (lanyardLowerAssembly) {
-                const strapBaseHeight = window.innerWidth >= 1024 ? 128 : 112;
+                const strapBaseHeight = window.innerWidth >= 1024 ? 240 : (window.innerWidth >= 640 ? 208 : 176);
                 const strapExtensionOffset = (stretch - 1) * strapBaseHeight;
                 lanyardLowerAssembly.style.transform = `translateY(${strapExtensionOffset.toFixed(2)}px)`;
             }
@@ -1519,9 +1600,6 @@
             }
         }
 
-        /* -------------------------------------------------------------
-           2. PALETTE & THEME CONTROL SCRIPTS
-        ------------------------------------------------------------- */
         function togglePaletteMenu(e) {
             e.stopPropagation();
             const dropdown = document.getElementById('paletteDropdown');
@@ -1559,7 +1637,6 @@
             else if (currentTab === 'csat') renderStaticCsatChart();
         }
 
-        // Mobile Menu Toggle
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
 
@@ -1575,9 +1652,6 @@
             });
         });
 
-        /* -------------------------------------------------------------
-           3. TYPING EFFECT
-        ------------------------------------------------------------- */
         const phrases = [
             "Sarjana Sains Matematika (S.Si.)",
             "Data Analyst & Statistician",
@@ -1614,9 +1688,6 @@
             setTimeout(typeLoop, typeSpeed);
         }
 
-        /* -------------------------------------------------------------
-           4. MODALS & PREVIEWS CONTROLS
-        ------------------------------------------------------------- */
         function openLepiiModal() {
             const modal = document.getElementById('lepiiModal');
             const iframe = document.getElementById('lepiiIframe');
@@ -1660,9 +1731,6 @@
             }
         }
 
-        /* -------------------------------------------------------------
-           5. INTERACTIVE DATA LAB ENGINE (CHART.JS LINE CHARTS)
-        ------------------------------------------------------------- */
         let labChart = null;
         let currentTab = 'math';
 
@@ -1914,9 +1982,6 @@
             });
         }
 
-        /* -------------------------------------------------------------
-           6. SKILL MATRIX FILTERS
-        ------------------------------------------------------------- */
         function filterSkills(category) {
             const cards = document.querySelectorAll('.skill-card');
             const btns = document.querySelectorAll('.skill-btn');
@@ -1938,9 +2003,6 @@
             });
         }
 
-        /* -------------------------------------------------------------
-           7. CV MODAL & PRINT CONTROLS
-        ------------------------------------------------------------- */
         function openCvModal() {
             document.getElementById('cvModal').classList.remove('hidden');
             document.body.style.overflow = 'hidden';
@@ -1989,18 +2051,10 @@
             if (e.target.id === 'certModal') closeCertModal();
         });
 
-        window.onload = function() {
-            typeLoop();
-            updateMathLab();
-            initScrollReveal();
-        };
-
         function initScrollReveal() {
-            // Target key text elements, headings, cards, and sections
             const targets = document.querySelectorAll('h1, h2, h3, .glass-panel, .skill-card, .interactive-tab');
             
             targets.forEach((el) => {
-                // Ignore elements inside CV modal or navbar to keep them static
                 if (!el.closest('#printableCvArea') && !el.closest('nav') && !el.classList.contains('scroll-reveal')) {
                     el.classList.add('scroll-reveal');
                 }
@@ -2022,7 +2076,6 @@
             }, observerOptions);
 
             document.querySelectorAll('.scroll-reveal').forEach((el) => {
-                // Apply relaxed staggered entrance delay for sibling cards & text blocks
                 const parent = el.parentElement;
                 if (parent) {
                     const siblings = Array.from(parent.children).filter(child => child.classList.contains('scroll-reveal'));
@@ -2034,6 +2087,12 @@
                 revealObserver.observe(el);
             });
         }
+
+        window.onload = function() {
+            typeLoop();
+            updateMathLab();
+            initScrollReveal();
+        };
     </script>
 </body>
 </html>
