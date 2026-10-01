@@ -200,7 +200,6 @@
             transition: background-image 0.4s ease;
         }
 
-        /* Interactive Lanyard Stage */
         .lanyard-stage {
             perspective: 1200px;
             transform-style: preserve-3d;
@@ -250,7 +249,6 @@
             border-radius: 9999px;
         }
 
-        /* Reduced & Subtle Hover Effect for Cards, Panels, Navigation Links, Pills & Buttons */
         .interactive-tab, .glass-panel, .glass-pill, .skill-card, nav a, .experience-card, a, button, section {
             transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease !important;
         }
@@ -264,7 +262,6 @@
             transform: translateY(1px) scale(0.99);
         }
 
-        /* Slow & Elegant Scroll Reveal Animation */
         .scroll-reveal {
             opacity: 0;
             transform: translateY(42px);
@@ -281,12 +278,10 @@
 
 <body class="transition-colors duration-300 min-h-screen selection:bg-brand-500 selection:text-white">
 
-    <!-- NAVIGATION BAR (No hover popup animation as requested) -->
     <nav class="sticky top-0 z-50 glass-panel border-b border-slate-200/50 dark:border-slate-800/50 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 
-                <!-- Brand / Logo -->
                 <a href="#hero" class="flex items-center space-x-3 group">
                     <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-slate-700 to-slate-900 dark:from-slate-200 dark:to-white flex items-center justify-center text-white dark:text-slate-900 font-bold text-sm shadow-md group-hover:scale-105 transition-transform overflow-hidden p-0.5">
                         <img src="Foto Aditya Rahman.jpg" alt="Aditya Rahman" class="w-full h-full object-cover object-center rounded-[10px]" onerror="this.onerror=null; this.src='Wisuda_Aditya Rahman.JPG';">
@@ -297,7 +292,6 @@
                     </div>
                 </a>
 
-                <!-- Desktop Nav Links -->
                 <div class="hidden md:flex items-center space-x-4 lg:space-x-5 text-xs font-semibold text-slate-600 dark:text-slate-300">
                     <a href="#hero" class="hover:text-brand-600 dark:hover:text-white transition px-2.5 py-1.5 rounded-lg">Tentang</a>
                     <a href="#experience" class="hover:text-brand-600 dark:hover:text-white transition px-2.5 py-1.5 rounded-lg">Pengalaman</a>
@@ -308,10 +302,7 @@
                     <a href="#contact" class="hover:text-brand-600 dark:hover:text-white transition px-2.5 py-1.5 rounded-lg">Kontak</a>
                 </div>
 
-                <!-- Right Actions -->
                 <div class="hidden md:flex items-center space-x-2.5">
-                    
-                    <!-- Color Palette Dropdown Toggle -->
                     <div class="relative">
                         <button onclick="togglePaletteMenu(event)" class="p-2 rounded-xl glass-pill text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition text-xs flex items-center gap-1.5" title="Pilih Tema Warna">
                             <i class="fa-solid fa-palette text-brand-600 dark:text-brand-500"></i>
@@ -339,46 +330,17 @@
                         </div>
                     </div>
 
-                    <!-- Dark / Light Mode Toggle -->
                     <button class="themeToggleBtn p-2 rounded-xl glass-pill text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition" title="Toggle Dark/Light Mode">
                         <i class="fa-solid fa-moon dark:hidden text-xs"></i>
                         <i class="fa-solid fa-sun hidden dark:block text-xs text-amber-400"></i>
                     </button>
 
-                    <!-- CV Preview Trigger -->
                     <button onclick="openCvModal()" class="px-3 py-1.5 text-xs font-semibold text-slate-700 dark:text-slate-200 glass-pill hover:bg-slate-200/60 dark:hover:bg-slate-800/80 rounded-xl transition flex items-center gap-1.5">
                         <i class="fa-solid fa-eye text-brand-600 dark:text-brand-500"></i> Lihat CV
                     </button>
                 </div>
 
-                <!-- Mobile Navigation Controls -->
                 <div class="md:hidden flex items-center space-x-2">
-                    <div class="relative">
-                        <button onclick="togglePaletteMenu(event)" class="p-2 rounded-xl glass-pill text-slate-600 dark:text-slate-300">
-                            <i class="fa-solid fa-palette text-xs"></i>
-                        </button>
-                        <div id="paletteDropdownMobile" class="absolute right-0 mt-2 w-48 rounded-2xl glass-panel p-2 shadow-2xl hidden border border-slate-200 dark:border-slate-800 space-y-1 text-xs z-50">
-                            <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider px-2.5 py-1">Pilih Tema Warna</div>
-                            <button onclick="setThemePalette('monochrome')" class="w-full text-left px-2.5 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/80 flex items-center gap-2">
-                                <span class="w-3 h-3 rounded-full bg-slate-600"></span> Monokrom
-                            </button>
-                            <button onclick="setThemePalette('indigo')" class="w-full text-left px-2.5 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/80 flex items-center gap-2">
-                                <span class="w-3 h-3 rounded-full bg-indigo-500"></span> Sapphire Indigo
-                            </button>
-                            <button onclick="setThemePalette('emerald')" class="w-full text-left px-2.5 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/80 flex items-center gap-2">
-                                <span class="w-3 h-3 rounded-full bg-emerald-500"></span> Emerald Mint
-                            </button>
-                            <button onclick="setThemePalette('violet')" class="w-full text-left px-2.5 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/80 flex items-center gap-2">
-                                <span class="w-3 h-3 rounded-full bg-violet-500"></span> Amethyst Violet
-                            </button>
-                            <button onclick="setThemePalette('maroon')" class="w-full text-left px-2.5 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/80 flex items-center gap-2">
-                                <span class="w-3 h-3 rounded-full bg-rose-900"></span> Crimson Ruby
-                            </button>
-                            <button onclick="setThemePalette('amber')" class="w-full text-left px-2.5 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/80 flex items-center gap-2">
-                                <span class="w-3 h-3 rounded-full bg-amber-500"></span> Amber Gold
-                            </button>
-                        </div>
-                    </div>
                     <button class="themeToggleBtn p-2 rounded-xl glass-pill text-slate-600 dark:text-slate-300">
                         <i class="fa-solid fa-moon dark:hidden text-xs"></i>
                         <i class="fa-solid fa-sun hidden dark:block text-xs text-amber-400"></i>
@@ -387,124 +349,71 @@
                         <i class="fa-solid fa-bars text-lg"></i>
                     </button>
                 </div>
-
             </div>
         </div>
 
-        <!-- Mobile Menu Dropdown -->
         <div id="mobileMenu" class="hidden md:hidden border-t border-slate-200/50 dark:border-slate-800/50 px-4 pt-3 pb-5 space-y-2 bg-slate-50/95 dark:bg-slate-950/95 backdrop-blur-xl">
-            <a href="#hero" class="block px-3 py-2 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-slate-800">Tentang</a>
-            <a href="#experience" class="block px-3 py-2 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-slate-800">Pengalaman</a>
-            <a href="#skills" class="block px-3 py-2 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-slate-800">Keahlian</a>
-            <a href="#data-lab" class="block px-3 py-2 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-slate-800">Data Lab</a>
-            <a href="#projects" class="block px-3 py-2 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-slate-800">Hasil Karya (Lepii)</a>
-            <a href="#certificates" class="block px-3 py-2 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-slate-800">Sertifikat</a>
-            <a href="#contact" class="block px-3 py-2 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-slate-800">Kontak</a>
-            
-            <div class="pt-2">
-                <button onclick="openCvModal()" class="w-full px-3 py-2 text-center text-xs font-semibold text-slate-800 dark:text-slate-200 glass-pill rounded-xl">
-                    <i class="fa-solid fa-eye mr-1"></i> Lihat CV
-                </button>
-            </div>
+            <a href="#hero" class="block px-3 py-2 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-200">Tentang</a>
+            <a href="#experience" class="block px-3 py-2 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-200">Pengalaman</a>
+            <a href="#skills" class="block px-3 py-2 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-200">Keahlian</a>
+            <a href="#data-lab" class="block px-3 py-2 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-200">Data Lab</a>
+            <a href="#projects" class="block px-3 py-2 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-200">Hasil Karya</a>
+            <a href="#certificates" class="block px-3 py-2 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-200">Sertifikat</a>
+            <a href="#contact" class="block px-3 py-2 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-200">Kontak</a>
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
     <section id="hero" class="relative py-4 md:py-8 bg-grid-pattern overflow-hidden min-h-[74vh] flex items-center">
-        <!-- Background Ambient Glow -->
         <div class="absolute top-1/3 right-12 w-[450px] h-[450px] bg-brand-500/15 rounded-full blur-3xl pointer-events-none transition-colors duration-500"></div>
 
-        <!-- 3D Hanging Lanyard Shifted Left (Geser ke kiri 3x lipat) -->
         <div class="absolute top-0 right-32 sm:right-56 md:right-72 lg:right-[380px] z-20 flex flex-col items-center">
-            
-            <!-- Lanyard Stage Container -->
             <div id="lanyardStage" class="lanyard-stage relative w-[200px] sm:w-[230px] lg:w-[260px] h-[460px] sm:h-[520px] lg:h-[580px] flex flex-col items-center pt-0">
-                
-                <!-- Ceiling Anchor Pin Flush with Navigation Bar -->
                 <div class="absolute top-0 z-30 w-6 h-3.5 bg-slate-800 rounded-b-md border border-slate-600 shadow-md"></div>
-
-                <!-- 3D Swinging Lanyard Assembly -->
                 <div id="lanyardAssembly" class="lanyard-assembly-container absolute top-0 z-10 w-full flex flex-col items-center origin-top transform-gpu cursor-grab active:cursor-grabbing">
-                    
-                    <!-- Woven Strap -->
                     <div id="lanyardStrap" class="lanyard-strap w-6 sm:w-7 lg:w-8 h-40 sm:h-48 lg:h-56 flex items-center justify-center relative overflow-hidden rounded-t-sm shadow-xl origin-top transition-transform duration-75">
                         <span class="lanyard-text text-[9px] sm:text-[10px] font-bold text-white opacity-90 tracking-widest whitespace-nowrap py-0.5">
                             ADITYA RAHMAN
                         </span>
                     </div>
-                    
-                    <!-- Lower Assembly: Clip + Card (Using Wisuda_Aditya Rahman.JPG) -->
                     <div id="lanyardLowerAssembly" class="flex flex-col items-center w-full origin-top transform-gpu">
-                        <!-- Metallic Clip -->
                         <div class="relative -mt-1 flex flex-col items-center z-20">
                             <div class="w-6 sm:w-7 h-3.5 border-2 lg:border-4 border-slate-700 rounded-b-full bg-slate-900 shadow-md"></div>
                             <div class="w-2.5 h-2.5 bg-slate-950 border border-slate-700 rounded-full -mt-1"></div>
                             <div class="w-2.5 h-4 bg-gradient-to-b from-slate-700 via-slate-800 to-slate-950 rounded-b-md border border-slate-600 shadow-sm"></div>
                         </div>
-
-                        <!-- ID Card with Wisuda Photo -->
                         <div id="lanyardCard" class="relative -mt-1 z-10 w-[170px] sm:w-[200px] lg:w-[230px] h-[230px] sm:h-[270px] lg:h-[310px] transform-gpu origin-top">
                             <div class="relative w-full h-full bg-gradient-to-b from-slate-950 via-slate-900 to-black rounded-[22px] sm:rounded-[26px] p-2.5 sm:p-3 shadow-2xl border border-slate-800/80 flex flex-col items-center justify-between overflow-hidden group">
-                                
-                                <!-- Top Hole -->
                                 <div class="w-3.5 h-3.5 rounded-full bg-slate-950 border border-slate-700 shadow-inner flex items-center justify-center z-20 mb-0.5">
                                     <div class="w-1.5 h-1.5 rounded-full bg-slate-900"></div>
                                 </div>
-
-                                <!-- Inner Card Content -->
                                 <div class="relative w-full h-[195px] sm:h-[235px] lg:h-[270px] rounded-[16px] sm:rounded-[18px] border-2 border-white/90 p-0.5 flex flex-col justify-between overflow-hidden bg-slate-950 shadow-inner">
-                                    
-                                    <!-- Main Photo: Wisuda_Aditya Rahman.JPG -->
                                     <div class="relative w-full h-[145px] sm:h-[175px] lg:h-[205px] rounded-[12px] sm:rounded-[14px] overflow-hidden bg-slate-900">
-                                        <img src="Wisuda_Aditya Rahman.JPG" 
-                                             alt="Aditya Rahman Wisuda" 
-                                             class="w-full h-full object-cover object-center filter contrast-[1.03] brightness-[1.02]"
-                                             onerror="this.onerror=null; this.src='Foto Aditya Rahman.jpg';">
+                                        <img src="Wisuda_Aditya Rahman.JPG" alt="Aditya Rahman Wisuda" class="w-full h-full object-cover object-center" onerror="this.onerror=null; this.src='Foto Aditya Rahman.jpg';">
                                     </div>
-
-                                    <!-- Card Bottom Label -->
                                     <div class="w-full py-1 bg-slate-950 text-center flex flex-col items-center justify-center rounded-b-[12px] sm:rounded-b-[14px]">
-                                        <span class="text-[8px] sm:text-[9.5px] font-bold tracking-widest text-brand-400 uppercase font-sans">
-                                            S1 MATEMATIKA UNY
-                                        </span>
-                                        <h4 class="text-[10.5px] sm:text-[12px] font-black tracking-wider text-white uppercase font-sans leading-tight">
-                                            DATA ANALYST
-                                        </h4>
+                                        <span class="text-[8px] sm:text-[9.5px] font-bold tracking-widest text-brand-400 uppercase font-sans">S1 MATEMATIKA UNY</span>
+                                        <h4 class="text-[10.5px] sm:text-[12px] font-black tracking-wider text-white uppercase font-sans leading-tight">DATA ANALYST</h4>
                                     </div>
-
                                 </div>
-
-                                <!-- Card Glare Sheen -->
                                 <div id="cardGlare" class="card-glare absolute inset-0 rounded-[22px] sm:rounded-[26px] z-30 transition-opacity duration-150 opacity-40 pointer-events-none"></div>
-
                             </div>
                         </div>
                     </div>
-
                 </div>
-
             </div>
-
-            <!-- Reset / Interactive Hint Button -->
-            <button onclick="resetLanyard()" class="mt-1 px-2.5 py-1 text-[9px] sm:text-[10px] font-semibold glass-pill text-slate-600 dark:text-slate-400 hover:text-brand-500 transition rounded-full interactive-card" title="Klik atau tarik lanyard untuk mengayunkan">
+            <button onclick="resetLanyard()" class="mt-1 px-2.5 py-1 text-[9px] sm:text-[10px] font-semibold glass-pill text-slate-600 dark:text-slate-400 hover:text-brand-500 transition rounded-full">
                 <i class="fa-solid fa-hand-pointer text-brand-500 animate-bounce mr-1"></i> Tarik & Ayunkan Lanyard
             </button>
-
         </div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full my-auto">
             <div class="relative min-h-[380px] flex flex-col md:flex-row items-center justify-between">
-                
-                <!-- LEFT COLUMN: Widened Text & Information -->
                 <div class="w-full md:w-8/12 lg:w-7/12 text-left space-y-3 pr-0 md:pr-12 py-2 my-auto z-10">
-                    
-                    <!-- Availability Pill Tag -->
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold glass-pill text-slate-700 dark:text-slate-300 shadow-sm interactive-card">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold glass-pill text-slate-700 dark:text-slate-300 shadow-sm">
                         <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
                         <span class="font-mono tracking-wider text-[11px] uppercase">✦ AVAILABLE FOR WORK</span>
                     </div>
 
-                    <!-- Main Headline Title -->
                     <div>
                         <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black theme-heading tracking-tight leading-[1.08] mb-1">
                             Aditya Rahman, <span class="text-slate-500 dark:text-slate-400 font-normal">S.Si.</span>
@@ -514,857 +423,87 @@
                         </h2>
                     </div>
 
-                    <!-- Typing Effect Subtitle -->
                     <p class="text-sm sm:text-base font-medium text-slate-600 dark:text-slate-300">
                         <span id="typing-effect" class="border-r-2 border-brand-500 pr-1">Lulusan S1 Matematika UNY</span>
                     </p>
 
-                    <!-- Profile Bio Description -->
                     <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-xs sm:text-sm max-w-2xl">
-                        Lulusan Matematika dari Universitas Negeri Yogyakarta (IPK 3,27) dengan pola pikir analitis yang kuat serta keterampilan pengolahan data. Berpengalaman dalam administrasi statistik, hubungan pelanggan, dan pencacahan lapangan untuk sensus ekonomi nasional. Menguasai alat analisis termasuk Python, RStudio, dan Excel.
+                        Lulusan Matematika dari Universitas Negeri Yogyakarta (IPK 3,27) dengan pola pikir analitis yang kuat serta keterampilan pengolahan data. Berpengalaman dalam administrasi statistik, hubungan pelanggan, dan pencacahan lapangan untuk sensus ekonomi nasional.
                     </p>
 
-                    <!-- Location & Quick Contact Badges -->
                     <div class="flex flex-wrap items-center gap-2.5 text-xs text-slate-600 dark:text-slate-300 pt-1">
-                        <div class="flex items-center gap-1.5 glass-pill px-3 py-1.5 rounded-xl interactive-card">
+                        <div class="flex items-center gap-1.5 glass-pill px-3 py-1.5 rounded-xl">
                             <i class="fa-solid fa-location-dot text-brand-500"></i>
                             <span>Kulon Progo, Yogyakarta</span>
                         </div>
-                        <a href="mailto:aditrahman471@gmail.com" class="flex items-center gap-1.5 glass-pill px-3 py-1.5 rounded-xl hover:text-slate-900 dark:hover:text-white transition interactive-card">
+                        <a href="mailto:aditrahman471@gmail.com" class="flex items-center gap-1.5 glass-pill px-3 py-1.5 rounded-xl">
                             <i class="fa-solid fa-envelope text-brand-500"></i>
                             <span>aditrahman471@gmail.com</span>
                         </a>
-                        <a href="https://wa.me/6288225002019" target="_blank" class="flex items-center gap-1.5 glass-pill px-3 py-1.5 rounded-xl hover:text-emerald-500 transition interactive-card">
-                            <i class="fa-brands fa-whatsapp text-emerald-500"></i>
-                            <span>+62 882-2500-2019</span>
-                        </a>
                     </div>
 
-                    <!-- Primary Action CTA Buttons -->
                     <div class="flex flex-wrap items-center gap-3 pt-2">
-                        <a href="https://www.linkedin.com/in/aditya-rahman-23892b2a2?utm_source=share_via&utm_content=profile&utm_medium=member_android" 
-                           target="_blank" 
-                           rel="noopener noreferrer"
-                           class="px-5 py-2.5 bg-slate-900 hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100 text-white font-semibold rounded-xl text-xs sm:text-sm shadow-md transition flex items-center gap-2 interactive-card">
+                        <a href="https://www.linkedin.com/in/aditya-rahman-23892b2a2" target="_blank" class="px-5 py-2.5 bg-slate-900 text-white font-semibold rounded-xl text-xs sm:text-sm shadow-md transition flex items-center gap-2">
                             <i class="fa-brands fa-linkedin text-base"></i>
                             <span>LinkedIn</span>
-                            <i class="fa-solid fa-arrow-up-right-from-square text-[10px] opacity-70"></i>
                         </a>
-
-                        <a href="https://www.instagram.com/_aditrahman_?stkn=YnI1dGI4OHJiZWI3" 
-                           target="_blank" 
-                           rel="noopener noreferrer"
-                           class="px-5 py-2.5 glass-pill text-slate-800 dark:text-white font-semibold rounded-xl text-xs sm:text-sm transition flex items-center gap-2 hover:bg-slate-200/50 dark:hover:bg-slate-800 interactive-card">
-                            <i class="fa-brands fa-instagram text-base text-pink-500"></i>
-                            <span>Instagram</span>
-                        </a>
-
-                        <a href="#projects" class="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-xl text-xs sm:text-sm shadow-md transition flex items-center gap-2 interactive-card">
+                        <a href="#projects" class="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-xl text-xs sm:text-sm shadow-md transition flex items-center gap-2">
                             <i class="fa-solid fa-laptop-code text-base"></i>
                             <span>Lihat Hasil Karya</span>
                         </a>
                     </div>
-
                 </div>
-
             </div>
         </div>
     </section>
 
-    <!-- Metrics Bar -->
     <section class="py-6 border-y border-slate-200/60 dark:border-slate-800/60 glass-panel">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-                <div class="p-4 rounded-2xl glass-pill interactive-card">
+                <div class="p-4 rounded-2xl glass-pill">
                     <div class="text-2xl sm:text-3xl font-extrabold theme-heading mb-0.5">3.27 <span class="text-xs font-normal text-slate-500">/ 4.00</span></div>
-                    <div class="text-[11px] font-medium text-slate-500 dark:text-slate-400">IPK S1 Matematika UNY</div>
+                    <div class="text-[11px] font-medium text-slate-500">IPK S1 Matematika UNY</div>
                 </div>
-
-                <div class="p-4 rounded-2xl glass-pill interactive-card">
+                <div class="p-4 rounded-2xl glass-pill">
                     <div class="text-2xl sm:text-3xl font-extrabold theme-heading mb-0.5">200+</div>
-                    <div class="text-[11px] font-medium text-slate-500 dark:text-slate-400">Interaksi Pelanggan / Mgg</div>
+                    <div class="text-[11px] font-medium text-slate-500">Interaksi Pelanggan / Mgg</div>
                 </div>
-
-                <div class="p-4 rounded-2xl glass-pill interactive-card">
+                <div class="p-4 rounded-2xl glass-pill">
                     <div class="text-2xl sm:text-3xl font-extrabold theme-heading mb-0.5">85%</div>
-                    <div class="text-[11px] font-medium text-slate-500 dark:text-slate-400">Kepuasan Pelanggan (CSAT)</div>
+                    <div class="text-[11px] font-medium text-slate-500">Kepuasan Pelanggan (CSAT)</div>
                 </div>
-
-                <div class="p-4 rounded-2xl glass-pill interactive-card">
+                <div class="p-4 rounded-2xl glass-pill">
                     <div class="text-2xl sm:text-3xl font-extrabold theme-heading mb-0.5">20%</div>
-                    <div class="text-[11px] font-medium text-slate-500 dark:text-slate-400">Efisiensi Respon Layanan</div>
+                    <div class="text-[11px] font-medium text-slate-500">Efisiensi Respon Layanan</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Experience Section -->
     <section id="experience" class="py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-12">
-                <span class="px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-300 glass-pill rounded-full interactive-card">
-                    Rekam Jejak Karir
-                </span>
-                <h2 class="text-2xl sm:text-3xl font-bold theme-heading mt-3">
-                    Pengalaman Kerja & Profesional
-                </h2>
+                <span class="px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-300 glass-pill rounded-full">Rekam Jejak Karir</span>
+                <h2 class="text-2xl sm:text-3xl font-bold theme-heading mt-3">Pengalaman Kerja & Profesional</h2>
             </div>
-
             <div class="space-y-6 max-w-7xl mx-auto">
-                <div class="experience-card glass-panel p-6 sm:p-8 rounded-3xl relative overflow-hidden transition hover:border-brand-500/50 interactive-card">
+                <div class="experience-card glass-panel p-6 sm:p-8 rounded-3xl relative overflow-hidden transition">
                     <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
-                        <span class="px-2.5 py-1 rounded-full text-[11px] font-semibold bg-emerald-100 text-emerald-800 dark:bg-emerald-950/80 dark:text-emerald-300">
-                            Juni 2026 - Agustus 2026
-                        </span>
-                        <span class="text-xs text-slate-500 dark:text-slate-400 font-medium">BPS (Badan Pusat Statistik)</span>
+                        <span class="px-2.5 py-1 rounded-full text-[11px] font-semibold bg-emerald-100 text-emerald-800 dark:bg-emerald-950/80 dark:text-emerald-300">Juni 2026 - Agustus 2026</span>
+                        <span class="text-xs text-slate-500 font-medium">BPS (Badan Pusat Statistik)</span>
                     </div>
-
                     <h3 class="text-xl font-bold theme-heading">Petugas Pencatatan Lapangan (PPL SE2026)</h3>
-                    <p class="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-4">Kulon Progo, DIY</p>
-
-                    <ul class="space-y-2 text-xs sm:text-sm text-slate-600 dark:text-slate-300 list-disc list-inside leading-relaxed">
-                        <li>Mengidentifikasi dan memetakan wilayah kerja statistik (Wilkerstat) serta melakukan geotagging lokasi unit usaha lokal menggunakan aplikasi seluler lapangan BPS.</li>
-                        <li>Melakukan wawancara tatap muka secara langsung dengan responden pelaku usaha untuk mencatat profil ekonomi dan karakteristik bisnis secara akurat.</li>
-                        <li>Memverifikasi kelengkapan dan konsistensi data sebelum menyerahkan catatan hasil pencacahan yang bersih kepada Pemeriksa Lapangan (PML).</li>
+                    <p class="text-xs font-semibold text-slate-500 mb-4">Kulon Progo, DIY</p>
+                    <ul class="space-y-2 text-xs sm:text-sm text-slate-600 dark:text-slate-300 list-disc list-inside">
+                        <li>Mengidentifikasi dan memetakan wilayah kerja statistik (Wilkerstat) serta melakukan geotagging lokasi unit usaha lokal.</li>
+                        <li>Melakukan wawancara tatap muka secara langsung dengan responden pelaku usaha untuk mencatat profil ekonomi.</li>
                     </ul>
-
-                    <div class="mt-4 flex flex-wrap gap-1.5">
-                        <span class="text-[10px] font-medium glass-pill px-2.5 py-1 rounded-lg">Geotagging</span>
-                        <span class="text-[10px] font-medium glass-pill px-2.5 py-1 rounded-lg">Wilkerstat</span>
-                        <span class="text-[10px] font-medium glass-pill px-2.5 py-1 rounded-lg">Field Enumeration</span>
-                        <span class="text-[10px] font-medium glass-pill px-2.5 py-1 rounded-lg">BPS Mobile App</span>
-                    </div>
-                </div>
-
-                <div class="experience-card glass-panel p-6 sm:p-8 rounded-3xl relative overflow-hidden transition hover:border-brand-500/50 interactive-card">
-                    <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
-                        <span class="px-2.5 py-1 rounded-full text-[11px] font-semibold bg-blue-100 text-blue-800 dark:bg-blue-950/80 dark:text-blue-300">
-                            Sept 2024 - Mei 2026
-                        </span>
-                        <span class="text-xs text-slate-500 dark:text-slate-400 font-medium">Vads Indonesia (Proyek Shopee)</span>
-                    </div>
-
-                    <h3 class="text-xl font-bold theme-heading">Customer Service Representative</h3>
-                    <p class="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-4">Sleman, DIY</p>
-
-                    <ul class="space-y-2 text-xs sm:text-sm text-slate-600 dark:text-slate-300 list-disc list-inside leading-relaxed">
-                        <li>Mengelola interaksi dengan pelanggan untuk menyelesaikan pertanyaan dan keluhan, mencapai tingkat kepuasan pelanggan sebesar <strong>85%</strong>.</li>
-                        <li>Menyampaikan rincian produk dan layanan secara tepat kepada lebih dari <strong>200 pelanggan setiap minggunya</strong> dengan tetap menjaga standar profesional.</li>
-                        <li>Mengurangi rata-rata waktu respon sebesar <strong>20%</strong> dengan mengidentifikasi solusi yang cepat dan efektif.</li>
-                    </ul>
-
-                    <div class="mt-4 flex flex-wrap gap-1.5">
-                        <span class="text-[10px] font-medium glass-pill px-2.5 py-1 rounded-lg">Customer Relations</span>
-                        <span class="text-[10px] font-medium glass-pill px-2.5 py-1 rounded-lg">CSAT Optimization</span>
-                        <span class="text-[10px] font-medium glass-pill px-2.5 py-1 rounded-lg">Problem Solving</span>
-                    </div>
-                </div>
-
-                <div class="experience-card glass-panel p-6 sm:p-8 rounded-3xl relative overflow-hidden transition hover:border-brand-500/50 interactive-card">
-                    <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
-                        <span class="px-2.5 py-1 rounded-full text-[11px] font-semibold bg-purple-100 text-purple-800 dark:bg-purple-950/80 dark:text-purple-300">
-                            Okt 2023 - Des 2023
-                        </span>
-                        <span class="text-xs text-slate-500 dark:text-slate-400 font-medium">BPS Kabupaten Kulon Progo</span>
-                    </div>
-
-                    <h3 class="text-xl font-bold theme-heading">Magang Staf Administrasi</h3>
-                    <p class="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-4">Kulon Progo, DIY</p>
-
-                    <ul class="space-y-2 text-xs sm:text-sm text-slate-600 dark:text-slate-300 list-disc list-inside leading-relaxed">
-                        <li>Mengelola dan memelihara arsip data statistik serta dokumentasi operasional bulanan internal dengan tingkat ketelitian tinggi.</li>
-                        <li>Memasukkan dan memverifikasi catatan data statistik ke dalam basis data resmi untuk menjamin akurasi tingkat tinggi.</li>
-                    </ul>
-
-                    <div class="mt-4 flex flex-wrap gap-1.5">
-                        <span class="text-[10px] font-medium glass-pill px-2.5 py-1 rounded-lg">Statistical Archiving</span>
-                        <span class="text-[10px] font-medium glass-pill px-2.5 py-1 rounded-lg">Data Entry & Verification</span>
-                    </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Education & Organization -->
-    <section class="py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-7xl mx-auto">
-                <div class="glass-panel p-8 rounded-3xl flex flex-col justify-between interactive-card">
-                    <div>
-                        <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider block mb-2">Pendidikan Formal</span>
-                        <h3 class="text-2xl font-bold theme-heading">Sarjana Matematika (S.Si.)</h3>
-                        <p class="text-sm font-semibold text-slate-700 dark:text-slate-300 mt-1">Universitas Negeri Yogyakarta</p>
-                        <p class="text-xs text-slate-500 mb-6">Sept 2020 - Juli 2024 &bull; Sleman, DIY</p>
-
-                        <div class="inline-block glass-pill px-4 py-2.5 rounded-2xl border border-slate-200 dark:border-slate-800 mb-6 interactive-card">
-                            <span class="text-[10px] text-slate-500 block uppercase font-bold tracking-wider">Indeks Prestasi Kumulatif (IPK)</span>
-                            <span class="text-2xl font-extrabold theme-heading">3,27 <span class="text-xs font-normal text-slate-500">/ 4.00</span></span>
-                        </div>
-
-                        <ul class="space-y-2 text-xs sm:text-sm text-slate-600 dark:text-slate-300 list-disc list-inside">
-                            <li>Menganalisis data matematika dan statistik untuk penelitian akademik serta pengerjaan proyek tingkat lanjut.</li>
-                            <li>Mengolah dan memverifikasi data numerik menggunakan perangkat statistik termasuk RStudio, R, dan Python.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="glass-panel p-8 rounded-3xl flex flex-col justify-between interactive-card">
-                    <div>
-                        <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider block mb-2">Pengalaman Organisasi</span>
-                        <h3 class="text-2xl font-bold theme-heading">Pemandu</h3>
-                        <p class="text-sm font-semibold text-slate-700 dark:text-slate-300 mt-1">Program Studi Laboratorium Matematika</p>
-                        <p class="text-xs text-slate-500 mb-6">Juli 2022 - Sept 2022 &bull; Sleman, DIY</p>
-
-                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
-                            Membimbing dan memandu mahasiswa baru terkait jadwal orientasi akademik serta panduan laboratorium.
-                        </p>
-
-                        <div class="flex flex-wrap gap-2 text-xs">
-                            <span class="glass-pill px-3 py-1.5 rounded-xl text-slate-700 dark:text-slate-300 font-medium interactive-card">Kepemimpinan</span>
-                            <span class="glass-pill px-3 py-1.5 rounded-xl text-slate-700 dark:text-slate-300 font-medium interactive-card">Komunikasi Publik</span>
-                            <span class="glass-pill px-3 py-1.5 rounded-xl text-slate-700 dark:text-slate-300 font-medium interactive-card">Orientasi Lab</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Matrix -->
-    <section id="skills" class="py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-10">
-                <span class="px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-300 glass-pill rounded-full interactive-card">
-                    Matriks Kompetensi
-                </span>
-                <h2 class="text-2xl sm:text-3xl font-bold theme-heading mt-3">
-                    Keahlian & Perangkat Lunak
-                </h2>
-
-                <div class="flex flex-wrap justify-center gap-2 mt-6">
-                    <button onclick="filterSkills('all')" class="skill-btn active px-4 py-2 rounded-xl text-xs font-semibold transition bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-md interactive-card">Semua</button>
-                    <button onclick="filterSkills('hard')" class="skill-btn px-4 py-2 rounded-xl text-xs font-semibold transition glass-pill text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 interactive-card">Hard Skills</button>
-                    <button onclick="filterSkills('tools')" class="skill-btn px-4 py-2 rounded-xl text-xs font-semibold transition glass-pill text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 interactive-card">Software & Tools</button>
-                    <button onclick="filterSkills('soft')" class="skill-btn px-4 py-2 rounded-xl text-xs font-semibold transition glass-pill text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 interactive-card">Soft Skills</button>
-                    <button onclick="filterSkills('lang')" class="skill-btn px-4 py-2 rounded-xl text-xs font-semibold transition glass-pill text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 interactive-card">Bahasa</button>
-                </div>
-            </div>
-
-            <div id="skillsContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-7xl mx-auto">
-                <div class="skill-card hard glass-panel p-6 rounded-3xl interactive-card">
-                    <div class="w-9 h-9 rounded-2xl bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-white flex items-center justify-center text-base mb-3">
-                        <i class="fa-solid fa-chart-pie"></i>
-                    </div>
-                    <h3 class="font-bold theme-heading text-sm mb-1">Data Analysis & Verification</h3>
-                    <p class="text-xs text-slate-500 mb-3">Pengolahan data numerik, pengujian hipotesis, dan pembersihan basis data.</p>
-                    <div class="w-full bg-slate-200 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                        <div class="bg-brand-500 h-full w-[90%]"></div>
-                    </div>
-                </div>
-
-                <div class="skill-card hard glass-panel p-6 rounded-3xl interactive-card">
-                    <div class="w-9 h-9 rounded-2xl bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-white flex items-center justify-center text-base mb-3">
-                        <i class="fa-solid fa-map-location-dot"></i>
-                    </div>
-                    <h3 class="font-bold theme-heading text-sm mb-1">Field Enumeration & Geotagging</h3>
-                    <p class="text-xs text-slate-500 mb-3">Pencacahan usaha lapangan, pemetaan wilayah Wilkerstat, dan geotagging BPS.</p>
-                    <div class="w-full bg-slate-200 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                        <div class="bg-brand-500 h-full w-[88%]"></div>
-                    </div>
-                </div>
-
-                <div class="skill-card tools glass-panel p-6 rounded-3xl interactive-card">
-                    <div class="w-9 h-9 rounded-2xl bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-white flex items-center justify-center text-base mb-3">
-                        <i class="fa-brands fa-python"></i>
-                    </div>
-                    <h3 class="font-bold theme-heading text-sm mb-1">Python & MATLAB</h3>
-                    <p class="text-xs text-slate-500 mb-3">Skrip perhitungan komputasi, analisis matriks, dan skrip manipulasi data.</p>
-                    <div class="w-full bg-slate-200 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                        <div class="bg-brand-500 h-full w-[82%]"></div>
-                    </div>
-                </div>
-
-                <div class="skill-card tools glass-panel p-6 rounded-3xl interactive-card">
-                    <div class="w-9 h-9 rounded-2xl bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-white flex items-center justify-center text-base mb-3">
-                        <i class="fa-solid fa-table"></i>
-                    </div>
-                    <h3 class="font-bold theme-heading text-sm mb-1">RStudio, R & Microsoft Excel</h3>
-                    <p class="text-xs text-slate-500 mb-3">Pengolahan statistik inferensial, rumus kompleks, dan laporan numerik.</p>
-                    <div class="w-full bg-slate-200 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                        <div class="bg-brand-500 h-full w-[92%]"></div>
-                    </div>
-                </div>
-
-                <div class="skill-card soft glass-panel p-6 rounded-3xl interactive-card">
-                    <div class="w-9 h-9 rounded-2xl bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-white flex items-center justify-center text-base mb-3">
-                        <i class="fa-solid fa-headset"></i>
-                    </div>
-                    <h3 class="font-bold theme-heading text-sm mb-1">Customer Relations & CSAT</h3>
-                    <p class="text-xs text-slate-500 mb-3">Penanganan keluhan pelanggan, solusi efisien, dan kepuasan publik.</p>
-                    <div class="w-full bg-slate-200 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                        <div class="bg-brand-500 h-full w-[88%]"></div>
-                    </div>
-                </div>
-
-                <div class="skill-card lang glass-panel p-6 rounded-3xl interactive-card">
-                    <div class="w-9 h-9 rounded-2xl bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-white flex items-center justify-center text-base mb-3">
-                        <i class="fa-solid fa-earth-americas"></i>
-                    </div>
-                    <h3 class="font-bold theme-heading text-sm mb-1">Bahasa Indonesia & English</h3>
-                    <p class="text-xs text-slate-500 mb-3">Indonesia (Native) / English (Advanced Level).</p>
-                    <div class="w-full bg-slate-200 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                        <div class="bg-brand-500 h-full w-[90%]"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Data Lab Section -->
-    <section id="data-lab" class="py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-10">
-                <span class="px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-300 glass-pill rounded-full interactive-card">
-                    Interactive Data Engine
-                </span>
-                <h2 class="text-2xl sm:text-3xl font-bold theme-heading mt-3">
-                    Mathematics & Data Analytics Lab
-                </h2>
-                <p class="text-slate-600 dark:text-slate-400 mt-2 text-xs sm:text-sm">
-                    Eksplorasi modul matematika interaktif dan metrik statistik riil dalam format grafik garis.
-                </p>
-
-                <div class="flex justify-center gap-2 mt-6">
-                    <button onclick="switchLabTab('math')" id="tabBtnMath" class="px-4 py-2 rounded-xl text-xs font-semibold transition bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-md interactive-card">
-                        Model Math (x + y)
-                    </button>
-                    <button onclick="switchLabTab('sensus')" id="tabBtnSensus" class="px-4 py-2 rounded-xl text-xs font-semibold transition glass-pill text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 interactive-card">
-                        Sensus BPS
-                    </button>
-                    <button onclick="switchLabTab('csat')" id="tabBtnCsat" class="px-4 py-2 rounded-xl text-xs font-semibold transition glass-pill text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 interactive-card">
-                        Metrik CSAT
-                    </button>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-                <div id="mathControlsPanel" class="lg:col-span-5 glass-panel p-6 rounded-3xl space-y-4 interactive-card">
-                    <div class="flex items-center justify-between">
-                        <h3 class="text-sm font-bold theme-heading flex items-center gap-2">
-                            <i class="fa-solid fa-sliders text-brand-500"></i> Variable Controls
-                        </h3>
-                        <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
-                            Dynamic Sliders
-                        </span>
-                    </div>
-
-                    <div>
-                        <div class="flex justify-between text-xs font-medium mb-1.5">
-                            <span class="text-slate-600 dark:text-slate-300">Variabel X:</span>
-                            <span id="valXDisplay" class="font-bold theme-heading">15</span>
-                        </div>
-                        <input type="range" id="sliderX" min="1" max="100" value="15" oninput="updateMathLab()" class="w-full accent-brand-500 cursor-pointer">
-                    </div>
-
-                    <div>
-                        <div class="flex justify-between text-xs font-medium mb-1.5">
-                            <span class="text-slate-600 dark:text-slate-300">Variabel Y:</span>
-                            <span id="valYDisplay" class="font-bold theme-heading">25</span>
-                        </div>
-                        <input type="range" id="sliderY" min="1" max="100" value="25" oninput="updateMathLab()" class="w-full accent-brand-500 cursor-pointer">
-                    </div>
-
-                    <div class="p-4 rounded-2xl bg-slate-100/80 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 space-y-2 text-xs">
-                        <div class="flex justify-between border-b border-slate-200 dark:border-slate-800 pb-1.5">
-                            <span class="text-slate-500">Penjumlahan Simple (x + y):</span>
-                            <span id="resAdd" class="font-bold theme-heading">40</span>
-                        </div>
-                        <div class="flex justify-between border-b border-slate-200 dark:border-slate-800 pb-1.5">
-                            <span class="text-slate-500">Perkalian (x * y):</span>
-                            <span id="resMul" class="font-bold theme-heading">375</span>
-                        </div>
-                        <div class="flex justify-between pt-0.5">
-                            <span class="text-slate-500">Jarak Euclidean (&radic;(x&sup2; + y&sup2;)):</span>
-                            <span id="resEuc" class="font-bold theme-heading">29.15</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="chartContainer" class="lg:col-span-7 glass-panel p-6 rounded-3xl interactive-card">
-                    <div class="flex items-center justify-between mb-4">
-                        <h3 id="labChartTitle" class="text-sm font-bold theme-heading flex items-center gap-2">
-                            <i class="fa-solid fa-chart-line text-brand-500"></i> Visualisasi Grafik Garis Model Math (x + y)
-                        </h3>
-                        <span id="labBadge" class="text-[10px] font-semibold text-brand-600 dark:text-brand-400">Line Chart</span>
-                    </div>
-
-                    <div class="relative h-64 sm:h-72 w-full">
-                        <canvas id="mathLabChart"></canvas>
-                    </div>
-
-                    <div id="labDescText" class="mt-4 p-3 rounded-xl bg-slate-100/60 dark:bg-slate-900/60 text-xs text-slate-600 dark:text-slate-400">
-                        Geser slider X dan Y pada panel kiri untuk memperbarui grafik garis dan perhitungan matematika secara langsung.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="py-16 relative border-t border-slate-200/50 dark:border-slate-800/50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-12">
-                <span class="px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-300 glass-pill rounded-full interactive-card">
-                    Hasil Karya Utama
-                </span>
-                <h2 class="text-2xl sm:text-3xl font-bold theme-heading mt-3">
-                    Proyek Pilihan & Aplikasi Web
-                </h2>
-                <p class="text-slate-600 dark:text-slate-400 mt-2 text-xs sm:text-sm">
-                    Hasil karya komputasi, analitis, dan aplikasi interaktif yang telah dibangun secara mandiri.
-                </p>
-            </div>
-
-            <div class="glass-panel rounded-3xl p-6 sm:p-8 border border-slate-200/80 dark:border-slate-800 shadow-xl transition-all hover:border-brand-500/60 max-w-4xl mx-auto relative overflow-hidden group interactive-card">
-                <div class="absolute -right-12 -top-12 w-48 h-48 bg-brand-500/10 rounded-full blur-2xl group-hover:bg-brand-500/20 transition-all pointer-events-none"></div>
-
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-                    <div class="lg:col-span-7 space-y-4">
-                        <div class="flex flex-wrap items-center gap-2">
-                            <span class="px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-brand-500 text-white shadow-sm">
-                                Featured Project
-                            </span>
-                            <span class="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-emerald-100 text-emerald-800 dark:bg-emerald-950/80 dark:text-emerald-300">
-                                Active Web App
-                            </span>
-                        </div>
-
-                        <h3 class="text-2xl sm:text-3xl font-extrabold theme-heading flex items-center gap-2.5">
-                            <i class="fa-solid fa-laptop-code text-brand-500"></i> Lepii
-                        </h3>
-
-                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                            Proyek web interaktif <strong>Lepii</strong> dirancang sebagai modul aplikasi mandiri yang mengintegrasikan pengolahan data, visualisasi antarmuka intuitif, serta elemen fungsional modern. Proyek ini memfasilitasi eksperimen data dan memberikan pengalaman pengguna yang responsif.
-                        </p>
-
-                        <div class="flex flex-wrap gap-2 pt-1">
-                            <span class="text-[11px] font-semibold glass-pill px-3 py-1 rounded-xl text-slate-700 dark:text-slate-300 interactive-card">
-                                <i class="fa-brands fa-html5 text-orange-500 mr-1"></i> HTML5
-                            </span>
-                            <span class="text-[11px] font-semibold glass-pill px-3 py-1 rounded-xl text-slate-700 dark:text-slate-300 interactive-card">
-                                <i class="fa-brands fa-css3-alt text-blue-500 mr-1"></i> CSS3 & Tailwind
-                            </span>
-                            <span class="text-[11px] font-semibold glass-pill px-3 py-1 rounded-xl text-slate-700 dark:text-slate-300 interactive-card">
-                                <i class="fa-brands fa-js text-yellow-500 mr-1"></i> JavaScript
-                            </span>
-                            <span class="text-[11px] font-semibold glass-pill px-3 py-1 rounded-xl text-slate-700 dark:text-slate-300 interactive-card">
-                                <i class="fa-solid fa-chart-simple text-purple-500 mr-1"></i> Interactive UI
-                            </span>
-                        </div>
-
-                        <div class="flex flex-wrap items-center gap-3 pt-3">
-                            <a href="lepii.html" target="_blank" class="px-5 py-2.5 bg-slate-900 hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100 text-white text-xs font-bold rounded-xl shadow-md transition flex items-center gap-2 interactive-card">
-                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                                <span>Buka Proyek Lepii</span>
-                            </a>
-
-                            <button onclick="openLepiiModal()" class="px-4 py-2.5 glass-pill text-slate-800 dark:text-slate-200 text-xs font-semibold rounded-xl hover:bg-slate-200/70 dark:hover:bg-slate-800 transition flex items-center gap-2 interactive-card">
-                                <i class="fa-solid fa-expand text-brand-500"></i>
-                                <span>Pratinjau Langsung (Modal)</span>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="lg:col-span-5">
-                        <div class="relative rounded-2xl overflow-hidden glass-panel border border-slate-200/80 dark:border-slate-800 shadow-2xl group-hover:scale-[1.02] transition-transform duration-300 interactive-card">
-                            <div class="bg-slate-200/80 dark:bg-slate-900/80 px-3 py-2 border-b border-slate-300/50 dark:border-slate-800 flex items-center justify-between">
-                                <div class="flex space-x-1.5">
-                                    <span class="w-2.5 h-2.5 rounded-full bg-red-400 block"></span>
-                                    <span class="w-2.5 h-2.5 rounded-full bg-yellow-400 block"></span>
-                                    <span class="w-2.5 h-2.5 rounded-full bg-green-400 block"></span>
-                                </div>
-                                <span class="text-[10px] font-mono text-slate-500 dark:text-slate-400 tracking-wider">lepii.html</span>
-                                <div class="w-4"></div>
-                            </div>
-                            <div class="p-6 bg-gradient-to-br from-slate-900 via-slate-950 to-brand-950 text-white min-h-[200px] flex flex-col justify-between relative">
-                                <div class="space-y-2">
-                                    <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-brand-500/30 text-brand-300 text-[10px] font-mono">
-                                        <i class="fa-solid fa-circle-play text-[8px] text-emerald-400 animate-pulse"></i> Live App
-                                    </div>
-                                    <h4 class="text-xl font-black text-white tracking-tight">Project Lepii</h4>
-                                    <p class="text-xs text-slate-300 line-clamp-2">Aplikasi interaktif yang siap dijalankan secara langsung dari portofolio ini.</p>
-                                </div>
-
-                                <div class="pt-4 flex items-center justify-between border-t border-slate-800 text-[11px] text-slate-400">
-                                    <span>File: <code class="text-brand-300 font-mono">lepii.html</code></span>
-                                    <a href="lepii.html" target="_blank" class="text-brand-400 hover:text-white font-semibold transition flex items-center gap-1">
-                                        Lihat <i class="fa-solid fa-chevron-right text-[9px]"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Certificates Section -->
-    <section id="certificates" class="py-16 border-t border-slate-200/50 dark:border-slate-800/50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-12">
-                <span class="px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-300 glass-pill rounded-full interactive-card">
-                    Kredensial & Pengakuan
-                </span>
-                <h2 class="text-2xl sm:text-3xl font-bold theme-heading mt-3">
-                    Sertifikat & Pelatihan
-                </h2>
-                <p class="text-slate-600 dark:text-slate-400 mt-2 text-xs sm:text-sm">
-                    Dokumen sertifikasi resmi, pelatihan kompetensi, serta lisensi pencapaian profesional.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                <div class="glass-panel p-6 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-xl flex flex-col justify-between transition-all hover:border-brand-500/60 group interactive-card">
-                    <div>
-                        <div class="relative w-full h-52 sm:h-60 rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/60 dark:border-slate-800 mb-5">
-                            <img src="LIKMII - ADITYA RAHMAN.jpg" alt="Sertifikat LIKM II - Aditya Rahman" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Sertifikat+LIKMII';">
-                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-                                <span class="text-white text-xs font-semibold flex items-center gap-1.5">
-                                    <i class="fa-solid fa-magnifying-glass-plus"></i> Klik untuk Memperbesar
-                                </span>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center gap-2 mb-2">
-                            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-purple-100 text-purple-800 dark:bg-purple-950/80 dark:text-purple-300">
-                                Sertifikat Resmi
-                            </span>
-                            <span class="text-xs text-slate-500">LIKM II</span>
-                        </div>
-
-                        <h3 class="text-lg font-bold theme-heading mb-1.5">Sertifikat LIKM II - Aditya Rahman</h3>
-                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
-                            Dokumen sertifikasi kelulusan LIKM II (Latihan Kepemimpinan dan Manajemen) atas nama Aditya Rahman, S.Si.
-                        </p>
-                    </div>
-
-                    <div class="flex items-center gap-2 pt-2 border-t border-slate-200/60 dark:border-slate-800">
-                        <button onclick="openCertModal('LIKMII - ADITYA RAHMAN.jpg', 'Sertifikat LIKM II - Aditya Rahman')" class="flex-1 px-3 py-2 bg-slate-900 hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100 text-white text-xs font-semibold rounded-xl transition flex items-center justify-center gap-1.5 interactive-card">
-                            <i class="fa-solid fa-expand text-[11px]"></i> Lihat Sertifikat
-                        </button>
-                        <a href="LIKMII - ADITYA RAHMAN.jpg" target="_blank" class="p-2 glass-pill text-slate-700 dark:text-slate-200 hover:text-brand-500 rounded-xl transition interactive-card" title="Buka Gambar File">
-                            <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="glass-panel p-6 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-xl flex flex-col justify-between transition-all hover:border-brand-500/60 group interactive-card">
-                    <div>
-                        <div class="relative w-full h-52 sm:h-60 rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/60 dark:border-slate-800 mb-5">
-                            <img src="SLM - ADITYA RAHMAN.jpg" alt="Sertifikat SLM - Aditya Rahman" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Sertifikat+SLM';">
-                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-                                <span class="text-white text-xs font-semibold flex items-center gap-1.5">
-                                    <i class="fa-solid fa-magnifying-glass-plus"></i> Klik untuk Memperbesar
-                                </span>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center gap-2 mb-2">
-                            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800 dark:bg-emerald-950/80 dark:text-emerald-300">
-                                Sertifikat Pelatihan
-                            </span>
-                            <span class="text-xs text-slate-500">SLM</span>
-                        </div>
-
-                        <h3 class="text-lg font-bold theme-heading mb-1.5">Sertifikat SLM - Aditya Rahman</h3>
-                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
-                            Dokumen sertifikasi Studi & Pelatihan SLM atas nama Aditya Rahman, S.Si.
-                        </p>
-                    </div>
-
-                    <div class="flex items-center gap-2 pt-2 border-t border-slate-200/60 dark:border-slate-800">
-                        <button onclick="openCertModal('SLM - ADITYA RAHMAN.jpg', 'Sertifikat SLM - Aditya Rahman')" class="flex-1 px-3 py-2 bg-slate-900 hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100 text-white text-xs font-semibold rounded-xl transition flex items-center justify-center gap-1.5 interactive-card">
-                            <i class="fa-solid fa-expand text-[11px]"></i> Lihat Sertifikat
-                        </button>
-                        <a href="SLM - ADITYA RAHMAN.jpg" target="_blank" class="p-2 glass-pill text-slate-700 dark:text-slate-200 hover:text-brand-500 rounded-xl transition interactive-card" title="Buka Gambar File">
-                            <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-16 border-t border-slate-200/50 dark:border-slate-800/50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <span class="px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-300 glass-pill rounded-full interactive-card">
-                Hubungi Saya
-            </span>
-            <h2 class="text-2xl sm:text-3xl font-bold theme-heading mt-3 mb-4">
-                Mari Berkolaborasi & Terhubung
-            </h2>
-            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 max-w-xl mx-auto mb-8">
-                Saya terbuka untuk peluang karir di bidang Data Analysis, Statistics, Research, dan Operations.
-            </p>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto mb-10">
-                <a href="mailto:aditrahman471@gmail.com" class="glass-panel p-6 rounded-3xl flex flex-col items-center justify-center hover:border-brand-500 transition group interactive-card">
-                    <div class="w-12 h-12 rounded-2xl bg-slate-200 dark:bg-slate-800 text-slate-900 dark:text-white flex items-center justify-center text-xl mb-3 group-hover:scale-110 transition-transform">
-                        <i class="fa-regular fa-envelope"></i>
-                    </div>
-                    <div class="text-xs font-bold theme-heading">Email Utama</div>
-                    <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">aditrahman471@gmail.com</div>
-                    <span class="mt-3 text-[10px] font-semibold text-slate-600 dark:text-slate-300 flex items-center gap-1">
-                        <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i> Buka Aplikasi Email
-                    </span>
-                </a>
-
-                <a href="https://wa.me/6288225002019" target="_blank" class="glass-panel p-6 rounded-3xl flex flex-col items-center justify-center hover:border-emerald-500 transition group interactive-card">
-                    <div class="w-12 h-12 rounded-2xl bg-emerald-100 dark:bg-emerald-950/80 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl mb-3 group-hover:scale-110 transition-transform">
-                        <i class="fa-brands fa-whatsapp"></i>
-                    </div>
-                    <div class="text-xs font-bold theme-heading">Telepon / WhatsApp</div>
-                    <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">+62 882-2500-2019</div>
-                    <span class="mt-3 text-[10px] font-semibold text-emerald-600 dark:text-emerald-400 flex items-center gap-1">
-                        <i class="fa-solid fa-comments text-[9px]"></i> Langsung Chat WhatsApp
-                    </span>
-                </a>
-            </div>
-
-            <div class="grid grid-cols-2 gap-3 max-w-sm mx-auto">
-                <a href="https://www.linkedin.com/in/aditya-rahman-23892b2a2?utm_source=share_via&utm_content=profile&utm_medium=member_android" 
-                   target="_blank" 
-                   class="w-full px-4 py-3 bg-brand-600 text-white font-semibold rounded-2xl text-xs transition flex items-center justify-center gap-2 hover:bg-brand-700 shadow-md interactive-card">
-                    <i class="fa-brands fa-linkedin text-sm"></i> LinkedIn
-                </a>
-                <a href="https://www.instagram.com/_aditrahman_?stkn=YnI1dGI4OHJiZWI3" 
-                   target="_blank" 
-                   class="w-full px-4 py-3 glass-pill font-semibold text-slate-800 dark:text-white rounded-2xl text-xs transition flex items-center justify-center gap-2 hover:bg-slate-200/60 dark:hover:bg-slate-800 interactive-card">
-                    <i class="fa-brands fa-instagram text-sm text-pink-500"></i> Instagram
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="py-8 border-t border-slate-200/50 dark:border-slate-800/50 text-slate-500 text-center text-xs">
-        <div class="max-w-7xl mx-auto px-4">
-            <p>&copy; 2026 Aditya Rahman, S.Si. All rights reserved.</p>
-            <p class="mt-1 text-[11px] text-slate-400">Universitas Negeri Yogyakarta &bull; BPS-Statistics Indonesia &bull; Vads Indonesia</p>
-        </div>
-    </footer>
-
-    <!-- Lepii Modal -->
-    <div id="lepiiModal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-3 sm:p-6">
-        <div class="glass-panel w-full max-w-5xl h-[88vh] rounded-3xl shadow-2xl border border-slate-200/80 dark:border-slate-800 flex flex-col overflow-hidden">
-            <div class="p-4 bg-slate-100/90 dark:bg-slate-900/90 flex justify-between items-center border-b border-slate-200 dark:border-slate-800">
-                <div class="flex items-center gap-2">
-                    <i class="fa-solid fa-laptop-code text-brand-500 text-lg"></i>
-                    <div>
-                        <h3 class="font-bold theme-heading text-xs sm:text-sm">Pratinjau Hasil Karya: Lepii</h3>
-                        <p class="text-[10px] text-slate-500">Aplikasi Web Interaktif (lepii.html)</p>
-                    </div>
-                </div>
-                
-                <div class="flex items-center gap-2">
-                    <a href="lepii.html" target="_blank" class="px-3 py-1.5 bg-brand-600 hover:bg-brand-700 text-white text-xs font-semibold rounded-xl shadow-sm transition flex items-center gap-1.5 interactive-card">
-                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Buka Tab Baru
-                    </a>
-
-                    <button onclick="closeLepiiModal()" class="p-1.5 text-slate-500 hover:text-slate-900 dark:hover:text-white text-base rounded-lg interactive-card">
-                        <i class="fa-solid fa-xmark"></i>
-                    </button>
-                </div>
-            </div>
-
-            <div class="flex-1 w-full h-full bg-white dark:bg-slate-950">
-                <iframe id="lepiiIframe" src="" class="w-full h-full border-0"></iframe>
-            </div>
-        </div>
-    </div>
-
-    <!-- Certificate View Modal -->
-    <div id="certModal" class="fixed inset-0 z-50 hidden bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-6">
-        <div class="glass-panel w-full max-w-4xl rounded-3xl shadow-2xl border border-slate-200/80 dark:border-slate-800 flex flex-col overflow-hidden max-h-[90vh]">
-            <div class="p-4 bg-slate-100/90 dark:bg-slate-900/90 flex justify-between items-center border-b border-slate-200 dark:border-slate-800">
-                <div class="flex items-center gap-2">
-                    <i class="fa-solid fa-certificate text-brand-500 text-lg"></i>
-                    <h3 id="certModalTitle" class="font-bold theme-heading text-xs sm:text-sm">Pratinjau Sertifikat</h3>
-                </div>
-                
-                <div class="flex items-center gap-2">
-                    <a id="certModalDownloadBtn" href="#" target="_blank" class="px-3 py-1.5 bg-slate-900 hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100 text-white text-xs font-semibold rounded-xl shadow-sm transition flex items-center gap-1.5 interactive-card">
-                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Tab Baru
-                    </a>
-
-                    <button onclick="closeCertModal()" class="p-1.5 text-slate-500 hover:text-slate-900 dark:hover:text-white text-base rounded-lg interactive-card">
-                        <i class="fa-solid fa-xmark"></i>
-                    </button>
-                </div>
-            </div>
-
-            <div class="p-4 flex-1 overflow-auto flex items-center justify-center bg-slate-950/50">
-                <img id="certModalImg" src="" alt="Certificate" class="max-w-full max-h-[72vh] object-contain rounded-xl shadow-lg border border-slate-800">
-            </div>
-        </div>
-    </div>
-
-    <!-- CV Modal Without Outer Border Box -->
-    <div id="cvModal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
-        <div class="glass-panel w-full max-w-4xl rounded-3xl shadow-2xl border border-slate-200/80 dark:border-slate-800 my-auto overflow-hidden">
-            <div class="p-4 sm:p-5 bg-slate-100/90 dark:bg-slate-900/90 flex justify-between items-center border-b border-slate-200 dark:border-slate-800">
-                <div class="flex items-center gap-2">
-                    <i class="fa-solid fa-file-pdf text-brand-500 text-lg"></i>
-                    <h3 class="font-bold theme-heading text-xs sm:text-sm">Pratinjau Curriculum Vitae - Aditya Rahman</h3>
-                </div>
-                
-                <div class="flex items-center gap-2">
-                    <button onclick="downloadCvPdf()" class="px-3 py-1.5 bg-brand-600 hover:bg-brand-700 text-white text-xs font-semibold rounded-xl shadow-sm transition flex items-center gap-1.5 interactive-card">
-                        <i class="fa-solid fa-download"></i> Unduh PDF
-                    </button>
-
-                    <button onclick="printCvModal()" class="px-3 py-1.5 bg-slate-900 hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100 text-white text-xs font-semibold rounded-xl transition flex items-center gap-1.5 interactive-card">
-                        <i class="fa-solid fa-print"></i> Cetak
-                    </button>
-
-                    <button onclick="closeCvModal()" class="p-1.5 text-slate-500 hover:text-slate-900 dark:hover:text-white text-base rounded-lg interactive-card">
-                        <i class="fa-solid fa-xmark"></i>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Paper Sheet CV Container inheriting portfolio theme colors without outer box border -->
-            <div class="p-3 sm:p-8 bg-slate-950/40 max-h-[78vh] overflow-y-auto custom-scrollbar flex justify-center">
-                <div id="printableCvArea" class="bg-transparent text-slate-800 dark:text-slate-100 p-2 sm:p-6 rounded-none shadow-none max-w-3xl w-full text-xs font-sans leading-relaxed border-0">
-                    <div class="text-center mb-4">
-                        <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight theme-heading uppercase mb-1.5 font-sans">ADITYA RAHMAN</h1>
-                        <p class="text-[11px] sm:text-xs text-slate-600 dark:text-slate-300 font-medium flex flex-wrap items-center justify-center gap-x-2 gap-y-1">
-                            <span>+62 882-2500-2019</span>
-                            <span>|</span>
-                            <span>aditrahman471@gmail.com</span>
-                            <span>|</span>
-                            <span>linkedin.com/in/aditya-rahman</span>
-                            <span>|</span>
-                            <span>Kulon Progo, Yogyakarta</span>
-                        </p>
-                    </div>
-
-                    <div class="mb-4 text-slate-700 dark:text-slate-300 text-[11.5px] leading-normal text-justify">
-                        Lulusan Matematika dari Universitas Negeri Yogyakarta (<strong>IPK 3,27</strong>) dengan pola pikir analitis yang kuat serta keterampilan pengolahan data. Berpengalaman dalam administrasi statistik, hubungan pelanggan, dan pencacahan lapangan untuk sensus ekonomi nasional. Menguasai alat analisis termasuk Python, SPSS, dan Excel, dengan kemampuan teruji dalam pengumpulan data, verifikasi, serta penyelesaian masalah secara kritis.
-                    </div>
-
-                    <div class="border-b-2 border-brand-500 mb-5"></div>
-
-                    <div class="mb-5">
-                        <h2 class="font-bold text-xs uppercase tracking-wider theme-heading border-b border-slate-300 dark:border-slate-700 pb-1 mb-3">PENGALAMAN KERJA</h2>
-                        <div class="space-y-4">
-                            <div>
-                                <div class="flex justify-between items-baseline flex-wrap gap-1">
-                                    <h3 class="font-bold theme-heading text-[12px]">Petugas Pencatatan Lapangan (PPL SE2026) – BPS (Badan Pusat Statistik)</h3>
-                                    <span class="font-bold text-brand-600 dark:text-brand-400 text-[11px]">Juni 2026 – Agustus 2026</span>
-                                </div>
-                                <p class="italic text-slate-500 dark:text-slate-400 text-[11px] mb-1">Kulon Progo</p>
-                                <ul class="list-disc list-outside ml-4 text-[11px] text-slate-700 dark:text-slate-300 space-y-0.5 leading-snug">
-                                    <li>Mengidentifikasi dan memetakan wilayah kerja statistik (Wilkerstat) serta melakukan <em>geotagging</em> lokasi unit usaha lokal menggunakan aplikasi seluler lapangan BPS.</li>
-                                    <li>Melakukan wawancara tatap muka secara langsung dengan responden pelaku usaha untuk mencatat profil ekonomi dan karakteristik bisnis secara akurat.</li>
-                                    <li>Memverifikasi kelengkapan dan konsistensi data sebelum menyerahkan catatan hasil pencacahan yang bersih kepada Pemeriksa Lapangan (PML).</li>
-                                </ul>
-                            </div>
-
-                            <div>
-                                <div class="flex justify-between items-baseline flex-wrap gap-1">
-                                    <h3 class="font-bold theme-heading text-[12px]">Customer Service Representative – Vads Indonesia (Proyek Shopee)</h3>
-                                    <span class="font-bold text-brand-600 dark:text-brand-400 text-[11px]">September 2024 – Mei 2026</span>
-                                </div>
-                                <p class="italic text-slate-500 dark:text-slate-400 text-[11px] mb-1">Sleman</p>
-                                <ul class="list-disc list-outside ml-4 text-[11px] text-slate-700 dark:text-slate-300 space-y-0.5 leading-snug">
-                                    <li>Mengelola interaksi dengan pelanggan untuk menyelesaikan pertanyaan dan keluhan, mencapai tingkat kepuasan pelanggan sebesar 85%.</li>
-                                    <li>Menyampaikan rincian produk dan layanan secara tepat kepada lebih dari 200 pelanggan setiap minggunya dengan tetap menjaga standar profesional.</li>
-                                    <li>Mengurangi rata-rata waktu respon sebesar 20% dengan mengidentifikasi solusi yang cepat dan efektif.</li>
-                                </ul>
-                            </div>
-
-                            <div>
-                                <div class="flex justify-between items-baseline flex-wrap gap-1">
-                                    <h3 class="font-bold theme-heading text-[12px]">Magang Staf Administrasi – BPS Kabupaten Kulon Progo</h3>
-                                    <span class="font-bold text-brand-600 dark:text-brand-400 text-[11px]">Oktober 2023 – Desember 2023</span>
-                                </div>
-                                <p class="italic text-slate-500 dark:text-slate-400 text-[11px] mb-1">Kulon Progo</p>
-                                <ul class="list-disc list-outside ml-4 text-[11px] text-slate-700 dark:text-slate-300 space-y-0.5 leading-snug">
-                                    <li>Mengelola dan memelihara arsip data statistik serta dokumentasi operasional bulanan internal dengan tingkat ketelitian tinggi.</li>
-                                    <li>Memasukkan dan memverifikasi catatan data statistik ke dalam basis data resmi untuk menjamin akurasi tingkat tinggi.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="mb-5">
-                        <h2 class="font-bold text-xs uppercase tracking-wider theme-heading border-b border-slate-300 dark:border-slate-700 pb-1 mb-3">PENDIDIKAN</h2>
-                        <div>
-                            <div class="flex justify-between items-baseline flex-wrap gap-1">
-                                <h3 class="font-bold theme-heading text-[12px]">Sarjana Matematika (S.Si.) – Universitas Negeri Yogyakarta</h3>
-                                <span class="font-bold text-brand-600 dark:text-brand-400 text-[11px]">September 2020 – Juli 2024</span>
-                            </div>
-                            <p class="italic text-slate-500 dark:text-slate-400 text-[11px] mb-1">Sleman | IPK: 3,27 / 4,00</p>
-                            <ul class="list-disc list-outside ml-4 text-[11px] text-slate-700 dark:text-slate-300 space-y-0.5 leading-snug">
-                                <li>Menganalisis data matematika dan statistik untuk penelitian akademik serta pengerjaan proyek tingkat lanjut.</li>
-                                <li>Mengolah dan memverifikasi data numerik menggunakan perangkat statistik termasuk SPSS, R, dan Python.</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="mb-5">
-                        <h2 class="font-bold text-xs uppercase tracking-wider theme-heading border-b border-slate-300 dark:border-slate-700 pb-1 mb-3">PENGALAMAN ORGANISASI</h2>
-                        <div>
-                            <div class="flex justify-between items-baseline flex-wrap gap-1">
-                                <h3 class="font-bold theme-heading text-[12px]">Pemandu – Program Studi Laboratorium Matematika</h3>
-                                <span class="font-bold text-brand-600 dark:text-brand-400 text-[11px]">Juli 2022 – September 2022</span>
-                            </div>
-                            <p class="italic text-slate-500 dark:text-slate-400 text-[11px] mb-1">Sleman</p>
-                            <ul class="list-disc list-outside ml-4 text-[11px] text-slate-700 dark:text-slate-300 space-y-0.5 leading-snug">
-                                <li>Membimbing dan memandu mahasiswa baru terkait jadwal orientasi akademik serta panduan laboratorium.</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="mb-6">
-                        <h2 class="font-bold text-xs uppercase tracking-wider theme-heading border-b border-slate-300 dark:border-slate-700 pb-1 mb-3">KETERAMPILAN & BAHASA</h2>
-                        <div class="space-y-1.5 text-[11px] text-slate-700 dark:text-slate-300">
-                            <div class="grid grid-cols-12 gap-2">
-                                <span class="col-span-4 sm:col-span-3 font-bold theme-heading">Keterampilan Teknis:</span>
-                                <span class="col-span-8 sm:col-span-9">Analisis Data, Entri Data Statistik, Pencacahan Lapangan, <em>Geotagging</em>, Verifikasi Data</span>
-                            </div>
-                            <div class="grid grid-cols-12 gap-2">
-                                <span class="col-span-4 sm:col-span-3 font-bold theme-heading">Perangkat Lunak & Alat:</span>
-                                <span class="col-span-8 sm:col-span-9">Python, Microsoft Excel, SPSS, MATLAB, Canva, Figma</span>
-                            </div>
-                            <div class="grid grid-cols-12 gap-2">
-                                <span class="col-span-4 sm:col-span-3 font-bold theme-heading">Soft Skills:</span>
-                                <span class="col-span-8 sm:col-span-9">Berpikir Kritis, Kerja Sama Tim, <em>Multitasking</em>, Layanan Pelanggan, Akuntabilitas, Komunikasi</span>
-                            </div>
-                            <div class="grid grid-cols-12 gap-2">
-                                <span class="col-span-4 sm:col-span-3 font-bold theme-heading">Bahasa:</span>
-                                <span class="col-span-8 sm:col-span-9">Bahasa Indonesia (Penutur Asli/Mahir), Bahasa Inggris (Lanjutan)</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="pt-3 border-t border-slate-200 dark:border-slate-800 flex justify-between items-center text-[10px] text-slate-500">
-                        <span>Aditya Rahman — Curriculum Vitae</span>
-                        <span>Halaman 1 dari 1</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <script>
-        if (typeof ChartDataLabels !== 'undefined') {
-            Chart.register(ChartDataLabels);
-        }
-
         const lanyardAssembly = document.getElementById('lanyardAssembly');
         const lanyardStrap = document.getElementById('lanyardStrap');
         const lanyardLowerAssembly = document.getElementById('lanyardLowerAssembly');
@@ -1397,11 +536,6 @@
             const clientX = e.clientX || (e.touches && e.touches[0].clientX);
             const clientY = e.clientY || (e.touches && e.touches[0].clientY);
             pointerDownPos = { x: clientX, y: clientY };
-
-            if (lanyardAssembly) {
-                lanyardAssembly.classList.remove('cursor-grab');
-                lanyardAssembly.classList.add('cursor-grabbing');
-            }
             if (!animating) {
                 animating = true;
                 requestAnimationFrame(animateLanyard);
@@ -1410,53 +544,27 @@
 
         function onPointerMove(e) {
             if (!isDragging) return;
-
             const clientX = e.clientX || (e.touches && e.touches[0].clientX);
             const clientY = e.clientY || (e.touches && e.touches[0].clientY);
-
             const dx = clientX - pointerDownPos.x;
             const dy = clientY - pointerDownPos.y;
-            if (Math.abs(dx) > 2 || Math.abs(dy) > 2) {
-                hasDragged = true;
-            }
+            if (Math.abs(dx) > 2 || Math.abs(dy) > 2) hasDragged = true;
 
             const anchor = getAnchorPoint();
             const relX = clientX - anchor.x;
             const relY = clientY - anchor.y;
 
-            const targetZ = -Math.atan2(relX, Math.max(relY, 15)) * (180 / Math.PI);
-            const targetY = -Math.min(Math.max((relX / 100) * 45, -60), 60);
-            const targetX = Math.min(Math.max((-relY / 120) * 35, -45), 30);
-
-            const distFromAnchor = Math.hypot(relX, relY);
-            const strapBaseHeight = window.innerWidth >= 1024 ? 224 : (window.innerWidth >= 640 ? 192 : 160);
-            const targetStretch = Math.max(0.95, distFromAnchor / (strapBaseHeight + 80));
-
-            angleZ += (targetZ - angleZ) * 0.28;
-            angleY += (targetY - angleY) * 0.28;
-            angleX += (targetX - angleX) * 0.28;
-            stretch += (targetStretch - stretch) * 0.28;
+            angleZ += (-Math.atan2(relX, Math.max(relY, 15)) * (180 / Math.PI) - angleZ) * 0.28;
+            angleY += (-Math.min(Math.max((relX / 100) * 45, -60), 60) - angleY) * 0.28;
+            stretch += (Math.max(0.95, Math.hypot(relX, relY) / 250) - stretch) * 0.28;
         }
 
         function onPointerUp() {
             if (!isDragging) return;
             isDragging = false;
-
-            if (lanyardAssembly) {
-                lanyardAssembly.classList.remove('cursor-grabbing');
-                lanyardAssembly.classList.add('cursor-grab');
-            }
-
             if (!hasDragged) {
-                velZ = (Math.random() > 0.5 ? 1 : -1) * (20 + Math.random() * 10);
-                velY = (Math.random() - 0.5) * 25;
-                velX = (Math.random() - 0.5) * 20;
+                velZ = 25;
                 stretchVel = 0.12;
-            } else {
-                velZ = angleZ * 0.35;
-                velY = angleY * 0.35;
-                velX = angleX * 0.35;
-                stretchVel = -(stretch - 1) * 0.45;
             }
         }
 
@@ -1464,602 +572,65 @@
             lanyardStage.addEventListener('mousedown', onPointerDown);
             window.addEventListener('mousemove', onPointerMove);
             window.addEventListener('mouseup', onPointerUp);
-
             lanyardStage.addEventListener('touchstart', onPointerDown, { passive: true });
             window.addEventListener('touchmove', onPointerMove, { passive: true });
             window.addEventListener('touchend', onPointerUp);
         }
 
         function resetLanyard() {
-            angleZ = 0;
-            angleY = 0;
-            angleX = 25;
-            stretch = 1.38;
-            velZ = 24;
-            velY = 18;
-            stretchVel = -0.15;
-            if (!animating) {
-                animating = true;
-                requestAnimationFrame(animateLanyard);
-            }
+            angleZ = 0; angleY = 0; angleX = 25; stretch = 1.38; velZ = 24;
+            if (!animating) { animating = true; requestAnimationFrame(animateLanyard); }
         }
 
         let animating = false;
-
         function animateLanyard() {
             if (!isDragging) {
-                const forceZ = -angleZ * stiffness;
-                const forceY = -angleY * stiffness;
-                const forceX = -angleX * stiffness;
-                const forceStretch = -(stretch - 1) * stretchStiffness;
-
-                velZ = (velZ + forceZ) * damping;
-                velY = (velY + forceY) * damping;
-                velX = (velX + forceX) * damping;
-                stretchVel = (stretchVel + forceStretch) * stretchDamping;
-
+                velZ = (velZ + (-angleZ * stiffness)) * damping;
                 angleZ += velZ;
-                angleY += velY;
-                angleX += velX;
-                stretch += stretchVel;
-
-                const cardTargetLag = -velZ * 0.65;
-                cardLagVelZ = (cardLagVelZ + (cardTargetLag - cardLagZ) * 0.14) * 0.84;
-                cardLagZ += cardLagVelZ;
-            } else {
-                velZ = 0; velY = 0; velX = 0; stretchVel = 0;
-                cardLagZ += (-angleZ * 0.25 - cardLagZ) * 0.22;
+                stretch = 1 + (stretch - 1) * 0.9;
             }
-
-            if (stretch < 0.92) stretch = 0.92;
-
             if (lanyardAssembly) {
-                lanyardAssembly.style.transform = `
-                    rotateZ(${angleZ.toFixed(2)}deg)
-                    rotateY(${angleY.toFixed(2)}deg)
-                    rotateX(${angleX.toFixed(2)}deg)
-                `;
+                lanyardAssembly.style.transform = `rotateZ(${angleZ}deg) rotateY(${angleY}deg)`;
             }
-
-            if (lanyardStrap) {
-                const scaleX = (1 / Math.sqrt(stretch)).toFixed(3);
-                const scaleY = stretch.toFixed(3);
-                lanyardStrap.style.transform = `scaleY(${scaleY}) scaleX(${scaleX})`;
-            }
-
-            if (lanyardLowerAssembly) {
-                const strapBaseHeight = window.innerWidth >= 1024 ? 224 : (window.innerWidth >= 640 ? 192 : 160);
-                const strapExtensionOffset = (stretch - 1) * strapBaseHeight;
-                lanyardLowerAssembly.style.transform = `translateY(${strapExtensionOffset.toFixed(2)}px)`;
-            }
-
-            if (lanyardCard) {
-                lanyardCard.style.transform = `rotateZ(${cardLagZ.toFixed(2)}deg)`;
-            }
-
-            if (cardGlare) {
-                const upwardTiltFactor = Math.max(0, (angleX + 15) / 45);
-                const sideTiltFactor = Math.abs(angleY) / 50;
-                const glareOpacity = Math.min(0.92, Math.max(0.1, upwardTiltFactor * 0.8 + sideTiltFactor * 0.3));
-
-                const glareAngle = 135 + angleZ + angleY * 0.4;
-                const sheenPos = Math.min(80, Math.max(10, 35 + angleX * 1.1));
-
-                cardGlare.style.opacity = glareOpacity;
-                cardGlare.style.background = `linear-gradient(${glareAngle}deg, 
-                    rgba(255, 255, 255, 0.75) 0%, 
-                    rgba(255, 255, 255, 0.45) ${sheenPos}%, 
-                    rgba(255, 255, 255, 0.08) ${sheenPos + 22}%, 
-                    rgba(0, 0, 0, 0) 100%)`;
-            }
-
-            const isMoving = Math.abs(angleZ) > 0.05 || Math.abs(angleY) > 0.05 || Math.abs(angleX) > 0.05 || Math.abs(velZ) > 0.05 || Math.abs(cardLagZ) > 0.05 || Math.abs(stretch - 1) > 0.005 || Math.abs(stretchVel) > 0.002;
-
-            if (isDragging || isMoving) {
+            if (Math.abs(angleZ) > 0.05 || isDragging) {
                 requestAnimationFrame(animateLanyard);
             } else {
-                angleZ = 0; angleY = 0; angleX = 0; stretch = 1; cardLagZ = 0;
+                angleZ = 0; stretch = 1;
                 if (lanyardAssembly) lanyardAssembly.style.transform = 'none';
-                if (lanyardStrap) lanyardStrap.style.transform = 'none';
-                if (lanyardLowerAssembly) lanyardLowerAssembly.style.transform = 'none';
-                if (lanyardCard) lanyardCard.style.transform = 'none';
-                if (cardGlare) cardGlare.style.opacity = '0.25';
                 animating = false;
             }
         }
 
         function togglePaletteMenu(e) {
             e.stopPropagation();
-            const dropdown = document.getElementById('paletteDropdown');
-            const dropdownMobile = document.getElementById('paletteDropdownMobile');
-            if (dropdown) dropdown.classList.toggle('hidden');
-            if (dropdownMobile) dropdownMobile.classList.toggle('hidden');
+            document.getElementById('paletteDropdown')?.classList.toggle('hidden');
         }
-
-        window.addEventListener('click', () => {
-            const dropdown = document.getElementById('paletteDropdown');
-            const dropdownMobile = document.getElementById('paletteDropdownMobile');
-            if (dropdown && !dropdown.classList.contains('hidden')) dropdown.classList.add('hidden');
-            if (dropdownMobile && !dropdownMobile.classList.contains('hidden')) dropdownMobile.classList.add('hidden');
-        });
-
-        function toggleDarkMode() {
-            document.documentElement.classList.toggle('dark');
-            if (currentTab === 'math') updateMathLab();
-            else if (currentTab === 'sensus') renderStaticSensusChart();
-            else if (currentTab === 'csat') renderStaticCsatChart();
-        }
-
-        document.querySelectorAll('.themeToggleBtn').forEach(btn => {
-            btn.addEventListener('click', toggleDarkMode);
-        });
 
         function setThemePalette(themeName) {
-            if (themeName === 'monochrome') {
-                document.documentElement.removeAttribute('data-theme');
-            } else {
-                document.documentElement.setAttribute('data-theme', themeName);
-            }
-            if (currentTab === 'math') updateMathLab();
-            else if (currentTab === 'sensus') renderStaticSensusChart();
-            else if (currentTab === 'csat') renderStaticCsatChart();
-        }
-
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-
-        if (mobileMenuBtn && mobileMenu) {
-            mobileMenuBtn.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-        }
-
-        document.querySelectorAll('#mobileMenu a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-
-        const phrases = [
-            "Sarjana Sains Matematika (S.Si.)",
-            "Data Analyst & Statistician",
-            "Creator of Project 'Lepii'",
-            "Field Enumerator SE2026 (BPS)",
-            "Customer Relations Specialist"
-        ];
-        let phraseIdx = 0, charIdx = 0, isDeleting = false;
-        const typingElement = document.getElementById('typing-effect');
-
-        function typeLoop() {
-            if (!typingElement) return;
-            const currentPhrase = phrases[phraseIdx];
-            
-            if (isDeleting) {
-                typingElement.textContent = currentPhrase.substring(0, charIdx - 1);
-                charIdx--;
-            } else {
-                typingElement.textContent = currentPhrase.substring(0, charIdx + 1);
-                charIdx++;
-            }
-
-            let typeSpeed = isDeleting ? 35 : 75;
-
-            if (!isDeleting && charIdx === currentPhrase.length) {
-                typeSpeed = 2200;
-                isDeleting = true;
-            } else if (isDeleting && charIdx === 0) {
-                isDeleting = false;
-                phraseIdx = (phraseIdx + 1) % phrases.length;
-                typeSpeed = 350;
-            }
-
-            setTimeout(typeLoop, typeSpeed);
-        }
-
-        function openLepiiModal() {
-            const modal = document.getElementById('lepiiModal');
-            const iframe = document.getElementById('lepiiIframe');
-            if (modal && iframe) {
-                iframe.src = "lepii.html";
-                modal.classList.remove('hidden');
-                document.body.style.overflow = 'hidden';
-            }
-        }
-
-        function closeLepiiModal() {
-            const modal = document.getElementById('lepiiModal');
-            const iframe = document.getElementById('lepiiIframe');
-            if (modal && iframe) {
-                modal.classList.add('hidden');
-                iframe.src = "";
-                document.body.style.overflow = '';
-            }
-        }
-
-        function openCertModal(imgSrc, title) {
-            const modal = document.getElementById('certModal');
-            const certImg = document.getElementById('certModalImg');
-            const certTitle = document.getElementById('certModalTitle');
-            const downloadBtn = document.getElementById('certModalDownloadBtn');
-            
-            if (modal && certImg && certTitle) {
-                certImg.src = imgSrc;
-                certTitle.textContent = title;
-                if (downloadBtn) downloadBtn.href = imgSrc;
-                modal.classList.remove('hidden');
-                document.body.style.overflow = 'hidden';
-            }
-        }
-
-        function closeCertModal() {
-            const modal = document.getElementById('certModal');
-            if (modal) {
-                modal.classList.add('hidden');
-                document.body.style.overflow = '';
-            }
-        }
-
-        let labChart = null;
-        let currentTab = 'math';
-
-        function switchLabTab(tabName) {
-            currentTab = tabName;
-            
-            const btnMath = document.getElementById('tabBtnMath');
-            const btnSensus = document.getElementById('tabBtnSensus');
-            const btnCsat = document.getElementById('tabBtnCsat');
-            const controlsPanel = document.getElementById('mathControlsPanel');
-            const chartContainer = document.getElementById('chartContainer');
-
-            [btnMath, btnSensus, btnCsat].forEach(btn => {
-                btn.className = "px-4 py-2 rounded-xl text-xs font-semibold transition glass-pill text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 interactive-card";
-            });
-
-            const activeClass = "px-4 py-2 rounded-xl text-xs font-semibold transition bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-md interactive-card";
-
-            if (tabName === 'math') {
-                btnMath.className = activeClass;
-                controlsPanel.style.display = "block";
-                chartContainer.className = "lg:col-span-7 glass-panel p-6 rounded-3xl interactive-card";
-                document.getElementById('labChartTitle').innerHTML = '<i class="fa-solid fa-chart-line text-brand-500"></i> Visualisasi Grafik Garis Model Math (x + y)';
-                document.getElementById('labDescText').textContent = "Geser slider X dan Y pada panel kiri untuk memperbarui grafik garis dan perhitungan matematika secara langsung.";
-                updateMathLab();
-            } else if (tabName === 'sensus') {
-                btnSensus.className = activeClass;
-                controlsPanel.style.display = "none";
-                chartContainer.className = "lg:col-span-12 glass-panel p-6 rounded-3xl interactive-card";
-                document.getElementById('labChartTitle').innerHTML = '<i class="fa-solid fa-chart-line text-brand-500"></i> Grafik Garis Sensus BPS SE2026';
-                document.getElementById('labDescText').textContent = "Metrik realisasi verifikasi data dan pemetaan Wilkerstat pada Sensus Ekonomi BPS-Statistics Indonesia.";
-                renderStaticSensusChart();
-            } else if (tabName === 'csat') {
-                btnCsat.className = activeClass;
-                controlsPanel.style.display = "none";
-                chartContainer.className = "lg:col-span-12 glass-panel p-6 rounded-3xl interactive-card";
-                document.getElementById('labChartTitle').innerHTML = '<i class="fa-solid fa-chart-line text-brand-500"></i> Grafik Garis Kinerja CSAT Vads Shopee';
-                document.getElementById('labDescText').textContent = "Metrik riil tingkat kepuasan pelanggan (CSAT 85%) dan efisiensi penanganan keluhan bulanan.";
-                renderStaticCsatChart();
-            }
-        }
-
-        function updateMathLab() {
-            if (currentTab !== 'math') return;
-
-            const x = parseInt(document.getElementById('sliderX').value) || 0;
-            const y = parseInt(document.getElementById('sliderY').value) || 0;
-
-            document.getElementById('valXDisplay').textContent = x;
-            document.getElementById('valYDisplay').textContent = y;
-
-            const sum = x + y;
-            const mul = x * y;
-            const euc = Math.sqrt(x * x + y * y).toFixed(2);
-
-            document.getElementById('resAdd').textContent = sum;
-            document.getElementById('resMul').textContent = mul;
-            document.getElementById('resEuc').textContent = euc;
-
-            renderDynamicLineChart(x, y, sum);
-        }
-
-        function getChartTextColor() {
-            return document.documentElement.classList.contains('dark') ? '#f8fafc' : '#0f172a';
-        }
-
-        function getCurrentBrandColor() {
-            const computedStyle = getComputedStyle(document.documentElement);
-            return computedStyle.getPropertyValue('--brand-500').trim() || '#64748b';
-        }
-
-        function renderDynamicLineChart(x, y, sum) {
-            const ctx = document.getElementById('mathLabChart').getContext('2d');
-            if (labChart) labChart.destroy();
-
-            const isDark = document.documentElement.classList.contains('dark');
-            const brandColor = getCurrentBrandColor();
-            const gradient = ctx.createLinearGradient(0, 0, 0, 260);
-            gradient.addColorStop(0, isDark ? 'rgba(100, 116, 139, 0.4)' : 'rgba(100, 116, 139, 0.25)');
-            gradient.addColorStop(1, 'rgba(100, 116, 139, 0.0)');
-
-            labChart = new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: ['Variabel X', 'Variabel Y', 'Penjumlahan (X + Y)'],
-                    datasets: [{
-                        label: 'Nilai',
-                        data: [x, y, sum],
-                        borderColor: brandColor,
-                        borderWidth: 3,
-                        backgroundColor: gradient,
-                        fill: true,
-                        tension: 0.35,
-                        pointRadius: 7,
-                        pointHoverRadius: 10,
-                        pointBackgroundColor: brandColor,
-                        pointBorderColor: '#ffffff',
-                        pointBorderWidth: 2
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    layout: { padding: { top: 25, right: 15, left: 15, bottom: 5 } },
-                    plugins: {
-                        legend: { display: false },
-                        datalabels: {
-                            anchor: 'end',
-                            align: 'top',
-                            offset: 6,
-                            color: getChartTextColor(),
-                            font: { weight: 'bold', size: 12, family: 'Inter' },
-                            formatter: function(value) { return value; }
-                        }
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            suggestedMax: Math.max(x, y, sum) + 15,
-                            grid: { color: isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)' },
-                            ticks: { color: isDark ? '#94a3b8' : '#64748b' }
-                        },
-                        x: {
-                            grid: { display: false },
-                            ticks: { color: isDark ? '#94a3b8' : '#64748b' }
-                        }
-                    }
-                }
-            });
-        }
-
-        function renderStaticSensusChart() {
-            const ctx = document.getElementById('mathLabChart').getContext('2d');
-            if (labChart) labChart.destroy();
-
-            const isDark = document.documentElement.classList.contains('dark');
-            const brandColor = getCurrentBrandColor();
-            const gradient = ctx.createLinearGradient(0, 0, 0, 260);
-            gradient.addColorStop(0, 'rgba(16, 185, 129, 0.35)');
-            gradient.addColorStop(1, 'rgba(16, 185, 129, 0.0)');
-
-            labChart = new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: ['Wilkerstat', 'Geotagging Usaha', 'Verifikasi PML', 'Entri Bersih'],
-                    datasets: [{
-                        label: 'Realisasi (%)',
-                        data: [100, 98, 100, 100],
-                        borderColor: brandColor,
-                        borderWidth: 3,
-                        backgroundColor: gradient,
-                        fill: true,
-                        tension: 0.3,
-                        pointRadius: 7,
-                        pointHoverRadius: 10,
-                        pointBackgroundColor: brandColor,
-                        pointBorderColor: '#ffffff',
-                        pointBorderWidth: 2
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    layout: { padding: { top: 25, right: 15, left: 15, bottom: 5 } },
-                    plugins: {
-                        legend: { display: false },
-                        datalabels: {
-                            anchor: 'end',
-                            align: 'top',
-                            offset: 6,
-                            color: getChartTextColor(),
-                            font: { weight: 'bold', size: 12, family: 'Inter' },
-                            formatter: function(value) { return value + '%'; }
-                        }
-                    },
-                    scales: {
-                        y: {
-                            min: 80,
-                            max: 110,
-                            grid: { color: isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)' },
-                            ticks: { color: isDark ? '#94a3b8' : '#64748b' }
-                        },
-                        x: {
-                            grid: { display: false },
-                            ticks: { color: isDark ? '#94a3b8' : '#64748b' }
-                        }
-                    }
-                }
-            });
-        }
-
-        function renderStaticCsatChart() {
-            const ctx = document.getElementById('mathLabChart').getContext('2d');
-            if (labChart) labChart.destroy();
-
-            const isDark = document.documentElement.classList.contains('dark');
-            const brandColor = getCurrentBrandColor();
-            const gradient = ctx.createLinearGradient(0, 0, 0, 260);
-            gradient.addColorStop(0, 'rgba(59, 130, 246, 0.35)');
-            gradient.addColorStop(1, 'rgba(59, 130, 246, 0.0)');
-
-            labChart = new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: ['Minggu 1', 'Minggu 2', 'Minggu 3', 'Minggu 4'],
-                    datasets: [{
-                        label: 'Skor CSAT (%)',
-                        data: [82, 85, 87, 85],
-                        borderColor: brandColor,
-                        borderWidth: 3,
-                        backgroundColor: gradient,
-                        fill: true,
-                        tension: 0.35,
-                        pointRadius: 7,
-                        pointHoverRadius: 10,
-                        pointBackgroundColor: brandColor,
-                        pointBorderColor: '#ffffff',
-                        pointBorderWidth: 2
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    layout: { padding: { top: 25, right: 15, left: 15, bottom: 5 } },
-                    plugins: {
-                        legend: { display: false },
-                        datalabels: {
-                            anchor: 'end',
-                            align: 'top',
-                            offset: 6,
-                            color: getChartTextColor(),
-                            font: { weight: 'bold', size: 12, family: 'Inter' },
-                            formatter: function(value) { return value + '%'; }
-                        }
-                    },
-                    scales: {
-                        y: {
-                            min: 70,
-                            max: 95,
-                            grid: { color: isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)' },
-                            ticks: { color: isDark ? '#94a3b8' : '#64748b' }
-                        },
-                        x: {
-                            grid: { display: false },
-                            ticks: { color: isDark ? '#94a3b8' : '#64748b' }
-                        }
-                    }
-                }
-            });
-        }
-
-        function filterSkills(category) {
-            const cards = document.querySelectorAll('.skill-card');
-            const btns = document.querySelectorAll('.skill-btn');
-
-            btns.forEach(btn => {
-                btn.className = "skill-btn px-4 py-2 rounded-xl text-xs font-semibold transition glass-pill text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 interactive-card";
-            });
-
-            if (event && event.target) {
-                event.target.className = "skill-btn active px-4 py-2 rounded-xl text-xs font-semibold transition bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-md interactive-card";
-            }
-
-            cards.forEach(card => {
-                if (category === 'all' || card.classList.contains(category)) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
+            if (themeName === 'monochrome') document.documentElement.removeAttribute('data-theme');
+            else document.documentElement.setAttribute('data-theme', themeName);
         }
 
         function openCvModal() {
-            document.getElementById('cvModal').classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
+            document.getElementById('cvModal')?.classList.remove('hidden');
         }
-
         function closeCvModal() {
-            document.getElementById('cvModal').classList.add('hidden');
-            document.body.style.overflow = '';
-        }
-
-        function downloadCvPdf() {
-            const printContent = document.getElementById('printableCvArea').innerHTML;
-            const originalBody = document.body.innerHTML;
-
-            document.body.innerHTML = `
-                <div style="padding: 32px; font-family: -apple-system, sans-serif; color: #111; background: #fff;">
-                    ${printContent}
-                </div>
-            `;
-            window.print();
-            document.body.innerHTML = originalBody;
-            window.location.reload();
-        }
-
-        function printCvModal() {
-            downloadCvPdf();
-        }
-
-        window.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                closeCvModal();
-                closeLepiiModal();
-                closeCertModal();
-            }
-        });
-
-        document.getElementById('cvModal')?.addEventListener('click', (e) => {
-            if (e.target.id === 'cvModal') closeCvModal();
-        });
-
-        document.getElementById('lepiiModal')?.addEventListener('click', (e) => {
-            if (e.target.id === 'lepiiModal') closeLepiiModal();
-        });
-
-        document.getElementById('certModal')?.addEventListener('click', (e) => {
-            if (e.target.id === 'certModal') closeCertModal();
-        });
-
-        function initScrollReveal() {
-            const targets = document.querySelectorAll('h1, h2, h3, .glass-panel, .skill-card, section');
-            
-            targets.forEach((el) => {
-                if (!el.closest('#printableCvArea') && !el.closest('nav') && !el.classList.contains('scroll-reveal')) {
-                    el.classList.add('scroll-reveal');
-                }
-            });
-
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px 0px -50px 0px',
-                threshold: 0.12
-            };
-
-            const revealObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('revealed');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, observerOptions);
-
-            document.querySelectorAll('.scroll-reveal').forEach((el) => {
-                const parent = el.parentElement;
-                if (parent) {
-                    const siblings = Array.from(parent.children).filter(child => child.classList.contains('scroll-reveal'));
-                    const siblingIndex = siblings.indexOf(el);
-                    if (siblingIndex > 0) {
-                        el.style.transitionDelay = `${(siblingIndex % 6) * 130}ms`;
-                    }
-                }
-                revealObserver.observe(el);
-            });
+            document.getElementById('cvModal')?.classList.add('hidden');
         }
 
         window.onload = function() {
-            typeLoop();
-            updateMathLab();
-            initScrollReveal();
+            const phrases = ["Sarjana Sains Matematika (S.Si.)", "Data Analyst & Statistician"];
+            let idx = 0, charIdx = 0, isDel = false;
+            const el = document.getElementById('typing-effect');
+            function loop() {
+                if (!el) return;
+                const txt = phrases[idx];
+                el.textContent = isDel ? txt.substring(0, charIdx--) : txt.substring(0, charIdx++);
+                if (!isDel && charIdx === txt.length) { isDel = true; setTimeout(loop, 2000); return; }
+                if (isDel && charIdx === 0) { isDel = false; idx = (idx + 1) % phrases.length; }
+                setTimeout(loop, isDel ? 40 : 80);
+            }
+            loop();
         };
     </script>
 </body>
