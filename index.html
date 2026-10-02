@@ -250,9 +250,9 @@
             border-radius: 9999px;
         }
 
-        /* Smooth Hover Effects */
-        .interactive-tab, .glass-panel, .glass-pill, .skill-card, nav a, .experience-card, a, button, section {
-            transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease !important;
+        /* Interactive Card & Panel Transitions */
+        .interactive-tab, .glass-panel, .glass-pill, .skill-card, nav a, .experience-card, a, button, section, .interactive-card {
+            transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
         }
         
         .interactive-tab:hover, .glass-panel:hover, .glass-pill:hover, .skill-card:hover, .experience-card:hover, nav a:hover, button:hover:not(#lanyardStage), a:hover:not(.nav-brand) {
@@ -260,8 +260,24 @@
             box-shadow: 0 8px 20px var(--brand-ring);
         }
 
-        .interactive-tab:active, .glass-panel:active, .glass-pill:active, .skill-card:active, .experience-card:active, nav a:active, button:active, a:active {
-            transform: translateY(1px) scale(0.99);
+        /* CLICK POPUP ANIMATION KEYFRAMES */
+        @keyframes clickPopupBounce {
+            0% {
+                transform: scale(1);
+            }
+            35% {
+                transform: scale(1.06) translateY(-3px);
+            }
+            70% {
+                transform: scale(0.97);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .click-popup-anim {
+            animation: clickPopupBounce 0.38s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
         }
 
         /* Scroll Reveal Animation */
@@ -578,7 +594,7 @@
                 </div>
 
                 <div class="p-4 rounded-2xl glass-pill interactive-card">
-                    <div class="text-2xl sm:text-3xl font-extrabold theme-heading mb-0.5">200+</div>
+                    <div class="text-2xl sm:text-3xl font-extrabold theme-heading mb-0.5">500–700</div>
                     <div class="text-[11px] font-medium text-slate-500 dark:text-slate-400">Interaksi Pelanggan / Mgg</div>
                 </div>
 
@@ -645,9 +661,9 @@
                     <p class="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-4">Sleman, DIY</p>
 
                     <ul class="space-y-2 text-xs sm:text-sm text-slate-600 dark:text-slate-300 list-disc list-inside leading-relaxed">
-                        <li>Mengelola interaksi dengan pelanggan untuk menyelesaikan pertanyaan dan keluhan, mencapai tingkat kepuasan pelanggan sebesar <strong>85%</strong>.</li>
-                        <li>Menyampaikan rincian produk dan layanan secara tepat kepada lebih dari <strong>200 pelanggan setiap minggunya</strong> dengan tetap menjaga standar profesional.</li>
-                        <li>Mengurangi rata-rata waktu respon sebesar <strong>20%</strong> dengan mengidentifikasi solusi yang cepat dan efektif.</li>
+                        <li>Mengelola interaksi dengan pelanggan untuk menyelesaikan pertanyaan dan keluhan, mencapai tingkat kepuasan pelanggan sebesar 85%.</li>
+                        <li>Menyampaikan rincian produk dan layanan secara tepat kepada 500–700 pelanggan setiap minggunya dengan tetap menjaga standar profesional.</li>
+                        <li>Mengurangi rata-rata waktu respon sebesar 20% dengan mengidentifikasi solusi yang cepat dan efektif.</li>
                     </ul>
 
                     <div class="mt-4 flex flex-wrap gap-1.5">
@@ -1278,7 +1294,7 @@
                                 <p class="italic text-slate-500 dark:text-slate-400 text-[11px] mb-1">Sleman</p>
                                 <ul class="list-disc list-outside ml-4 text-[11px] text-slate-700 dark:text-slate-300 space-y-0.5 leading-snug">
                                     <li>Mengelola interaksi dengan pelanggan untuk menyelesaikan pertanyaan dan keluhan, mencapai tingkat kepuasan pelanggan sebesar 85%.</li>
-                                    <li>Menyampaikan rincian produk dan layanan secara tepat kepada lebih dari 200 pelanggan setiap minggunya dengan tetap menjaga standar profesional.</li>
+                                    <li>Menyampaikan rincian produk dan layanan secara tepat kepada 500–700 pelanggan setiap minggunya dengan tetap menjaga standar profesional.</li>
                                     <li>Mengurangi rata-rata waktu respon sebesar 20% dengan mengidentifikasi solusi yang cepat dan efektif.</li>
                                 </ul>
                             </div>
@@ -1301,7 +1317,7 @@
                         <h2 class="font-bold text-xs uppercase tracking-wider theme-heading border-b border-slate-300 dark:border-slate-700 pb-1 mb-3">PENDIDIKAN</h2>
                         <div>
                             <div class="flex justify-between items-baseline flex-wrap gap-1">
-                                <h3 class="font-bold theme-heading text-[12px]">Sarjana Matematika (S.Si.) – Universitas Negeri Yogyakarta</h3>
+                                <h3 class="font-bold theme-heading text-[12px]">Sarjana Matematika – Universitas Negeri Yogyakarta</h3>
                                 <span class="font-bold text-brand-600 dark:text-brand-400 text-[11px]">September 2020 – Juli 2024</span>
                             </div>
                             <p class="italic text-slate-500 dark:text-slate-400 text-[11px] mb-1">Sleman | IPK: 3,27 / 4,00</p>
@@ -1362,6 +1378,15 @@
         if (typeof ChartDataLabels !== 'undefined') {
             Chart.register(ChartDataLabels);
         }
+
+        document.addEventListener('click', function(e) {
+            const clickable = e.target.closest('button, a, .glass-panel, .glass-pill, .skill-card, .experience-card, .interactive-card, input[type="range"], .themeToggleBtn');
+            if (clickable) {
+                clickable.classList.remove('click-popup-anim');
+                void clickable.offsetWidth; // Force DOM Reflow to retrigger animation
+                clickable.classList.add('click-popup-anim');
+            }
+        });
 
         const lanyardAssembly = document.getElementById('lanyardAssembly');
         const lanyardStrap = document.getElementById('lanyardStrap');
@@ -1619,7 +1644,7 @@
         });
 
         const phrases = [
-            "Sarjana Sains Matematika",
+            "Sarjana Matematika UNY",
             "Data Analyst & Statistician",
             "Creator of Project 'Lepii'",
             "Field Enumerator SE2026 (BPS)",
