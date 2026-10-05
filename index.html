@@ -48,60 +48,68 @@
             --brand-600: #475569;
             --brand-700: #334155;
             --brand-950: #0f172a;
-            --brand-heading: #000000;
-            --bg-primary: #ffffff;
-            --bg-secondary: #f8fafc;
+            --brand-heading: #0f172a;
+            --bg-primary: #f8fafc;
+            --bg-secondary: #ffffff;
             --brand-ring: rgba(100, 116, 139, 0.3);
-            --grid-color: rgba(0, 0, 0, 0.08);
+            --grid-color: rgba(100, 116, 139, 0.1);
         }
 
         .dark {
-            --brand-50: #09090b;
-            --brand-100: #18181b;
-            --brand-300: #71717a;
-            --brand-400: #a1a1aa;
-            --brand-500: #d4d4d8;
-            --brand-600: #e4e4e7;
-            --brand-700: #f4f4f5;
+            --brand-50: #030712;
+            --brand-100: #0f172a;
+            --brand-300: #334155;
+            --brand-400: #64748b;
+            --brand-500: #94a3b8;
+            --brand-600: #cbd5e1;
+            --brand-700: #f1f5f9;
             --brand-950: #ffffff;
-            --brand-heading: #ffffff;
-            --bg-primary: #000000;
-            --bg-secondary: #0a0a0c;
-            --brand-ring: rgba(255, 255, 255, 0.3);
-            --grid-color: rgba(255, 255, 255, 0.08);
+            --brand-heading: #f8fafc;
+            --bg-primary: #030712;
+            --bg-secondary: #0b0f19;
+            --brand-ring: rgba(148, 163, 184, 0.25);
+            --grid-color: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Soft Monochrome Theme */
+        html[data-theme="monochrome"] {
+            --brand-50: #f9fafb; --brand-100: #f3f4f6; --brand-500: #4b5563; --brand-600: #374151; --brand-700: #1f2937; --brand-heading: #111827; --bg-primary: #f9fafb; --bg-secondary: #ffffff; --brand-ring: rgba(75, 85, 99, 0.25); --grid-color: rgba(0, 0, 0, 0.06);
+        }
+        .dark html[data-theme="monochrome"], html.dark[data-theme="monochrome"] {
+            --brand-heading: #f3f4f6; --bg-primary: #0a0a0a; --bg-secondary: #121212; --brand-ring: rgba(255, 255, 255, 0.2); --grid-color: rgba(255, 255, 255, 0.05);
         }
 
         /* Color Theme Presets */
         html[data-theme="indigo"] {
-            --brand-50: #eef2ff; --brand-100: #e0e7ff; --brand-500: #6366f1; --brand-600: #4f46e5; --brand-700: #4338ca; --brand-heading: #312e81; --bg-primary: #f4f6ff; --bg-secondary: #e0e7ff; --brand-ring: rgba(99, 102, 241, 0.4); --grid-color: rgba(99, 102, 241, 0.12);
+            --brand-50: #eef2ff; --brand-100: #e0e7ff; --brand-500: #6366f1; --brand-600: #4f46e5; --brand-700: #4338ca; --brand-heading: #312e81; --bg-primary: #eef2ff; --bg-secondary: #e0e7ff; --brand-ring: rgba(99, 102, 241, 0.4); --grid-color: rgba(99, 102, 241, 0.12);
         }
         .dark html[data-theme="indigo"], html.dark[data-theme="indigo"] {
             --brand-heading: #e0e7ff; --bg-primary: #090d16; --bg-secondary: #111827; --grid-color: rgba(99, 102, 241, 0.12);
         }
 
         html[data-theme="emerald"] {
-            --brand-50: #ecfdf5; --brand-100: #d1fae5; --brand-500: #10b981; --brand-600: #059669; --brand-700: #047857; --brand-heading: #064e3b; --bg-primary: #f0fdf4; --bg-secondary: #d1fae5; --brand-ring: rgba(16, 185, 129, 0.4); --grid-color: rgba(16, 185, 129, 0.12);
+            --brand-50: #ecfdf5; --brand-100: #d1fae5; --brand-500: #10b981; --brand-600: #059669; --brand-700: #047857; --brand-heading: #064e3b; --bg-primary: #ecfdf5; --bg-secondary: #d1fae5; --brand-ring: rgba(16, 185, 129, 0.4); --grid-color: rgba(16, 185, 129, 0.12);
         }
         .dark html[data-theme="emerald"], html.dark[data-theme="emerald"] {
             --brand-heading: #d1fae5; --bg-primary: #02120a; --bg-secondary: #061a10; --grid-color: rgba(16, 185, 129, 0.12);
         }
 
         html[data-theme="violet"] {
-            --brand-50: #f5f3ff; --brand-100: #ede9fe; --brand-500: #8b5cf6; --brand-600: #7c3aed; --brand-700: #6d28d9; --brand-heading: #4c1d95; --bg-primary: #f8f5ff; --bg-secondary: #ede9fe; --brand-ring: rgba(139, 92, 246, 0.4); --grid-color: rgba(139, 92, 246, 0.12);
+            --brand-50: #f5f3ff; --brand-100: #ede9fe; --brand-500: #8b5cf6; --brand-600: #7c3aed; --brand-700: #6d28d9; --brand-heading: #4c1d95; --bg-primary: #f5f3ff; --bg-secondary: #ede9fe; --brand-ring: rgba(139, 92, 246, 0.4); --grid-color: rgba(139, 92, 246, 0.12);
         }
         .dark html[data-theme="violet"], html.dark[data-theme="violet"] {
             --brand-heading: #ede9fe; --bg-primary: #0d0818; --bg-secondary: #171026; --grid-color: rgba(139, 92, 246, 0.12);
         }
 
         html[data-theme="maroon"] {
-            --brand-50: #fff1f2; --brand-100: #ffe4e6; --brand-500: #e11d48; --brand-600: #be123c; --brand-700: #881337; --brand-heading: #4c0519; --bg-primary: #fff5f6; --bg-secondary: #ffe4e6; --brand-ring: rgba(225, 29, 72, 0.4); --grid-color: rgba(225, 29, 72, 0.12);
+            --brand-50: #fff1f2; --brand-100: #ffe4e6; --brand-500: #9f1239; --brand-600: #881337; --brand-700: #4c0519; --brand-heading: #4c0519; --bg-primary: #fff1f2; --bg-secondary: #ffe4e6; --brand-ring: rgba(159, 18, 57, 0.4); --grid-color: rgba(159, 18, 57, 0.12);
         }
         .dark html[data-theme="maroon"], html.dark[data-theme="maroon"] {
-            --brand-heading: #ffe4e6; --bg-primary: #150206; --bg-secondary: #21040a; --grid-color: rgba(225, 29, 72, 0.12);
+            --brand-heading: #ffe4e6; --bg-primary: #150206; --bg-secondary: #21040a; --grid-color: rgba(159, 18, 57, 0.12);
         }
 
         html[data-theme="amber"] {
-            --brand-50: #fffbeb; --brand-100: #fef3c7; --brand-500: #f59e0b; --brand-600: #d97706; --brand-700: #b45309; --brand-heading: #78350f; --bg-primary: #fffcf0; --bg-secondary: #fef3c7; --brand-ring: rgba(245, 158, 11, 0.4); --grid-color: rgba(245, 158, 11, 0.12);
+            --brand-50: #fffbeb; --brand-100: #fef3c7; --brand-500: #f59e0b; --brand-600: #d97706; --brand-700: #b45309; --brand-heading: #78350f; --bg-primary: #fffbeb; --bg-secondary: #fef3c7; --brand-ring: rgba(245, 158, 11, 0.4); --grid-color: rgba(245, 158, 11, 0.12);
         }
         .dark html[data-theme="amber"], html.dark[data-theme="amber"] {
             --brand-heading: #fef3c7; --bg-primary: #120b02; --bg-secondary: #1f1303; --grid-color: rgba(245, 158, 11, 0.12);
@@ -120,32 +128,32 @@
         }
 
         .glass-panel {
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.82);
             backdrop-filter: blur(20px) saturate(180%);
             -webkit-backdrop-filter: blur(20px) saturate(180%);
-            border: 1px solid rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.6);
             transition: background-color 0.4s ease, border-color 0.4s ease;
         }
 
         .dark .glass-panel {
-            background: rgba(18, 18, 20, 0.85);
+            background: rgba(15, 23, 42, 0.85);
             backdrop-filter: blur(20px) saturate(180%);
             -webkit-backdrop-filter: blur(20px) saturate(180%);
-            border: 1px solid rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .glass-pill {
             background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(12px);
-            border: 1px solid rgba(0, 0, 0, 0.08);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
             transition: background-color 0.4s ease;
         }
 
         .dark .glass-pill {
-            background: rgba(24, 24, 27, 0.75);
+            background: rgba(30, 41, 59, 0.7);
             backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
         }
 
@@ -170,12 +178,11 @@
         }
 
         .lanyard-strap {
-            background: #09090b;
-            box-shadow: inset 0 0 4px rgba(255, 255, 255, 0.18), 0 8px 20px rgba(0, 0, 0, 0.4);
-            border-left: 1px solid rgba(255, 255, 255, 0.15);
-            border-right: 1px solid rgba(255, 255, 255, 0.15);
+            background: #0a0a0c;
+            box-shadow: inset 0 0 4px rgba(255, 255, 255, 0.15), 0 8px 20px rgba(0, 0, 0, 0.4);
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
             transform-origin: top center;
-            will-change: transform;
         }
 
         .lanyard-text {
@@ -206,96 +213,96 @@
         }
 
         h1,h2,h3,h4{font-family:'Space Grotesk',-apple-system,'Inter',sans-serif;letter-spacing:-.02em}
-        #progress{position:fixed;top:0;left:0;height:3px;width:100%;z-index:70;transform-origin:left;transform:scaleX(0);background:linear-gradient(90deg,var(--brand-heading),var(--brand-400))}
-        .blob{position:absolute;border-radius:50%;filter:blur(70px);pointer-events:none;opacity:.22;background:var(--brand-heading);animation:floaty 14s ease-in-out infinite alternate}
-        .dark .blob{opacity:.18}
+        #progress{position:fixed;top:0;left:0;height:3px;width:100%;z-index:70;transform-origin:left;transform:scaleX(0);background:linear-gradient(90deg,var(--brand-500),var(--brand-700))}
+        .blob{position:absolute;border-radius:50%;filter:blur(70px);pointer-events:none;opacity:.3;background:var(--brand-500);animation:floaty 14s ease-in-out infinite alternate}
+        .dark .blob{opacity:.22}
         @keyframes floaty{to{transform:translateY(-32px) scale(1.12)}}
-        .grad-text{color:transparent !important;-webkit-text-fill-color:transparent;background:linear-gradient(100deg,var(--brand-heading) 15%,var(--brand-500) 70%,var(--brand-300));-webkit-background-clip:text;background-clip:text}
-        h2.sm\:text-3xl::after{content:'';display:block;width:56px;height:4px;border-radius:4px;margin:12px auto 0;background:linear-gradient(90deg,var(--brand-heading),var(--brand-400))}
+        .grad-text{color:transparent !important;-webkit-text-fill-color:transparent;background:linear-gradient(100deg,var(--brand-heading) 15%,var(--brand-500) 60%,var(--brand-700));-webkit-background-clip:text;background-clip:text}
+        h2.sm\:text-3xl::after{content:'';display:block;width:56px;height:4px;border-radius:4px;margin:12px auto 0;background:linear-gradient(90deg,var(--brand-500),var(--brand-700))}
         nav.glass-panel:hover,section.glass-panel:hover{transform:none;box-shadow:none}
         .experience-card{overflow:visible !important}
         #experience .space-y-6{position:relative;padding-left:30px}
-        #experience .space-y-6::before{content:'';position:absolute;left:9px;top:12px;bottom:12px;width:2px;border-radius:2px;background:linear-gradient(var(--brand-heading),transparent)}
-        .experience-card::after{content:'';position:absolute;left:-29px;top:38px;width:14px;height:14px;border-radius:50%;background:var(--brand-heading);box-shadow:0 0 0 5px var(--brand-ring)}
+        #experience .space-y-6::before{content:'';position:absolute;left:9px;top:12px;bottom:12px;width:2px;border-radius:2px;background:linear-gradient(var(--brand-500),transparent)}
+        .experience-card::after{content:'';position:absolute;left:-29px;top:38px;width:14px;height:14px;border-radius:50%;background:var(--brand-500);box-shadow:0 0 0 5px var(--brand-ring)}
     </style>
 </head>
 
-<body class="transition-colors duration-300 min-h-screen selection:bg-black selection:text-white dark:selection:bg-white dark:selection:text-black">
+<body class="transition-colors duration-300 min-h-screen selection:bg-brand-500 selection:text-white">
 
     <div id="progress"></div>
 
-    <nav class="sticky top-0 z-50 glass-panel border-b transition-all duration-300">
+    <nav class="sticky top-0 z-50 glass-panel border-b border-slate-200/50 dark:border-slate-800/50 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 
                 <!-- Brand / Logo -->
                 <a href="#hero" class="flex items-center space-x-3 group">
-                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-zinc-700 to-black dark:from-zinc-200 dark:to-white flex items-center justify-center text-white dark:text-black font-bold text-sm shadow-md group-hover:scale-105 transition-transform overflow-hidden p-0.5">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-slate-700 to-slate-900 dark:from-slate-200 dark:to-white flex items-center justify-center text-white dark:text-slate-900 font-bold text-sm shadow-md group-hover:scale-105 transition-transform overflow-hidden p-0.5">
                         <img src="Foto Aditya Rahman.jpg" alt="Aditya Rahman" class="w-full h-full object-cover object-center rounded-[10px]" onerror="this.onerror=null; this.src='Wisuda_Aditya Rahman.JPG';">
                     </div>
                     <div>
                         <span class="font-bold text-base theme-heading tracking-tight block leading-none">Aditya Rahman</span>
-                        <span class="text-[11px] text-zinc-500 font-medium tracking-wide">S.Si Matematika</span>
+                        <span class="text-[11px] text-slate-500 dark:text-slate-400 font-medium tracking-wide">S.Si Matematika</span>
                     </div>
                 </a>
 
                 <!-- Desktop Nav Links -->
-                <div class="hidden md:flex items-center space-x-4 lg:space-x-5 text-xs font-semibold text-zinc-600 dark:text-zinc-300">
-                    <a href="#hero" class="hover:text-black dark:hover:text-white transition px-2.5 py-1.5 rounded-lg">Tentang</a>
-                    <a href="#experience" class="hover:text-black dark:hover:text-white transition px-2.5 py-1.5 rounded-lg">Pengalaman</a>
-                    <a href="#skills" class="hover:text-black dark:hover:text-white transition px-2.5 py-1.5 rounded-lg">Keahlian</a>
-                    <a href="#data-lab" class="hover:text-black dark:hover:text-white transition px-2.5 py-1.5 rounded-lg">Data Lab</a>
-                    <a href="#projects" class="hover:text-black dark:hover:text-white transition px-2.5 py-1.5 rounded-lg text-black dark:text-white font-bold">Hasil Karya</a>
-                    <a href="#certificates" class="hover:text-black dark:hover:text-white transition px-2.5 py-1.5 rounded-lg">Sertifikat</a>
-                    <a href="#contact" class="hover:text-black dark:hover:text-white transition px-2.5 py-1.5 rounded-lg">Kontak</a>
+                <div class="hidden md:flex items-center space-x-4 lg:space-x-5 text-xs font-semibold text-slate-600 dark:text-slate-300">
+                    <a href="#hero" class="hover:text-brand-600 dark:hover:text-white transition px-2.5 py-1.5 rounded-lg">Tentang</a>
+                    <a href="#experience" class="hover:text-brand-600 dark:hover:text-white transition px-2.5 py-1.5 rounded-lg">Pengalaman</a>
+                    <a href="#skills" class="hover:text-brand-600 dark:hover:text-white transition px-2.5 py-1.5 rounded-lg">Keahlian</a>
+                    <a href="#data-lab" class="hover:text-brand-600 dark:hover:text-white transition px-2.5 py-1.5 rounded-lg">Data Lab</a>
+                    <a href="#projects" class="hover:text-brand-600 dark:hover:text-white transition px-2.5 py-1.5 rounded-lg text-brand-600 dark:text-brand-400">Hasil Karya</a>
+                    <a href="#certificates" class="hover:text-brand-600 dark:hover:text-white transition px-2.5 py-1.5 rounded-lg">Sertifikat</a>
+                    <a href="#contact" class="hover:text-brand-600 dark:hover:text-white transition px-2.5 py-1.5 rounded-lg">Kontak</a>
                 </div>
 
                 <!-- Right Actions -->
                 <div class="hidden md:flex items-center space-x-2.5">
                     <div class="relative">
-                        <button onclick="togglePaletteMenu(event)" class="p-2 rounded-xl glass-pill text-zinc-700 dark:text-zinc-300 hover:text-black dark:hover:text-white transition text-xs flex items-center gap-1.5" title="Pilih Tema Warna">
-                            <i class="fa-solid fa-palette text-zinc-800 dark:text-zinc-200"></i>
+                        <button onclick="togglePaletteMenu(event)" class="p-2 rounded-xl glass-pill text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition text-xs flex items-center gap-1.5" title="Pilih Tema Warna">
+                            <i class="fa-solid fa-palette text-brand-600 dark:text-brand-500"></i>
                         </button>
-                        <div id="paletteDropdown" class="absolute right-0 mt-2 w-48 rounded-2xl glass-panel p-2 shadow-2xl hidden border space-y-1 text-xs z-50">
-                            <div class="text-[10px] font-bold text-zinc-400 uppercase tracking-wider px-2.5 py-1">Pilih Tema Warna</div>
-                            <button onclick="setThemePalette('monochrome')" class="w-full text-left px-2.5 py-1.5 rounded-lg hover:bg-zinc-200/60 dark:hover:bg-zinc-800/80 flex items-center gap-2">
-                                <span class="w-3 h-3 rounded-full bg-zinc-700 border border-zinc-400"></span> Monokrom (B&W)
+                        <div id="paletteDropdown" class="absolute right-0 mt-2 w-48 rounded-2xl glass-panel p-2 shadow-2xl hidden border border-slate-200 dark:border-slate-800 space-y-1 text-xs z-50">
+                            <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider px-2.5 py-1">Pilih Tema Warna</div>
+                            <button onclick="setThemePalette('monochrome')" class="w-full text-left px-2.5 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/80 flex items-center gap-2">
+                                <span class="w-3 h-3 rounded-full bg-slate-500"></span> Monokrom (B&W)
                             </button>
-                            <button onclick="setThemePalette('indigo')" class="w-full text-left px-2.5 py-1.5 rounded-lg hover:bg-zinc-200/60 dark:hover:bg-zinc-800/80 flex items-center gap-2">
+                            <button onclick="setThemePalette('indigo')" class="w-full text-left px-2.5 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/80 flex items-center gap-2">
                                 <span class="w-3 h-3 rounded-full bg-indigo-500"></span> Sapphire Indigo
                             </button>
-                            <button onclick="setThemePalette('emerald')" class="w-full text-left px-2.5 py-1.5 rounded-lg hover:bg-zinc-200/60 dark:hover:bg-zinc-800/80 flex items-center gap-2">
+                            <button onclick="setThemePalette('emerald')" class="w-full text-left px-2.5 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/80 flex items-center gap-2">
                                 <span class="w-3 h-3 rounded-full bg-emerald-500"></span> Emerald Mint
                             </button>
-                            <button onclick="setThemePalette('violet')" class="w-full text-left px-2.5 py-1.5 rounded-lg hover:bg-zinc-200/60 dark:hover:bg-zinc-800/80 flex items-center gap-2">
+                            <button onclick="setThemePalette('violet')" class="w-full text-left px-2.5 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/80 flex items-center gap-2">
                                 <span class="w-3 h-3 rounded-full bg-violet-500"></span> Amethyst Violet
                             </button>
-                            <button onclick="setThemePalette('maroon')" class="w-full text-left px-2.5 py-1.5 rounded-lg hover:bg-zinc-200/60 dark:hover:bg-zinc-800/80 flex items-center gap-2">
-                                <span class="w-3 h-3 rounded-full bg-rose-600"></span> Crimson Ruby
+                            <button onclick="setThemePalette('maroon')" class="w-full text-left px-2.5 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/80 flex items-center gap-2">
+                                <span class="w-3 h-3 rounded-full bg-rose-700"></span> Crimson Ruby
                             </button>
-                            <button onclick="setThemePalette('amber')" class="w-full text-left px-2.5 py-1.5 rounded-lg hover:bg-zinc-200/60 dark:hover:bg-zinc-800/80 flex items-center gap-2">
+                            <button onclick="setThemePalette('amber')" class="w-full text-left px-2.5 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/80 flex items-center gap-2">
                                 <span class="w-3 h-3 rounded-full bg-amber-500"></span> Amber Gold
                             </button>
                         </div>
                     </div>
 
-                    <button class="themeToggleBtn p-2 rounded-xl glass-pill text-zinc-700 dark:text-zinc-300 hover:text-black dark:hover:text-white transition" title="Toggle Dark/Light Mode">
+                    <button class="themeToggleBtn p-2 rounded-xl glass-pill text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition" title="Toggle Dark/Light Mode">
                         <i class="fa-solid fa-moon dark:hidden text-xs"></i>
                         <i class="fa-solid fa-sun hidden dark:block text-xs text-amber-400"></i>
                     </button>
 
-                    <button onclick="openCvModal()" class="px-3 py-1.5 text-xs font-semibold text-zinc-800 dark:text-zinc-200 glass-pill hover:bg-zinc-200/60 dark:hover:bg-zinc-800/80 rounded-xl transition flex items-center gap-1.5">
-                        <i class="fa-solid fa-eye text-zinc-700 dark:text-zinc-300"></i> Lihat CV
+                    <button onclick="openCvModal()" class="px-3 py-1.5 text-xs font-semibold text-slate-700 dark:text-slate-200 glass-pill hover:bg-slate-200/60 dark:hover:bg-slate-800/80 rounded-xl transition flex items-center gap-1.5">
+                        <i class="fa-solid fa-eye text-brand-600 dark:text-brand-500"></i> Lihat CV
                     </button>
                 </div>
 
                 <!-- Mobile Controls -->
                 <div class="md:hidden flex items-center space-x-2">
-                    <button class="themeToggleBtn p-2 rounded-xl glass-pill text-zinc-700 dark:text-zinc-300">
+                    <button class="themeToggleBtn p-2 rounded-xl glass-pill text-slate-600 dark:text-slate-300">
                         <i class="fa-solid fa-moon dark:hidden text-xs"></i>
                         <i class="fa-solid fa-sun hidden dark:block text-xs text-amber-400"></i>
                     </button>
-                    <button id="mobileMenuBtn" class="p-2 text-zinc-800 dark:text-zinc-200">
+                    <button id="mobileMenuBtn" class="p-2 text-slate-700 dark:text-slate-200">
                         <i class="fa-solid fa-bars text-lg"></i>
                     </button>
                 </div>
@@ -304,16 +311,16 @@
         </div>
 
         <!-- Mobile Menu Dropdown -->
-        <div id="mobileMenu" class="hidden md:hidden border-t px-4 pt-3 pb-5 space-y-2 bg-white/95 dark:bg-black/95 backdrop-blur-xl">
-            <a href="#hero" class="block px-3 py-2 rounded-xl text-sm font-medium text-zinc-700 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-900">Tentang</a>
-            <a href="#experience" class="block px-3 py-2 rounded-xl text-sm font-medium text-zinc-700 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-900">Pengalaman</a>
-            <a href="#skills" class="block px-3 py-2 rounded-xl text-sm font-medium text-zinc-700 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-900">Keahlian</a>
-            <a href="#data-lab" class="block px-3 py-2 rounded-xl text-sm font-medium text-zinc-700 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-900">Data Lab</a>
-            <a href="#projects" class="block px-3 py-2 rounded-xl text-sm font-medium text-zinc-700 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-900">Hasil Karya</a>
-            <a href="#certificates" class="block px-3 py-2 rounded-xl text-sm font-medium text-zinc-700 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-900">Sertifikat</a>
-            <a href="#contact" class="block px-3 py-2 rounded-xl text-sm font-medium text-zinc-700 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-900">Kontak</a>
+        <div id="mobileMenu" class="hidden md:hidden border-t border-slate-200/50 dark:border-slate-800/50 px-4 pt-3 pb-5 space-y-2 bg-slate-50/95 dark:bg-slate-950/95 backdrop-blur-xl">
+            <a href="#hero" class="block px-3 py-2 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-slate-800">Tentang</a>
+            <a href="#experience" class="block px-3 py-2 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-slate-800">Pengalaman</a>
+            <a href="#skills" class="block px-3 py-2 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-slate-800">Keahlian</a>
+            <a href="#data-lab" class="block px-3 py-2 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-slate-800">Data Lab</a>
+            <a href="#projects" class="block px-3 py-2 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-slate-800">Hasil Karya</a>
+            <a href="#certificates" class="block px-3 py-2 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-slate-800">Sertifikat</a>
+            <a href="#contact" class="block px-3 py-2 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-slate-800">Kontak</a>
             <div class="pt-2">
-                <button onclick="openCvModal()" class="w-full px-3 py-2 text-center text-xs font-semibold text-zinc-800 dark:text-zinc-200 glass-pill rounded-xl">
+                <button onclick="openCvModal()" class="w-full px-3 py-2 text-center text-xs font-semibold text-slate-800 dark:text-slate-200 glass-pill rounded-xl">
                     <i class="fa-solid fa-eye mr-1"></i> Lihat CV
                 </button>
             </div>
@@ -322,15 +329,15 @@
 
     <section id="hero" class="relative py-4 md:py-8 bg-grid-pattern overflow-hidden min-h-[74vh] flex items-center">
         <div class="blob" style="top:-6%;right:8%;width:420px;height:420px"></div>
-        <div class="blob" style="bottom:-12%;left:-4%;width:360px;height:360px;animation-delay:-5s"></div>
+        <div class="blob" style="bottom:-12%;left:-4%;width:360px;height:360px;background:var(--brand-700);animation-delay:-5s"></div>
 
         <canvas id="particles" class="absolute inset-0 w-full h-full pointer-events-none" aria-hidden="true"></canvas>
 
-        <!-- 3D Interactive Pullable Lanyard Card -->
+        <!-- 3D Interactive Lanyard (Mirrored Swing Physics + Zero Gap) -->
         <div class="absolute top-0 right-16 sm:right-32 md:right-44 lg:right-56 xl:right-64 z-20 flex flex-col items-center">
             <div id="lanyardStage" class="lanyard-stage relative w-[200px] sm:w-[230px] lg:w-[260px] h-[460px] sm:h-[520px] lg:h-[580px] flex flex-col items-center pt-0 cursor-grab active:cursor-grabbing">
                 <!-- Fixed Top Metallic Clip Anchor -->
-                <div class="absolute top-0 z-30 w-6 h-3.5 bg-zinc-800 rounded-b-md border border-zinc-600 shadow-md"></div>
+                <div class="absolute top-0 z-30 w-6 h-3.5 bg-slate-800 rounded-b-md border border-slate-600 shadow-md"></div>
 
                 <!-- Swiveling Lanyard Assembly -->
                 <div id="lanyardAssembly" class="lanyard-assembly-container absolute top-0 z-10 w-full flex flex-col items-center origin-top transform-gpu">
@@ -345,24 +352,24 @@
                     <!-- Lower Clip & ID Card Assembly (100% Attached) -->
                     <div id="lanyardLowerAssembly" class="flex flex-col items-center w-full origin-top transform-gpu">
                         <div class="relative -mt-1 flex flex-col items-center z-20">
-                            <div class="w-6 sm:w-7 h-3.5 border-2 lg:border-4 border-zinc-700 rounded-b-full bg-zinc-900 shadow-md"></div>
-                            <div class="w-2.5 h-2.5 bg-zinc-950 border border-zinc-700 rounded-full -mt-1"></div>
-                            <div class="w-2.5 h-4 bg-gradient-to-b from-zinc-700 via-zinc-800 to-zinc-950 rounded-b-md border border-zinc-600 shadow-sm"></div>
+                            <div class="w-6 sm:w-7 h-3.5 border-2 lg:border-4 border-slate-700 rounded-b-full bg-slate-900 shadow-md"></div>
+                            <div class="w-2.5 h-2.5 bg-slate-950 border border-slate-700 rounded-full -mt-1"></div>
+                            <div class="w-2.5 h-4 bg-gradient-to-b from-slate-700 via-slate-800 to-slate-950 rounded-b-md border border-slate-600 shadow-sm"></div>
                         </div>
 
                         <div id="lanyardCard" class="relative -mt-1 z-10 w-[170px] sm:w-[200px] lg:w-[230px] h-[230px] sm:h-[270px] lg:h-[310px] transform-gpu origin-top">
-                            <div class="relative w-full h-full bg-gradient-to-b from-zinc-950 via-zinc-900 to-black rounded-[22px] sm:rounded-[26px] p-2.5 sm:p-3 shadow-2xl border border-zinc-800/80 flex flex-col items-center justify-between overflow-hidden group">
-                                <div class="w-3.5 h-3.5 rounded-full bg-zinc-950 border border-zinc-700 shadow-inner flex items-center justify-center z-20 mb-0.5">
-                                    <div class="w-1.5 h-1.5 rounded-full bg-zinc-900"></div>
+                            <div class="relative w-full h-full bg-gradient-to-b from-slate-950 via-slate-900 to-black rounded-[22px] sm:rounded-[26px] p-2.5 sm:p-3 shadow-2xl border border-slate-800/80 flex flex-col items-center justify-between overflow-hidden group">
+                                <div class="w-3.5 h-3.5 rounded-full bg-slate-950 border border-slate-700 shadow-inner flex items-center justify-center z-20 mb-0.5">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-slate-900"></div>
                                 </div>
 
-                                <div class="relative w-full h-[195px] sm:h-[235px] lg:h-[270px] rounded-[16px] sm:rounded-[18px] border-2 border-white/90 p-0.5 flex flex-col justify-between overflow-hidden bg-zinc-950 shadow-inner">
-                                    <div class="relative w-full h-[145px] sm:h-[175px] lg:h-[205px] rounded-[12px] sm:rounded-[14px] overflow-hidden bg-zinc-900">
+                                <div class="relative w-full h-[195px] sm:h-[235px] lg:h-[270px] rounded-[16px] sm:rounded-[18px] border-2 border-white/90 p-0.5 flex flex-col justify-between overflow-hidden bg-slate-950 shadow-inner">
+                                    <div class="relative w-full h-[145px] sm:h-[175px] lg:h-[205px] rounded-[12px] sm:rounded-[14px] overflow-hidden bg-slate-900">
                                         <img src="Wisuda_Aditya Rahman.JPG" alt="Aditya Rahman Wisuda" class="w-full h-full object-cover object-center filter contrast-[1.03] brightness-[1.02]" onerror="this.onerror=null; this.src='Foto Aditya Rahman.jpg';">
                                     </div>
 
-                                    <div class="w-full py-1 bg-zinc-950 text-center flex flex-col items-center justify-center rounded-b-[12px] sm:rounded-b-[14px]">
-                                        <span class="text-[8px] sm:text-[9.5px] font-bold tracking-widest text-zinc-300 uppercase font-sans">
+                                    <div class="w-full py-1 bg-slate-950 text-center flex flex-col items-center justify-center rounded-b-[12px] sm:rounded-b-[14px]">
+                                        <span class="text-[8px] sm:text-[9.5px] font-bold tracking-widest text-brand-400 uppercase font-sans">
                                             S1 MATEMATIKA UNY
                                         </span>
                                         <h4 class="text-[10.5px] sm:text-[12px] font-black tracking-wider text-white uppercase font-sans leading-tight">
@@ -379,16 +386,16 @@
                 </div>
             </div>
 
-            <button onclick="resetLanyard()" class="mt-1 px-2.5 py-1 text-[9px] sm:text-[10px] font-semibold glass-pill text-zinc-600 dark:text-zinc-400 hover:text-black dark:hover:text-white transition rounded-full interactive-card" title="Klik atau tarik lanyard untuk mengayunkan">
-                <i class="fa-solid fa-hand-pointer text-zinc-700 dark:text-zinc-300 animate-bounce mr-1"></i> Tarik & Ayunkan Lanyard
+            <button onclick="resetLanyard()" class="mt-1 px-2.5 py-1 text-[9px] sm:text-[10px] font-semibold glass-pill text-slate-600 dark:text-slate-400 hover:text-brand-500 transition rounded-full interactive-card" title="Klik atau tarik lanyard untuk mengayunkan">
+                <i class="fa-solid fa-hand-pointer text-brand-500 animate-bounce mr-1"></i> Tarik & Ayunkan Lanyard
             </button>
         </div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full my-auto">
             <div class="relative min-h-[380px] flex flex-col md:flex-row items-center justify-between">
                 <div class="w-full md:w-8/12 lg:w-8/12 xl:w-8/12 text-left space-y-3 pr-0 md:pr-4 lg:pr-6 py-2 my-auto z-10">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold glass-pill text-zinc-700 dark:text-zinc-300 shadow-sm interactive-card">
-                        <span class="w-2 h-2 rounded-full bg-zinc-700 dark:bg-white animate-pulse"></span>
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold glass-pill text-slate-700 dark:text-slate-300 shadow-sm interactive-card">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
                         <span class="font-mono tracking-wider text-[11px] uppercase">HALO SEMUANYA, SAYA</span>
                     </div>
 
@@ -398,42 +405,42 @@
                         </h1>
                     </div>
 
-                    <p class="text-sm sm:text-base font-medium text-zinc-600 dark:text-zinc-300">
-                        <span id="typing-effect" class="border-r-2 border-zinc-500 pr-1">Lulusan S1 Matematika UNY</span>
+                    <p class="text-sm sm:text-base font-medium text-slate-600 dark:text-slate-300">
+                        <span id="typing-effect" class="border-r-2 border-brand-500 pr-1">Lulusan S1 Matematika UNY</span>
                     </p>
 
-                    <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed text-xs sm:text-sm max-w-2xl lg:max-w-3xl">
+                    <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-xs sm:text-sm max-w-2xl lg:max-w-3xl">
                         Lulusan Matematika dari Universitas Negeri Yogyakarta (IPK 3,27) dengan pola pikir analitis yang kuat serta keterampilan pengolahan data. Berpengalaman dalam administrasi statistik, hubungan pelanggan, dan pencacahan lapangan untuk sensus ekonomi nasional. Menguasai alat analisis termasuk Python, RStudio, dan Excel.
                     </p>
 
-                    <div class="flex flex-wrap items-center gap-2.5 text-xs text-zinc-600 dark:text-zinc-300 pt-1">
+                    <div class="flex flex-wrap items-center gap-2.5 text-xs text-slate-600 dark:text-slate-300 pt-1">
                         <div class="flex items-center gap-1.5 glass-pill px-3 py-1.5 rounded-xl interactive-card">
-                            <i class="fa-solid fa-location-dot text-zinc-700 dark:text-zinc-300"></i>
+                            <i class="fa-solid fa-location-dot text-brand-500"></i>
                             <span>Kulon Progo, Yogyakarta</span>
                         </div>
-                        <a href="mailto:aditrahman471@gmail.com" class="flex items-center gap-1.5 glass-pill px-3 py-1.5 rounded-xl hover:text-black dark:hover:text-white transition interactive-card">
-                            <i class="fa-solid fa-envelope text-zinc-700 dark:text-zinc-300"></i>
+                        <a href="mailto:aditrahman471@gmail.com" class="flex items-center gap-1.5 glass-pill px-3 py-1.5 rounded-xl hover:text-slate-900 dark:hover:text-white transition interactive-card">
+                            <i class="fa-solid fa-envelope text-brand-500"></i>
                             <span>aditrahman471@gmail.com</span>
                         </a>
-                        <a href="https://wa.me/6288225002019" target="_blank" class="flex items-center gap-1.5 glass-pill px-3 py-1.5 rounded-xl hover:text-black dark:hover:text-white transition interactive-card">
-                            <i class="fa-brands fa-whatsapp text-zinc-700 dark:text-zinc-300"></i>
+                        <a href="https://wa.me/6288225002019" target="_blank" class="flex items-center gap-1.5 glass-pill px-3 py-1.5 rounded-xl hover:text-emerald-500 transition interactive-card">
+                            <i class="fa-brands fa-whatsapp text-emerald-500 text-base"></i>
                             <span>+62 882-2500-2019</span>
                         </a>
                     </div>
 
                     <div class="flex flex-wrap items-center gap-3 pt-2">
-                        <a href="https://www.linkedin.com/in/aditya-rahman-23892b2a2?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 bg-black hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200 text-white font-semibold rounded-xl text-xs sm:text-sm shadow-md transition flex items-center gap-2 interactive-card">
-                            <i class="fa-brands fa-linkedin text-base"></i>
+                        <a href="https://www.linkedin.com/in/aditya-rahman-23892b2a2?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 bg-slate-900 hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100 text-white font-semibold rounded-xl text-xs sm:text-sm shadow-md transition flex items-center gap-2 interactive-card">
+                            <i class="fa-brands fa-linkedin text-base text-[#0a66c2]"></i>
                             <span>LinkedIn</span>
                             <i class="fa-solid fa-arrow-up-right-from-square text-[10px] opacity-70"></i>
                         </a>
 
-                        <a href="https://www.instagram.com/_aditrahman_?stkn=YnI1dGI4OHJiZWI3" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 glass-pill text-zinc-800 dark:text-white font-semibold rounded-xl text-xs sm:text-sm transition flex items-center gap-2 hover:bg-zinc-200/50 dark:hover:bg-zinc-800 interactive-card">
-                            <i class="fa-brands fa-instagram text-base"></i>
+                        <a href="https://www.instagram.com/_aditrahman_?stkn=YnI1dGI4OHJiZWI3" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 glass-pill text-slate-800 dark:text-white font-semibold rounded-xl text-xs sm:text-sm transition flex items-center gap-2 hover:bg-slate-200/50 dark:hover:bg-slate-800 interactive-card">
+                            <i class="fa-brands fa-instagram text-base text-[#e1306c]"></i>
                             <span>Instagram</span>
                         </a>
 
-                        <a href="#projects" class="px-5 py-2.5 bg-zinc-800 hover:bg-zinc-900 text-white font-semibold rounded-xl text-xs sm:text-sm shadow-md transition flex items-center gap-2 interactive-card">
+                        <a href="#projects" class="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-xl text-xs sm:text-sm shadow-md transition flex items-center gap-2 interactive-card">
                             <i class="fa-solid fa-laptop-code text-base"></i>
                             <span>Lihat Hasil Karya</span>
                         </a>
@@ -443,27 +450,27 @@
         </div>
     </section>
 
-    <section class="py-6 border-y glass-panel">
+    <section class="py-6 border-y border-slate-200/60 dark:border-slate-800/60 glass-panel">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
                 <div class="p-4 rounded-2xl glass-pill interactive-card">
-                    <div class="text-2xl sm:text-3xl font-extrabold theme-heading mb-0.5">3.27 <span class="text-xs font-normal text-zinc-500">/ 4.00</span></div>
-                    <div class="text-[11px] font-medium text-zinc-500 dark:text-zinc-400">IPK S1 Matematika UNY</div>
+                    <div class="text-2xl sm:text-3xl font-extrabold theme-heading mb-0.5">3.27 <span class="text-xs font-normal text-slate-500">/ 4.00</span></div>
+                    <div class="text-[11px] font-medium text-slate-500 dark:text-slate-400">IPK S1 Matematika UNY</div>
                 </div>
 
                 <div class="p-4 rounded-2xl glass-pill interactive-card">
                     <div class="text-2xl sm:text-3xl font-extrabold theme-heading mb-0.5">500–700</div>
-                    <div class="text-[11px] font-medium text-zinc-500 dark:text-zinc-400">Interaksi Pelanggan / Mgg</div>
+                    <div class="text-[11px] font-medium text-slate-500 dark:text-slate-400">Interaksi Pelanggan / Mgg</div>
                 </div>
 
                 <div class="p-4 rounded-2xl glass-pill interactive-card">
                     <div class="text-2xl sm:text-3xl font-extrabold theme-heading mb-0.5">85%</div>
-                    <div class="text-[11px] font-medium text-zinc-500 dark:text-zinc-400">Kepuasan Pelanggan (CSAT)</div>
+                    <div class="text-[11px] font-medium text-slate-500 dark:text-slate-400">Kepuasan Pelanggan (CSAT)</div>
                 </div>
 
                 <div class="p-4 rounded-2xl glass-pill interactive-card">
                     <div class="text-2xl sm:text-3xl font-extrabold theme-heading mb-0.5">20%</div>
-                    <div class="text-[11px] font-medium text-zinc-500 dark:text-zinc-400">Efisiensi Respon Layanan</div>
+                    <div class="text-[11px] font-medium text-slate-500 dark:text-slate-400">Efisiensi Respon Layanan</div>
                 </div>
             </div>
         </div>
@@ -472,7 +479,7 @@
     <section id="experience" class="py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-12">
-                <span class="px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-zinc-600 dark:text-zinc-300 glass-pill rounded-full interactive-card">
+                <span class="px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-300 glass-pill rounded-full interactive-card">
                     Rekam Jejak Karir
                 </span>
                 <h2 class="text-2xl sm:text-3xl font-bold theme-heading mt-3">
@@ -481,18 +488,18 @@
             </div>
 
             <div class="space-y-6 max-w-7xl mx-auto">
-                <div class="experience-card glass-panel p-6 sm:p-8 rounded-3xl relative overflow-hidden transition hover:border-zinc-500/50 interactive-card">
+                <div class="experience-card glass-panel p-6 sm:p-8 rounded-3xl relative overflow-hidden transition hover:border-brand-500/50 interactive-card">
                     <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
-                        <span class="px-2.5 py-1 rounded-full text-[11px] font-semibold bg-zinc-200 text-zinc-900 dark:bg-zinc-800 dark:text-zinc-200">
+                        <span class="px-2.5 py-1 rounded-full text-[11px] font-semibold bg-emerald-100 text-emerald-800 dark:bg-emerald-950/80 dark:text-emerald-300">
                             Juni 2026 - Agustus 2026
                         </span>
-                        <span class="text-xs text-zinc-500 dark:text-zinc-400 font-medium">BPS (Badan Pusat Statistik)</span>
+                        <span class="text-xs text-slate-500 dark:text-slate-400 font-medium">BPS (Badan Pusat Statistik)</span>
                     </div>
 
                     <h3 class="text-xl font-bold theme-heading">Petugas Pencatatan Lapangan (PPL SE2026)</h3>
-                    <p class="text-xs font-semibold text-zinc-500 dark:text-zinc-400 mb-4">Kulon Progo, DIY</p>
+                    <p class="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-4">Kulon Progo, DIY</p>
 
-                    <ul class="space-y-2 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300 list-disc list-inside leading-relaxed">
+                    <ul class="space-y-2 text-xs sm:text-sm text-slate-600 dark:text-slate-300 list-disc list-inside leading-relaxed">
                         <li>Mengidentifikasi dan memetakan wilayah kerja statistik (Wilkerstat) serta melakukan geotagging lokasi unit usaha lokal menggunakan aplikasi seluler lapangan BPS.</li>
                         <li>Melakukan wawancara tatap muka secara langsung dengan responden pelaku usaha untuk mencatat profil ekonomi dan karakteristik bisnis secara akurat.</li>
                         <li>Memverifikasi kelengkapan dan konsistensi data sebelum menyerahkan catatan hasil pencacahan yang bersih kepada Pemeriksa Lapangan (PML).</li>
@@ -506,18 +513,18 @@
                     </div>
                 </div>
 
-                <div class="experience-card glass-panel p-6 sm:p-8 rounded-3xl relative overflow-hidden transition hover:border-zinc-500/50 interactive-card">
+                <div class="experience-card glass-panel p-6 sm:p-8 rounded-3xl relative overflow-hidden transition hover:border-brand-500/50 interactive-card">
                     <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
-                        <span class="px-2.5 py-1 rounded-full text-[11px] font-semibold bg-zinc-200 text-zinc-900 dark:bg-zinc-800 dark:text-zinc-200">
+                        <span class="px-2.5 py-1 rounded-full text-[11px] font-semibold bg-blue-100 text-blue-800 dark:bg-blue-950/80 dark:text-blue-300">
                             Sept 2024 - Mei 2026
                         </span>
-                        <span class="text-xs text-zinc-500 dark:text-zinc-400 font-medium">Vads Indonesia (Proyek Shopee)</span>
+                        <span class="text-xs text-slate-500 dark:text-slate-400 font-medium">Vads Indonesia (Proyek Shopee)</span>
                     </div>
 
                     <h3 class="text-xl font-bold theme-heading">Customer Service Representative</h3>
-                    <p class="text-xs font-semibold text-zinc-500 dark:text-zinc-400 mb-4">Sleman, DIY</p>
+                    <p class="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-4">Sleman, DIY</p>
 
-                    <ul class="space-y-2 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300 list-disc list-inside leading-relaxed">
+                    <ul class="space-y-2 text-xs sm:text-sm text-slate-600 dark:text-slate-300 list-disc list-inside leading-relaxed">
                         <li>Mengelola interaksi dengan pelanggan untuk menyelesaikan pertanyaan dan keluhan, mencapai tingkat kepuasan pelanggan sebesar 85%.</li>
                         <li>Menyampaikan rincian produk dan layanan secara tepat kepada 500–700 pelanggan setiap minggunya dengan tetap menjaga standar profesional.</li>
                         <li>Mengurangi rata-rata waktu respon sebesar 20% dengan mengidentifikasi solusi yang cepat dan efektif.</li>
@@ -530,18 +537,18 @@
                     </div>
                 </div>
 
-                <div class="experience-card glass-panel p-6 sm:p-8 rounded-3xl relative overflow-hidden transition hover:border-zinc-500/50 interactive-card">
+                <div class="experience-card glass-panel p-6 sm:p-8 rounded-3xl relative overflow-hidden transition hover:border-brand-500/50 interactive-card">
                     <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
-                        <span class="px-2.5 py-1 rounded-full text-[11px] font-semibold bg-zinc-200 text-zinc-900 dark:bg-zinc-800 dark:text-zinc-200">
+                        <span class="px-2.5 py-1 rounded-full text-[11px] font-semibold bg-purple-100 text-purple-800 dark:bg-purple-950/80 dark:text-purple-300">
                             Okt 2023 - Des 2023
                         </span>
-                        <span class="text-xs text-zinc-500 dark:text-zinc-400 font-medium">BPS Kabupaten Kulon Progo</span>
+                        <span class="text-xs text-slate-500 dark:text-slate-400 font-medium">BPS Kabupaten Kulon Progo</span>
                     </div>
 
                     <h3 class="text-xl font-bold theme-heading">Magang Staf Administrasi</h3>
-                    <p class="text-xs font-semibold text-zinc-500 dark:text-zinc-400 mb-4">Kulon Progo, DIY</p>
+                    <p class="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-4">Kulon Progo, DIY</p>
 
-                    <ul class="space-y-2 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300 list-disc list-inside leading-relaxed">
+                    <ul class="space-y-2 text-xs sm:text-sm text-slate-600 dark:text-slate-300 list-disc list-inside leading-relaxed">
                         <li>Mengelola dan memelihara arsip data statistik serta dokumentasi operasional bulanan internal dengan tingkat ketelitian tinggi.</li>
                         <li>Memasukkan dan memverifikasi catatan data statistik ke dalam basis data resmi untuk menjamin akurasi tingkat tinggi.</li>
                     </ul>
@@ -558,157 +565,89 @@
     <section id="skills" class="py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-10">
-                <span class="px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-zinc-600 dark:text-zinc-300 glass-pill rounded-full interactive-card">
+                <span class="px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-300 glass-pill rounded-full interactive-card">
                     Matriks Kompetensi
                 </span>
                 <h2 class="text-2xl sm:text-3xl font-bold theme-heading mt-3">
                     Keahlian & Perangkat Lunak
                 </h2>
 
-                <!-- Exactly 5 Filter Categories -->
                 <div class="flex flex-wrap justify-center gap-2 mt-6">
-                    <button onclick="filterSkills('all', this)" class="skill-btn active px-4 py-2 rounded-xl text-xs font-semibold transition bg-black text-white dark:bg-white dark:text-black shadow-md interactive-card">Semua</button>
-                    <button onclick="filterSkills('hard', this)" class="skill-btn px-4 py-2 rounded-xl text-xs font-semibold transition glass-pill text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-800 interactive-card">Hard Skills</button>
-                    <button onclick="filterSkills('soft', this)" class="skill-btn px-4 py-2 rounded-xl text-xs font-semibold transition glass-pill text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-800 interactive-card">Soft Skills</button>
-                    <button onclick="filterSkills('tools', this)" class="skill-btn px-4 py-2 rounded-xl text-xs font-semibold transition glass-pill text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-800 interactive-card">Software & Tools</button>
-                    <button onclick="filterSkills('lang', this)" class="skill-btn px-4 py-2 rounded-xl text-xs font-semibold transition glass-pill text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-800 interactive-card">Bahasa</button>
+                    <button onclick="filterSkills('all', this)" class="skill-btn active px-4 py-2 rounded-xl text-xs font-semibold transition bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-md interactive-card">Semua</button>
+                    <button onclick="filterSkills('hard', this)" class="skill-btn px-4 py-2 rounded-xl text-xs font-semibold transition glass-pill text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 interactive-card">Hard Skills</button>
+                    <button onclick="filterSkills('tools', this)" class="skill-btn px-4 py-2 rounded-xl text-xs font-semibold transition glass-pill text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 interactive-card">Software & Tools</button>
+                    <button onclick="filterSkills('soft', this)" class="skill-btn px-4 py-2 rounded-xl text-xs font-semibold transition glass-pill text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 interactive-card">Soft Skills</button>
+                    <button onclick="filterSkills('lang', this)" class="skill-btn px-4 py-2 rounded-xl text-xs font-semibold transition glass-pill text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 interactive-card">Bahasa</button>
                 </div>
             </div>
 
             <div id="skillsContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-7xl mx-auto">
                 
-                <!-- Hard Skill 1 -->
                 <div class="skill-card hard glass-panel p-6 rounded-3xl interactive-card">
-                    <div class="flex justify-between items-start mb-3">
-                        <div class="w-10 h-10 rounded-2xl bg-zinc-200 dark:bg-zinc-800 text-zinc-900 dark:text-white flex items-center justify-center text-lg">
-                            <i class="fa-solid fa-chart-pie"></i>
-                        </div>
-                        <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-zinc-200 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">Hard Skill</span>
+                    <div class="w-9 h-9 rounded-2xl bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-white flex items-center justify-center text-base mb-3">
+                        <i class="fa-solid fa-chart-pie text-brand-500"></i>
                     </div>
-                    <h3 class="font-bold theme-heading text-sm mb-1">Data Analytics & Math Modeling</h3>
-                    <p class="text-xs text-zinc-500 dark:text-zinc-400 mb-3">Pengolahan data numerik, pengujian hipotesis statistik, komputasi matriks, dan analisis inferensial.</p>
-                    <div class="w-full bg-zinc-200 dark:bg-zinc-800 h-1.5 rounded-full overflow-hidden mb-2">
-                        <div class="bg-black dark:bg-white h-full w-[92%]"></div>
+                    <h3 class="font-bold theme-heading text-sm mb-1">Data Analysis & Verification</h3>
+                    <p class="text-xs text-slate-500 mb-3">Pengolahan data numerik, pengujian hipotesis, dan pembersihan basis data.</p>
+                    <div class="w-full bg-slate-200 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
+                        <div class="bg-brand-500 h-full w-[90%]"></div>
                     </div>
                 </div>
 
-                <!-- Hard Skill 2 -->
                 <div class="skill-card hard glass-panel p-6 rounded-3xl interactive-card">
-                    <div class="flex justify-between items-start mb-3">
-                        <div class="w-10 h-10 rounded-2xl bg-zinc-200 dark:bg-zinc-800 text-zinc-900 dark:text-white flex items-center justify-center text-lg">
-                            <i class="fa-solid fa-map-location-dot"></i>
-                        </div>
-                        <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-zinc-200 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">Hard Skill (BPS)</span>
+                    <div class="w-9 h-9 rounded-2xl bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-white flex items-center justify-center text-base mb-3">
+                        <i class="fa-solid fa-map-location-dot text-emerald-500"></i>
                     </div>
                     <h3 class="font-bold theme-heading text-sm mb-1">Field Enumeration & Geotagging</h3>
-                    <p class="text-xs text-zinc-500 dark:text-zinc-400 mb-3">Pencacahan lapangan sensus ekonomi, pemetaan wilayah Wilkerstat, serta geotagging unit usaha BPS.</p>
-                    <div class="w-full bg-zinc-200 dark:bg-zinc-800 h-1.5 rounded-full overflow-hidden mb-2">
-                        <div class="bg-black dark:bg-white h-full w-[88%]"></div>
+                    <p class="text-xs text-slate-500 mb-3">Pencacahan usaha lapangan, pemetaan wilayah Wilkerstat, dan geotagging BPS.</p>
+                    <div class="w-full bg-slate-200 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
+                        <div class="bg-brand-500 h-full w-[88%]"></div>
                     </div>
                 </div>
 
-                <!-- Software 1: Python -->
+                <!-- Python & MATLAB (Brand Colored) -->
                 <div class="skill-card tools glass-panel p-6 rounded-3xl interactive-card">
-                    <div class="flex justify-between items-start mb-3">
-                        <div class="w-10 h-10 rounded-2xl bg-zinc-200 dark:bg-zinc-800 text-zinc-900 dark:text-white flex items-center justify-center text-lg">
-                            <i class="fa-brands fa-python"></i>
-                        </div>
-                        <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-zinc-200 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">Software</span>
+                    <div class="w-9 h-9 rounded-2xl bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-white flex items-center justify-center text-base mb-3">
+                        <i class="fa-brands fa-python text-[#3776ab]"></i>
                     </div>
-                    <h3 class="font-bold theme-heading text-sm mb-1">Python</h3>
-                    <p class="text-xs text-zinc-500 dark:text-zinc-400 mb-3">Penulisan skrip manipulasi data, komputasi numerik, pembersihan dataset, dan pemrosesan otomatis.</p>
-                    <div class="w-full bg-zinc-200 dark:bg-zinc-800 h-1.5 rounded-full overflow-hidden mb-2">
-                        <div class="bg-black dark:bg-white h-full w-[85%]"></div>
+                    <h3 class="font-bold theme-heading text-sm mb-1">Python & MATLAB</h3>
+                    <p class="text-xs text-slate-500 mb-3">Skrip perhitungan komputasi, analisis matriks, dan skrip manipulasi data.</p>
+                    <div class="w-full bg-slate-200 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
+                        <div class="bg-brand-500 h-full w-[82%]"></div>
                     </div>
                 </div>
 
-                <!-- Software 2: MATLAB -->
+                <!-- RStudio, R & Microsoft Excel (Brand Colored) -->
                 <div class="skill-card tools glass-panel p-6 rounded-3xl interactive-card">
-                    <div class="flex justify-between items-start mb-3">
-                        <div class="w-10 h-10 rounded-2xl bg-zinc-200 dark:bg-zinc-800 text-zinc-900 dark:text-white flex items-center justify-center text-lg">
-                            <i class="fa-solid fa-code"></i>
-                        </div>
-                        <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-zinc-200 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">Software</span>
+                    <div class="w-9 h-9 rounded-2xl bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-white flex items-center justify-center text-base mb-3">
+                        <i class="fa-solid fa-file-excel text-[#107c41]"></i>
                     </div>
-                    <h3 class="font-bold theme-heading text-sm mb-1">MATLAB</h3>
-                    <p class="text-xs text-zinc-500 dark:text-zinc-400 mb-3">Model kalkulasi matriks kuantitatif, simulasi aljabar linier, dan algoritma matematika lanjut.</p>
-                    <div class="w-full bg-zinc-200 dark:bg-zinc-800 h-1.5 rounded-full overflow-hidden mb-2">
-                        <div class="bg-black dark:bg-white h-full w-[80%]"></div>
+                    <h3 class="font-bold theme-heading text-sm mb-1">RStudio, R & Microsoft Excel</h3>
+                    <p class="text-xs text-slate-500 mb-3">Pengolahan statistik inferensial, rumus kompleks, dan laporan numerik.</p>
+                    <div class="w-full bg-slate-200 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
+                        <div class="bg-brand-500 h-full w-[92%]"></div>
                     </div>
                 </div>
 
-                <!-- Software 3: RStudio -->
-                <div class="skill-card tools glass-panel p-6 rounded-3xl interactive-card">
-                    <div class="flex justify-between items-start mb-3">
-                        <div class="w-10 h-10 rounded-2xl bg-zinc-200 dark:bg-zinc-800 text-zinc-900 dark:text-white flex items-center justify-center text-lg">
-                            <i class="fa-solid fa-chart-line"></i>
-                        </div>
-                        <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-zinc-200 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">Software</span>
-                    </div>
-                    <h3 class="font-bold theme-heading text-sm mb-1">RStudio & R</h3>
-                    <p class="text-xs text-zinc-500 dark:text-zinc-400 mb-3">Pemodelan statistik regresi, analisis inferensial, serta visualisasi kurva data kuantitatif.</p>
-                    <div class="w-full bg-zinc-200 dark:bg-zinc-800 h-1.5 rounded-full overflow-hidden mb-2">
-                        <div class="bg-black dark:bg-white h-full w-[88%]"></div>
-                    </div>
-                </div>
-
-                <!-- Software 4: Microsoft Excel -->
-                <div class="skill-card tools glass-panel p-6 rounded-3xl interactive-card">
-                    <div class="flex justify-between items-start mb-3">
-                        <div class="w-10 h-10 rounded-2xl bg-zinc-200 dark:bg-zinc-800 text-zinc-900 dark:text-white flex items-center justify-center text-lg">
-                            <i class="fa-solid fa-file-excel"></i>
-                        </div>
-                        <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-zinc-200 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">Tools</span>
-                    </div>
-                    <h3 class="font-bold theme-heading text-sm mb-1">Microsoft Excel</h3>
-                    <p class="text-xs text-zinc-500 dark:text-zinc-400 mb-3">Formula fungsi kompleks, Pivot Table, VLOOKUP, dan penyusunan laporan statistik ringkas.</p>
-                    <div class="w-full bg-zinc-200 dark:bg-zinc-800 h-1.5 rounded-full overflow-hidden mb-2">
-                        <div class="bg-black dark:bg-white h-full w-[94%]"></div>
-                    </div>
-                </div>
-
-                <!-- Soft Skill 1 -->
                 <div class="skill-card soft glass-panel p-6 rounded-3xl interactive-card">
-                    <div class="flex justify-between items-start mb-3">
-                        <div class="w-10 h-10 rounded-2xl bg-zinc-200 dark:bg-zinc-800 text-zinc-900 dark:text-white flex items-center justify-center text-lg">
-                            <i class="fa-solid fa-headset"></i>
-                        </div>
-                        <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-zinc-200 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">Soft Skill</span>
+                    <div class="w-9 h-9 rounded-2xl bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-white flex items-center justify-center text-base mb-3">
+                        <i class="fa-solid fa-headset text-amber-500"></i>
                     </div>
                     <h3 class="font-bold theme-heading text-sm mb-1">Customer Relations & CSAT</h3>
-                    <p class="text-xs text-zinc-500 dark:text-zinc-400 mb-3">Penyelesaian keluhan pelanggan, optimalisasi CSAT (85%+), komunikasi kritis, dan empati.</p>
-                    <div class="w-full bg-zinc-200 dark:bg-zinc-800 h-1.5 rounded-full overflow-hidden mb-2">
-                        <div class="bg-black dark:bg-white h-full w-[90%]"></div>
+                    <p class="text-xs text-slate-500 mb-3">Penanganan keluhan pelanggan, solusi efisien, dan kepuasan publik.</p>
+                    <div class="w-full bg-slate-200 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
+                        <div class="bg-brand-500 h-full w-[88%]"></div>
                     </div>
                 </div>
 
-                <!-- Bahasa 1: Bahasa Indonesia -->
                 <div class="skill-card lang glass-panel p-6 rounded-3xl interactive-card">
-                    <div class="flex justify-between items-start mb-3">
-                        <div class="w-10 h-10 rounded-2xl bg-zinc-200 dark:bg-zinc-800 text-zinc-900 dark:text-white flex items-center justify-center text-lg">
-                            <i class="fa-solid fa-language"></i>
-                        </div>
-                        <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-zinc-200 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">Bahasa</span>
+                    <div class="w-9 h-9 rounded-2xl bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-white flex items-center justify-center text-base mb-3">
+                        <i class="fa-solid fa-earth-americas text-blue-500"></i>
                     </div>
-                    <h3 class="font-bold theme-heading text-sm mb-1">Bahasa Indonesia</h3>
-                    <p class="text-xs text-zinc-500 dark:text-zinc-400 mb-3">Penutur Asli (Native / Fluent Level) - Komunikasi Lisan & Tulisan Resmi Laporan.</p>
-                    <div class="w-full bg-zinc-200 dark:bg-zinc-800 h-1.5 rounded-full overflow-hidden mb-2">
-                        <div class="bg-black dark:bg-white h-full w-[100%]"></div>
-                    </div>
-                </div>
-
-                <!-- Bahasa 2: Bahasa Inggris -->
-                <div class="skill-card lang glass-panel p-6 rounded-3xl interactive-card">
-                    <div class="flex justify-between items-start mb-3">
-                        <div class="w-10 h-10 rounded-2xl bg-zinc-200 dark:bg-zinc-800 text-zinc-900 dark:text-white flex items-center justify-center text-lg">
-                            <i class="fa-solid fa-earth-americas"></i>
-                        </div>
-                        <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-zinc-200 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">Bahasa</span>
-                    </div>
-                    <h3 class="font-bold theme-heading text-sm mb-1">Bahasa Inggris</h3>
-                    <p class="text-xs text-zinc-500 dark:text-zinc-400 mb-3">Tingkat Lanjut (Advanced Level) - Pemahaman Literatur Teknis & Komunikasi Profesional.</p>
-                    <div class="w-full bg-zinc-200 dark:bg-zinc-800 h-1.5 rounded-full overflow-hidden mb-2">
-                        <div class="bg-black dark:bg-white h-full w-[82%]"></div>
+                    <h3 class="font-bold theme-heading text-sm mb-1">Bahasa Indonesia & English</h3>
+                    <p class="text-xs text-slate-500 mb-3">Indonesia (Native) / English (Advanced Level).</p>
+                    <div class="w-full bg-slate-200 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
+                        <div class="bg-brand-500 h-full w-[90%]"></div>
                     </div>
                 </div>
 
@@ -719,24 +658,24 @@
     <section id="data-lab" class="py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-10">
-                <span class="px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-zinc-600 dark:text-zinc-300 glass-pill rounded-full interactive-card">
+                <span class="px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-300 glass-pill rounded-full interactive-card">
                     Interactive Data Engine
                 </span>
                 <h2 class="text-2xl sm:text-3xl font-bold theme-heading mt-3">
                     Mathematics & Data Analytics Lab
                 </h2>
-                <p class="text-zinc-600 dark:text-zinc-400 mt-2 text-xs sm:text-sm">
+                <p class="text-slate-600 dark:text-slate-400 mt-2 text-xs sm:text-sm">
                     Eksplorasi modul matematika interaktif dan metrik statistik riil dalam format grafik garis.
                 </p>
 
                 <div class="flex justify-center gap-2 mt-6">
-                    <button onclick="switchLabTab('math')" id="tabBtnMath" class="px-4 py-2 rounded-xl text-xs font-semibold transition bg-black text-white dark:bg-white dark:text-black shadow-md interactive-card">
+                    <button onclick="switchLabTab('math')" id="tabBtnMath" class="px-4 py-2 rounded-xl text-xs font-semibold transition bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-md interactive-card">
                         Model Math (x + y)
                     </button>
-                    <button onclick="switchLabTab('sensus')" id="tabBtnSensus" class="px-4 py-2 rounded-xl text-xs font-semibold transition glass-pill text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-800 interactive-card">
+                    <button onclick="switchLabTab('sensus')" id="tabBtnSensus" class="px-4 py-2 rounded-xl text-xs font-semibold transition glass-pill text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 interactive-card">
                         Sensus BPS
                     </button>
-                    <button onclick="switchLabTab('csat')" id="tabBtnCsat" class="px-4 py-2 rounded-xl text-xs font-semibold transition glass-pill text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-800 interactive-card">
+                    <button onclick="switchLabTab('csat')" id="tabBtnCsat" class="px-4 py-2 rounded-xl text-xs font-semibold transition glass-pill text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 interactive-card">
                         Simulasi CSAT
                     </button>
                 </div>
@@ -747,40 +686,40 @@
                 <div id="mathControlsPanel" class="lg:col-span-5 glass-panel p-6 rounded-3xl space-y-4 interactive-card">
                     <div class="flex items-center justify-between">
                         <h3 class="text-sm font-bold theme-heading flex items-center gap-2">
-                            <i class="fa-solid fa-sliders"></i> Variable Controls
+                            <i class="fa-solid fa-sliders text-brand-500"></i> Variable Controls
                         </h3>
-                        <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-zinc-200 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">
+                        <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
                             Dynamic Sliders
                         </span>
                     </div>
 
                     <div>
                         <div class="flex justify-between text-xs font-medium mb-1.5">
-                            <span class="text-zinc-600 dark:text-zinc-300">Variabel X:</span>
+                            <span class="text-slate-600 dark:text-slate-300">Variabel X:</span>
                             <span id="valXDisplay" class="font-bold theme-heading">15</span>
                         </div>
-                        <input type="range" id="sliderX" min="1" max="100" value="15" oninput="updateMathLab()" class="w-full accent-black dark:accent-white cursor-pointer">
+                        <input type="range" id="sliderX" min="1" max="100" value="15" oninput="updateMathLab()" class="w-full accent-brand-500 cursor-pointer">
                     </div>
 
                     <div>
                         <div class="flex justify-between text-xs font-medium mb-1.5">
-                            <span class="text-zinc-600 dark:text-zinc-300">Variabel Y:</span>
+                            <span class="text-slate-600 dark:text-slate-300">Variabel Y:</span>
                             <span id="valYDisplay" class="font-bold theme-heading">25</span>
                         </div>
-                        <input type="range" id="sliderY" min="1" max="100" value="25" oninput="updateMathLab()" class="w-full accent-black dark:accent-white cursor-pointer">
+                        <input type="range" id="sliderY" min="1" max="100" value="25" oninput="updateMathLab()" class="w-full accent-brand-500 cursor-pointer">
                     </div>
 
-                    <div class="p-4 rounded-2xl bg-zinc-100/80 dark:bg-zinc-950/80 border border-zinc-200 dark:border-zinc-800 space-y-2 text-xs">
-                        <div class="flex justify-between border-b border-zinc-200 dark:border-zinc-800 pb-1.5">
-                            <span class="text-zinc-500">Penjumlahan Simple (x + y):</span>
+                    <div class="p-4 rounded-2xl bg-slate-100/80 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 space-y-2 text-xs">
+                        <div class="flex justify-between border-b border-slate-200 dark:border-slate-800 pb-1.5">
+                            <span class="text-slate-500">Penjumlahan Simple (x + y):</span>
                             <span id="resAdd" class="font-bold theme-heading">40</span>
                         </div>
-                        <div class="flex justify-between border-b border-zinc-200 dark:border-zinc-800 pb-1.5">
-                            <span class="text-zinc-500">Perkalian (x * y):</span>
+                        <div class="flex justify-between border-b border-slate-200 dark:border-slate-800 pb-1.5">
+                            <span class="text-slate-500">Perkalian (x * y):</span>
                             <span id="resMul" class="font-bold theme-heading">375</span>
                         </div>
                         <div class="flex justify-between pt-0.5">
-                            <span class="text-zinc-500">Jarak Euclidean (&radic;(x&sup2; + y&sup2;)):</span>
+                            <span class="text-slate-500">Jarak Euclidean (&radic;(x&sup2; + y&sup2;)):</span>
                             <span id="resEuc" class="font-bold theme-heading">29.15</span>
                         </div>
                     </div>
@@ -789,125 +728,125 @@
                 <div id="csatPanel" class="lg:col-span-5 glass-panel p-6 rounded-3xl space-y-3 interactive-card" style="display:none">
                     <div class="flex items-center justify-between">
                         <h3 class="text-sm font-bold theme-heading flex items-center gap-2">
-                            <i class="fa-solid fa-headset"></i> CSAT per Minggu (Customer Service)
+                            <i class="fa-solid fa-headset text-brand-500"></i> CSAT per Minggu (Customer Service)
                         </h3>
-                        <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-zinc-200 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">Simulasi</span>
+                        <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Simulasi</span>
                     </div>
-                    <p class="text-[11px] text-zinc-500">Isi jumlah pelanggan Good dan Bad tiap minggu (maksimal 200 masing-masing).</p>
+                    <p class="text-[11px] text-slate-500">Isi jumlah pelanggan Good dan Bad tiap minggu (maksimal 200 masing-masing).</p>
 
                     <!-- Minggu 1 -->
-                    <div class="p-3 rounded-2xl bg-zinc-100/80 dark:bg-zinc-950/80 border border-zinc-200 dark:border-zinc-800 space-y-2">
+                    <div class="p-3 rounded-2xl bg-slate-100/80 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 space-y-2">
                         <div class="flex justify-between text-xs font-semibold">
                             <span class="theme-heading">Minggu 1</span>
                             <span id="csatW1Pct" class="font-bold theme-heading">-</span>
                         </div>
                         <div class="grid grid-cols-2 gap-3">
                             <div>
-                                <div class="flex justify-between text-[11px] mb-1"><span class="text-zinc-700 dark:text-zinc-300 font-semibold">Good</span><span id="csatG1Val" class="font-bold theme-heading">170</span></div>
-                                <input type="range" id="csatG1" min="0" max="200" step="1" value="170" oninput="updateCsatSim()" class="w-full accent-black dark:accent-white cursor-pointer" aria-label="Jumlah pelanggan Good minggu 1">
+                                <div class="flex justify-between text-[11px] mb-1"><span class="text-emerald-600 font-semibold">Good</span><span id="csatG1Val" class="font-bold theme-heading">170</span></div>
+                                <input type="range" id="csatG1" min="0" max="200" step="1" value="170" oninput="updateCsatSim()" class="w-full accent-emerald-500 cursor-pointer" aria-label="Jumlah pelanggan Good minggu 1">
                             </div>
                             <div>
-                                <div class="flex justify-between text-[11px] mb-1"><span class="text-zinc-500 font-semibold">Bad</span><span id="csatB1Val" class="font-bold theme-heading">25</span></div>
-                                <input type="range" id="csatB1" min="0" max="200" step="1" value="25" oninput="updateCsatSim()" class="w-full accent-zinc-500 cursor-pointer" aria-label="Jumlah pelanggan Bad minggu 1">
+                                <div class="flex justify-between text-[11px] mb-1"><span class="text-rose-600 font-semibold">Bad</span><span id="csatB1Val" class="font-bold theme-heading">25</span></div>
+                                <input type="range" id="csatB1" min="0" max="200" step="1" value="25" oninput="updateCsatSim()" class="w-full accent-rose-500 cursor-pointer" aria-label="Jumlah pelanggan Bad minggu 1">
                             </div>
                         </div>
                     </div>
 
                     <!-- Minggu 2 -->
-                    <div class="p-3 rounded-2xl bg-zinc-100/80 dark:bg-zinc-950/80 border border-zinc-200 dark:border-zinc-800 space-y-2">
+                    <div class="p-3 rounded-2xl bg-slate-100/80 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 space-y-2">
                         <div class="flex justify-between text-xs font-semibold">
                             <span class="theme-heading">Minggu 2</span>
                             <span id="csatW2Pct" class="font-bold theme-heading">-</span>
                         </div>
                         <div class="grid grid-cols-2 gap-3">
                             <div>
-                                <div class="flex justify-between text-[11px] mb-1"><span class="text-zinc-700 dark:text-zinc-300 font-semibold">Good</span><span id="csatG2Val" class="font-bold theme-heading">175</span></div>
-                                <input type="range" id="csatG2" min="0" max="200" step="1" value="175" oninput="updateCsatSim()" class="w-full accent-black dark:accent-white cursor-pointer" aria-label="Jumlah pelanggan Good minggu 2">
+                                <div class="flex justify-between text-[11px] mb-1"><span class="text-emerald-600 font-semibold">Good</span><span id="csatG2Val" class="font-bold theme-heading">175</span></div>
+                                <input type="range" id="csatG2" min="0" max="200" step="1" value="175" oninput="updateCsatSim()" class="w-full accent-emerald-500 cursor-pointer" aria-label="Jumlah pelanggan Good minggu 2">
                             </div>
                             <div>
-                                <div class="flex justify-between text-[11px] mb-1"><span class="text-zinc-500 font-semibold">Bad</span><span id="csatB2Val" class="font-bold theme-heading">25</span></div>
-                                <input type="range" id="csatB2" min="0" max="200" step="1" value="25" oninput="updateCsatSim()" class="w-full accent-zinc-500 cursor-pointer" aria-label="Jumlah pelanggan Bad minggu 2">
+                                <div class="flex justify-between text-[11px] mb-1"><span class="text-rose-600 font-semibold">Bad</span><span id="csatB2Val" class="font-bold theme-heading">25</span></div>
+                                <input type="range" id="csatB2" min="0" max="200" step="1" value="25" oninput="updateCsatSim()" class="w-full accent-rose-500 cursor-pointer" aria-label="Jumlah pelanggan Bad minggu 2">
                             </div>
                         </div>
                     </div>
 
                     <!-- Minggu 3 -->
-                    <div class="p-3 rounded-2xl bg-zinc-100/80 dark:bg-zinc-950/80 border border-zinc-200 dark:border-zinc-800 space-y-2">
+                    <div class="p-3 rounded-2xl bg-slate-100/80 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 space-y-2">
                         <div class="flex justify-between text-xs font-semibold">
                             <span class="theme-heading">Minggu 3</span>
                             <span id="csatW3Pct" class="font-bold theme-heading">-</span>
                         </div>
                         <div class="grid grid-cols-2 gap-3">
                             <div>
-                                <div class="flex justify-between text-[11px] mb-1"><span class="text-zinc-700 dark:text-zinc-300 font-semibold">Good</span><span id="csatG3Val" class="font-bold theme-heading">180</span></div>
-                                <input type="range" id="csatG3" min="0" max="200" step="1" value="180" oninput="updateCsatSim()" class="w-full accent-black dark:accent-white cursor-pointer" aria-label="Jumlah pelanggan Good minggu 3">
+                                <div class="flex justify-between text-[11px] mb-1"><span class="text-emerald-600 font-semibold">Good</span><span id="csatG3Val" class="font-bold theme-heading">180</span></div>
+                                <input type="range" id="csatG3" min="0" max="200" step="1" value="180" oninput="updateCsatSim()" class="w-full accent-emerald-500 cursor-pointer" aria-label="Jumlah pelanggan Good minggu 3">
                             </div>
                             <div>
-                                <div class="flex justify-between text-[11px] mb-1"><span class="text-zinc-500 font-semibold">Bad</span><span id="csatB3Val" class="font-bold theme-heading">20</span></div>
-                                <input type="range" id="csatB3" min="0" max="200" step="1" value="20" oninput="updateCsatSim()" class="w-full accent-zinc-500 cursor-pointer" aria-label="Jumlah pelanggan Bad minggu 3">
+                                <div class="flex justify-between text-[11px] mb-1"><span class="text-rose-600 font-semibold">Bad</span><span id="csatB3Val" class="font-bold theme-heading">20</span></div>
+                                <input type="range" id="csatB3" min="0" max="200" step="1" value="20" oninput="updateCsatSim()" class="w-full accent-rose-500 cursor-pointer" aria-label="Jumlah pelanggan Bad minggu 3">
                             </div>
                         </div>
                     </div>
 
                     <!-- Minggu 4 -->
-                    <div class="p-3 rounded-2xl bg-zinc-100/80 dark:bg-zinc-950/80 border border-zinc-200 dark:border-zinc-800 space-y-2">
+                    <div class="p-3 rounded-2xl bg-slate-100/80 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 space-y-2">
                         <div class="flex justify-between text-xs font-semibold">
                             <span class="theme-heading">Minggu 4</span>
                             <span id="csatW4Pct" class="font-bold theme-heading">-</span>
                         </div>
                         <div class="grid grid-cols-2 gap-3">
                             <div>
-                                <div class="flex justify-between text-[11px] mb-1"><span class="text-zinc-700 dark:text-zinc-300 font-semibold">Good</span><span id="csatG4Val" class="font-bold theme-heading">170</span></div>
-                                <input type="range" id="csatG4" min="0" max="200" step="1" value="170" oninput="updateCsatSim()" class="w-full accent-black dark:accent-white cursor-pointer" aria-label="Jumlah pelanggan Good minggu 4">
+                                <div class="flex justify-between text-[11px] mb-1"><span class="text-emerald-600 font-semibold">Good</span><span id="csatG4Val" class="font-bold theme-heading">170</span></div>
+                                <input type="range" id="csatG4" min="0" max="200" step="1" value="170" oninput="updateCsatSim()" class="w-full accent-emerald-500 cursor-pointer" aria-label="Jumlah pelanggan Good minggu 4">
                             </div>
                             <div>
-                                <div class="flex justify-between text-[11px] mb-1"><span class="text-zinc-500 font-semibold">Bad</span><span id="csatB4Val" class="font-bold theme-heading">30</span></div>
-                                <input type="range" id="csatB4" min="0" max="200" step="1" value="30" oninput="updateCsatSim()" class="w-full accent-zinc-500 cursor-pointer" aria-label="Jumlah pelanggan Bad minggu 4">
+                                <div class="flex justify-between text-[11px] mb-1"><span class="text-rose-600 font-semibold">Bad</span><span id="csatB4Val" class="font-bold theme-heading">30</span></div>
+                                <input type="range" id="csatB4" min="0" max="200" step="1" value="30" oninput="updateCsatSim()" class="w-full accent-rose-500 cursor-pointer" aria-label="Jumlah pelanggan Bad minggu 4">
                             </div>
                         </div>
                     </div>
 
-                    <div class="p-4 rounded-2xl bg-zinc-100/80 dark:bg-zinc-950/80 border border-zinc-200 dark:border-zinc-800 space-y-2 text-xs">
-                        <div class="flex justify-between border-b border-zinc-200 dark:border-zinc-800 pb-1.5">
-                            <span class="text-zinc-500">Total interaksi</span>
+                    <div class="p-4 rounded-2xl bg-slate-100/80 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 space-y-2 text-xs">
+                        <div class="flex justify-between border-b border-slate-200 dark:border-slate-800 pb-1.5">
+                            <span class="text-slate-500">Total interaksi</span>
                             <span id="csatTotal" class="font-bold theme-heading">-</span>
                         </div>
-                        <div class="flex justify-between border-b border-zinc-200 dark:border-zinc-800 pb-1.5">
-                            <span class="text-zinc-500">Total Good</span>
+                        <div class="flex justify-between border-b border-slate-200 dark:border-slate-800 pb-1.5">
+                            <span class="text-slate-500">Total Good</span>
                             <span id="csatGood" class="font-bold theme-heading">-</span>
                         </div>
-                        <div class="flex justify-between border-b border-zinc-200 dark:border-zinc-800 pb-1.5">
-                            <span class="text-zinc-500">Total Bad</span>
+                        <div class="flex justify-between border-b border-slate-200 dark:border-slate-800 pb-1.5">
+                            <span class="text-slate-500">Total Bad</span>
                             <span id="csatBad" class="font-bold theme-heading">-</span>
                         </div>
-                        <div class="flex justify-between border-b border-zinc-200 dark:border-zinc-800 pb-1.5">
-                            <span class="text-zinc-500">CSAT rata-rata</span>
+                        <div class="flex justify-between border-b border-slate-200 dark:border-slate-800 pb-1.5">
+                            <span class="text-slate-500">CSAT rata-rata</span>
                             <span id="csatAvg" class="font-bold theme-heading">-</span>
                         </div>
                         <div class="flex justify-between">
-                            <span class="text-zinc-500">CSAT terendah</span>
+                            <span class="text-slate-500">CSAT terendah</span>
                             <span id="csatLow" class="font-bold theme-heading">-</span>
                         </div>
                     </div>
-                    <div class="flex items-center justify-between gap-2 text-[11px] text-zinc-500">
+                    <div class="flex items-center justify-between gap-2 text-[11px] text-slate-500">
                         <span>Hanya simulasi, bukan data riil.</span>
-                        <button type="button" onclick="resetCsatSim()" class="underline hover:text-black dark:hover:text-white">Reset ke nilai awal</button>
+                        <button type="button" onclick="resetCsatSim()" class="underline hover:text-brand-500">Reset ke nilai awal</button>
                     </div>
                 </div>
 
                 <div id="chartContainer" class="lg:col-span-7 glass-panel p-6 rounded-3xl interactive-card">
                     <div class="flex items-center justify-between mb-4">
                         <h3 id="labChartTitle" class="text-sm font-bold theme-heading flex items-center gap-2">
-                            <i class="fa-solid fa-chart-line"></i> Visualisasi Grafik Garis Model Math (x + y)
+                            <i class="fa-solid fa-chart-line text-brand-500"></i> Visualisasi Grafik Garis Model Math (x + y)
                         </h3>
-                        <span id="labBadge" class="text-[10px] font-semibold text-zinc-700 dark:text-zinc-300">Line Chart</span>
+                        <span id="labBadge" class="text-[10px] font-semibold text-brand-600 dark:text-brand-400">Line Chart</span>
                     </div>
 
                     <div class="relative h-64 sm:h-72 w-full">
                         <canvas id="mathLabChart"></canvas>
                     </div>
 
-                    <div id="labDescText" class="mt-4 p-3 rounded-xl bg-zinc-100/60 dark:bg-zinc-950/60 text-xs text-zinc-600 dark:text-zinc-400">
+                    <div id="labDescText" class="mt-4 p-3 rounded-xl bg-slate-100/60 dark:bg-slate-900/60 text-xs text-slate-600 dark:text-slate-400">
                         Geser slider X dan Y pada panel kiri untuk memperbarui grafik garis dan perhitungan matematika secara langsung.
                     </div>
                 </div>
@@ -915,94 +854,101 @@
         </div>
     </section>
 
-    <section id="projects" class="py-16 relative border-t">
+    <section id="projects" class="py-16 relative border-t border-slate-200/50 dark:border-slate-800/50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-12">
-                <span class="px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-zinc-600 dark:text-zinc-300 glass-pill rounded-full interactive-card">
+                <span class="px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-300 glass-pill rounded-full interactive-card">
                     Hasil Karya Utama
                 </span>
                 <h2 class="text-2xl sm:text-3xl font-bold theme-heading mt-3">
                     Proyek Pilihan & Aplikasi Web
                 </h2>
-                <p class="text-zinc-600 dark:text-zinc-400 mt-2 text-xs sm:text-sm">
+                <p class="text-slate-600 dark:text-slate-400 mt-2 text-xs sm:text-sm">
                     Hasil karya komputasi, analitis, dan aplikasi interaktif yang telah dibangun secara mandiri.
                 </p>
             </div>
 
-            <div class="glass-panel rounded-3xl p-6 sm:p-8 border shadow-xl transition-all hover:border-zinc-500/60 max-w-4xl mx-auto relative overflow-hidden group interactive-card">
+            <div class="glass-panel rounded-3xl p-6 sm:p-8 border border-slate-200/80 dark:border-slate-800 shadow-xl transition-all hover:border-brand-500/60 max-w-4xl mx-auto relative overflow-hidden group interactive-card">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
                     <div class="lg:col-span-7 space-y-4">
                         <div class="flex flex-wrap items-center gap-2">
-                            <span class="px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-black dark:bg-white text-white dark:text-black shadow-sm">
+                            <span class="px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-brand-500 text-white shadow-sm">
                                 Featured Project
                             </span>
-                            <span class="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-zinc-200 text-zinc-900 dark:bg-zinc-800 dark:text-zinc-200">
+                            <span class="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-emerald-100 text-emerald-800 dark:bg-emerald-950/80 dark:text-emerald-300">
                                 Active Web App
                             </span>
                         </div>
 
                         <h3 class="text-2xl sm:text-3xl font-extrabold theme-heading flex items-center gap-2.5">
-                            <i class="fa-solid fa-laptop-code"></i> Lepii
+                            <i class="fa-solid fa-laptop-code text-brand-500"></i> Lepii
                         </h3>
 
-                        <p class="text-xs sm:text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed">
+                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
                             Proyek web interaktif <strong>Lepii</strong> dirancang sebagai modul aplikasi mandiri yang mengintegrasikan pengolahan data, visualisasi antarmuka intuitif, serta elemen fungsional modern. Proyek ini memfasilitasi eksperimen data dan memberikan pengalaman pengguna yang responsif.
                         </p>
 
+                        <!-- Technology Pills with Brand Logos -->
                         <div class="flex flex-wrap gap-2 pt-1">
-                            <span class="text-[11px] font-semibold glass-pill px-3 py-1 rounded-xl text-zinc-700 dark:text-zinc-300 interactive-card">HTML5</span>
-                            <span class="text-[11px] font-semibold glass-pill px-3 py-1 rounded-xl text-zinc-700 dark:text-zinc-300 interactive-card">CSS3 & Tailwind</span>
-                            <span class="text-[11px] font-semibold glass-pill px-3 py-1 rounded-xl text-zinc-700 dark:text-zinc-300 interactive-card">JavaScript</span>
+                            <span class="text-[11px] font-semibold glass-pill px-3 py-1 rounded-xl text-slate-700 dark:text-slate-300 interactive-card flex items-center gap-1.5">
+                                <i class="fa-brands fa-html5 text-[#e34f26]"></i> HTML5
+                            </span>
+                            <span class="text-[11px] font-semibold glass-pill px-3 py-1 rounded-xl text-slate-700 dark:text-slate-300 interactive-card flex items-center gap-1.5">
+                                <i class="fa-brands fa-css3-alt text-[#1572b6]"></i> CSS3 & Tailwind
+                            </span>
+                            <span class="text-[11px] font-semibold glass-pill px-3 py-1 rounded-xl text-slate-700 dark:text-slate-300 interactive-card flex items-center gap-1.5">
+                                <i class="fa-brands fa-square-js text-[#f7df1e]"></i> JavaScript
+                            </span>
                         </div>
 
                         <div class="flex flex-wrap items-center gap-3 pt-3">
-                            <a href="lepii.html" target="_blank" class="px-5 py-2.5 bg-black hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200 text-white text-xs font-bold rounded-xl shadow-md transition flex items-center gap-2 interactive-card">
+                            <a href="lepii.html" target="_blank" class="px-5 py-2.5 bg-slate-900 hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100 text-white text-xs font-bold rounded-xl shadow-md transition flex items-center gap-2 interactive-card">
                                 <i class="fa-solid fa-arrow-up-right-from-square"></i>
                                 <span>Buka Proyek Lepii</span>
                             </a>
-                            <button onclick="openLepiiModal()" class="px-4 py-2.5 glass-pill text-zinc-800 dark:text-zinc-200 text-xs font-semibold rounded-xl hover:bg-zinc-200/70 dark:hover:bg-zinc-800 transition flex items-center gap-2 interactive-card">
-                                <i class="fa-solid fa-expand"></i>
+                            <button onclick="openLepiiModal()" class="px-4 py-2.5 glass-pill text-slate-800 dark:text-slate-200 text-xs font-semibold rounded-xl hover:bg-slate-200/70 dark:hover:bg-slate-800 transition flex items-center gap-2 interactive-card">
+                                <i class="fa-solid fa-expand text-brand-500"></i>
                                 <span>Pratinjau Langsung (Modal)</span>
                             </button>
                         </div>
                     </div>
 
                     <div class="lg:col-span-5">
-                        <div class="relative rounded-2xl overflow-hidden glass-panel border shadow-2xl interactive-card group/card">
-                            <div class="bg-zinc-200/90 dark:bg-zinc-900/90 px-3 py-2 border-b flex items-center justify-between">
+                        <div class="relative rounded-2xl overflow-hidden glass-panel border border-slate-200/80 dark:border-slate-800 shadow-2xl interactive-card group/card">
+                            <div class="bg-slate-200/90 dark:bg-slate-900/90 px-3 py-2 border-b border-slate-300/50 dark:border-slate-800 flex items-center justify-between">
                                 <div class="flex space-x-1.5">
                                     <span class="w-2.5 h-2.5 rounded-full bg-red-400 block"></span>
                                     <span class="w-2.5 h-2.5 rounded-full bg-yellow-400 block"></span>
                                     <span class="w-2.5 h-2.5 rounded-full bg-green-400 block"></span>
                                 </div>
-                                <span class="text-[10px] font-mono text-zinc-500">lepii.html</span>
+                                <span class="text-[10px] font-mono text-slate-500 dark:text-slate-400">lepii.html</span>
                             </div>
                             
-                            <div class="p-6 bg-gradient-to-br from-zinc-900 via-zinc-950 to-black text-white min-h-[210px] flex flex-col justify-between">
+                            <div class="p-6 bg-gradient-to-br from-slate-900 via-slate-950 to-brand-950 text-white min-h-[210px] flex flex-col justify-between">
                                 <div>
                                     <div class="flex items-center justify-between mb-1.5">
                                         <h4 class="text-xl font-black text-white">Project Lepii</h4>
-                                        <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-zinc-800 text-zinc-300 text-[10px] font-mono border border-zinc-700">
-                                            <span class="w-1.5 h-1.5 rounded-full bg-white animate-ping"></span> Live
+                                        <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 text-[10px] font-mono border border-emerald-500/30">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span> Live
                                         </span>
                                     </div>
-                                    <p class="text-xs text-zinc-300 leading-relaxed">
+                                    <p class="text-xs text-slate-300 leading-relaxed">
                                         Aplikasi interaktif yang siap dijalankan secara langsung dari portofolio ini.
                                     </p>
                                 </div>
 
-                                <div class="pt-4 mt-4 border-t border-zinc-800/80 flex items-center justify-between gap-2">
-                                    <div class="flex items-center gap-1.5 text-[11px] font-mono text-zinc-400">
-                                        <i class="fa-regular fa-file-code"></i>
+                                <div class="pt-4 mt-4 border-t border-slate-800/80 flex items-center justify-between gap-2">
+                                    <div class="flex items-center gap-1.5 text-[11px] font-mono text-slate-400">
+                                        <i class="regular fa-file-code text-brand-400"></i>
                                         <span>Modul Web</span>
                                     </div>
 
                                     <div class="flex items-center gap-2">
-                                        <button onclick="openLepiiModal()" class="px-2.5 py-1.5 bg-zinc-800 hover:bg-zinc-700 text-white text-[11px] font-semibold rounded-lg border border-zinc-700 transition flex items-center gap-1.5 interactive-card" title="Pratinjau dalam Modal">
-                                            <i class="fa-solid fa-eye"></i>
+                                        <button onclick="openLepiiModal()" class="px-2.5 py-1.5 bg-slate-800/90 hover:bg-slate-700 text-white text-[11px] font-semibold rounded-lg border border-slate-700 transition flex items-center gap-1.5 interactive-card" title="Pratinjau dalam Modal">
+                                            <i class="fa-solid fa-eye text-brand-400"></i>
                                             <span>Pratinjau</span>
                                         </button>
-                                        <a href="lepii.html" target="_blank" class="px-3 py-1.5 bg-white text-black hover:bg-zinc-200 text-[11px] font-bold rounded-lg transition flex items-center gap-1.5 shadow-md interactive-card" title="Buka Proyek di Tab Baru">
+                                        <a href="lepii.html" target="_blank" class="px-3 py-1.5 bg-brand-600 hover:bg-brand-500 text-white text-[11px] font-bold rounded-lg transition flex items-center gap-1.5 shadow-md interactive-card" title="Buka Proyek di Tab Baru">
                                             <span>Lihat Proyek</span>
                                             <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
                                         </a>
@@ -1016,10 +962,10 @@
         </div>
     </section>
 
-    <section id="certificates" class="py-16 border-t">
+    <section id="certificates" class="py-16 border-t border-slate-200/50 dark:border-slate-800/50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-12">
-                <span class="px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-zinc-600 dark:text-zinc-300 glass-pill rounded-full interactive-card">
+                <span class="px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-300 glass-pill rounded-full interactive-card">
                     Kredensial & Pengakuan
                 </span>
                 <h2 class="text-2xl sm:text-3xl font-bold theme-heading mt-3">
@@ -1028,26 +974,26 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                <div class="glass-panel p-6 rounded-3xl border shadow-xl flex flex-col justify-between group interactive-card">
+                <div class="glass-panel p-6 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-xl flex flex-col justify-between group interactive-card">
                     <div>
-                        <div class="relative w-full h-52 sm:h-60 rounded-2xl overflow-hidden bg-zinc-900 border mb-5">
+                        <div class="relative w-full h-52 sm:h-60 rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/60 dark:border-slate-800 mb-5">
                             <img src="LIKMII - ADITYA RAHMAN.jpg" alt="Sertifikat LIKM II" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Sertifikat+LIKMII';">
                         </div>
                         <h3 class="text-lg font-bold theme-heading mb-1.5">Sertifikat LIKM II - Aditya Rahman</h3>
                     </div>
-                    <button onclick="openCertModal('LIKMII - ADITYA RAHMAN.jpg', 'Sertifikat LIKM II - Aditya Rahman')" class="mt-4 px-3 py-2 bg-black hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200 text-white text-xs font-semibold rounded-xl transition flex items-center justify-center gap-1.5 interactive-card">
+                    <button onclick="openCertModal('LIKMII - ADITYA RAHMAN.jpg', 'Sertifikat LIKM II - Aditya Rahman')" class="mt-4 px-3 py-2 bg-slate-900 hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100 text-white text-xs font-semibold rounded-xl transition flex items-center justify-center gap-1.5 interactive-card">
                         <i class="fa-solid fa-expand text-[11px]"></i> Lihat Sertifikat
                     </button>
                 </div>
 
-                <div class="glass-panel p-6 rounded-3xl border shadow-xl flex flex-col justify-between group interactive-card">
+                <div class="glass-panel p-6 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-xl flex flex-col justify-between group interactive-card">
                     <div>
-                        <div class="relative w-full h-52 sm:h-60 rounded-2xl overflow-hidden bg-zinc-900 border mb-5">
+                        <div class="relative w-full h-52 sm:h-60 rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/60 dark:border-slate-800 mb-5">
                             <img src="SLM - ADITYA RAHMAN.jpg" alt="Sertifikat SLM" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Sertifikat+SLM';">
                         </div>
                         <h3 class="text-lg font-bold theme-heading mb-1.5">Sertifikat SLM - Aditya Rahman</h3>
                     </div>
-                    <button onclick="openCertModal('SLM - ADITYA RAHMAN.jpg', 'Sertifikat SLM - Aditya Rahman')" class="mt-4 px-3 py-2 bg-black hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200 text-white text-xs font-semibold rounded-xl transition flex items-center justify-center gap-1.5 interactive-card">
+                    <button onclick="openCertModal('SLM - ADITYA RAHMAN.jpg', 'Sertifikat SLM - Aditya Rahman')" class="mt-4 px-3 py-2 bg-slate-900 hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100 text-white text-xs font-semibold rounded-xl transition flex items-center justify-center gap-1.5 interactive-card">
                         <i class="fa-solid fa-expand text-[11px]"></i> Lihat Sertifikat
                     </button>
                 </div>
@@ -1055,9 +1001,9 @@
         </div>
     </section>
 
-    <section id="contact" class="py-16 border-t">
+    <section id="contact" class="py-16 border-t border-slate-200/50 dark:border-slate-800/50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <span class="px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-zinc-600 dark:text-zinc-300 glass-pill rounded-full interactive-card">
+            <span class="px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-300 glass-pill rounded-full interactive-card">
                 Hubungi Saya
             </span>
             <h2 class="text-2xl sm:text-3xl font-bold theme-heading mt-3 mb-4">
@@ -1065,24 +1011,24 @@
             </h2>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto mb-6">
-                <a href="mailto:aditrahman471@gmail.com" class="glass-panel p-6 rounded-3xl flex flex-col items-center justify-center hover:border-black dark:hover:border-white transition group interactive-card">
-                    <div class="w-12 h-12 rounded-2xl bg-zinc-200 dark:bg-zinc-800 text-zinc-900 dark:text-white flex items-center justify-center text-xl mb-3 group-hover:scale-110 transition-transform">
-                        <i class="fa-regular fa-envelope"></i>
+                <a href="mailto:aditrahman471@gmail.com" class="glass-panel p-6 rounded-3xl flex flex-col items-center justify-center hover:border-brand-500 transition group interactive-card">
+                    <div class="w-12 h-12 rounded-2xl bg-slate-200 dark:bg-slate-800 text-slate-900 dark:text-white flex items-center justify-center text-xl mb-3 group-hover:scale-110 transition-transform">
+                        <i class="fa-regular fa-envelope text-brand-500"></i>
                     </div>
                     <div class="text-xs font-bold theme-heading">Email Utama</div>
-                    <div class="text-xs text-zinc-500 dark:text-zinc-400 mt-1">aditrahman471@gmail.com</div>
-                    <span class="mt-3 text-[10px] font-semibold text-zinc-700 dark:text-zinc-300 flex items-center gap-1">
+                    <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">aditrahman471@gmail.com</div>
+                    <span class="mt-3 text-[10px] font-semibold text-slate-600 dark:text-slate-300 flex items-center gap-1">
                         <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i> Buka Aplikasi Email
                     </span>
                 </a>
 
-                <a href="https://wa.me/6288225002019" target="_blank" class="glass-panel p-6 rounded-3xl flex flex-col items-center justify-center hover:border-black dark:hover:border-white transition group interactive-card">
-                    <div class="w-12 h-12 rounded-2xl bg-zinc-200 dark:bg-zinc-800 text-zinc-900 dark:text-white flex items-center justify-center text-xl mb-3 group-hover:scale-110 transition-transform">
+                <a href="https://wa.me/6288225002019" target="_blank" class="glass-panel p-6 rounded-3xl flex flex-col items-center justify-center hover:border-emerald-500 transition group interactive-card">
+                    <div class="w-12 h-12 rounded-2xl bg-emerald-100 dark:bg-emerald-950/80 text-[#25d366] flex items-center justify-center text-xl mb-3 group-hover:scale-110 transition-transform">
                         <i class="fa-brands fa-whatsapp"></i>
                     </div>
                     <div class="text-xs font-bold theme-heading">Telepon / WhatsApp</div>
-                    <div class="text-xs text-zinc-500 dark:text-zinc-400 mt-1">+62 882-2500-2019</div>
-                    <span class="mt-3 text-[10px] font-semibold text-zinc-700 dark:text-zinc-300 flex items-center gap-1">
+                    <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">+62 882-2500-2019</div>
+                    <span class="mt-3 text-[10px] font-semibold text-emerald-600 dark:text-emerald-400 flex items-center gap-1">
                         <i class="fa-solid fa-comments text-[9px]"></i> Langsung Chat WhatsApp
                     </span>
                 </a>
@@ -1092,79 +1038,75 @@
                 <a href="https://www.linkedin.com/in/aditya-rahman-23892b2a2?utm_source=share_via&utm_content=profile&utm_medium=member_android" 
                    target="_blank" 
                    rel="noopener noreferrer" 
-                   class="w-full px-4 py-3 bg-black hover:bg-zinc-800 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-white font-semibold rounded-2xl text-xs transition flex items-center justify-center gap-2 shadow-md interactive-card">
-                    <i class="fa-brands fa-linkedin text-sm"></i> LinkedIn
+                   class="w-full px-4 py-3 bg-slate-900 hover:bg-slate-800 dark:bg-slate-800 dark:hover:bg-slate-700 text-white font-semibold rounded-2xl text-xs transition flex items-center justify-center gap-2 shadow-md interactive-card">
+                    <i class="fa-brands fa-linkedin text-sm text-[#0a66c2]"></i> LinkedIn
                 </a>
                 <a href="https://www.instagram.com/_aditrahman_?stkn=YnI1dGI4OHJiZWI3" 
                    target="_blank" 
                    rel="noopener noreferrer" 
-                   class="w-full px-4 py-3 glass-pill font-semibold text-zinc-800 dark:text-white rounded-2xl text-xs transition flex items-center justify-center gap-2 hover:bg-zinc-200/60 dark:hover:bg-zinc-800 interactive-card">
-                    <i class="fa-brands fa-instagram text-sm"></i> Instagram
+                   class="w-full px-4 py-3 glass-pill font-semibold text-slate-800 dark:text-white rounded-2xl text-xs transition flex items-center justify-center gap-2 hover:bg-slate-200/60 dark:hover:bg-slate-800 interactive-card">
+                    <i class="fa-brands fa-instagram text-sm text-[#e1306c]"></i> Instagram
                 </a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-8 border-t text-zinc-500 text-center text-xs">
+    <footer class="py-8 border-t border-slate-200/50 dark:border-slate-800/50 text-slate-500 text-center text-xs">
         <div class="max-w-7xl mx-auto px-4">
             <p>&copy; 2026 Aditya Rahman. All rights reserved.</p>
         </div>
     </footer>
 
     <!-- Modals -->
-    <div id="lepiiModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-3 sm:p-6">
-        <div class="glass-panel w-full max-w-5xl h-[88vh] rounded-3xl shadow-2xl flex flex-col overflow-hidden">
-            <div class="p-4 bg-zinc-100/90 dark:bg-zinc-900/90 flex justify-between items-center border-b">
+    <div id="lepiiModal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-3 sm:p-6">
+        <div class="glass-panel w-full max-w-5xl h-[88vh] rounded-3xl shadow-2xl border border-slate-200/80 dark:border-slate-800 flex flex-col overflow-hidden">
+            <div class="p-4 bg-slate-100/90 dark:bg-slate-900/90 flex justify-between items-center border-b border-slate-200 dark:border-slate-800">
                 <h3 class="font-bold theme-heading text-xs sm:text-sm">Pratinjau Hasil Karya: Lepii</h3>
-                <button onclick="closeLepiiModal()" class="p-1.5 text-zinc-500 hover:text-black dark:hover:text-white text-base rounded-lg">
+                <button onclick="closeLepiiModal()" class="p-1.5 text-slate-500 hover:text-slate-900 dark:hover:text-white text-base rounded-lg">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
-            <div class="flex-1 w-full h-full bg-white dark:bg-zinc-950">
+            <div class="flex-1 w-full h-full bg-white dark:bg-slate-950">
                 <iframe id="lepiiIframe" src="" class="w-full h-full border-0"></iframe>
             </div>
         </div>
     </div>
 
-    <div id="certModal" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-6">
-        <div class="glass-panel w-full max-w-4xl rounded-3xl shadow-2xl flex flex-col overflow-hidden max-h-[90vh]">
-            <div class="p-4 bg-zinc-100/90 dark:bg-zinc-900/90 flex justify-between items-center border-b">
+    <div id="certModal" class="fixed inset-0 z-50 hidden bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-6">
+        <div class="glass-panel w-full max-w-4xl rounded-3xl shadow-2xl border border-slate-200/80 dark:border-slate-800 flex flex-col overflow-hidden max-h-[90vh]">
+            <div class="p-4 bg-slate-100/90 dark:bg-slate-900/90 flex justify-between items-center border-b border-slate-200 dark:border-slate-800">
                 <h3 id="certModalTitle" class="font-bold theme-heading text-xs sm:text-sm">Pratinjau Sertifikat</h3>
-                <button onclick="closeCertModal()" class="p-1.5 text-zinc-500 hover:text-black dark:hover:text-white text-base rounded-lg">
+                <button onclick="closeCertModal()" class="p-1.5 text-slate-500 hover:text-slate-900 dark:hover:text-white text-base rounded-lg">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
-            <div class="p-4 flex-1 overflow-auto flex items-center justify-center bg-black/50">
-                <img id="certModalImg" src="" alt="Certificate" class="max-w-full max-h-[72vh] object-contain rounded-xl shadow-lg border">
+            <div class="p-4 flex-1 overflow-auto flex items-center justify-center bg-slate-950/50">
+                <img id="certModalImg" src="" alt="Certificate" class="max-w-full max-h-[72vh] object-contain rounded-xl shadow-lg border border-slate-800">
             </div>
         </div>
     </div>
 
-    <div id="cvModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
-        <div class="glass-panel w-full max-w-4xl rounded-3xl shadow-2xl my-auto overflow-hidden">
-            <div class="p-4 sm:p-5 bg-zinc-100/90 dark:bg-zinc-900/90 flex justify-between items-center border-b">
+    <div id="cvModal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
+        <div class="glass-panel w-full max-w-4xl rounded-3xl shadow-2xl border border-slate-200/80 dark:border-slate-800 my-auto overflow-hidden">
+            <div class="p-4 sm:p-5 bg-slate-100/90 dark:bg-slate-900/90 flex justify-between items-center border-b border-slate-200 dark:border-slate-800">
                 <h3 class="font-bold theme-heading text-xs sm:text-sm">Curriculum Vitae - Aditya Rahman</h3>
-                <button onclick="closeCvModal()" class="p-1.5 text-zinc-500 hover:text-black dark:hover:text-white text-base rounded-lg">
+                <button onclick="closeCvModal()" class="p-1.5 text-slate-500 hover:text-slate-900 dark:hover:text-white text-base rounded-lg">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
-            <div class="p-6 bg-zinc-900 text-white max-h-[75vh] overflow-y-auto space-y-4 text-xs">
+            <div class="p-6 bg-slate-900 text-white max-h-[75vh] overflow-y-auto space-y-4 text-xs">
                 <h1 class="text-2xl font-bold">ADITYA RAHMAN, S.Si</h1>
                 <p>aditrahman471@gmail.com | +62 882-2500-2019 | Kulon Progo, Yogyakarta</p>
-                <hr class="border-zinc-800">
+                <hr class="border-slate-800">
                 <p>Lulusan Sarjana Matematika UNY (IPK 3,27) dengan spesialisasi Analisis Data, Statistik, dan CSAT Optimization.</p>
             </div>
         </div>
     </div>
 
     <script>
-        try {
-            if (typeof ChartDataLabels !== 'undefined' && typeof Chart !== 'undefined') {
-                Chart.register(ChartDataLabels);
-            }
-        } catch(e) {
-            console.warn("ChartDataLabels optional plugin init skipped:", e);
+        if (typeof ChartDataLabels !== 'undefined') {
+            Chart.register(ChartDataLabels);
         }
 
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
@@ -1199,7 +1141,7 @@
 
         function setThemePalette(themeName) {
             if (themeName === 'monochrome') {
-                document.documentElement.removeAttribute('data-theme');
+                document.documentElement.setAttribute('data-theme', 'monochrome');
             } else {
                 document.documentElement.setAttribute('data-theme', themeName);
             }
@@ -1247,11 +1189,11 @@
             const btns = document.querySelectorAll('.skill-btn');
 
             btns.forEach(btn => {
-                btn.className = "skill-btn px-4 py-2 rounded-xl text-xs font-semibold transition glass-pill text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-800 interactive-card";
+                btn.className = "skill-btn px-4 py-2 rounded-xl text-xs font-semibold transition glass-pill text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 interactive-card";
             });
 
             if (btnEl) {
-                btnEl.className = "skill-btn active px-4 py-2 rounded-xl text-xs font-semibold transition bg-black text-white dark:bg-white dark:text-black shadow-md interactive-card";
+                btnEl.className = "skill-btn active px-4 py-2 rounded-xl text-xs font-semibold transition bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-md interactive-card";
             }
 
             cards.forEach(card => {
@@ -1292,16 +1234,13 @@
             }
         }
         function closeCertModal() {
-            const modal = document.getElementById('certModal');
-            if (modal) modal.classList.add('hidden');
+            document.getElementById('certModal').classList.add('hidden');
         }
         function openCvModal() {
-            const modal = document.getElementById('cvModal');
-            if (modal) modal.classList.remove('hidden');
+            document.getElementById('cvModal').classList.remove('hidden');
         }
         function closeCvModal() {
-            const modal = document.getElementById('cvModal');
-            if (modal) modal.classList.add('hidden');
+            document.getElementById('cvModal').classList.add('hidden');
         }
 
         // Data Lab Logic
@@ -1319,32 +1258,32 @@
             const controlsPanel = document.getElementById('mathControlsPanel');
             const chartContainer = document.getElementById('chartContainer');
 
-            const inactiveClass = "px-4 py-2 rounded-xl text-xs font-semibold transition glass-pill text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-800 interactive-card";
-            const activeClass = "px-4 py-2 rounded-xl text-xs font-semibold transition bg-black text-white dark:bg-white dark:text-black shadow-md interactive-card";
+            const inactiveClass = "px-4 py-2 rounded-xl text-xs font-semibold transition glass-pill text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 interactive-card";
+            const activeClass = "px-4 py-2 rounded-xl text-xs font-semibold transition bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-md interactive-card";
 
-            if (btnMath) btnMath.className = inactiveClass;
-            if (btnSensus) btnSensus.className = inactiveClass;
-            if (btnCsat) btnCsat.className = inactiveClass;
+            btnMath.className = inactiveClass;
+            btnSensus.className = inactiveClass;
+            btnCsat.className = inactiveClass;
 
             if (tabName === 'math') {
-                if (btnMath) btnMath.className = activeClass;
-                if (controlsPanel) controlsPanel.style.display = "block";
-                if (chartContainer) chartContainer.className = "lg:col-span-7 glass-panel p-6 rounded-3xl interactive-card";
-                document.getElementById('labChartTitle').innerHTML = '<i class="fa-solid fa-chart-line"></i> Visualisasi Grafik Garis Model Math (x + y)';
+                btnMath.className = activeClass;
+                controlsPanel.style.display = "block";
+                chartContainer.className = "lg:col-span-7 glass-panel p-6 rounded-3xl interactive-card";
+                document.getElementById('labChartTitle').innerHTML = '<i class="fa-solid fa-chart-line text-brand-500"></i> Visualisasi Grafik Garis Model Math (x + y)';
                 document.getElementById('labDescText').textContent = "Geser slider X dan Y pada panel kiri untuk memperbarui grafik garis dan perhitungan matematika secara langsung.";
                 updateMathLab();
             } else if (tabName === 'sensus') {
-                if (btnSensus) btnSensus.className = activeClass;
-                if (controlsPanel) controlsPanel.style.display = "none";
-                if (chartContainer) chartContainer.className = "lg:col-span-12 glass-panel p-6 rounded-3xl interactive-card";
-                document.getElementById('labChartTitle').innerHTML = '<i class="fa-solid fa-chart-line"></i> Grafik Garis Sensus BPS SE2026';
+                btnSensus.className = activeClass;
+                controlsPanel.style.display = "none";
+                chartContainer.className = "lg:col-span-12 glass-panel p-6 rounded-3xl interactive-card";
+                document.getElementById('labChartTitle').innerHTML = '<i class="fa-solid fa-chart-line text-brand-500"></i> Grafik Garis Sensus BPS SE2026';
                 document.getElementById('labDescText').textContent = "Metrik realisasi verifikasi data dan pemetaan Wilkerstat pada Sensus Ekonomi BPS-Statistics Indonesia.";
                 renderStaticSensusChart();
             } else if (tabName === 'csat') {
-                if (btnCsat) btnCsat.className = activeClass;
-                if (controlsPanel) controlsPanel.style.display = "none";
-                if (chartContainer) chartContainer.className = "lg:col-span-7 glass-panel p-6 rounded-3xl interactive-card";
-                document.getElementById('labChartTitle').innerHTML = '<i class="fa-solid fa-chart-line"></i> CSAT per Minggu (Vads Shopee)';
+                btnCsat.className = activeClass;
+                controlsPanel.style.display = "none";
+                chartContainer.className = "lg:col-span-7 glass-panel p-6 rounded-3xl interactive-card";
+                document.getElementById('labChartTitle').innerHTML = '<i class="fa-solid fa-chart-line text-brand-500"></i> CSAT per Minggu (Vads Shopee)';
                 document.getElementById('labDescText').textContent = "Ubah nilai Good dan Bad (maksimal 200 masing-masing) untuk mensimulasikan persentase CSAT per minggu.";
                 updateCsatSim();
             }
@@ -1352,130 +1291,117 @@
 
         function updateMathLab() {
             if (currentTab !== 'math') return;
-            const x = parseInt(document.getElementById('sliderX')?.value || 15);
-            const y = parseInt(document.getElementById('sliderY')?.value || 25);
+            const x = parseInt(document.getElementById('sliderX').value) || 0;
+            const y = parseInt(document.getElementById('sliderY').value) || 0;
 
-            if (document.getElementById('valXDisplay')) document.getElementById('valXDisplay').textContent = x;
-            if (document.getElementById('valYDisplay')) document.getElementById('valYDisplay').textContent = y;
+            document.getElementById('valXDisplay').textContent = x;
+            document.getElementById('valYDisplay').textContent = y;
 
             const sum = x + y;
-            if (document.getElementById('resAdd')) document.getElementById('resAdd').textContent = sum;
-            if (document.getElementById('resMul')) document.getElementById('resMul').textContent = x * y;
-            if (document.getElementById('resEuc')) document.getElementById('resEuc').textContent = Math.sqrt(x * x + y * y).toFixed(2);
+            document.getElementById('resAdd').textContent = sum;
+            document.getElementById('resMul').textContent = x * y;
+            document.getElementById('resEuc').textContent = Math.sqrt(x * x + y * y).toFixed(2);
 
             renderDynamicLineChart(x, y, sum);
         }
 
         function getChartTextColor() {
-            return document.documentElement.classList.contains('dark') ? '#ffffff' : '#000000';
+            return document.documentElement.classList.contains('dark') ? '#f8fafc' : '#0f172a';
         }
 
         function getCurrentBrandColor() {
-            return document.documentElement.classList.contains('dark') ? '#ffffff' : '#000000';
+            return getComputedStyle(document.documentElement).getPropertyValue('--brand-500').trim() || '#64748b';
         }
 
         function renderDynamicLineChart(x, y, sum) {
-            try {
-                const canvas = document.getElementById('mathLabChart');
-                if (!canvas || typeof Chart === 'undefined') return;
-                const ctx = canvas.getContext('2d');
-                if (labChart) labChart.destroy();
+            const ctx = document.getElementById('mathLabChart').getContext('2d');
+            if (labChart) labChart.destroy();
 
-                const isDark = document.documentElement.classList.contains('dark');
-                const brandColor = getCurrentBrandColor();
+            const isDark = document.documentElement.classList.contains('dark');
+            const brandColor = getCurrentBrandColor();
 
-                labChart = new Chart(ctx, {
-                    type: 'line',
-                    data: {
-                        labels: ['Variabel X', 'Variabel Y', 'Penjumlahan (X + Y)'],
-                        datasets: [{
-                            label: 'Nilai',
-                            data: [x, y, sum],
-                            borderColor: brandColor,
-                            borderWidth: 3,
-                            backgroundColor: isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)',
-                            fill: true,
-                            tension: 0.35,
-                            pointRadius: 6,
-                            pointBackgroundColor: brandColor
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        plugins: {
-                            legend: { display: false },
-                            datalabels: {
-                                anchor: 'end',
-                                align: 'top',
-                                color: getChartTextColor(),
-                                font: { weight: 'bold', size: 12 }
-                            }
-                        },
-                        scales: {
-                            y: {
-                                beginAtZero: true,
-                                grid: { color: isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)' }
-                            },
-                            x: { grid: { display: false } }
+            labChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Variabel X', 'Variabel Y', 'Penjumlahan (X + Y)'],
+                    datasets: [{
+                        label: 'Nilai',
+                        data: [x, y, sum],
+                        borderColor: brandColor,
+                        borderWidth: 3,
+                        backgroundColor: brandColor + '22',
+                        fill: true,
+                        tension: 0.35,
+                        pointRadius: 6,
+                        pointBackgroundColor: brandColor
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        datalabels: {
+                            anchor: 'end',
+                            align: 'top',
+                            color: getChartTextColor(),
+                            font: { weight: 'bold', size: 12 }
                         }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: { color: isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)' }
+                        },
+                        x: { grid: { display: false } }
                     }
-                });
-            } catch(e) {
-                console.warn("Chart rendering skipped:", e);
-            }
+                }
+            });
         }
 
         function renderStaticSensusChart() {
-            try {
-                const canvas = document.getElementById('mathLabChart');
-                if (!canvas || typeof Chart === 'undefined') return;
-                const ctx = canvas.getContext('2d');
-                if (labChart) labChart.destroy();
+            const ctx = document.getElementById('mathLabChart').getContext('2d');
+            if (labChart) labChart.destroy();
 
-                const isDark = document.documentElement.classList.contains('dark');
-                const brandColor = getCurrentBrandColor();
+            const isDark = document.documentElement.classList.contains('dark');
+            const brandColor = getCurrentBrandColor();
 
-                labChart = new Chart(ctx, {
-                    type: 'line',
-                    data: {
-                        labels: ['Wilkerstat', 'Geotagging Usaha', 'Verifikasi PML', 'Entri Bersih'],
-                        datasets: [{
-                            label: 'Realisasi (%)',
-                            data: [100, 98, 100, 100],
-                            borderColor: brandColor,
-                            borderWidth: 3,
-                            backgroundColor: isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)',
-                            fill: true,
-                            tension: 0.3,
-                            pointRadius: 6,
-                            pointBackgroundColor: brandColor
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        plugins: {
-                            legend: { display: false },
-                            datalabels: {
-                                anchor: 'end',
-                                align: 'top',
-                                color: getChartTextColor(),
-                                formatter: value => value + '%'
-                            }
-                        },
-                        scales: {
-                            y: { min: 80, max: 110, grid: { color: isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)' } },
-                            x: { grid: { display: false } }
+            labChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Wilkerstat', 'Geotagging Usaha', 'Verifikasi PML', 'Entri Bersih'],
+                    datasets: [{
+                        label: 'Realisasi (%)',
+                        data: [100, 98, 100, 100],
+                        borderColor: brandColor,
+                        borderWidth: 3,
+                        backgroundColor: brandColor + '22',
+                        fill: true,
+                        tension: 0.3,
+                        pointRadius: 6,
+                        pointBackgroundColor: brandColor
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        datalabels: {
+                            anchor: 'end',
+                            align: 'top',
+                            color: getChartTextColor(),
+                            formatter: value => value + '%'
                         }
+                    },
+                    scales: {
+                        y: { min: 80, max: 110, grid: { color: isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)' } },
+                        x: { grid: { display: false } }
                     }
-                });
-            } catch(e) {
-                console.warn("Sensus chart skipped:", e);
-            }
+                }
+            });
         }
 
-        // CSAT Logic
         const CSAT_WEEKS = 4;
         const CSAT_DEFAULTS = { csatG1: 170, csatB1: 25, csatG2: 175, csatB2: 25, csatG3: 180, csatB3: 20, csatG4: 170, csatB4: 30 };
 
@@ -1534,67 +1460,177 @@
 
         function renderStaticCsatChart() {
             if (currentTab !== 'csat') return;
-            try {
-                const data = csatWeekData();
-                const labels = data.map((d, i) => 'Minggu ' + (i + 1));
-                const pcts = data.map(d => d.pct);
+            const data = csatWeekData();
+            const labels = data.map((d, i) => 'Minggu ' + (i + 1));
+            const pcts = data.map(d => d.pct);
 
-                const canvas = document.getElementById('mathLabChart');
-                if (!canvas || typeof Chart === 'undefined') return;
-                const ctx = canvas.getContext('2d');
-                if (labChart) labChart.destroy();
-                const isDark = document.documentElement.classList.contains('dark');
-                const brandColor = getCurrentBrandColor();
+            const ctx = document.getElementById('mathLabChart').getContext('2d');
+            if (labChart) labChart.destroy();
+            const isDark = document.documentElement.classList.contains('dark');
+            const brandColor = getCurrentBrandColor();
 
-                labChart = new Chart(ctx, {
-                    type: 'line',
-                    data: {
-                        labels: labels,
-                        datasets: [{
-                            label: 'CSAT per minggu (%)',
-                            data: pcts,
-                            borderColor: brandColor,
-                            borderWidth: 3,
-                            backgroundColor: isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)',
-                            fill: true,
-                            tension: 0.3,
-                            pointRadius: 6,
-                            pointBackgroundColor: brandColor
-                        }, {
-                            label: 'Target Minimal (85%)',
-                            data: [85, 85, 85, 85],
-                            borderColor: isDark ? '#a1a1aa' : '#71717a',
-                            borderWidth: 2,
-                            borderDash: [6, 6],
-                            pointRadius: 0,
-                            fill: false,
-                            datalabels: { display: false }
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        plugins: {
-                            legend: { display: true, position: 'bottom' },
-                            datalabels: {
-                                anchor: 'end',
-                                align: 'top',
-                                color: getChartTextColor(),
-                                formatter: value => value === null ? '' : value.toFixed(1) + '%'
-                            }
-                        },
-                        scales: {
-                            y: { min: 0, max: 100, grid: { color: isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)' } },
-                            x: { grid: { display: false } }
+            labChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'CSAT per minggu (%)',
+                        data: pcts,
+                        borderColor: brandColor,
+                        borderWidth: 3,
+                        backgroundColor: brandColor + '22',
+                        fill: true,
+                        tension: 0.3,
+                        pointRadius: 6,
+                        pointBackgroundColor: brandColor
+                    }, {
+                        label: 'Target Minimal (85%)',
+                        data: [85, 85, 85, 85],
+                        borderColor: '#f43f5e',
+                        borderWidth: 2,
+                        borderDash: [6, 6],
+                        pointRadius: 0,
+                        fill: false,
+                        datalabels: { display: false }
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: true, position: 'bottom' },
+                        datalabels: {
+                            anchor: 'end',
+                            align: 'top',
+                            color: getChartTextColor(),
+                            formatter: value => value === null ? '' : value.toFixed(1) + '%'
                         }
+                    },
+                    scales: {
+                        y: { min: 0, max: 100, grid: { color: isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)' } },
+                        x: { grid: { display: false } }
                     }
-                });
-            } catch(e) {
-                console.warn("CSAT chart skipped:", e);
-            }
+                }
+            });
         }
 
-        // --- GEOMETRIC CANVAS PARTICLES ENGINE ---
+        // --- MIRRORED LANYARD PHYSICS ENGINE ---
+        const lanyardAssembly = document.getElementById('lanyardAssembly');
+        const lanyardStrap = document.getElementById('lanyardStrap');
+        const lanyardCard = document.getElementById('lanyardCard');
+        const cardGlare = document.getElementById('cardGlare');
+        const lanyardStage = document.getElementById('lanyardStage');
+
+        let isDragging = false;
+        let startPos = { x: 0, y: 0 };
+        let dragX = 0, dragY = 160;
+        let targetDragX = 0, targetDragY = 160;
+        let velX = 0, velY = 0;
+        const restY = 160;
+
+        function initLanyardPhysics() {
+            if (!lanyardStage) return;
+
+            const handleStart = (e) => {
+                isDragging = true;
+                const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+                const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+                startPos = { x: clientX - targetDragX, y: clientY - targetDragY };
+            };
+
+            const handleMove = (e) => {
+                if (!isDragging) return;
+                const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+                const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+
+                targetDragX = clientX - startPos.x;
+                targetDragY = Math.max(40, clientY - startPos.y);
+            };
+
+            const handleEnd = () => {
+                if (!isDragging) return;
+                isDragging = false;
+            };
+
+            lanyardStage.addEventListener('mousedown', handleStart);
+            window.addEventListener('mousemove', handleMove);
+            window.addEventListener('mouseup', handleEnd);
+
+            lanyardStage.addEventListener('touchstart', handleStart, { passive: true });
+            window.addEventListener('touchmove', handleMove, { passive: true });
+            window.addEventListener('touchend', handleEnd);
+
+            requestAnimationFrame(updateLanyardPhysics);
+        }
+
+        function updateLanyardPhysics() {
+            if (isDragging) {
+                dragX += (targetDragX - dragX) * 0.35;
+                dragY += (targetDragY - dragY) * 0.35;
+                velX = targetDragX - dragX;
+                velY = targetDragY - dragY;
+            } else {
+                const springK = 0.055;
+                const damp = 0.82;
+
+                const forceX = -dragX * springK;
+                const forceY = (restY - dragY) * springK;
+
+                velX = (velX + forceX) * damp;
+                velY = (velY + forceY) * damp;
+
+                dragX += velX;
+                dragY += velY;
+
+                targetDragX = dragX;
+                targetDragY = dragY;
+            }
+
+            const distance = Math.sqrt(dragX * dragX + dragY * dragY);
+            const angleRad = Math.atan2(dragX, Math.max(0.001, dragY));
+            const angleDeg = angleRad * (180 / Math.PI);
+
+            const strapBaseH = (lanyardStrap && lanyardStrap.offsetHeight > 0) ? lanyardStrap.offsetHeight : 192;
+            const scaleY = isFinite(distance / strapBaseH) ? Math.max(0.5, Math.min(2.5, distance / strapBaseH)) : 1;
+            const extraY = isFinite(strapBaseH * (scaleY - 1)) ? strapBaseH * (scaleY - 1) : 0;
+
+            if (lanyardAssembly) {
+                lanyardAssembly.style.transform = `
+                    rotateZ(${angleDeg.toFixed(2)}deg)
+                    rotateY(${(angleDeg * 0.35).toFixed(2)}deg)
+                `;
+            }
+
+            if (lanyardStrap) {
+                lanyardStrap.style.transform = `scaleY(${scaleY.toFixed(4)})`;
+            }
+
+            const lowerAssembly = document.getElementById('lanyardLowerAssembly');
+            if (lowerAssembly) {
+                lowerAssembly.style.transform = `translateY(${extraY.toFixed(2)}px)`;
+            }
+
+            if (lanyardCard) {
+                const cardSwing = (velX * 0.5) + Math.sin(Date.now() * 0.004) * 1.5;
+                lanyardCard.style.transform = `rotateZ(${cardSwing.toFixed(2)}deg)`;
+            }
+
+            if (cardGlare) {
+                const glareOpacity = Math.min(0.85, Math.max(0.15, 0.4 - (angleDeg / 60) + Math.abs(velX / 20)));
+                cardGlare.style.opacity = glareOpacity;
+            }
+
+            requestAnimationFrame(updateLanyardPhysics);
+        }
+
+        function resetLanyard() {
+            targetDragX = 90;
+            targetDragY = 240;
+            velX = 15;
+            velY = 10;
+        }
+
+        // --- GEOMETRIC PARTICLES CANVAS ---
         function initGeometricParticles() {
             try {
                 const canvas = document.getElementById('particles');
@@ -1610,7 +1646,7 @@
                 });
 
                 const shapes = [];
-                const numShapes = Math.min(35, Math.max(10, Math.floor(width / 35)));
+                const numShapes = Math.min(30, Math.max(10, Math.floor(width / 35)));
 
                 for (let i = 0; i < numShapes; i++) {
                     shapes.push({
@@ -1693,137 +1729,6 @@
             } catch(e) {
                 console.warn("Particles canvas init skipped:", e);
             }
-        }
-
-        // --- MIRRORED LANYARD PHYSICS ENGINE (Zero Gap & Safe Layout) ---
-        const lanyardAssembly = document.getElementById('lanyardAssembly');
-        const lanyardStrap = document.getElementById('lanyardStrap');
-        const lanyardLowerAssembly = document.getElementById('lanyardLowerAssembly');
-        const lanyardCard = document.getElementById('lanyardCard');
-        const cardGlare = document.getElementById('cardGlare');
-        const lanyardStage = document.getElementById('lanyardStage');
-
-        let isDragging = false;
-        let dragX = 0;
-        let dragY = 200;
-        let targetX = 0;
-        let targetY = 200;
-        let velX = 0;
-        let velY = 0;
-        let grabOffsetX = 0;
-        let grabOffsetY = 0;
-        const restY = 200;
-
-        function initLanyardPhysics() {
-            if (!lanyardStage) return;
-
-            const handleStart = (e) => {
-                isDragging = true;
-                const rect = lanyardStage.getBoundingClientRect();
-                const anchorX = rect.left + rect.width / 2;
-                const anchorY = rect.top;
-
-                const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-                const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-
-                const currentCursorX = clientX - anchorX;
-                const currentCursorY = clientY - anchorY;
-
-                grabOffsetX = dragX - currentCursorX;
-                grabOffsetY = dragY - currentCursorY;
-            };
-
-            const handleMove = (e) => {
-                if (!isDragging) return;
-                const rect = lanyardStage.getBoundingClientRect();
-                const anchorX = rect.left + rect.width / 2;
-                const anchorY = rect.top;
-
-                const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-                const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-
-                targetX = (clientX - anchorX) + grabOffsetX;
-                targetY = Math.max(90, (clientY - anchorY) + grabOffsetY);
-            };
-
-            const handleEnd = () => {
-                if (!isDragging) return;
-                isDragging = false;
-            };
-
-            lanyardStage.addEventListener('mousedown', handleStart);
-            window.addEventListener('mousemove', handleMove);
-            window.addEventListener('mouseup', handleEnd);
-
-            lanyardStage.addEventListener('touchstart', handleStart, { passive: true });
-            window.addEventListener('touchmove', handleMove, { passive: true });
-            window.addEventListener('touchend', handleEnd);
-
-            requestAnimationFrame(updateLanyardPhysics);
-        }
-
-        function updateLanyardPhysics() {
-            if (isDragging) {
-                dragX += (targetX - dragX) * 0.35;
-                dragY += (targetY - dragY) * 0.35;
-                velX = targetX - dragX;
-                velY = targetY - dragY;
-            } else {
-                const springK = 0.055;
-                const damp = 0.82;
-
-                const forceX = -dragX * springK;
-                const forceY = (restY - dragY) * springK;
-
-                velX = (velX + forceX) * damp;
-                velY = (velY + forceY) * damp;
-
-                dragX += velX;
-                dragY += velY;
-            }
-
-            const distance = Math.sqrt(dragX * dragX + dragY * dragY);
-            // Mirrored angle so dragging right swings right
-            const angleRad = Math.atan2(-dragX, Math.max(0.001, dragY));
-            const angleDeg = angleRad * (180 / Math.PI);
-
-            const strapBaseH = (lanyardStrap && lanyardStrap.offsetHeight > 0) ? lanyardStrap.offsetHeight : 192;
-            const scaleY = isFinite(distance / strapBaseH) ? Math.max(0.5, Math.min(2.5, distance / strapBaseH)) : 1;
-            const extraY = isFinite(strapBaseH * (scaleY - 1)) ? strapBaseH * (scaleY - 1) : 0;
-
-            if (lanyardAssembly) {
-                lanyardAssembly.style.transform = `
-                    rotateZ(${angleDeg.toFixed(2)}deg)
-                    rotateY(${(angleDeg * 0.35).toFixed(2)}deg)
-                `;
-            }
-
-            if (lanyardStrap) {
-                lanyardStrap.style.transform = `scaleY(${scaleY.toFixed(4)})`;
-            }
-
-            if (lanyardLowerAssembly) {
-                lanyardLowerAssembly.style.transform = `translateY(${extraY.toFixed(2)}px)`;
-            }
-
-            if (lanyardCard) {
-                const cardSwing = (velX * 0.5) + Math.sin(Date.now() * 0.004) * 1.5;
-                lanyardCard.style.transform = `rotateZ(${cardSwing.toFixed(2)}deg)`;
-            }
-
-            if (cardGlare) {
-                const glareOpacity = Math.min(0.85, Math.max(0.15, 0.4 - (angleDeg / 60) + Math.abs(velX / 20)));
-                cardGlare.style.opacity = glareOpacity;
-            }
-
-            requestAnimationFrame(updateLanyardPhysics);
-        }
-
-        function resetLanyard() {
-            targetX = -90;
-            targetY = 280;
-            velX = -15;
-            velY = 10;
         }
 
         window.onload = function() {
