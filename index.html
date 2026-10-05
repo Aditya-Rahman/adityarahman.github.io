@@ -894,7 +894,7 @@
                         Sensus BPS
                     </button>
                     <button onclick="switchLabTab('csat')" id="tabBtnCsat" class="px-4 py-2 rounded-xl text-xs font-semibold transition glass-pill text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 interactive-card">
-                        Metrik CSAT
+                        Simulasi CSAT
                     </button>
                 </div>
             </div>
@@ -939,6 +939,111 @@
                             <span class="text-slate-500">Jarak Euclidean (&radic;(x&sup2; + y&sup2;)):</span>
                             <span id="resEuc" class="font-bold theme-heading">29.15</span>
                         </div>
+                    </div>
+                </div>
+
+                <div id="csatPanel" class="lg:col-span-5 glass-panel p-6 rounded-3xl space-y-3 interactive-card" style="display:none">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-sm font-bold theme-heading flex items-center gap-2">
+                            <i class="fa-solid fa-headset text-brand-500"></i> CSAT per Minggu (Customer Service)
+                        </h3>
+                        <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Simulasi</span>
+                    </div>
+                    <p class="text-[11px] text-slate-500">Isi jumlah pelanggan Good dan Bad tiap minggu. Jumlah Bad dibatasi otomatis agar CSAT minimal 85%.</p>
+
+                    <div class="p-3 rounded-2xl bg-slate-100/80 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 space-y-2">
+                        <div class="flex justify-between text-xs font-semibold">
+                            <span class="theme-heading">Minggu 1</span>
+                            <span id="csatW1Pct" class="font-bold theme-heading">-</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div>
+                                <div class="flex justify-between text-[11px] mb-1"><span class="text-emerald-600 dark:text-emerald-400 font-semibold">Good</span><span id="csatG1Val" class="font-bold theme-heading">520</span></div>
+                                <input type="range" id="csatG1" min="0" max="700" step="5" value="520" oninput="updateCsatSim()" class="w-full accent-emerald-500 cursor-pointer" aria-label="Jumlah pelanggan Good minggu 1">
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-[11px] mb-1"><span class="text-rose-600 dark:text-rose-400 font-semibold">Bad</span><span id="csatB1Val" class="font-bold theme-heading">80</span></div>
+                                <input type="range" id="csatB1" min="0" max="91" step="1" value="80" oninput="updateCsatSim()" class="w-full accent-rose-500 cursor-pointer" aria-label="Jumlah pelanggan Bad minggu 1">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-3 rounded-2xl bg-slate-100/80 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 space-y-2">
+                        <div class="flex justify-between text-xs font-semibold">
+                            <span class="theme-heading">Minggu 2</span>
+                            <span id="csatW2Pct" class="font-bold theme-heading">-</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div>
+                                <div class="flex justify-between text-[11px] mb-1"><span class="text-emerald-600 dark:text-emerald-400 font-semibold">Good</span><span id="csatG2Val" class="font-bold theme-heading">540</span></div>
+                                <input type="range" id="csatG2" min="0" max="700" step="5" value="540" oninput="updateCsatSim()" class="w-full accent-emerald-500 cursor-pointer" aria-label="Jumlah pelanggan Good minggu 2">
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-[11px] mb-1"><span class="text-rose-600 dark:text-rose-400 font-semibold">Bad</span><span id="csatB2Val" class="font-bold theme-heading">90</span></div>
+                                <input type="range" id="csatB2" min="0" max="95" step="1" value="90" oninput="updateCsatSim()" class="w-full accent-rose-500 cursor-pointer" aria-label="Jumlah pelanggan Bad minggu 2">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-3 rounded-2xl bg-slate-100/80 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 space-y-2">
+                        <div class="flex justify-between text-xs font-semibold">
+                            <span class="theme-heading">Minggu 3</span>
+                            <span id="csatW3Pct" class="font-bold theme-heading">-</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div>
+                                <div class="flex justify-between text-[11px] mb-1"><span class="text-emerald-600 dark:text-emerald-400 font-semibold">Good</span><span id="csatG3Val" class="font-bold theme-heading">560</span></div>
+                                <input type="range" id="csatG3" min="0" max="700" step="5" value="560" oninput="updateCsatSim()" class="w-full accent-emerald-500 cursor-pointer" aria-label="Jumlah pelanggan Good minggu 3">
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-[11px] mb-1"><span class="text-rose-600 dark:text-rose-400 font-semibold">Bad</span><span id="csatB3Val" class="font-bold theme-heading">80</span></div>
+                                <input type="range" id="csatB3" min="0" max="98" step="1" value="80" oninput="updateCsatSim()" class="w-full accent-rose-500 cursor-pointer" aria-label="Jumlah pelanggan Bad minggu 3">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-3 rounded-2xl bg-slate-100/80 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 space-y-2">
+                        <div class="flex justify-between text-xs font-semibold">
+                            <span class="theme-heading">Minggu 4</span>
+                            <span id="csatW4Pct" class="font-bold theme-heading">-</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div>
+                                <div class="flex justify-between text-[11px] mb-1"><span class="text-emerald-600 dark:text-emerald-400 font-semibold">Good</span><span id="csatG4Val" class="font-bold theme-heading">575</span></div>
+                                <input type="range" id="csatG4" min="0" max="700" step="5" value="575" oninput="updateCsatSim()" class="w-full accent-emerald-500 cursor-pointer" aria-label="Jumlah pelanggan Good minggu 4">
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-[11px] mb-1"><span class="text-rose-600 dark:text-rose-400 font-semibold">Bad</span><span id="csatB4Val" class="font-bold theme-heading">90</span></div>
+                                <input type="range" id="csatB4" min="0" max="101" step="1" value="90" oninput="updateCsatSim()" class="w-full accent-rose-500 cursor-pointer" aria-label="Jumlah pelanggan Bad minggu 4">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-slate-100/80 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 space-y-2 text-xs">
+                        <div class="flex justify-between border-b border-slate-200 dark:border-slate-800 pb-1.5">
+                            <span class="text-slate-500">Total interaksi</span>
+                            <span id="csatTotal" class="font-bold theme-heading">-</span>
+                        </div>
+                        <div class="flex justify-between border-b border-slate-200 dark:border-slate-800 pb-1.5">
+                            <span class="text-slate-500">Total Good</span>
+                            <span id="csatGood" class="font-bold theme-heading">-</span>
+                        </div>
+                        <div class="flex justify-between border-b border-slate-200 dark:border-slate-800 pb-1.5">
+                            <span class="text-slate-500">Total Bad</span>
+                            <span id="csatBad" class="font-bold theme-heading">-</span>
+                        </div>
+                        <div class="flex justify-between border-b border-slate-200 dark:border-slate-800 pb-1.5">
+                            <span class="text-slate-500">CSAT rata-rata</span>
+                            <span id="csatAvg" class="font-bold theme-heading">-</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-slate-500">CSAT terendah</span>
+                            <span id="csatLow" class="font-bold theme-heading">-</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between gap-2 text-[11px] text-slate-500">
+                        <span>Hanya simulasi, bukan data riil.</span>
+                        <button type="button" onclick="resetCsatSim()" class="underline hover:text-brand-500">Reset ke nilai awal</button>
                     </div>
                 </div>
 
@@ -1775,6 +1880,8 @@
 
         function switchLabTab(tabName) {
             currentTab = tabName;
+            const csatPanelEl = document.getElementById('csatPanel');
+            if (csatPanelEl) csatPanelEl.style.display = (tabName === 'csat') ? 'block' : 'none';
             
             const btnMath = document.getElementById('tabBtnMath');
             const btnSensus = document.getElementById('tabBtnSensus');
@@ -1805,10 +1912,10 @@
             } else if (tabName === 'csat') {
                 btnCsat.className = activeClass;
                 controlsPanel.style.display = "none";
-                chartContainer.className = "lg:col-span-12 glass-panel p-6 rounded-3xl interactive-card";
-                document.getElementById('labChartTitle').innerHTML = '<i class="fa-solid fa-chart-line text-brand-500"></i> Grafik Garis Kinerja CSAT Vads Shopee';
-                document.getElementById('labDescText').textContent = "Metrik riil tingkat kepuasan pelanggan (CSAT 85%) dan efisiensi penanganan keluhan bulanan.";
-                renderStaticCsatChart();
+                chartContainer.className = "lg:col-span-7 glass-panel p-6 rounded-3xl interactive-card";
+                document.getElementById('labChartTitle').innerHTML = '<i class="fa-solid fa-chart-line text-brand-500"></i> CSAT per Minggu sebagai Customer Service (Vads Shopee)';
+                document.getElementById('labDescText').textContent = "Isi jumlah pelanggan Good dan Bad tiap minggu saat menjadi Customer Service di Vads Indonesia (proyek Shopee). CSAT = Good dibagi (Good + Bad), dijaga minimal 85% sesuai target. Ini simulasi, bukan data riil.";
+                updateCsatSim();
             }
         }
 
@@ -1961,33 +2068,104 @@
             });
         }
 
-        function renderStaticCsatChart() {
+        const CSAT_MIN = 85;
+        const CSAT_WEEKS = 4;
+        const CSAT_DEFAULTS = { csatG1: 520, csatB1: 80,csatG2: 540, csatB2: 90,csatG3: 560, csatB3: 80,csatG4: 575, csatB4: 90 };
+
+        function csatWeekData() {
+            const out = [];
+            for (let w = 1; w <= CSAT_WEEKS; w++) {
+                const gEl = document.getElementById('csatG' + w);
+                const bEl = document.getElementById('csatB' + w);
+                const good = parseInt(gEl.value, 10) || 0;
+                const maxBad = Math.floor(good * (100 - CSAT_MIN) / CSAT_MIN + 1e-9);
+                bEl.max = maxBad;
+                const bad = Math.min(parseInt(bEl.value, 10) || 0, maxBad);
+                bEl.value = bad;
+                const total = good + bad;
+                out.push({ good: good, bad: bad, total: total, pct: total ? good / total * 100 : null });
+            }
+            return out;
+        }
+
+        function updateCsatSim() {
+            const data = csatWeekData();
+            const fmt = n => Math.round(n).toLocaleString('id-ID');
+            const set = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
+            data.forEach((d, i) => {
+                const w = i + 1;
+                set('csatG' + w + 'Val', fmt(d.good));
+                set('csatB' + w + 'Val', fmt(d.bad));
+                set('csatW' + w + 'Pct', d.pct === null ? '-' : d.pct.toFixed(1).replace('.0', '') + '%');
+            });
+            const good = data.reduce((a, d) => a + d.good, 0);
+            const bad = data.reduce((a, d) => a + d.bad, 0);
+            const valid = data.map((d, i) => d.pct === null ? null : { p: d.pct, w: i + 1 }).filter(Boolean);
+            set('csatTotal', fmt(good + bad));
+            set('csatGood', fmt(good));
+            set('csatBad', fmt(bad));
+            set('csatAvg', (good + bad) ? (good / (good + bad) * 100).toFixed(1).replace('.0', '') + '%' : '-');
+            if (valid.length) {
+                const low = valid.reduce((m, v) => v.p < m.p ? v : m);
+                set('csatLow', low.p.toFixed(1).replace('.0', '') + '% (Minggu ' + low.w + ')');
+            } else {
+                set('csatLow', '-');
+            }
+            renderStaticCsatChart(true);
+        }
+
+        function resetCsatSim() {
+            Object.keys(CSAT_DEFAULTS).forEach(id => { document.getElementById(id).value = CSAT_DEFAULTS[id]; });
+            updateCsatSim();
+        }
+
+        function renderStaticCsatChart(inPlace) {
+            if (currentTab !== 'csat') return;
+            const data = csatWeekData();
+            const labels = data.map((d, i) => 'Minggu ' + (i + 1));
+            const pcts = data.map(d => d.pct);
+            const minLine = data.map(() => CSAT_MIN);
+
+            if (inPlace === true && labChart && labChart.config.type === 'line' && labChart.data.datasets[0].label === 'CSAT per minggu (%)') {
+                labChart.data.datasets[0].data = pcts;
+                labChart.update();
+                return;
+            }
+
             const ctx = document.getElementById('mathLabChart').getContext('2d');
             if (labChart) labChart.destroy();
-
             const isDark = document.documentElement.classList.contains('dark');
             const brandColor = getCurrentBrandColor();
             const gradient = ctx.createLinearGradient(0, 0, 0, 260);
-            gradient.addColorStop(0, 'rgba(59, 130, 246, 0.35)');
-            gradient.addColorStop(1, 'rgba(59, 130, 246, 0.0)');
+            gradient.addColorStop(0, isDark ? 'rgba(100, 116, 139, 0.4)' : 'rgba(100, 116, 139, 0.25)');
+            gradient.addColorStop(1, 'rgba(100, 116, 139, 0.0)');
 
             labChart = new Chart(ctx, {
                 type: 'line',
                 data: {
-                    labels: ['Minggu 1', 'Minggu 2', 'Minggu 3', 'Minggu 4'],
+                    labels: labels,
                     datasets: [{
-                        label: 'Skor CSAT (%)',
-                        data: [82, 85, 87, 85],
+                        label: 'CSAT per minggu (%)',
+                        data: pcts,
                         borderColor: brandColor,
                         borderWidth: 3,
                         backgroundColor: gradient,
                         fill: true,
-                        tension: 0.35,
+                        tension: 0.3,
                         pointRadius: 7,
                         pointHoverRadius: 10,
                         pointBackgroundColor: brandColor,
                         pointBorderColor: '#ffffff',
                         pointBorderWidth: 2
+                    }, {
+                        label: 'Minimum CSAT ' + CSAT_MIN + '%',
+                        data: minLine,
+                        borderColor: '#f43f5e',
+                        borderWidth: 2,
+                        borderDash: [6, 6],
+                        pointRadius: 0,
+                        fill: false,
+                        datalabels: { display: false }
                     }]
                 },
                 options: {
@@ -1995,20 +2173,20 @@
                     maintainAspectRatio: false,
                     layout: { padding: { top: 25, right: 15, left: 15, bottom: 5 } },
                     plugins: {
-                        legend: { display: false },
+                        legend: { display: true, position: 'bottom', labels: { color: isDark ? '#cbd5e1' : '#475569', usePointStyle: true, boxWidth: 8 } },
                         datalabels: {
                             anchor: 'end',
                             align: 'top',
                             offset: 6,
                             color: getChartTextColor(),
                             font: { weight: 'bold', size: 12, family: 'Inter' },
-                            formatter: function(value) { return value + '%'; }
+                            formatter: function(value) { return value === null ? '' : value.toFixed(1).replace('.0', '') + '%'; }
                         }
                     },
                     scales: {
                         y: {
-                            min: 70,
-                            max: 95,
+                            min: 80,
+                            max: 100,
                             grid: { color: isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)' },
                             ticks: { color: isDark ? '#94a3b8' : '#64748b' }
                         },
