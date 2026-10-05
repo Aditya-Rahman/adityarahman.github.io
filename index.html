@@ -394,16 +394,17 @@
                         Lulusan Matematika dari Universitas Negeri Yogyakarta (IPK 3,27) dengan pola pikir analitis yang kuat serta keterampilan pengolahan data. Berpengalaman dalam administrasi statistik, hubungan pelanggan, dan pencacahan lapangan untuk sensus ekonomi nasional. Menguasai alat analisis termasuk Python, RStudio, dan Excel.
                     </p>
 
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1 max-w-[750px]">
-                        <div class="flex items-center gap-2 glass-pill px-3 py-2.5 rounded-xl interactive-card justify-start">
+                    <!-- Contact Info Grid with Equalized Compact Width -->
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1 max-w-[620px]">
+                        <div class="flex items-center gap-2 glass-pill px-3 py-2.5 rounded-xl interactive-card justify-start w-full">
                             <i class="fa-solid fa-location-dot text-brand-500 shrink-0"></i>
                             <span class="truncate text-xs">Kulon Progo, Yogyakarta</span>
                         </div>
-                        <a href="mailto:aditrahman471@gmail.com" class="flex items-center gap-2 glass-pill px-3 py-2.5 rounded-xl hover:opacity-90 transition interactive-card justify-start">
+                        <a href="mailto:aditrahman471@gmail.com" class="flex items-center gap-2 glass-pill px-3 py-2.5 rounded-xl hover:opacity-90 transition interactive-card justify-start w-full">
                             <i class="fa-solid fa-envelope text-brand-500 shrink-0"></i>
                             <span class="truncate text-xs">aditrahman471@gmail.com</span>
                         </a>
-                        <a href="https://wa.me/6288225002019" target="_blank" class="flex items-center gap-2 glass-pill px-3 py-2.5 rounded-xl hover:opacity-90 transition interactive-card justify-start">
+                        <a href="https://wa.me/6288225002019" target="_blank" class="flex items-center gap-2 glass-pill px-3 py-2.5 rounded-xl hover:opacity-90 transition interactive-card justify-start w-full">
                             <i class="fa-brands fa-whatsapp text-[#25D366] text-base shrink-0"></i>
                             <span class="truncate text-xs">+62 882-2500-2019</span>
                         </a>
@@ -1603,8 +1604,8 @@
 
                 if (lanyardAssembly) {
                     lanyardAssembly.style.transform = `
-                        rotateZ(${angleDeg.toFixed(2)}deg)
-                        rotateY(${(-angleDeg * 0.35).toFixed(2)}deg)
+                        rotateZ(${(-angleDeg).toFixed(2)}deg)
+                        rotateY(${(angleDeg * 0.35).toFixed(2)}deg)
                     `;
                 }
 
@@ -1618,7 +1619,7 @@
                 }
 
                 if (lanyardCard) {
-                    const cardSwing = (velX * 0.5) + Math.sin(Date.now() * 0.004) * 1.5;
+                    const cardSwing = (-velX * 0.5) + Math.sin(Date.now() * 0.004) * 1.5;
                     lanyardCard.style.transform = `rotateZ(${cardSwing.toFixed(2)}deg)`;
                 }
 
