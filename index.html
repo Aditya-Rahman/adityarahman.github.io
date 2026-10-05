@@ -424,12 +424,12 @@
 
         <canvas id="particles" class="absolute inset-0 w-full h-full pointer-events-none" aria-hidden="true"></canvas>
 
-        <!-- 3D Hanging Lanyard Card -->
+        <!-- 3D Interactive Pullable Lanyard Card -->
         <div class="absolute top-0 right-16 sm:right-32 md:right-44 lg:right-56 xl:right-64 z-20 flex flex-col items-center">
-            <div id="lanyardStage" class="lanyard-stage relative w-[200px] sm:w-[230px] lg:w-[260px] h-[460px] sm:h-[520px] lg:h-[580px] flex flex-col items-center pt-0">
+            <div id="lanyardStage" class="lanyard-stage relative w-[200px] sm:w-[230px] lg:w-[260px] h-[460px] sm:h-[520px] lg:h-[580px] flex flex-col items-center pt-0 cursor-grab active:cursor-grabbing">
                 <div class="absolute top-0 z-30 w-6 h-3.5 bg-slate-800 rounded-b-md border border-slate-600 shadow-md"></div>
 
-                <div id="lanyardAssembly" class="lanyard-assembly-container absolute top-0 z-10 w-full flex flex-col items-center origin-top transform-gpu cursor-grab active:cursor-grabbing">
+                <div id="lanyardAssembly" class="lanyard-assembly-container absolute top-0 z-10 w-full flex flex-col items-center origin-top transform-gpu">
                     <div id="lanyardStrap" class="lanyard-strap w-6 sm:w-7 lg:w-8 h-40 sm:h-48 lg:h-56 flex items-center justify-center relative overflow-hidden rounded-t-sm shadow-xl origin-top transition-transform duration-75">
                         <span class="lanyard-text text-[9px] sm:text-[10px] font-bold text-white opacity-90 tracking-widest whitespace-nowrap py-0.5">
                             ADITYA RAHMAN
@@ -931,7 +931,7 @@
                     </div>
 
                     <div id="labDescText" class="mt-4 p-3 rounded-xl bg-slate-100/60 dark:bg-slate-900/60 text-xs text-slate-600 dark:text-slate-400">
-                        Geser slider X dan Y pada panel kiri untuk memperbarui grafik garis dan perhitungan matematika secara langsung.
+                        Geser slider X dan Y pada panel kanan/kiri untuk memperbarui grafik garis dan perhitungan matematika secara langsung.
                     </div>
                 </div>
             </div>
@@ -996,9 +996,10 @@
                         </div>
                     </div>
 
+                    <!-- Enhanced Window Mockup Card with Bottom Action Toolbar -->
                     <div class="lg:col-span-5">
-                        <div class="relative rounded-2xl overflow-hidden glass-panel border border-slate-200/80 dark:border-slate-800 shadow-2xl interactive-card">
-                            <div class="bg-slate-200/80 dark:bg-slate-900/80 px-3 py-2 border-b border-slate-300/50 dark:border-slate-800 flex items-center justify-between">
+                        <div class="relative rounded-2xl overflow-hidden glass-panel border border-slate-200/80 dark:border-slate-800 shadow-2xl interactive-card group/card">
+                            <div class="bg-slate-200/90 dark:bg-slate-900/90 px-3 py-2 border-b border-slate-300/50 dark:border-slate-800 flex items-center justify-between">
                                 <div class="flex space-x-1.5">
                                     <span class="w-2.5 h-2.5 rounded-full bg-red-400 block"></span>
                                     <span class="w-2.5 h-2.5 rounded-full bg-yellow-400 block"></span>
@@ -1006,10 +1007,38 @@
                                 </div>
                                 <span class="text-[10px] font-mono text-slate-500 dark:text-slate-400">lepii.html</span>
                             </div>
-                            <div class="p-6 bg-gradient-to-br from-slate-900 via-slate-950 to-brand-950 text-white min-h-[180px] flex flex-col justify-between">
+                            
+                            <!-- Card Content Body -->
+                            <div class="p-6 bg-gradient-to-br from-slate-900 via-slate-950 to-brand-950 text-white min-h-[210px] flex flex-col justify-between">
                                 <div>
-                                    <h4 class="text-xl font-black text-white">Project Lepii</h4>
-                                    <p class="text-xs text-slate-300 mt-1">Aplikasi interaktif yang siap dijalankan secara langsung dari portofolio ini.</p>
+                                    <div class="flex items-center justify-between mb-1.5">
+                                        <h4 class="text-xl font-black text-white">Project Lepii</h4>
+                                        <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 text-[10px] font-mono border border-emerald-500/30">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span> Live
+                                        </span>
+                                    </div>
+                                    <p class="text-xs text-slate-300 leading-relaxed">
+                                        Aplikasi interaktif yang siap dijalankan secara langsung dari portofolio ini.
+                                    </p>
+                                </div>
+
+                                <!-- Added Bottom Action Bar Element -->
+                                <div class="pt-4 mt-4 border-t border-slate-800/80 flex items-center justify-between gap-2">
+                                    <div class="flex items-center gap-1.5 text-[11px] font-mono text-slate-400">
+                                        <i class="fa-regular fa-file-code text-brand-400"></i>
+                                        <span>Modul Web</span>
+                                    </div>
+
+                                    <div class="flex items-center gap-2">
+                                        <button onclick="openLepiiModal()" class="px-2.5 py-1.5 bg-slate-800/90 hover:bg-slate-700 text-white text-[11px] font-semibold rounded-lg border border-slate-700 transition flex items-center gap-1.5 interactive-card" title="Pratinjau dalam Modal">
+                                            <i class="fa-solid fa-eye text-brand-400"></i>
+                                            <span>Pratinjau</span>
+                                        </button>
+                                        <a href="lepii.html" target="_blank" class="px-3 py-1.5 bg-brand-600 hover:bg-brand-500 text-white text-[11px] font-bold rounded-lg transition flex items-center gap-1.5 shadow-md interactive-card" title="Buka Proyek di Tab Baru">
+                                            <span>Lihat Proyek</span>
+                                            <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -1544,7 +1573,7 @@
             });
         }
 
-        // Lanyard Animation Logic
+        // Lanyard Dynamic Drag & Pull Physics Animation Engine
         const lanyardAssembly = document.getElementById('lanyardAssembly');
         const lanyardStrap = document.getElementById('lanyardStrap');
         const lanyardLowerAssembly = document.getElementById('lanyardLowerAssembly');
@@ -1552,38 +1581,110 @@
         const cardGlare = document.getElementById('cardGlare');
         const lanyardStage = document.getElementById('lanyardStage');
 
-        let angleZ = 0, angleY = 0, angleX = 0, stretch = 1, velZ = 0, velY = 0, velX = 0, stretchVel = 0;
-        let isDragging = false, pointerDownPos = { x: 0, y: 0 };
+        let angleZ = 0, angleY = 0, angleX = 0, stretch = 1;
+        let velZ = 0, velY = 0, velX = 0, stretchVel = 0;
+        let isDragging = false, dragStartPos = { x: 0, y: 0 };
 
-        function resetLanyard() {
-            angleZ = 0; angleY = 0; angleX = 25; stretch = 1.38; velZ = 24; velY = 18; stretchVel = -0.15;
-            requestAnimationFrame(animateLanyard);
+        function initLanyardPhysics() {
+            if (!lanyardStage) return;
+
+            const handleStart = (e) => {
+                isDragging = true;
+                const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+                const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+                dragStartPos = { x: clientX, y: clientY };
+            };
+
+            const handleMove = (e) => {
+                if (!isDragging) return;
+                const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+                const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+
+                const dx = clientX - dragStartPos.x;
+                const dy = clientY - dragStartPos.y;
+
+                angleZ = Math.max(-50, Math.min(50, dx * 0.35));
+                angleY = Math.max(-40, Math.min(40, dx * 0.25));
+                angleX = Math.max(-20, Math.min(35, dy * 0.2));
+                stretch = Math.max(0.9, Math.min(1.6, 1 + dy * 0.0035));
+
+                updateLanyardDOM();
+            };
+
+            const handleEnd = () => {
+                if (!isDragging) return;
+                isDragging = false;
+                velZ = -angleZ * 0.45;
+                velY = -angleY * 0.4;
+                velX = (25 - angleX) * 0.3;
+                stretchVel = (1 - stretch) * 0.3;
+                requestAnimationFrame(animateLanyardPhysics);
+            };
+
+            lanyardStage.addEventListener('mousedown', handleStart);
+            window.addEventListener('mousemove', handleMove);
+            window.addEventListener('mouseup', handleEnd);
+
+            lanyardStage.addEventListener('touchstart', handleStart, { passive: true });
+            window.addEventListener('touchmove', handleMove, { passive: true });
+            window.addEventListener('touchend', handleEnd);
         }
 
-        function animateLanyard() {
-            if (!isDragging) {
-                velZ = (velZ - angleZ * 0.028) * 0.92;
-                velY = (velY - angleY * 0.028) * 0.92;
-                velX = (velX - angleX * 0.028) * 0.92;
-                stretchVel = (stretchVel - (stretch - 1) * 0.055) * 0.85;
-
-                angleZ += velZ; angleY += velY; angleX += velX; stretch += stretchVel;
+        function updateLanyardDOM() {
+            if (lanyardAssembly) {
+                lanyardAssembly.style.transform = `rotateZ(${angleZ.toFixed(2)}deg) rotateY(${angleY.toFixed(2)}deg) rotateX(${angleX.toFixed(2)}deg)`;
             }
-
-            if (lanyardAssembly) lanyardAssembly.style.transform = `rotateZ(${angleZ.toFixed(2)}deg) rotateY(${angleY.toFixed(2)}deg) rotateX(${angleX.toFixed(2)}deg)`;
-            if (lanyardStrap) lanyardStrap.style.transform = `scaleY(${stretch.toFixed(3)})`;
-            if (lanyardCard) lanyardCard.style.transform = `rotateZ(${(-angleZ * 0.3).toFixed(2)}deg)`;
-
-            if (Math.abs(angleZ) > 0.05 || Math.abs(velZ) > 0.05 || Math.abs(stretch - 1) > 0.005) {
-                requestAnimationFrame(animateLanyard);
+            if (lanyardStrap) {
+                lanyardStrap.style.transform = `scaleY(${stretch.toFixed(3)})`;
             }
+            if (lanyardCard) {
+                lanyardCard.style.transform = `rotateZ(${(-angleZ * 0.35).toFixed(2)}deg)`;
+            }
+            if (cardGlare) {
+                const glareOpacity = Math.min(0.8, Math.max(0.15, 0.4 + (angleX / 60) + Math.abs(angleZ / 80)));
+                cardGlare.style.opacity = glareOpacity;
+            }
+        }
+
+        function animateLanyardPhysics() {
+            if (isDragging) return;
+
+            velZ = (velZ - angleZ * 0.032) * 0.91;
+            velY = (velY - angleY * 0.032) * 0.91;
+            velX = (velX - angleX * 0.032) * 0.91;
+            stretchVel = (stretchVel - (stretch - 1) * 0.06) * 0.84;
+
+            angleZ += velZ;
+            angleY += velY;
+            angleX += velX;
+            stretch += stretchVel;
+
+            updateLanyardDOM();
+
+            if (Math.abs(angleZ) > 0.04 || Math.abs(velZ) > 0.04 || Math.abs(stretch - 1) > 0.004) {
+                requestAnimationFrame(animateLanyardPhysics);
+            }
+        }
+
+        function resetLanyard() {
+            angleZ = 0; angleY = 0; angleX = 25; stretch = 1.38; velZ = 22; velY = 16; stretchVel = -0.15;
+            requestAnimationFrame(animateLanyardPhysics);
         }
 
         // Initialize App
         window.onload = function() {
             typeLoop();
             updateMathLab();
+            initLanyardPhysics();
         };
     </script>
 </body>
 </html>
+```
+
+### Ringkasan Penambahan:
+1. **Toolbar Bawah Kartu Proyek (Mock Window Footer):**
+   - Ditambahkan elemen footer di bagian bawah kartu pratinjau *Project Lepii* (`lepii.html`).
+   - Menyediakan indikator modul file `<i class="fa-regular fa-file-code"></i> Modul Web`.
+   - Menyediakan tombol **Pratinjau** (Modal preview) dan tombol **Lihat Proyek** yang langsung membuka file `lepii.html` di tab baru.
+2. **Tetap Mempertahankan Fitur Lain:** Fitur lanyard yang dapat ditarik/diayunkan, simulasi CSAT 200, link LinkedIn & Instagram, serta Data Lab seluruhnya tetap aktif dan terintegrasi.
