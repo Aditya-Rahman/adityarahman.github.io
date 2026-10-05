@@ -315,7 +315,6 @@
         @media (prefers-reduced-motion:reduce){.blob{animation:none}.scroll-reveal{opacity:1 !important;transform:none !important;transition:none}.skill-card .h-full{transform:scaleX(1);transition:none}}
 
         /* ===== Interaktif tambahan ===== */
-        .fab-hide{opacity:0;pointer-events:none;transform:translateY(8px)}
         #toast{position:fixed;left:50%;bottom:calc(84px + env(safe-area-inset-bottom,0px));transform:translate(-50%,12px);z-index:90;opacity:0;pointer-events:none;padding:9px 16px;border-radius:12px;font-size:13px;font-weight:600;background:var(--brand-heading);color:var(--bg-primary);transition:opacity .25s,transform .25s}
         #toast.toast-show{opacity:1;transform:translate(-50%,0)}
         #cmdk{position:fixed;inset:0;z-index:80;background:rgba(2,6,23,.6);backdrop-filter:blur(6px);display:flex;align-items:flex-start;justify-content:center;padding:12vh 16px 16px}
@@ -1210,11 +1209,6 @@
         </div>
     </footer>
 
-    <!-- Floating actions -->
-    <div id="fab" style="position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:45;display:flex;flex-direction:column;gap:10px">
-        <button id="topBtn" class="fab-hide w-11 h-11 rounded-full glass-pill flex items-center justify-center text-slate-700 dark:text-slate-200" aria-label="Kembali ke atas" title="Kembali ke atas"><i class="fa-solid fa-arrow-up text-sm"></i></button>
-        <button id="cmdkBtn" class="w-11 h-11 rounded-full glass-pill flex items-center justify-center text-brand-600 dark:text-brand-400" aria-label="Navigasi cepat (Ctrl+K)" title="Navigasi cepat (Ctrl+K)"><i class="fa-solid fa-bolt text-sm"></i></button>
-    </div>
     <div id="toast" role="status" aria-live="polite"></div>
     <div id="cmdk" class="hidden" role="dialog" aria-modal="true" aria-label="Navigasi cepat">
         <div class="cmdk-box">
@@ -2169,12 +2163,6 @@
         const toastEl=document.getElementById('toast');let tt;
         function toast(m){toastEl.textContent=m;toastEl.classList.add('toast-show');clearTimeout(tt);tt=setTimeout(()=>toastEl.classList.remove('toast-show'),1800)}
 
-        /* Tombol naik ke atas */
-        const top=document.getElementById('topBtn');
-        const showTop=()=>top.classList.toggle('fab-hide',scrollY<500);
-        addEventListener('scroll',showTop,{passive:true});showTop();
-        top.addEventListener('click',()=>scrollTo({top:0,behavior:RM?'auto':'smooth'}));
-
         /* Tilt 3D kartu */
         if(matchMedia('(hover:hover)').matches&&!RM){
             document.querySelectorAll('section.glass-panel .glass-pill, #certificates .glass-panel, .skill-card').forEach(el=>{
@@ -2256,7 +2244,6 @@
         function run(it){close();setTimeout(it[2],60)}
         function open(){lastFocus=document.activeElement;view=items;sel=0;inp.value='';render();box.classList.remove('hidden');document.body.style.overflow='hidden';inp.focus()}
         function close(){box.classList.add('hidden');document.body.style.overflow='';if(lastFocus&&lastFocus.focus)lastFocus.focus()}
-        document.getElementById('cmdkBtn').addEventListener('click',open);
         box.addEventListener('click',e=>{if(e.target===box)close()});
         inp.addEventListener('input',()=>{const q=inp.value.trim().toLowerCase();view=items.filter(it=>it[0].toLowerCase().includes(q));sel=0;render()});
         addEventListener('keydown',e=>{
