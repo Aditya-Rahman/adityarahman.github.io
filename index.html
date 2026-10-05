@@ -406,7 +406,7 @@
                     </p>
 
                     <!-- Contact Info Grid with Equalized Columns -->
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1 max-w-[580px]">
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1 max-w-[620px]">
                         <div class="flex items-center gap-2 glass-pill px-3 py-2.5 rounded-xl interactive-card justify-start w-full">
                             <i class="fa-solid fa-location-dot text-slate-400 shrink-0"></i>
                             <span class="truncate text-xs" style="color:var(--brand-heading)">Kulon Progo, Yogyakarta</span>
@@ -1110,12 +1110,17 @@
     <div id="cvModal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
         <div class="glass-panel w-full max-w-4xl rounded-3xl shadow-2xl my-auto overflow-hidden">
             <div class="p-4 sm:p-5 bg-slate-200 dark:bg-slate-900 flex justify-between items-center border-b border-slate-300 dark:border-slate-700">
-                <h3 class="font-bold text-xs sm:text-sm" style="color:var(--brand-heading)">Curriculum Vitae - Aditya Rahman</h3>
+                <div class="flex items-center gap-3">
+                    <h3 class="font-bold text-xs sm:text-sm" style="color:var(--brand-heading)">Curriculum Vitae - Aditya Rahman</h3>
+                    <button onclick="downloadCV()" class="px-3 py-1.5 bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-900 text-[11px] font-bold rounded-xl shadow transition flex items-center gap-1.5 hover:opacity-90">
+                        <i class="fa-solid fa-download"></i> Download CV
+                    </button>
+                </div>
                 <button onclick="closeCvModal()" class="p-1.5 hover:opacity-100 text-base rounded-xl" style="color:var(--text-secondary)">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
-            <div class="p-6 sm:p-8 bg-slate-50 dark:bg-slate-900 max-h-[75vh] overflow-y-auto space-y-6 text-xs sm:text-sm leading-relaxed" style="color:var(--brand-heading)">
+            <div id="cvContent" class="p-6 sm:p-8 bg-slate-50 dark:bg-slate-900 max-h-[75vh] overflow-y-auto space-y-6 text-xs sm:text-sm leading-relaxed" style="color:var(--brand-heading)">
                 
                 <div class="text-center space-y-1 pb-4 border-b border-slate-300 dark:border-slate-700">
                     <h1 class="text-2xl sm:text-3xl font-extrabold">ADITYA RAHMAN</h1>
@@ -1254,6 +1259,69 @@
             if (currentTab === 'math') updateMathLab();
             else if (currentTab === 'sensus') renderStaticSensusChart();
             else if (currentTab === 'csat') renderStaticCsatChart();
+        }
+
+        // Download CV Function
+        function downloadCV() {
+            const cvText = `ADITYA RAHMAN
++62 882-2500-2019 • aditrahman471@gmail.com • linkedin.com/in/aditya-rahman • Kulon Progo, Yogyakarta
+
+Lulusan Matematika dari Universitas Negeri Yogyakarta (IPK 3,27) dengan pola pikir analitis yang kuat serta keterampilan pengolahan data. Berpengalaman dalam administrasi statistik, hubungan pelanggan, dan pencacahan lapangan untuk sensus ekonomi nasional. Menguasai alat analisis termasuk Python, SPSS, dan Excel, dengan kemampuan teruji dalam pengumpulan data, verifikasi, serta penyelesaian masalah secara kritis.
+
+==================================================
+PENGALAMAN KERJA
+==================================================
+
+1. Petugas Pencatatan Lapangan (PPL SE2026) — BPS (Badan Pusat Statistik)
+   Juni 2026 – Agustus 2026 | Kulon Progo
+   - Mengidentifikasi dan memetakan wilayah kerja statistik (Wilkerstat) serta melakukan geotagging lokasi unit usaha lokal menggunakan aplikasi seluler lapangan BPS.
+   - Melakukan wawancara tatap muka secara langsung dengan responden pelaku usaha untuk mencatat profil ekonomi dan karakteristik bisnis secara akurat.
+   - Memverifikasi kelengkapan dan konsistensi data sebelum menyerahkan catatan hasil pencacahan yang bersih kepada Pemeriksa Lapangan (PML).
+
+2. Customer Service Representative — Vads Indonesia (Proyek Shopee)
+   September 2024 – Mei 2026 | Sleman
+   - Mengelola interaksi dengan pelanggan untuk menyelesaikan pertanyaan dan keluhan, mencapai tingkat kepuasan pelanggan sebesar 85%.
+   - Menyampaikan rincian produk dan layanan secara tepat kepada 500-700 pelanggan setiap minggunya dengan tetap menjaga standar profesional.
+   - Mengurangi rata-rata waktu respon sebesar 20% dengan mengidentifikasi solusi yang cepat dan efektif.
+
+3. Magang Staf Administrasi — BPS Kabupaten Kulon Progo
+   Oktober 2023 – Desember 2023 | Kulon Progo
+   - Mengelola dan memelihara arsip data statistik serta dokumentasi operasional bulanan internal dengan tingkat ketelitian tinggi.
+   - Memasukkan dan memverifikasi catatan data statistik ke dalam basis data resmi untuk menjamin akurasi tingkat tinggi.
+
+==================================================
+PENDIDIKAN
+==================================================
+Sarjana Matematika (S.Si.) — Universitas Negeri Yogyakarta
+September 2020 – Juli 2024 | IPK: 3,27 / 4,00
+- Menganalisis data matematika dan statistik untuk penelitian akademik serta pengerjaan proyek tingkat lanjut.
+- Mengolah dan memverifikasi data numerik menggunakan perangkat statistik termasuk SPSS, R, dan Python.
+
+==================================================
+PENGALAMAN ORGANISASI
+==================================================
+Pemandu — Program Studi Laboratorium Matematika
+Juli 2022 – September 2022 | Sleman
+- Membimbing dan memandu mahasiswa baru terkait jadwal orientasi akademik serta panduan laboratorium.
+
+==================================================
+KETERAMPILAN & BAHASA
+==================================================
+- Keterampilan Teknis: Analisis Data, Entri Data Statistik, Pencacahan Lapangan, Geotagging, Verifikasi Data
+- Perangkat Lunak & Alat: Python, Microsoft Excel, SPSS, MATLAB, Canva, Figma
+- Soft Skills: Berpikir Kritis, Kerja Sama Tim, Multitasking, Layanan Pelanggan, Akuntabilitas, Komunikasi
+- Bahasa: Bahasa Indonesia (Penutur Asli/Mahir), Bahasa Inggris (Lanjutan)
+`;
+
+            const blob = new Blob([cvText], { type: 'text/plain;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'CV_Aditya_Rahman.txt';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
         }
 
         // Typing Effect
