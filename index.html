@@ -2177,7 +2177,7 @@
 
         /* Tilt 3D kartu */
         if(matchMedia('(hover:hover)').matches&&!RM){
-            document.querySelectorAll('section.glass-panel .glass-pill, #projects .max-w-4xl, #certificates .glass-panel, .skill-card').forEach(el=>{
+            document.querySelectorAll('section.glass-panel .glass-pill, #certificates .glass-panel, .skill-card').forEach(el=>{
                 el.classList.add('tilt-on');
                 el.addEventListener('mousemove',e=>{
                     const r=el.getBoundingClientRect(),px=(e.clientX-r.left)/r.width-.5,py=(e.clientY-r.top)/r.height-.5;
