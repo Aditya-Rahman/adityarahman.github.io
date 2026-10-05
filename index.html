@@ -220,9 +220,10 @@
         .lanyard-strap {
             background: #0a0a0c;
             box-shadow: inset 0 0 4px rgba(255, 255, 255, 0.15), 0 8px 20px rgba(0, 0, 0, 0.4);
-            border-left: 1px solid rgba(255, 255, 255, 0.12);
-            border-right: 1px solid rgba(255, 255, 255, 0.12);
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
             transform-origin: top center;
+            will-change: transform;
         }
 
         .lanyard-text {
@@ -265,6 +266,9 @@
         #experience .space-y-6{position:relative;padding-left:30px}
         #experience .space-y-6::before{content:'';position:absolute;left:9px;top:12px;bottom:12px;width:2px;border-radius:2px;background:linear-gradient(var(--brand-500),transparent)}
         .experience-card::after{content:'';position:absolute;left:-29px;top:38px;width:14px;height:14px;border-radius:50%;background:var(--brand-500);box-shadow:0 0 0 5px var(--brand-ring)}
+        
+        #toast{position:fixed;left:50%;bottom:calc(84px + env(safe-area-inset-bottom,0px));transform:translate(-50%,12px);z-index:90;opacity:0;pointer-events:none;padding:9px 16px;border-radius:12px;font-size:13px;font-weight:600;background:var(--brand-heading);color:var(--bg-primary);transition:opacity .25s,transform .25s}
+        #toast.toast-show{opacity:1;transform:translate(-50%,0)}
     </style>
 </head>
 
@@ -377,15 +381,20 @@
         <!-- 3D Interactive Pullable Lanyard Card -->
         <div class="absolute top-0 right-16 sm:right-32 md:right-44 lg:right-56 xl:right-64 z-20 flex flex-col items-center">
             <div id="lanyardStage" class="lanyard-stage relative w-[200px] sm:w-[230px] lg:w-[260px] h-[460px] sm:h-[520px] lg:h-[580px] flex flex-col items-center pt-0 cursor-grab active:cursor-grabbing">
+                <!-- Fixed Top Metallic Clip Anchor -->
                 <div class="absolute top-0 z-30 w-6 h-3.5 bg-slate-800 rounded-b-md border border-slate-600 shadow-md"></div>
 
+                <!-- Swiveling Lanyard Assembly -->
                 <div id="lanyardAssembly" class="lanyard-assembly-container absolute top-0 z-10 w-full flex flex-col items-center origin-top transform-gpu">
-                    <div id="lanyardStrap" class="lanyard-strap w-6 sm:w-7 lg:w-8 h-40 sm:h-48 lg:h-56 flex items-center justify-center relative overflow-hidden rounded-t-sm shadow-xl origin-top transition-transform duration-75">
+                    
+                    <!-- Lanyard Strap fabric -->
+                    <div id="lanyardStrap" class="lanyard-strap w-6 sm:w-7 lg:w-8 h-40 sm:h-48 lg:h-56 flex items-center justify-center relative overflow-hidden rounded-t-sm shadow-xl origin-top">
                         <span class="lanyard-text text-[9px] sm:text-[10px] font-bold text-white opacity-90 tracking-widest whitespace-nowrap py-0.5">
                             ADITYA RAHMAN
                         </span>
                     </div>
                     
+                    <!-- Lower Clip & ID Card Assembly (100% Attached) -->
                     <div id="lanyardLowerAssembly" class="flex flex-col items-center w-full origin-top transform-gpu">
                         <div class="relative -mt-1 flex flex-col items-center z-20">
                             <div class="w-6 sm:w-7 h-3.5 border-2 lg:border-4 border-slate-700 rounded-b-full bg-slate-900 shadow-md"></div>
@@ -418,6 +427,7 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
 
@@ -643,21 +653,43 @@
                     <div class="w-9 h-9 rounded-2xl bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-white flex items-center justify-center text-base mb-3">
                         <i class="fa-brands fa-python"></i>
                     </div>
-                    <h3 class="font-bold theme-heading text-sm mb-1">Python & MATLAB</h3>
-                    <p class="text-xs text-slate-500 mb-3">Skrip perhitungan komputasi, analisis matriks, dan skrip manipulasi data.</p>
+                    <h3 class="font-bold theme-heading text-sm mb-1">Python</h3>
+                    <p class="text-xs text-slate-500 mb-3">Pemrosesan data, otomatisasi skrip, dan analisis komputasi kuantitatif.</p>
                     <div class="w-full bg-slate-200 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                        <div class="bg-brand-500 h-full w-[82%]"></div>
+                        <div class="bg-brand-500 h-full w-[85%]"></div>
                     </div>
                 </div>
 
                 <div class="skill-card tools glass-panel p-6 rounded-3xl interactive-card">
                     <div class="w-9 h-9 rounded-2xl bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-white flex items-center justify-center text-base mb-3">
-                        <i class="fa-solid fa-table"></i>
+                        <i class="fa-solid fa-code"></i>
                     </div>
-                    <h3 class="font-bold theme-heading text-sm mb-1">RStudio, R & Microsoft Excel</h3>
-                    <p class="text-xs text-slate-500 mb-3">Pengolahan statistik inferensial, rumus kompleks, dan laporan numerik.</p>
+                    <h3 class="font-bold theme-heading text-sm mb-1">MATLAB</h3>
+                    <p class="text-xs text-slate-500 mb-3">Model kalkulasi matriks, fungsi numerik, dan simulasi aljabar linier.</p>
                     <div class="w-full bg-slate-200 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                        <div class="bg-brand-500 h-full w-[92%]"></div>
+                        <div class="bg-brand-500 h-full w-[80%]"></div>
+                    </div>
+                </div>
+
+                <div class="skill-card tools glass-panel p-6 rounded-3xl interactive-card">
+                    <div class="w-9 h-9 rounded-2xl bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-white flex items-center justify-center text-base mb-3">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <h3 class="font-bold theme-heading text-sm mb-1">RStudio & R</h3>
+                    <p class="text-xs text-slate-500 mb-3">Pengolahan statistik inferensial, pemodelan data, dan pengujian hipotesis.</p>
+                    <div class="w-full bg-slate-200 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
+                        <div class="bg-brand-500 h-full w-[88%]"></div>
+                    </div>
+                </div>
+
+                <div class="skill-card tools glass-panel p-6 rounded-3xl interactive-card">
+                    <div class="w-9 h-9 rounded-2xl bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-white flex items-center justify-center text-base mb-3">
+                        <i class="fa-solid fa-file-excel"></i>
+                    </div>
+                    <h3 class="font-bold theme-heading text-sm mb-1">Microsoft Excel</h3>
+                    <p class="text-xs text-slate-500 mb-3">Formula kompleks, Pivot Table, VLOOKUP, dan visualisasi data laporan.</p>
+                    <div class="w-full bg-slate-200 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
+                        <div class="bg-brand-500 h-full w-[94%]"></div>
                     </div>
                 </div>
 
@@ -674,12 +706,23 @@
 
                 <div class="skill-card lang glass-panel p-6 rounded-3xl interactive-card">
                     <div class="w-9 h-9 rounded-2xl bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-white flex items-center justify-center text-base mb-3">
+                        <i class="fa-solid fa-language"></i>
+                    </div>
+                    <h3 class="font-bold theme-heading text-sm mb-1">Bahasa Indonesia</h3>
+                    <p class="text-xs text-slate-500 mb-3">Bahasa Ibu (Native / Fluent Level) - Komunikasi Lisan & Tulisan Resmi.</p>
+                    <div class="w-full bg-slate-200 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
+                        <div class="bg-brand-500 h-full w-[100%]"></div>
+                    </div>
+                </div>
+
+                <div class="skill-card lang glass-panel p-6 rounded-3xl interactive-card">
+                    <div class="w-9 h-9 rounded-2xl bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-white flex items-center justify-center text-base mb-3">
                         <i class="fa-solid fa-earth-americas"></i>
                     </div>
-                    <h3 class="font-bold theme-heading text-sm mb-1">Bahasa Indonesia & English</h3>
-                    <p class="text-xs text-slate-500 mb-3">Indonesia (Native) / English (Advanced Level).</p>
+                    <h3 class="font-bold theme-heading text-sm mb-1">Bahasa Inggris</h3>
+                    <p class="text-xs text-slate-500 mb-3">Advanced Level - Komunikasi Profesional & Pemahaman Literatur Teknis.</p>
                     <div class="w-full bg-slate-200 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                        <div class="bg-brand-500 h-full w-[90%]"></div>
+                        <div class="bg-brand-500 h-full w-[82%]"></div>
                     </div>
                 </div>
             </div>
@@ -1093,6 +1136,8 @@
             <p>&copy; 2026 Aditya Rahman. All rights reserved.</p>
         </div>
     </footer>
+
+    <div id="toast" role="status" aria-live="polite"></div>
 
     <!-- Modals -->
     <div id="lepiiModal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-3 sm:p-6">
@@ -1553,6 +1598,7 @@
             });
         }
 
+        // Highly Responsive Interactive Lanyard Engine
         const lanyardAssembly = document.getElementById('lanyardAssembly');
         const lanyardStrap = document.getElementById('lanyardStrap');
         const lanyardLowerAssembly = document.getElementById('lanyardLowerAssembly');
@@ -1561,35 +1607,51 @@
         const lanyardStage = document.getElementById('lanyardStage');
 
         let isDragging = false;
-        let startPos = { x: 0, y: 0 };
-        let dragX = 0, dragY = 0;
-        let targetDragX = 0, targetDragY = 0;
-        let velX = 0, velY = 0;
+        let dragX = 0;
+        let dragY = 200; // Nominal rest Y distance
+        let targetX = 0;
+        let targetY = 200;
+        let velX = 0;
+        let velY = 0;
+        let grabOffsetX = 0;
+        let grabOffsetY = 0;
+        const restY = 200; // Base height of strap
 
         function initLanyardPhysics() {
             if (!lanyardStage) return;
 
             const handleStart = (e) => {
                 isDragging = true;
+                const rect = lanyardStage.getBoundingClientRect();
+                const anchorX = rect.left + rect.width / 2;
+                const anchorY = rect.top;
+
                 const clientX = e.touches ? e.touches[0].clientX : e.clientX;
                 const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-                startPos = { x: clientX - targetDragX, y: clientY - targetDragY };
+
+                const currentCursorX = clientX - anchorX;
+                const currentCursorY = clientY - anchorY;
+
+                grabOffsetX = dragX - currentCursorX;
+                grabOffsetY = dragY - currentCursorY;
             };
 
             const handleMove = (e) => {
                 if (!isDragging) return;
+                const rect = lanyardStage.getBoundingClientRect();
+                const anchorX = rect.left + rect.width / 2;
+                const anchorY = rect.top;
+
                 const clientX = e.touches ? e.touches[0].clientX : e.clientX;
                 const clientY = e.touches ? e.touches[0].clientY : e.clientY;
 
-                targetDragX = clientX - startPos.x;
-                targetDragY = Math.max(-10, clientY - startPos.y); // Positive down
+                targetX = (clientX - anchorX) + grabOffsetX;
+                targetY = Math.max(90, (clientY - anchorY) + grabOffsetY); // Clamp minimum distance
             };
 
             const handleEnd = () => {
                 if (!isDragging) return;
                 isDragging = false;
-                velX = targetDragX * 0.18;
-                velY = targetDragY * 0.18;
             };
 
             lanyardStage.addEventListener('mousedown', handleStart);
@@ -1605,59 +1667,59 @@
 
         function updateLanyardPhysics() {
             if (isDragging) {
-                // Smooth follow cursor
-                dragX += (targetDragX - dragX) * 0.35;
-                dragY += (targetDragY - dragY) * 0.35;
+                // Smooth interpolation towards cursor position
+                dragX += (targetX - dragX) * 0.35;
+                dragY += (targetY - dragY) * 0.35;
+                velX = targetX - dragX;
+                velY = targetY - dragY;
             } else {
-                // Spring return to original position (0,0)
-                const springK = 0.045;
-                const damp = 0.84;
+                // Spring physics return to rest position (0, restY)
+                const springK = 0.055;
+                const damp = 0.82;
 
-                velX = (velX - dragX * springK) * damp;
-                velY = (velY - dragY * springK) * damp;
+                const forceX = -dragX * springK;
+                const forceY = (restY - dragY) * springK;
+
+                velX = (velX + forceX) * damp;
+                velY = (velY + forceY) * damp;
 
                 dragX += velX;
                 dragY += velY;
-
-                targetDragX = dragX;
-                targetDragY = dragY;
             }
 
-            // Calculate rotation angles based on displacement
-            const angleZ = Math.min(Math.max(dragX * 0.18, -40), 40);
-            const angleY = Math.min(Math.max(dragX * 0.12, -25), 25);
-            const angleX = -Math.min(Math.max(dragY * 0.1, -15), 20);
+            // Directional swing angle (Positive dragX = rotate clockwise right, Negative dragX = rotate left)
+            const distance = Math.sqrt(dragX * dragX + dragY * dragY);
+            const angleRad = Math.atan2(dragX, dragY);
+            const angleDeg = angleRad * (180 / Math.PI);
 
-            // Stretch lanyard strap when pulled down (+dragY)
-            const stretchY = 1 + Math.max(-0.1, dragY / 280);
+            const strapH = (lanyardStrap && lanyardStrap.offsetHeight) ? lanyardStrap.offsetHeight : 192;
+            const scaleY = Math.max(0.5, distance / strapH);
 
             if (lanyardAssembly) {
                 lanyardAssembly.style.transform = `
-                    rotateZ(${angleZ.toFixed(2)}deg)
-                    rotateY(${angleY.toFixed(2)}deg)
-                    rotateX(${angleX.toFixed(2)}deg)
+                    rotateZ(${angleDeg.toFixed(2)}deg)
+                    rotateY(${(angleDeg * 0.35).toFixed(2)}deg)
                 `;
             }
 
             if (lanyardStrap) {
-                lanyardStrap.style.transform = `scaleY(${stretchY.toFixed(3)})`;
+                lanyardStrap.style.transform = `scaleY(${scaleY.toFixed(4)})`;
             }
 
-            // Precisely offset the lower assembly so the hook stays glued to the bottom of the strap
-            if (lanyardLowerAssembly && lanyardStrap) {
-                const strapBaseHeight = lanyardStrap.offsetHeight || 192;
-                const extraY = strapBaseHeight * (stretchY - 1);
+            if (lanyardLowerAssembly) {
+                // Precise offset calculation keeping lower assembly 100% attached to bottom of scaled strap
+                const extraY = strapH * (scaleY - 1);
                 lanyardLowerAssembly.style.transform = `translateY(${extraY.toFixed(2)}px)`;
             }
 
             if (lanyardCard) {
-                // Secondary pendulum swing for card
-                const cardLagZ = dragX * 0.06;
-                lanyardCard.style.transform = `rotateZ(${cardLagZ.toFixed(2)}deg)`;
+                // Secondary pendulum swing for realism
+                const cardSwing = (velX * 0.6) + Math.sin(Date.now() * 0.004) * 1.5;
+                lanyardCard.style.transform = `rotateZ(${cardSwing.toFixed(2)}deg)`;
             }
 
             if (cardGlare) {
-                const glareOpacity = Math.min(0.85, Math.max(0.15, 0.4 + (angleX / 50) + Math.abs(angleZ / 60)));
+                const glareOpacity = Math.min(0.85, Math.max(0.15, 0.4 + (angleDeg / 60) + Math.abs(velX / 20)));
                 cardGlare.style.opacity = glareOpacity;
             }
 
@@ -1665,13 +1727,13 @@
         }
 
         function resetLanyard() {
-            targetDragX = 80;
-            targetDragY = 120;
-            velX = -12;
-            velY = -15;
+            targetX = 90;
+            targetY = 280;
+            velX = -15;
+            velY = 10;
         }
 
-        // Initialize App
+        // Initialize Application
         window.onload = function() {
             typeLoop();
             updateMathLab();
