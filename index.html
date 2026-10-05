@@ -299,7 +299,7 @@
         #progress{position:fixed;top:0;left:0;height:3px;width:100%;z-index:70;transform-origin:left;transform:scaleX(0);background:linear-gradient(90deg,var(--brand-500),var(--brand-700))}
         .blob{position:absolute;border-radius:50%;filter:blur(70px);pointer-events:none;opacity:.35;background:var(--brand-500);animation:floaty 14s ease-in-out infinite alternate}
         .dark .blob{opacity:.26}
-        @keyframes floaty{to{transform:translate(44px,-32px) scale(1.15)}}
+        @keyframes floaty{to{transform:translateY(-32px) scale(1.12)}}
         .grad-text{color:transparent !important;-webkit-text-fill-color:transparent;background:linear-gradient(100deg,var(--brand-heading) 15%,var(--brand-500) 60%,var(--brand-700));-webkit-background-clip:text;background-clip:text}
         h2.sm\:text-3xl::after{content:'';display:block;width:56px;height:4px;border-radius:4px;margin:12px auto 0;background:linear-gradient(90deg,var(--brand-500),var(--brand-700))}
         nav.glass-panel:hover,section.glass-panel:hover{transform:none;box-shadow:none}
@@ -327,7 +327,6 @@
         .cmdk-item[aria-selected="true"]{background:var(--brand-ring)}
         .cmdk-empty{padding:18px;text-align:center;font-size:13px;opacity:.7}
         .cmdk-foot{padding:8px 14px;font-size:11px;opacity:.6;border-top:1px solid var(--grid-color)}
-        .tilt-on{will-change:transform}
     </style>
 </head>
 
@@ -2162,18 +2161,6 @@
         /* Toast */
         const toastEl=document.getElementById('toast');let tt;
         function toast(m){toastEl.textContent=m;toastEl.classList.add('toast-show');clearTimeout(tt);tt=setTimeout(()=>toastEl.classList.remove('toast-show'),1800)}
-
-        /* Tilt 3D kartu */
-        if(matchMedia('(hover:hover)').matches&&!RM){
-            document.querySelectorAll('section.glass-panel .glass-pill, #certificates .glass-panel, .skill-card').forEach(el=>{
-                el.classList.add('tilt-on');
-                el.addEventListener('mousemove',e=>{
-                    const r=el.getBoundingClientRect(),px=(e.clientX-r.left)/r.width-.5,py=(e.clientY-r.top)/r.height-.5;
-                    el.style.setProperty('transform','perspective(900px) rotateX('+(-py*7).toFixed(2)+'deg) rotateY('+(px*9).toFixed(2)+'deg) translateY(-3px)','important');
-                });
-                el.addEventListener('mouseleave',()=>el.style.removeProperty('transform'));
-            });
-        }
 
         /* Partikel interaktif di hero */
         (function(){
