@@ -157,13 +157,56 @@
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
         }
 
-        /* Theme system: keep key UI accents, headings and focus states synchronized. */
+        /* Theme system: buttons, tabs, headings and focus states stay synchronized with the active palette. */
+        .theme-choice {
+            color: var(--brand-heading) !important;
+            background: var(--bg-secondary);
+            border: 1px solid transparent;
+            transition: background-color .2s ease, color .2s ease, border-color .2s ease, transform .2s ease, box-shadow .2s ease;
+        }
         .theme-choice:hover, .theme-choice:focus-visible {
-            background: color-mix(in srgb, var(--brand-500) 12%, transparent) !important;
+            background: color-mix(in srgb, var(--brand-500) 12%, var(--bg-secondary)) !important;
+            color: var(--brand-heading) !important;
+            border-color: var(--brand-500);
         }
         .theme-choice[aria-current="true"] {
-            background: color-mix(in srgb, var(--brand-500) 18%, transparent) !important;
-            box-shadow: inset 0 0 0 1px var(--brand-ring);
+            background: var(--brand-500) !important;
+            color: #fff !important;
+            border-color: var(--brand-500) !important;
+            box-shadow: 0 6px 16px var(--brand-ring), inset 0 0 0 1px rgba(255,255,255,.18);
+        }
+
+        /* Theme-aware interactive controls. Active text is forced to a readable color. */
+        .theme-action-btn,
+        .lab-tab-btn,
+        .skill-btn {
+            color: var(--brand-heading) !important;
+            background: var(--bg-secondary) !important;
+            border: 1px solid var(--glass-border) !important;
+        }
+        .theme-action-btn:hover,
+        .lab-tab-btn:hover,
+        .skill-btn:hover {
+            color: var(--brand-700) !important;
+            background: var(--brand-100) !important;
+            border-color: var(--brand-500) !important;
+        }
+        .theme-action-btn.is-active,
+        .lab-tab-btn.is-active,
+        .skill-btn.is-active,
+        .skill-btn.active {
+            color: #fff !important;
+            background: var(--brand-500) !important;
+            border-color: var(--brand-500) !important;
+            box-shadow: 0 6px 16px var(--brand-ring);
+        }
+        .theme-action-btn.is-active:hover,
+        .lab-tab-btn.is-active:hover,
+        .skill-btn.is-active:hover,
+        .skill-btn.active:hover {
+            color: #fff !important;
+            background: var(--brand-600) !important;
+            border-color: var(--brand-600) !important;
         }
         button:focus-visible, a:focus-visible, input:focus-visible {
             outline: 2px solid var(--brand-500);
@@ -696,11 +739,11 @@
                 </h2>
 
                 <div class="flex flex-wrap justify-center gap-2 mt-6">
-                    <button onclick="filterSkills('all', this)" class="skill-btn active px-4 py-2 rounded-xl text-xs font-semibold transition bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-md interactive-card">Semua</button>
-                    <button onclick="filterSkills('hard', this)" class="skill-btn px-4 py-2 rounded-xl text-xs font-semibold transition glass-pill hover:opacity-90 interactive-card" style="color:var(--brand-heading)">Hard Skills</button>
-                    <button onclick="filterSkills('tools', this)" class="skill-btn px-4 py-2 rounded-xl text-xs font-semibold transition glass-pill hover:opacity-90 interactive-card" style="color:var(--brand-heading)">Software & Tools</button>
-                    <button onclick="filterSkills('soft', this)" class="skill-btn px-4 py-2 rounded-xl text-xs font-semibold transition glass-pill hover:opacity-90 interactive-card" style="color:var(--brand-heading)">Soft Skills</button>
-                    <button onclick="filterSkills('lang', this)" class="skill-btn px-4 py-2 rounded-xl text-xs font-semibold transition glass-pill hover:opacity-90 interactive-card" style="color:var(--brand-heading)">Bahasa</button>
+                    <button onclick="filterSkills('all', this)" aria-pressed="true" class="skill-btn active is-active px-4 py-2 rounded-xl text-xs font-semibold transition interactive-card">Semua</button>
+                    <button onclick="filterSkills('hard', this)" aria-pressed="false" class="skill-btn px-4 py-2 rounded-xl text-xs font-semibold transition interactive-card">Hard Skills</button>
+                    <button onclick="filterSkills('tools', this)" aria-pressed="false" class="skill-btn px-4 py-2 rounded-xl text-xs font-semibold transition interactive-card">Software & Tools</button>
+                    <button onclick="filterSkills('soft', this)" aria-pressed="false" class="skill-btn px-4 py-2 rounded-xl text-xs font-semibold transition interactive-card">Soft Skills</button>
+                    <button onclick="filterSkills('lang', this)" aria-pressed="false" class="skill-btn px-4 py-2 rounded-xl text-xs font-semibold transition interactive-card">Bahasa</button>
                 </div>
             </div>
 
@@ -823,13 +866,13 @@
                 </p>
 
                 <div class="flex justify-center gap-2 mt-6">
-                    <button onclick="switchLabTab('math')" id="tabBtnMath" class="px-4 py-2 rounded-xl text-xs font-semibold transition bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-md interactive-card">
+                    <button onclick="switchLabTab('math')" id="tabBtnMath" role="tab" aria-selected="true" class="lab-tab-btn is-active px-4 py-2 rounded-xl text-xs font-semibold transition shadow-md interactive-card">
                         Model Math (x + y)
                     </button>
-                    <button onclick="switchLabTab('sensus')" id="tabBtnSensus" class="px-4 py-2 rounded-xl text-xs font-semibold transition glass-pill hover:opacity-90 interactive-card" style="color:var(--brand-heading)">
+                    <button onclick="switchLabTab('sensus')" id="tabBtnSensus" role="tab" aria-selected="false" class="lab-tab-btn px-4 py-2 rounded-xl text-xs font-semibold transition interactive-card">
                         Sensus BPS
                     </button>
-                    <button onclick="switchLabTab('csat')" id="tabBtnCsat" class="px-4 py-2 rounded-xl text-xs font-semibold transition glass-pill hover:opacity-90 interactive-card" style="color:var(--brand-heading)">
+                    <button onclick="switchLabTab('csat')" id="tabBtnCsat" role="tab" aria-selected="false" class="lab-tab-btn px-4 py-2 rounded-xl text-xs font-semibold transition interactive-card">
                         Simulasi CSAT
                     </button>
                 </div>
@@ -1548,22 +1591,19 @@
             const btns = document.querySelectorAll('.skill-btn');
 
             btns.forEach(btn => {
-                btn.className = "skill-btn px-4 py-2 rounded-xl text-xs font-semibold transition glass-pill hover:opacity-90 interactive-card";
-                btn.style.color = "var(--brand-heading)";
-                btn.style.background = "var(--bg-secondary)";
+                btn.classList.remove('active', 'is-active');
+                btn.setAttribute('aria-pressed', 'false');
             });
 
             if (btnEl) {
-                btnEl.className = "skill-btn active px-4 py-2 rounded-xl text-xs font-semibold transition bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-md interactive-card";
+                btnEl.classList.add('active', 'is-active');
+                btnEl.setAttribute('aria-pressed', 'true');
             }
 
             cards.forEach(card => {
-                if (category === 'all' || card.classList.contains(category)) {
-                    card.style.display = 'block';
-                    card.style.opacity = '1';
-                } else {
-                    card.style.display = 'none';
-                }
+                const visible = category === 'all' || card.classList.contains(category);
+                card.style.display = visible ? 'block' : 'none';
+                card.style.opacity = visible ? '1' : '0';
             });
         }
 
@@ -1619,29 +1659,31 @@
             const controlsPanel = document.getElementById('mathControlsPanel');
             const chartContainer = document.getElementById('chartContainer');
 
-            const inactiveClass = "px-4 py-2 rounded-xl text-xs font-semibold transition glass-pill hover:opacity-90 interactive-card";
-            const activeClass = "px-4 py-2 rounded-xl text-xs font-semibold transition bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-md interactive-card";
-
-            btnMath.className = inactiveClass;
-            btnSensus.className = inactiveClass;
-            btnCsat.className = inactiveClass;
+            [btnMath, btnSensus, btnCsat].forEach(btn => {
+                if (!btn) return;
+                btn.classList.remove('is-active');
+                btn.setAttribute('aria-selected', 'false');
+            });
 
             if (tabName === 'math') {
-                btnMath.className = activeClass;
+                btnMath.classList.add('is-active');
+                btnMath.setAttribute('aria-selected', 'true');
                 controlsPanel.style.display = "block";
                 chartContainer.className = "lg:col-span-7 glass-panel p-6 rounded-3xl interactive-card";
                 document.getElementById('labChartTitle').innerHTML = '<i class="fa-solid fa-chart-line text-slate-400"></i> Visualisasi Grafik Garis Model Math (x + y)';
                 document.getElementById('labDescText').textContent = "Geser slider X dan Y pada panel kiri untuk memperbarui grafik garis dan perhitungan matematika secara langsung.";
                 updateMathLab();
             } else if (tabName === 'sensus') {
-                btnSensus.className = activeClass;
+                btnSensus.classList.add('is-active');
+                btnSensus.setAttribute('aria-selected', 'true');
                 controlsPanel.style.display = "none";
                 chartContainer.className = "lg:col-span-12 glass-panel p-6 rounded-3xl interactive-card";
                 document.getElementById('labChartTitle').innerHTML = '<i class="fa-solid fa-chart-line text-slate-400"></i> Grafik Garis Sensus BPS SE2026';
                 document.getElementById('labDescText').textContent = "Metrik realisasi verifikasi data dan pemetaan Wilkerstat pada Sensus Ekonomi BPS-Statistics Indonesia.";
                 renderStaticSensusChart();
             } else if (tabName === 'csat') {
-                btnCsat.className = activeClass;
+                btnCsat.classList.add('is-active');
+                btnCsat.setAttribute('aria-selected', 'true');
                 controlsPanel.style.display = "none";
                 chartContainer.className = "lg:col-span-7 glass-panel p-6 rounded-3xl interactive-card";
                 document.getElementById('labChartTitle').innerHTML = '<i class="fa-solid fa-chart-line text-slate-400"></i> CSAT per Minggu (Vads Shopee)';
