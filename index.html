@@ -40,24 +40,24 @@
 
     <style>
         :root {
-            --brand-50: #f8fafc;
-            --brand-100: #f1f5f9;
-            --brand-300: #cbd5e1;
+            --brand-50: #0b0f19;
+            --brand-100: #0f172a;
+            --brand-300: #1e293b;
             --brand-400: #94a3b8;
             --brand-500: #64748b;
-            --brand-600: #475569;
-            --brand-700: #334155;
-            --brand-950: #0f172a;
-            --brand-heading: #0f172a;
-            --bg-primary: #f8fafc;
-            --bg-secondary: #ffffff;
-            --brand-ring: rgba(100, 116, 139, 0.3);
-            --grid-color: rgba(100, 116, 139, 0.1);
+            --brand-600: #cbd5e1;
+            --brand-700: #f1f5f9;
+            --brand-950: #ffffff;
+            --brand-heading: #f8fafc;
+            --bg-primary: #0b0f19;
+            --bg-secondary: #0f172a;
+            --brand-ring: rgba(148, 163, 184, 0.25);
+            --grid-color: rgba(255, 255, 255, 0.04);
         }
 
         .dark {
-            --brand-50: #030712;
-            --brand-100: #0b0f19;
+            --brand-50: #0b0f19;
+            --brand-100: #0f172a;
             --brand-300: #1e293b;
             --brand-400: #64748b;
             --brand-500: #94a3b8;
@@ -234,22 +234,22 @@
 
                 <!-- Desktop Nav Links -->
                 <div class="hidden md:flex items-center space-x-4 lg:space-x-5 text-xs font-semibold text-slate-300">
-                    <a href="#hero" class="hover:text-white transition px-2.5 py-1.5 rounded-lg">Tentang</a>
-                    <a href="#experience" class="hover:text-white transition px-2.5 py-1.5 rounded-lg">Pengalaman</a>
-                    <a href="#skills" class="hover:text-white transition px-2.5 py-1.5 rounded-lg">Keahlian</a>
-                    <a href="#data-lab" class="hover:text-white transition px-2.5 py-1.5 rounded-lg">Data Lab</a>
-                    <a href="#projects" class="hover:text-white transition px-2.5 py-1.5 rounded-lg text-brand-400">Hasil Karya</a>
-                    <a href="#certificates" class="hover:text-white transition px-2.5 py-1.5 rounded-lg">Sertifikat</a>
-                    <a href="#contact" class="hover:text-white transition px-2.5 py-1.5 rounded-lg">Kontak</a>
+                    <a href="#hero" class="hover:text-white transition px-2.5 py-1.5 rounded-xl">Tentang</a>
+                    <a href="#experience" class="hover:text-white transition px-2.5 py-1.5 rounded-xl">Pengalaman</a>
+                    <a href="#skills" class="hover:text-white transition px-2.5 py-1.5 rounded-xl">Keahlian</a>
+                    <a href="#data-lab" class="hover:text-white transition px-2.5 py-1.5 rounded-xl">Data Lab</a>
+                    <a href="#projects" class="hover:text-white transition px-2.5 py-1.5 rounded-xl text-brand-400">Hasil Karya</a>
+                    <a href="#certificates" class="hover:text-white transition px-2.5 py-1.5 rounded-xl">Sertifikat</a>
+                    <a href="#contact" class="hover:text-white transition px-2.5 py-1.5 rounded-xl">Kontak</a>
                 </div>
 
                 <!-- Right Actions -->
                 <div class="hidden md:flex items-center space-x-2.5">
                     <div class="relative">
-                        <button onclick="togglePaletteMenu(event)" class="p-2 rounded-2xl glass-pill hover:opacity-90 transition text-xs flex items-center gap-1.5" title="Pilih Tema Warna">
+                        <button onclick="togglePaletteMenu(event)" class="p-2 rounded-xl glass-pill hover:opacity-90 transition text-xs flex items-center gap-1.5" title="Pilih Tema Warna">
                             <i class="fa-solid fa-palette text-brand-500"></i>
                         </button>
-                        <div id="paletteDropdown" class="absolute right-0 mt-2 w-48 rounded-2xl glass-panel p-2 shadow-2xl hidden border border-slate-800 space-y-1 text-xs z-50">
+                        <div id="paletteDropdown" class="absolute right-0 mt-2 w-48 rounded-xl glass-panel p-2 shadow-2xl hidden border border-slate-800 space-y-1 text-xs z-50">
                             <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider px-2.5 py-1">Pilih Tema Warna</div>
                             <button onclick="setThemePalette('monochrome')" class="w-full text-left px-2.5 py-1.5 rounded-xl hover:bg-slate-800 flex items-center gap-2">
                                 <span class="w-3 h-3 rounded-full bg-slate-500"></span> Monokrom (Default)
@@ -272,19 +272,19 @@
                         </div>
                     </div>
 
-                    <button class="themeToggleBtn p-2 rounded-2xl glass-pill transition" title="Toggle Dark/Light Mode">
+                    <button class="themeToggleBtn p-2 rounded-xl glass-pill transition" title="Toggle Dark/Light Mode">
                         <i class="fa-solid fa-moon dark:hidden text-xs"></i>
                         <i class="fa-solid fa-sun hidden dark:block text-xs text-amber-400"></i>
                     </button>
 
-                    <button onclick="openCvModal()" class="px-3 py-1.5 text-xs font-semibold glass-pill rounded-2xl transition flex items-center gap-1.5">
+                    <button onclick="openCvModal()" class="px-3 py-1.5 text-xs font-semibold glass-pill rounded-xl transition flex items-center gap-1.5">
                         <i class="fa-solid fa-eye text-brand-500"></i> Lihat CV
                     </button>
                 </div>
 
                 <!-- Mobile Controls -->
                 <div class="md:hidden flex items-center space-x-2">
-                    <button class="themeToggleBtn p-2 rounded-2xl glass-pill">
+                    <button class="themeToggleBtn p-2 rounded-xl glass-pill">
                         <i class="fa-solid fa-moon dark:hidden text-xs"></i>
                         <i class="fa-solid fa-sun hidden dark:block text-xs text-amber-400"></i>
                     </button>
@@ -298,15 +298,15 @@
 
         <!-- Mobile Menu Dropdown -->
         <div id="mobileMenu" class="hidden md:hidden border-t border-slate-800 px-4 pt-3 pb-5 space-y-2 bg-slate-950/95 backdrop-blur-xl">
-            <a href="#hero" class="block px-3 py-2 rounded-2xl text-sm font-medium text-slate-200 hover:bg-slate-800">Tentang</a>
-            <a href="#experience" class="block px-3 py-2 rounded-2xl text-sm font-medium text-slate-200 hover:bg-slate-800">Pengalaman</a>
-            <a href="#skills" class="block px-3 py-2 rounded-2xl text-sm font-medium text-slate-200 hover:bg-slate-800">Keahlian</a>
-            <a href="#data-lab" class="block px-3 py-2 rounded-2xl text-sm font-medium text-slate-200 hover:bg-slate-800">Data Lab</a>
-            <a href="#projects" class="block px-3 py-2 rounded-2xl text-sm font-medium text-slate-200 hover:bg-slate-800">Hasil Karya</a>
-            <a href="#certificates" class="block px-3 py-2 rounded-2xl text-sm font-medium text-slate-200 hover:bg-slate-800">Sertifikat</a>
-            <a href="#contact" class="block px-3 py-2 rounded-2xl text-sm font-medium text-slate-200 hover:bg-slate-800">Kontak</a>
+            <a href="#hero" class="block px-3 py-2 rounded-xl text-sm font-medium text-slate-200 hover:bg-slate-800">Tentang</a>
+            <a href="#experience" class="block px-3 py-2 rounded-xl text-sm font-medium text-slate-200 hover:bg-slate-800">Pengalaman</a>
+            <a href="#skills" class="block px-3 py-2 rounded-xl text-sm font-medium text-slate-200 hover:bg-slate-800">Keahlian</a>
+            <a href="#data-lab" class="block px-3 py-2 rounded-xl text-sm font-medium text-slate-200 hover:bg-slate-800">Data Lab</a>
+            <a href="#projects" class="block px-3 py-2 rounded-xl text-sm font-medium text-slate-200 hover:bg-slate-800">Hasil Karya</a>
+            <a href="#certificates" class="block px-3 py-2 rounded-xl text-sm font-medium text-slate-200 hover:bg-slate-800">Sertifikat</a>
+            <a href="#contact" class="block px-3 py-2 rounded-xl text-sm font-medium text-slate-200 hover:bg-slate-800">Kontak</a>
             <div class="pt-2">
-                <button onclick="openCvModal()" class="w-full px-3 py-2 text-center text-xs font-semibold glass-pill rounded-2xl">
+                <button onclick="openCvModal()" class="w-full px-3 py-2 text-center text-xs font-semibold glass-pill rounded-xl">
                     <i class="fa-solid fa-eye mr-1"></i> Lihat CV
                 </button>
             </div>
@@ -319,7 +319,7 @@
 
         <canvas id="particles" class="absolute inset-0 w-full h-full pointer-events-none" aria-hidden="true"></canvas>
 
-        <!-- 3D Interactive Lanyard (Mirrored Cursor Following Physics) -->
+        <!-- 3D Interactive Lanyard (Mirrored Swing Physics) -->
         <div class="absolute top-0 right-16 sm:right-32 md:right-44 lg:right-56 xl:right-64 z-20 flex flex-col items-center">
             <div id="lanyardStage" class="lanyard-stage relative w-[200px] sm:w-[230px] lg:w-[260px] h-[460px] sm:h-[520px] lg:h-[580px] flex flex-col items-center pt-0 cursor-grab active:cursor-grabbing">
                 <div class="absolute top-0 z-30 w-6 h-3.5 bg-slate-800 rounded-b-md border border-slate-600 shadow-md"></div>
@@ -367,7 +367,7 @@
                 </div>
             </div>
 
-            <button onclick="resetLanyard()" class="mt-1 px-2.5 py-1 text-[9px] sm:text-[10px] font-semibold glass-pill hover:opacity-90 transition rounded-full interactive-card" title="Klik atau tarik lanyard untuk mengayunkan">
+            <button onclick="resetLanyard()" class="mt-1 px-2.5 py-1 text-[9px] sm:text-[10px] font-semibold glass-pill hover:opacity-90 transition rounded-xl interactive-card" title="Klik atau tarik lanyard untuk mengayunkan">
                 <i class="fa-solid fa-hand-pointer text-brand-500 animate-bounce mr-1"></i> Tarik & Ayunkan Lanyard
             </button>
         </div>
@@ -375,7 +375,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full my-auto">
             <div class="relative min-h-[380px] flex flex-col md:flex-row items-center justify-between">
                 <div class="w-full md:w-8/12 lg:w-8/12 xl:w-8/12 text-left space-y-3 pr-0 md:pr-4 lg:pr-6 py-2 my-auto z-10">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-2xl text-xs font-semibold glass-pill shadow-sm interactive-card">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-xl text-xs font-semibold glass-pill shadow-sm interactive-card">
                         <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
                         <span class="font-mono tracking-wider text-[11px] uppercase">HALO SEMUANYA, SAYA</span>
                     </div>
@@ -394,34 +394,34 @@
                         Lulusan Matematika dari Universitas Negeri Yogyakarta (IPK 3,27) dengan pola pikir analitis yang kuat serta keterampilan pengolahan data. Berpengalaman dalam administrasi statistik, hubungan pelanggan, dan pencacahan lapangan untuk sensus ekonomi nasional. Menguasai alat analisis termasuk Python, RStudio, dan Excel.
                     </p>
 
-                    <div class="flex flex-wrap items-center gap-2.5 text-xs text-slate-300 pt-1">
-                        <div class="flex items-center gap-1.5 glass-pill px-3.5 py-2.5 rounded-2xl interactive-card w-[220px] justify-start">
-                            <i class="fa-solid fa-location-dot text-brand-500"></i>
-                            <span class="truncate">Kulon Progo, Yogyakarta</span>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1 max-w-[750px]">
+                        <div class="flex items-center gap-2 glass-pill px-3 py-2.5 rounded-xl interactive-card justify-start">
+                            <i class="fa-solid fa-location-dot text-brand-500 shrink-0"></i>
+                            <span class="truncate text-xs">Kulon Progo, Yogyakarta</span>
                         </div>
-                        <a href="mailto:aditrahman471@gmail.com" class="flex items-center gap-1.5 glass-pill px-3.5 py-2.5 rounded-2xl hover:opacity-90 transition interactive-card w-[220px] justify-start">
-                            <i class="fa-solid fa-envelope text-brand-500"></i>
-                            <span class="truncate">aditrahman471@gmail.com</span>
+                        <a href="mailto:aditrahman471@gmail.com" class="flex items-center gap-2 glass-pill px-3 py-2.5 rounded-xl hover:opacity-90 transition interactive-card justify-start">
+                            <i class="fa-solid fa-envelope text-brand-500 shrink-0"></i>
+                            <span class="truncate text-xs">aditrahman471@gmail.com</span>
                         </a>
-                        <a href="https://wa.me/6288225002019" target="_blank" class="flex items-center gap-1.5 glass-pill px-3.5 py-2.5 rounded-2xl hover:opacity-90 transition interactive-card w-[220px] justify-start">
-                            <i class="fa-brands fa-whatsapp text-[#25D366] text-base"></i>
-                            <span class="truncate">+62 882-2500-2019</span>
+                        <a href="https://wa.me/6288225002019" target="_blank" class="flex items-center gap-2 glass-pill px-3 py-2.5 rounded-xl hover:opacity-90 transition interactive-card justify-start">
+                            <i class="fa-brands fa-whatsapp text-[#25D366] text-base shrink-0"></i>
+                            <span class="truncate text-xs">+62 882-2500-2019</span>
                         </a>
                     </div>
 
                     <div class="flex flex-wrap items-center gap-3 pt-2">
-                        <a href="https://www.linkedin.com/in/aditya-rahman-23892b2a2?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 glass-pill text-xs sm:text-sm shadow-md transition flex items-center gap-2 interactive-card hover:opacity-90 rounded-2xl">
+                        <a href="https://www.linkedin.com/in/aditya-rahman-23892b2a2?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 glass-pill text-xs sm:text-sm shadow-md transition flex items-center gap-2 interactive-card hover:opacity-90 rounded-xl">
                             <i class="fa-brands fa-linkedin text-base text-[#0a66c2]"></i>
                             <span>LinkedIn</span>
                             <i class="fa-solid fa-arrow-up-right-from-square text-[10px] opacity-70"></i>
                         </a>
 
-                        <a href="https://www.instagram.com/_aditrahman_?stkn=YnI1dGI4OHJiZWI3" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 glass-pill font-semibold text-xs sm:text-sm transition flex items-center gap-2 hover:opacity-90 interactive-card rounded-2xl">
+                        <a href="https://www.instagram.com/_aditrahman_?stkn=YnI1dGI4OHJiZWI3" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 glass-pill font-semibold text-xs sm:text-sm transition flex items-center gap-2 hover:opacity-90 interactive-card rounded-xl">
                             <i class="fa-brands fa-instagram text-base text-[#e1306c]"></i>
                             <span>Instagram</span>
                         </a>
 
-                        <a href="#projects" class="px-5 py-2.5 glass-pill font-semibold text-xs sm:text-sm shadow-md transition flex items-center gap-2 interactive-card hover:opacity-90 rounded-2xl">
+                        <a href="#projects" class="px-5 py-2.5 glass-pill font-semibold text-xs sm:text-sm shadow-md transition flex items-center gap-2 interactive-card hover:opacity-90 rounded-xl">
                             <i class="fa-solid fa-laptop-code text-base text-brand-500"></i>
                             <span>Lihat Hasil Karya</span>
                         </a>
@@ -434,22 +434,22 @@
     <section class="py-6 border-y border-slate-800/60 glass-panel">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-                <div class="p-4 rounded-2xl glass-pill interactive-card">
+                <div class="p-4 rounded-xl glass-pill interactive-card">
                     <div class="text-2xl sm:text-3xl font-extrabold theme-heading mb-0.5">3.27 <span class="text-xs font-normal text-slate-500">/ 4.00</span></div>
                     <div class="text-[11px] font-medium text-slate-400">IPK S1 Matematika UNY</div>
                 </div>
 
-                <div class="p-4 rounded-2xl glass-pill interactive-card">
+                <div class="p-4 rounded-xl glass-pill interactive-card">
                     <div class="text-2xl sm:text-3xl font-extrabold theme-heading mb-0.5">500–700</div>
                     <div class="text-[11px] font-medium text-slate-400">Interaksi Pelanggan / Mgg</div>
                 </div>
 
-                <div class="p-4 rounded-2xl glass-pill interactive-card">
+                <div class="p-4 rounded-xl glass-pill interactive-card">
                     <div class="text-2xl sm:text-3xl font-extrabold theme-heading mb-0.5">85%</div>
                     <div class="text-[11px] font-medium text-slate-400">Kepuasan Pelanggan (CSAT)</div>
                 </div>
 
-                <div class="p-4 rounded-2xl glass-pill interactive-card">
+                <div class="p-4 rounded-xl glass-pill interactive-card">
                     <div class="text-2xl sm:text-3xl font-extrabold theme-heading mb-0.5">20%</div>
                     <div class="text-[11px] font-medium text-slate-400">Efisiensi Respon Layanan</div>
                 </div>
@@ -471,7 +471,7 @@
             <div class="space-y-6 max-w-7xl mx-auto">
                 <div class="experience-card glass-panel p-6 sm:p-8 rounded-3xl relative overflow-hidden transition hover:border-brand-500/50 interactive-card">
                     <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
-                        <span class="px-2.5 py-1 rounded-2xl text-[11px] font-semibold bg-emerald-950/80 text-emerald-300">
+                        <span class="px-2.5 py-1 rounded-xl text-[11px] font-semibold bg-emerald-950/80 text-emerald-300">
                             Juni 2026 - Agustus 2026
                         </span>
                         <span class="text-xs text-slate-400 font-medium">BPS (Badan Pusat Statistik)</span>
@@ -487,16 +487,16 @@
                     </ul>
 
                     <div class="mt-4 flex flex-wrap gap-1.5">
-                        <span class="text-[10px] font-medium glass-pill px-2.5 py-1 rounded-2xl">Geotagging</span>
-                        <span class="text-[10px] font-medium glass-pill px-2.5 py-1 rounded-2xl">Wilkerstat</span>
-                        <span class="text-[10px] font-medium glass-pill px-2.5 py-1 rounded-2xl">Field Enumeration</span>
-                        <span class="text-[10px] font-medium glass-pill px-2.5 py-1 rounded-2xl">BPS Mobile App</span>
+                        <span class="text-[10px] font-medium glass-pill px-2.5 py-1 rounded-xl">Geotagging</span>
+                        <span class="text-[10px] font-medium glass-pill px-2.5 py-1 rounded-xl">Wilkerstat</span>
+                        <span class="text-[10px] font-medium glass-pill px-2.5 py-1 rounded-xl">Field Enumeration</span>
+                        <span class="text-[10px] font-medium glass-pill px-2.5 py-1 rounded-xl">BPS Mobile App</span>
                     </div>
                 </div>
 
                 <div class="experience-card glass-panel p-6 sm:p-8 rounded-3xl relative overflow-hidden transition hover:border-brand-500/50 interactive-card">
                     <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
-                        <span class="px-2.5 py-1 rounded-2xl text-[11px] font-semibold bg-blue-950/80 text-blue-300">
+                        <span class="px-2.5 py-1 rounded-xl text-[11px] font-semibold bg-blue-950/80 text-blue-300">
                             Sept 2024 - Mei 2026
                         </span>
                         <span class="text-xs text-slate-400 font-medium">Vads Indonesia (Proyek Shopee)</span>
@@ -512,15 +512,15 @@
                     </ul>
 
                     <div class="mt-4 flex flex-wrap gap-1.5">
-                        <span class="text-[10px] font-medium glass-pill px-2.5 py-1 rounded-2xl">Customer Relations</span>
-                        <span class="text-[10px] font-medium glass-pill px-2.5 py-1 rounded-2xl">CSAT Optimization</span>
-                        <span class="text-[10px] font-medium glass-pill px-2.5 py-1 rounded-2xl">Problem Solving</span>
+                        <span class="text-[10px] font-medium glass-pill px-2.5 py-1 rounded-xl">Customer Relations</span>
+                        <span class="text-[10px] font-medium glass-pill px-2.5 py-1 rounded-xl">CSAT Optimization</span>
+                        <span class="text-[10px] font-medium glass-pill px-2.5 py-1 rounded-xl">Problem Solving</span>
                     </div>
                 </div>
 
                 <div class="experience-card glass-panel p-6 sm:p-8 rounded-3xl relative overflow-hidden transition hover:border-brand-500/50 interactive-card">
                     <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
-                        <span class="px-2.5 py-1 rounded-2xl text-[11px] font-semibold bg-purple-950/80 text-purple-300">
+                        <span class="px-2.5 py-1 rounded-xl text-[11px] font-semibold bg-purple-950/80 text-purple-300">
                             Okt 2023 - Des 2023
                         </span>
                         <span class="text-xs text-slate-400 font-medium">BPS Kabupaten Kulon Progo</span>
@@ -535,8 +535,8 @@
                     </ul>
 
                     <div class="mt-4 flex flex-wrap gap-1.5">
-                        <span class="text-[10px] font-medium glass-pill px-2.5 py-1 rounded-2xl">Statistical Archiving</span>
-                        <span class="text-[10px] font-medium glass-pill px-2.5 py-1 rounded-2xl">Data Entry & Verification</span>
+                        <span class="text-[10px] font-medium glass-pill px-2.5 py-1 rounded-xl">Statistical Archiving</span>
+                        <span class="text-[10px] font-medium glass-pill px-2.5 py-1 rounded-xl">Data Entry & Verification</span>
                     </div>
                 </div>
             </div>
@@ -554,18 +554,18 @@
                 </h2>
 
                 <div class="flex flex-wrap justify-center gap-2 mt-6">
-                    <button onclick="filterSkills('all', this)" class="skill-btn active px-4 py-2 rounded-2xl text-xs font-semibold transition bg-white text-slate-900 shadow-md interactive-card">Semua</button>
-                    <button onclick="filterSkills('hard', this)" class="skill-btn px-4 py-2 rounded-2xl text-xs font-semibold transition glass-pill text-slate-300 hover:opacity-90 interactive-card">Hard Skills</button>
-                    <button onclick="filterSkills('tools', this)" class="skill-btn px-4 py-2 rounded-2xl text-xs font-semibold transition glass-pill text-slate-300 hover:opacity-90 interactive-card">Software & Tools</button>
-                    <button onclick="filterSkills('soft', this)" class="skill-btn px-4 py-2 rounded-2xl text-xs font-semibold transition glass-pill text-slate-300 hover:opacity-90 interactive-card">Soft Skills</button>
-                    <button onclick="filterSkills('lang', this)" class="skill-btn px-4 py-2 rounded-2xl text-xs font-semibold transition glass-pill text-slate-300 hover:opacity-90 interactive-card">Bahasa</button>
+                    <button onclick="filterSkills('all', this)" class="skill-btn active px-4 py-2 rounded-xl text-xs font-semibold transition bg-white text-slate-900 shadow-md interactive-card">Semua</button>
+                    <button onclick="filterSkills('hard', this)" class="skill-btn px-4 py-2 rounded-xl text-xs font-semibold transition glass-pill text-slate-300 hover:opacity-90 interactive-card">Hard Skills</button>
+                    <button onclick="filterSkills('tools', this)" class="skill-btn px-4 py-2 rounded-xl text-xs font-semibold transition glass-pill text-slate-300 hover:opacity-90 interactive-card">Software & Tools</button>
+                    <button onclick="filterSkills('soft', this)" class="skill-btn px-4 py-2 rounded-xl text-xs font-semibold transition glass-pill text-slate-300 hover:opacity-90 interactive-card">Soft Skills</button>
+                    <button onclick="filterSkills('lang', this)" class="skill-btn px-4 py-2 rounded-xl text-xs font-semibold transition glass-pill text-slate-300 hover:opacity-90 interactive-card">Bahasa</button>
                 </div>
             </div>
 
             <div id="skillsContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-7xl mx-auto">
                 
                 <div class="skill-card hard glass-panel p-6 rounded-3xl interactive-card">
-                    <div class="w-9 h-9 rounded-2xl bg-slate-800 text-white flex items-center justify-center text-base mb-3">
+                    <div class="w-9 h-9 rounded-xl bg-slate-800 text-white flex items-center justify-center text-base mb-3">
                         <i class="fa-solid fa-chart-pie text-brand-500"></i>
                     </div>
                     <h3 class="font-bold theme-heading text-sm mb-1">Data Analysis & Verification</h3>
@@ -576,7 +576,7 @@
                 </div>
 
                 <div class="skill-card hard glass-panel p-6 rounded-3xl interactive-card">
-                    <div class="w-9 h-9 rounded-2xl bg-slate-800 text-white flex items-center justify-center text-base mb-3">
+                    <div class="w-9 h-9 rounded-xl bg-slate-800 text-white flex items-center justify-center text-base mb-3">
                         <i class="fa-solid fa-map-location-dot text-emerald-500"></i>
                     </div>
                     <h3 class="font-bold theme-heading text-sm mb-1">Field Enumeration & Geotagging</h3>
@@ -587,7 +587,7 @@
                 </div>
 
                 <div class="skill-card tools glass-panel p-6 rounded-3xl interactive-card">
-                    <div class="w-9 h-9 rounded-2xl bg-slate-800 text-white flex items-center justify-center text-base mb-3">
+                    <div class="w-9 h-9 rounded-xl bg-slate-800 text-white flex items-center justify-center text-base mb-3">
                         <i class="fa-brands fa-python text-[#3776ab]"></i>
                     </div>
                     <h3 class="font-bold theme-heading text-sm mb-1">Python Programming</h3>
@@ -598,7 +598,7 @@
                 </div>
 
                 <div class="skill-card tools glass-panel p-6 rounded-3xl interactive-card">
-                    <div class="w-9 h-9 rounded-2xl bg-slate-800 text-white flex items-center justify-center text-base mb-3">
+                    <div class="w-9 h-9 rounded-xl bg-slate-800 text-white flex items-center justify-center text-base mb-3">
                         <i class="fa-solid fa-square-root-variable text-[#e16737]"></i>
                     </div>
                     <h3 class="font-bold theme-heading text-sm mb-1">MATLAB Computation</h3>
@@ -609,7 +609,7 @@
                 </div>
 
                 <div class="skill-card tools glass-panel p-6 rounded-3xl interactive-card">
-                    <div class="w-9 h-9 rounded-2xl bg-slate-800 text-white flex items-center justify-center text-base mb-3">
+                    <div class="w-9 h-9 rounded-xl bg-slate-800 text-white flex items-center justify-center text-base mb-3">
                         <i class="fa-solid fa-chart-line text-[#276dc3]"></i>
                     </div>
                     <h3 class="font-bold theme-heading text-sm mb-1">RStudio & R Statistics</h3>
@@ -620,7 +620,7 @@
                 </div>
 
                 <div class="skill-card tools glass-panel p-6 rounded-3xl interactive-card">
-                    <div class="w-9 h-9 rounded-2xl bg-slate-800 text-white flex items-center justify-center text-base mb-3">
+                    <div class="w-9 h-9 rounded-xl bg-slate-800 text-white flex items-center justify-center text-base mb-3">
                         <i class="fa-solid fa-file-excel text-[#107c41]"></i>
                     </div>
                     <h3 class="font-bold theme-heading text-sm mb-1">Microsoft Excel</h3>
@@ -631,7 +631,7 @@
                 </div>
 
                 <div class="skill-card soft glass-panel p-6 rounded-3xl interactive-card">
-                    <div class="w-9 h-9 rounded-2xl bg-slate-800 text-white flex items-center justify-center text-base mb-3">
+                    <div class="w-9 h-9 rounded-xl bg-slate-800 text-white flex items-center justify-center text-base mb-3">
                         <i class="fa-solid fa-headset text-amber-500"></i>
                     </div>
                     <h3 class="font-bold theme-heading text-sm mb-1">Customer Relations & CSAT</h3>
@@ -642,7 +642,7 @@
                 </div>
 
                 <div class="skill-card lang glass-panel p-6 rounded-3xl interactive-card">
-                    <div class="w-9 h-9 rounded-2xl bg-slate-800 text-white flex items-center justify-center text-base mb-3">
+                    <div class="w-9 h-9 rounded-xl bg-slate-800 text-white flex items-center justify-center text-base mb-3">
                         <i class="fa-solid fa-earth-americas text-blue-500"></i>
                     </div>
                     <h3 class="font-bold theme-heading text-sm mb-1">Bahasa Indonesia</h3>
@@ -653,7 +653,7 @@
                 </div>
 
                 <div class="skill-card lang glass-panel p-6 rounded-3xl interactive-card">
-                    <div class="w-9 h-9 rounded-2xl bg-slate-800 text-white flex items-center justify-center text-base mb-3">
+                    <div class="w-9 h-9 rounded-xl bg-slate-800 text-white flex items-center justify-center text-base mb-3">
                         <i class="fa-solid fa-language text-indigo-400"></i>
                     </div>
                     <h3 class="font-bold theme-heading text-sm mb-1">Bahasa Inggris (English)</h3>
@@ -681,13 +681,13 @@
                 </p>
 
                 <div class="flex justify-center gap-2 mt-6">
-                    <button onclick="switchLabTab('math')" id="tabBtnMath" class="px-4 py-2 rounded-2xl text-xs font-semibold transition bg-white text-slate-900 shadow-md interactive-card">
+                    <button onclick="switchLabTab('math')" id="tabBtnMath" class="px-4 py-2 rounded-xl text-xs font-semibold transition bg-white text-slate-900 shadow-md interactive-card">
                         Model Math (x + y)
                     </button>
-                    <button onclick="switchLabTab('sensus')" id="tabBtnSensus" class="px-4 py-2 rounded-2xl text-xs font-semibold transition glass-pill text-slate-300 hover:opacity-90 interactive-card">
+                    <button onclick="switchLabTab('sensus')" id="tabBtnSensus" class="px-4 py-2 rounded-xl text-xs font-semibold transition glass-pill text-slate-300 hover:opacity-90 interactive-card">
                         Sensus BPS
                     </button>
-                    <button onclick="switchLabTab('csat')" id="tabBtnCsat" class="px-4 py-2 rounded-2xl text-xs font-semibold transition glass-pill text-slate-300 hover:opacity-90 interactive-card">
+                    <button onclick="switchLabTab('csat')" id="tabBtnCsat" class="px-4 py-2 rounded-xl text-xs font-semibold transition glass-pill text-slate-300 hover:opacity-90 interactive-card">
                         Simulasi CSAT
                     </button>
                 </div>
@@ -700,7 +700,7 @@
                         <h3 class="text-sm font-bold theme-heading flex items-center gap-2">
                             <i class="fa-solid fa-sliders text-brand-500"></i> Variable Controls
                         </h3>
-                        <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-slate-800 text-slate-300">
+                        <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-xl bg-slate-800 text-slate-300">
                             Dynamic Sliders
                         </span>
                     </div>
@@ -721,7 +721,7 @@
                         <input type="range" id="sliderY" min="1" max="100" value="25" oninput="updateMathLab()" class="w-full accent-brand-500 cursor-pointer">
                     </div>
 
-                    <div class="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-2 text-xs">
+                    <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-2 text-xs">
                         <div class="flex justify-between border-b border-slate-800 pb-1.5">
                             <span class="text-slate-400">Penjumlahan Simple (x + y):</span>
                             <span id="resAdd" class="font-bold theme-heading">40</span>
@@ -742,11 +742,11 @@
                         <h3 class="text-sm font-bold theme-heading flex items-center gap-2">
                             <i class="fa-solid fa-headset text-brand-500"></i> CSAT per Minggu (Customer Service)
                         </h3>
-                        <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-slate-800 text-slate-300">Simulasi</span>
+                        <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-xl bg-slate-800 text-slate-300">Simulasi</span>
                     </div>
                     <p class="text-[11px] text-slate-400">Isi jumlah pelanggan Good dan Bad tiap minggu (maksimal 200 masing-masing).</p>
 
-                    <div class="p-3 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-2">
+                    <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 space-y-2">
                         <div class="flex justify-between text-xs font-semibold">
                             <span class="theme-heading">Minggu 1</span>
                             <span id="csatW1Pct" class="font-bold theme-heading">-</span>
@@ -763,7 +763,7 @@
                         </div>
                     </div>
 
-                    <div class="p-3 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-2">
+                    <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 space-y-2">
                         <div class="flex justify-between text-xs font-semibold">
                             <span class="theme-heading">Minggu 2</span>
                             <span id="csatW2Pct" class="font-bold theme-heading">-</span>
@@ -780,7 +780,7 @@
                         </div>
                     </div>
 
-                    <div class="p-3 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-2">
+                    <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 space-y-2">
                         <div class="flex justify-between text-xs font-semibold">
                             <span class="theme-heading">Minggu 3</span>
                             <span id="csatW3Pct" class="font-bold theme-heading">-</span>
@@ -797,7 +797,7 @@
                         </div>
                     </div>
 
-                    <div class="p-3 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-2">
+                    <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 space-y-2">
                         <div class="flex justify-between text-xs font-semibold">
                             <span class="theme-heading">Minggu 4</span>
                             <span id="csatW4Pct" class="font-bold theme-heading">-</span>
@@ -814,7 +814,7 @@
                         </div>
                     </div>
 
-                    <div class="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-2 text-xs">
+                    <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-2 text-xs">
                         <div class="flex justify-between border-b border-slate-800 pb-1.5">
                             <span class="text-slate-400">Total interaksi</span>
                             <span id="csatTotal" class="font-bold theme-heading">-</span>
@@ -854,7 +854,7 @@
                         <canvas id="mathLabChart"></canvas>
                     </div>
 
-                    <div id="labDescText" class="mt-4 p-3 rounded-2xl bg-slate-900/60 text-xs text-slate-400">
+                    <div id="labDescText" class="mt-4 p-3 rounded-xl bg-slate-900/60 text-xs text-slate-400">
                         Geser slider X dan Y pada panel kiri untuk memperbarui grafik garis dan perhitungan matematika secara langsung.
                     </div>
                 </div>
@@ -880,10 +880,10 @@
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
                     <div class="lg:col-span-7 space-y-4">
                         <div class="flex flex-wrap items-center gap-2">
-                            <span class="px-3 py-1 rounded-2xl text-[10px] font-extrabold uppercase tracking-wider bg-brand-500 text-white shadow-sm">
+                            <span class="px-3 py-1 rounded-xl text-[10px] font-extrabold uppercase tracking-wider bg-brand-500 text-white shadow-sm">
                                 Featured Project
                             </span>
-                            <span class="px-2.5 py-0.5 rounded-2xl text-[11px] font-semibold bg-emerald-950/80 text-emerald-300">
+                            <span class="px-2.5 py-0.5 rounded-xl text-[11px] font-semibold bg-emerald-950/80 text-emerald-300">
                                 Active Web App
                             </span>
                         </div>
@@ -898,23 +898,23 @@
 
                         <!-- Technology Pills with Brand Logos -->
                         <div class="flex flex-wrap gap-2 pt-1">
-                            <span class="text-[11px] font-semibold glass-pill px-3 py-1.5 rounded-2xl text-slate-300 interactive-card flex items-center gap-1.5">
+                            <span class="text-[11px] font-semibold glass-pill px-3 py-1.5 rounded-xl text-slate-300 interactive-card flex items-center gap-1.5">
                                 <i class="fa-brands fa-html5 text-[#e34f26]"></i> HTML5
                             </span>
-                            <span class="text-[11px] font-semibold glass-pill px-3 py-1.5 rounded-2xl text-slate-300 interactive-card flex items-center gap-1.5">
+                            <span class="text-[11px] font-semibold glass-pill px-3 py-1.5 rounded-xl text-slate-300 interactive-card flex items-center gap-1.5">
                                 <i class="fa-brands fa-css3-alt text-[#1572b6]"></i> CSS3 & Tailwind
                             </span>
-                            <span class="text-[11px] font-semibold glass-pill px-3 py-1.5 rounded-2xl text-slate-300 interactive-card flex items-center gap-1.5">
+                            <span class="text-[11px] font-semibold glass-pill px-3 py-1.5 rounded-xl text-slate-300 interactive-card flex items-center gap-1.5">
                                 <i class="fa-brands fa-square-js text-[#f7df1e]"></i> JavaScript
                             </span>
                         </div>
 
                         <div class="flex flex-wrap items-center gap-3 pt-3">
-                            <a href="lepii.html" target="_blank" class="px-5 py-2.5 glass-pill text-xs font-bold rounded-2xl shadow-md transition flex items-center gap-2 interactive-card hover:opacity-90">
+                            <a href="lepii.html" target="_blank" class="px-5 py-2.5 glass-pill text-xs font-bold rounded-xl shadow-md transition flex items-center gap-2 interactive-card hover:opacity-90">
                                 <i class="fa-solid fa-arrow-up-right-from-square"></i>
                                 <span>Buka Proyek Lepii</span>
                             </a>
-                            <button onclick="openLepiiModal()" class="px-4 py-2.5 glass-pill text-xs font-semibold rounded-2xl hover:opacity-95 transition flex items-center gap-2 interactive-card">
+                            <button onclick="openLepiiModal()" class="px-4 py-2.5 glass-pill text-xs font-semibold rounded-xl hover:opacity-95 transition flex items-center gap-2 interactive-card">
                                 <i class="fa-solid fa-expand text-brand-500"></i>
                                 <span>Pratinjau Langsung (Modal)</span>
                             </button>
@@ -936,7 +936,7 @@
                                 <div>
                                     <div class="flex items-center justify-between mb-1.5">
                                         <h4 class="text-xl font-black text-white">Project Lepii</h4>
-                                        <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-2xl bg-emerald-500/20 text-emerald-400 text-[10px] font-mono border border-emerald-500/30">
+                                        <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-xl bg-emerald-500/20 text-emerald-400 text-[10px] font-mono border border-emerald-500/30">
                                             <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span> Live
                                         </span>
                                     </div>
@@ -952,11 +952,11 @@
                                     </div>
 
                                     <div class="flex items-center gap-2">
-                                        <button onclick="openLepiiModal()" class="px-2.5 py-1.5 bg-slate-800 hover:bg-slate-700 text-white text-[11px] font-semibold rounded-2xl border border-slate-700 transition flex items-center gap-1.5 interactive-card" title="Pratinjau dalam Modal">
+                                        <button onclick="openLepiiModal()" class="px-2.5 py-1.5 bg-slate-800 hover:bg-slate-700 text-white text-[11px] font-semibold rounded-xl border border-slate-700 transition flex items-center gap-1.5 interactive-card" title="Pratinjau dalam Modal">
                                             <i class="fa-solid fa-eye text-brand-400"></i>
                                             <span>Pratinjau</span>
                                         </button>
-                                        <a href="lepii.html" target="_blank" class="px-3 py-1.5 bg-brand-600 hover:bg-brand-500 text-white text-[11px] font-bold rounded-2xl transition flex items-center gap-1.5 shadow-md interactive-card" title="Buka Proyek di Tab Baru">
+                                        <a href="lepii.html" target="_blank" class="px-3 py-1.5 bg-brand-600 hover:bg-brand-500 text-white text-[11px] font-bold rounded-xl transition flex items-center gap-1.5 shadow-md interactive-card" title="Buka Proyek di Tab Baru">
                                             <span>Lihat Proyek</span>
                                             <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
                                         </a>
@@ -989,7 +989,7 @@
                         </div>
                         <h3 class="text-lg font-bold theme-heading mb-1.5">Sertifikat LIKM II - Aditya Rahman</h3>
                     </div>
-                    <button onclick="openCertModal('LIKMII - ADITYA RAHMAN.jpg', 'Sertifikat LIKM II - Aditya Rahman')" class="mt-4 px-3 py-2 glass-pill text-xs font-semibold rounded-2xl transition flex items-center justify-center gap-1.5 interactive-card hover:opacity-90">
+                    <button onclick="openCertModal('LIKMII - ADITYA RAHMAN.jpg', 'Sertifikat LIKM II - Aditya Rahman')" class="mt-4 px-3 py-2 glass-pill text-xs font-semibold rounded-xl transition flex items-center justify-center gap-1.5 interactive-card hover:opacity-90">
                         <i class="fa-solid fa-expand text-[11px]"></i> Lihat Sertifikat
                     </button>
                 </div>
@@ -1001,7 +1001,7 @@
                         </div>
                         <h3 class="text-lg font-bold theme-heading mb-1.5">Sertifikat SLM - Aditya Rahman</h3>
                     </div>
-                    <button onclick="openCertModal('SLM - ADITYA RAHMAN.jpg', 'Sertifikat SLM - Aditya Rahman')" class="mt-4 px-3 py-2 glass-pill text-xs font-semibold rounded-2xl transition flex items-center justify-center gap-1.5 interactive-card hover:opacity-90">
+                    <button onclick="openCertModal('SLM - ADITYA RAHMAN.jpg', 'Sertifikat SLM - Aditya Rahman')" class="mt-4 px-3 py-2 glass-pill text-xs font-semibold rounded-xl transition flex items-center justify-center gap-1.5 interactive-card hover:opacity-90">
                         <i class="fa-solid fa-expand text-[11px]"></i> Lihat Sertifikat
                     </button>
                 </div>
@@ -1020,7 +1020,7 @@
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto mb-6">
                 <a href="mailto:aditrahman471@gmail.com" class="glass-panel p-6 rounded-3xl flex flex-col items-center justify-center hover:border-brand-500 transition group interactive-card">
-                    <div class="w-12 h-12 rounded-2xl bg-slate-800 text-white flex items-center justify-center text-xl mb-3 group-hover:scale-110 transition-transform">
+                    <div class="w-12 h-12 rounded-xl bg-slate-800 text-white flex items-center justify-center text-xl mb-3 group-hover:scale-110 transition-transform">
                         <i class="fa-regular fa-envelope text-brand-500"></i>
                     </div>
                     <div class="text-xs font-bold theme-heading">Email Utama</div>
@@ -1031,7 +1031,7 @@
                 </a>
 
                 <a href="https://wa.me/6288225002019" target="_blank" class="glass-panel p-6 rounded-3xl flex flex-col items-center justify-center hover:border-emerald-500 transition group interactive-card">
-                    <div class="w-12 h-12 rounded-2xl bg-emerald-950/80 text-[#25d366] flex items-center justify-center text-xl mb-3 group-hover:scale-110 transition-transform">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-950/80 text-[#25d366] flex items-center justify-center text-xl mb-3 group-hover:scale-110 transition-transform">
                         <i class="fa-brands fa-whatsapp"></i>
                     </div>
                     <div class="text-xs font-bold theme-heading">Telepon / WhatsApp</div>
@@ -1046,13 +1046,13 @@
                 <a href="https://www.linkedin.com/in/aditya-rahman-23892b2a2?utm_source=share_via&utm_content=profile&utm_medium=member_android" 
                    target="_blank" 
                    rel="noopener noreferrer" 
-                   class="w-full px-4 py-3 glass-pill font-semibold rounded-2xl text-xs transition flex items-center justify-center gap-2 shadow-md interactive-card hover:opacity-90">
+                   class="w-full px-4 py-3 glass-pill font-semibold rounded-xl text-xs transition flex items-center justify-center gap-2 shadow-md interactive-card hover:opacity-90">
                     <i class="fa-brands fa-linkedin text-sm text-[#0a66c2]"></i> LinkedIn
                 </a>
                 <a href="https://www.instagram.com/_aditrahman_?stkn=YnI1dGI4OHJiZWI3" 
                    target="_blank" 
                    rel="noopener noreferrer" 
-                   class="w-full px-4 py-3 glass-pill font-semibold rounded-2xl text-xs transition flex items-center justify-center gap-2 hover:opacity-90 interactive-card">
+                   class="w-full px-4 py-3 glass-pill font-semibold rounded-xl text-xs transition flex items-center justify-center gap-2 hover:opacity-90 interactive-card">
                     <i class="fa-brands fa-instagram text-sm text-[#e1306c]"></i> Instagram
                 </a>
             </div>
@@ -1071,7 +1071,7 @@
         <div class="glass-panel w-full max-w-5xl h-[88vh] rounded-3xl shadow-2xl border border-slate-800 flex flex-col overflow-hidden">
             <div class="p-4 bg-slate-900 flex justify-between items-center border-b border-slate-800">
                 <h3 class="font-bold theme-heading text-xs sm:text-sm">Pratinjau Hasil Karya: Lepii</h3>
-                <button onclick="closeLepiiModal()" class="p-1.5 text-slate-400 hover:text-white text-base rounded-2xl">
+                <button onclick="closeLepiiModal()" class="p-1.5 text-slate-400 hover:text-white text-base rounded-xl">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
@@ -1085,7 +1085,7 @@
         <div class="glass-panel w-full max-w-4xl rounded-3xl shadow-2xl border border-slate-800 flex flex-col overflow-hidden max-h-[90vh]">
             <div class="p-4 bg-slate-900 flex justify-between items-center border-b border-slate-800">
                 <h3 id="certModalTitle" class="font-bold theme-heading text-xs sm:text-sm">Pratinjau Sertifikat</h3>
-                <button onclick="closeCertModal()" class="p-1.5 text-slate-400 hover:text-white text-base rounded-2xl">
+                <button onclick="closeCertModal()" class="p-1.5 text-slate-400 hover:text-white text-base rounded-xl">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
@@ -1099,7 +1099,7 @@
         <div class="glass-panel w-full max-w-4xl rounded-3xl shadow-2xl border border-slate-800 my-auto overflow-hidden">
             <div class="p-4 sm:p-5 bg-slate-900 flex justify-between items-center border-b border-slate-800">
                 <h3 class="font-bold theme-heading text-xs sm:text-sm">Curriculum Vitae - Aditya Rahman</h3>
-                <button onclick="closeCvModal()" class="p-1.5 text-slate-400 hover:text-white text-base rounded-2xl">
+                <button onclick="closeCvModal()" class="p-1.5 text-slate-400 hover:text-white text-base rounded-xl">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
@@ -1193,11 +1193,11 @@
             const btns = document.querySelectorAll('.skill-btn');
 
             btns.forEach(btn => {
-                btn.className = "skill-btn px-4 py-2 rounded-2xl text-xs font-semibold transition glass-pill text-slate-300 hover:opacity-90 interactive-card";
+                btn.className = "skill-btn px-4 py-2 rounded-xl text-xs font-semibold transition glass-pill text-slate-300 hover:opacity-90 interactive-card";
             });
 
             if (btnEl) {
-                btnEl.className = "skill-btn active px-4 py-2 rounded-2xl text-xs font-semibold transition bg-white text-slate-900 shadow-md interactive-card";
+                btnEl.className = "skill-btn active px-4 py-2 rounded-xl text-xs font-semibold transition bg-white text-slate-900 shadow-md interactive-card";
             }
 
             cards.forEach(card => {
@@ -1262,8 +1262,8 @@
             const controlsPanel = document.getElementById('mathControlsPanel');
             const chartContainer = document.getElementById('chartContainer');
 
-            const inactiveClass = "px-4 py-2 rounded-2xl text-xs font-semibold transition glass-pill text-slate-300 hover:opacity-90 interactive-card";
-            const activeClass = "px-4 py-2 rounded-2xl text-xs font-semibold transition bg-white text-slate-900 shadow-md interactive-card";
+            const inactiveClass = "px-4 py-2 rounded-xl text-xs font-semibold transition glass-pill text-slate-300 hover:opacity-90 interactive-card";
+            const activeClass = "px-4 py-2 rounded-xl text-xs font-semibold transition bg-white text-slate-900 shadow-md interactive-card";
 
             btnMath.className = inactiveClass;
             btnSensus.className = inactiveClass;
@@ -1594,7 +1594,7 @@
 
                 const distance = Math.sqrt(dragX * dragX + dragY * dragY);
                 // Mirrored direction: dragging right moves lanyard right
-                const angleRad = Math.atan2(-dragX, Math.max(0.001, dragY));
+                const angleRad = Math.atan2(dragX, Math.max(0.001, dragY));
                 const angleDeg = angleRad * (180 / Math.PI);
 
                 const strapBaseH = (lanyardStrap && lanyardStrap.offsetHeight > 0) ? lanyardStrap.offsetHeight : 192;
@@ -1604,7 +1604,7 @@
                 if (lanyardAssembly) {
                     lanyardAssembly.style.transform = `
                         rotateZ(${angleDeg.toFixed(2)}deg)
-                        rotateY(${(angleDeg * 0.35).toFixed(2)}deg)
+                        rotateY(${(-angleDeg * 0.35).toFixed(2)}deg)
                     `;
                 }
 
@@ -1634,9 +1634,9 @@
         }
 
         function resetLanyard() {
-            targetDragX = -90;
+            targetDragX = 90;
             targetDragY = 240;
-            velX = -15;
+            velX = 15;
             velY = 10;
         }
 
